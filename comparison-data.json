@@ -429,58 +429,103 @@
       "summary": "The same body and headshot damage, with a narrower trace and no shot momentum.",
       "rows": [
         {
+          "label": "Normal fire model",
+          "stock": "Instant hitscan",
+          "utplus": "Instant hitscan",
+          "ncp": "Instant hitscan",
+          "b19": "Instant hitscan",
+          "elite": "Instant hitscan",
+          "note": "A zero-width line still hits the player capsule; zero added trace thickness does not mean a zero-size player hitbox."
+        },
+        {
           "label": "Body damage",
           "b19": "70",
           "elite": "70",
-          "note": ""
+          "note": "",
+          "stock": "65",
+          "utplus": "70",
+          "ncp": "70"
         },
         {
           "label": "Headshot damage",
           "b19": "140",
           "elite": "140",
-          "note": ""
+          "note": "",
+          "stock": "125",
+          "utplus": "125",
+          "ncp": "125"
         },
         {
           "label": "Firing interval",
           "b19": "1.36 s",
           "elite": "1.36 s",
-          "note": ""
+          "note": "",
+          "stock": "1.30 s",
+          "utplus": "1.30 s",
+          "ncp": "1.30 s"
         },
         {
           "label": "Trace half-size",
           "b19": "15 UU",
           "elite": "10 UU · 66.7% of B19 Sniper",
-          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower)."
+          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
+          "stock": "0 UU · line trace",
+          "utplus": "0 UU · line trace",
+          "ncp": "0 UU · line trace"
         },
         {
           "label": "Full normal-shot thickness",
           "b19": "30 UU",
           "elite": "20 UU · 66.7% of B19 Sniper",
-          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness."
+          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness.",
+          "stock": "0 UU added · line trace",
+          "utplus": "0 UU added · line trace",
+          "ncp": "0 UU added · line trace"
         },
         {
           "label": "Effective body-hit width · 80-UU target example",
-          "b19": "110 UU",
-          "elite": "100 UU · 90.9% of B19 Sniper",
-          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width."
+          "b19": "110 UU · 137.5% of Stock",
+          "elite": "100 UU · 125% of line-trace example; 90.9% of B19 Sniper",
+          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width.",
+          "stock": "80 UU · 100% of Stock",
+          "utplus": "80 UU · 100% of Stock",
+          "ncp": "80 UU · 100% of Stock"
         },
         {
           "label": "Shot momentum",
           "b19": "20,000",
           "elite": "0",
-          "note": ""
+          "note": "",
+          "stock": "20,000",
+          "utplus": "0",
+          "ncp": "0"
         },
         {
           "label": "Trace range",
           "b19": "≈143.6 dodge lengths (100,000 UU)",
           "elite": "≈143.6 dodge lengths (100,000 UU)",
-          "note": ""
+          "note": "",
+          "stock": "100,000 UU",
+          "utplus": "100,000 UU",
+          "ncp": "100,000 UU"
         },
         {
           "label": "Weapon raise / lower time",
           "b19": "0.41 / 0.08 s",
           "elite": "0.41 / 0.08 s",
-          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch.",
+          "stock": "0.45 / 0.40 s",
+          "utplus": "0.30 / 0.30 s",
+          "ncp": "0.30 / 0.30 s"
+        },
+        {
+          "label": "Headshot size multiplier · stopped/slow vs moving",
+          "stock": "1.40 / 1.00",
+          "utplus": "1.10 / 1.10",
+          "ncp": "0.95 / 0.95",
+          "b19": "1.65 / 1.15",
+          "elite": "1.65 / 1.15",
+          "note": "Separate head-sphere test. These multipliers do not change the body capsule shown below. Movement categories follow the weapon’s headshot-scale logic."
         }
       ],
       "notes": [
@@ -489,7 +534,30 @@
         "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
         "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result."
       ],
-      "lab": "sniper"
+      "lab": "sniper",
+      "comparisonColumns": [
+        {
+          "key": "stock",
+          "label": "Stock UT"
+        },
+        {
+          "key": "utplus",
+          "label": "UT+"
+        },
+        {
+          "key": "ncp",
+          "label": "NCP"
+        },
+        {
+          "key": "b19",
+          "label": "Original B19"
+        },
+        {
+          "key": "elite",
+          "label": "Elite10K v1.78"
+        }
+      ],
+      "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
     },
     {
       "id": "lightning",
@@ -501,61 +569,100 @@
           "label": "Map weapon replacement",
           "b19": "Stock map weapon",
           "elite": "Elite10K Lightning Rifle",
-          "note": ""
+          "note": "",
+          "stock": "Stock Lightning Rifle",
+          "utplus": "UT+ Lightning Gun",
+          "ncp": "NCP Lightning Gun"
         },
         {
           "label": "Normal fire model",
           "b19": "Stock projectile primary",
           "elite": "Instant hitscan",
-          "note": ""
+          "note": "",
+          "stock": "Projectile",
+          "utplus": "Instant hitscan",
+          "ncp": "Instant hitscan"
         },
         {
           "label": "Normal damage",
           "b19": "Stock projectile rules",
           "elite": "70",
-          "note": ""
+          "note": "",
+          "stock": "Projectile damage rules",
+          "utplus": "70",
+          "ncp": "70"
         },
         {
           "label": "Normal firing interval",
           "b19": "0.90 s in stock parent",
           "elite": "1.36 s",
-          "note": ""
+          "note": "",
+          "stock": "0.90 s",
+          "utplus": "1.30 s",
+          "ncp": "1.30 s"
         },
         {
           "label": "Normal shot trace half-size",
           "b19": "Projectile primary",
           "elite": "10 UU · 66.7% of B19 Sniper",
-          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower). B19 Lightning uses a projectile primary, so this percentage compares with B19 Sniper, not B19 Lightning."
+          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower). B19 Lightning uses a projectile primary, so this percentage compares with B19 Sniper, not B19 Lightning.",
+          "stock": "Projectile; not a hitscan trace",
+          "utplus": "0 UU · line trace",
+          "ncp": "0 UU · line trace"
         },
         {
           "label": "Full normal-shot thickness",
           "b19": "Projectile primary; no hitscan width",
           "elite": "20 UU · 66.7% of B19 Sniper",
-          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness."
+          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness.",
+          "stock": "Projectile; separate collision rules",
+          "utplus": "0 UU added · line trace",
+          "ncp": "0 UU added · line trace"
         },
         {
           "label": "Effective body-hit width · 80-UU target example",
-          "b19": "Projectile primary; separate collision rules",
-          "elite": "100 UU · 90.9% of B19 Sniper",
-          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width."
+          "b19": "Projectile; separate collision rules",
+          "elite": "100 UU · 125% of line-trace example; 90.9% of B19 Sniper",
+          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width.",
+          "stock": "Projectile; separate collision rules",
+          "utplus": "80 UU · 100% of line-trace example",
+          "ncp": "80 UU · 100% of line-trace example"
         },
         {
           "label": "Charged body / headshot",
           "b19": "Stock charged behavior",
           "elite": "85 / 140",
-          "note": ""
+          "note": "",
+          "stock": "85 / 125",
+          "utplus": "No charged shot; zoom only",
+          "ncp": "No charged shot; zoom only"
         },
         {
           "label": "Charged refire interval",
           "b19": "Stock charged behavior",
           "elite": "1.66 s",
-          "note": ""
+          "note": "",
+          "stock": "Charge-dependent; 0.90 s base interval",
+          "utplus": "Not applicable; zoom only",
+          "ncp": "Not applicable; zoom only"
         },
         {
           "label": "Weapon raise / lower time",
           "b19": "Stock map weapon",
           "elite": "0.41 / 0.08 s",
-          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch.",
+          "stock": "0.50 / 0.40 s",
+          "utplus": "0.30 / 0.30 s",
+          "ncp": "0.30 / 0.30 s"
+        },
+        {
+          "label": "Charged beam trace half-size / full thickness",
+          "stock": "5 / 10 UU",
+          "utplus": "No charged beam",
+          "ncp": "No charged beam",
+          "b19": "5 / 10 UU",
+          "elite": "10 / 20 UU",
+          "note": "Stock/B19 primary is a projectile, but its charged shot is hitscan. The 10K charged trace is 200% of Stock’s thickness; for an 80-UU target, effective widths are 100 versus 90 UU (111.1%)."
         }
       ],
       "notes": [
@@ -563,9 +670,33 @@
         "The charged shot retains 85 body/140 headshot damage, chaining behavior and a 1.66-second refire interval. The B19 column describes the stock map weapon for this slot.",
         "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
         "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result.",
-        "These trace dimensions describe normal fire only. B19 Lightning’s projectile and the charged shot are separate hit-detection cases; the Sniper percentages do not imply an equivalent B19 Lightning projectile size."
+        "These trace dimensions describe normal fire only. B19 Lightning’s projectile and the charged shot are separate hit-detection cases; the Sniper percentages do not imply an equivalent B19 Lightning projectile size.",
+        "UT+ and NCP Lightning use a 70-damage hitscan normal shot with zero added trace thickness and a 1.30-second interval. Their alternate fire zooms; it does not provide Stock/Elite10K’s charged and chaining shot. Their normal headshot damage is 125, with a 1.10 UT+ or 0.95 NCP head-sphere multiplier."
       ],
-      "lab": null
+      "lab": null,
+      "comparisonColumns": [
+        {
+          "key": "stock",
+          "label": "Stock UT"
+        },
+        {
+          "key": "utplus",
+          "label": "UT+"
+        },
+        {
+          "key": "ncp",
+          "label": "NCP"
+        },
+        {
+          "key": "b19",
+          "label": "Original B19"
+        },
+        {
+          "key": "elite",
+          "label": "Elite10K v1.78"
+        }
+      ],
+      "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
     },
     {
       "id": "hammer",
