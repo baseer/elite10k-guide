@@ -1,5 +1,5 @@
 {
-  "version": "1.72",
+  "version": "1.78",
   "weapons": [
     {
       "id": "shock",
@@ -8,52 +8,10 @@
       "summary": "More reward for impressive combos that catch targets near the blast edge.",
       "rows": [
         {
-          "label": "Beam damage",
-          "b19": "45",
-          "elite": "45",
-          "note": ""
-        },
-        {
-          "label": "Beam firing interval",
-          "b19": "0.71 s",
-          "elite": "0.71 s",
-          "note": ""
-        },
-        {
-          "label": "Core firing interval",
-          "b19": "0.45 s",
-          "elite": "0.474 s",
-          "note": ""
-        },
-        {
-          "label": "Core speed",
-          "b19": "≈4.02 dodge lengths/s (2,800 UU/s)",
-          "elite": "2,548 UU/s (91% of B19)",
-          "note": "9% slower than authoritative B19’s 2,800 UU/s core."
-        },
-        {
           "label": "Weapon raise time",
           "b19": "0.30 s",
           "elite": "0.41 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
-        },
-        {
-          "label": "Combo radius",
-          "b19": "≈0.56 dodge lengths (390 UU)",
-          "elite": "390 UU outer / 77 UU inner",
-          "note": "Both versions stop beyond 390 UU."
-        },
-        {
-          "label": "Unboosted combo damage",
-          "b19": "40–210",
-          "elite": "50–210",
-          "note": "Falloff exponent 1.5 in both versions. Elite10K uses a 50-damage floor; B19 uses 40."
-        },
-        {
-          "label": "Base combo bonus",
-          "b19": "None",
-          "elite": "None",
-          "note": "Damage comes directly from the 50–210 radial curve, without a separate base boost."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         },
         {
           "label": "Movement damage bonuses",
@@ -62,42 +20,21 @@
           "note": "Constant eligible own-core additions to raw damage, capped at 210."
         },
         {
-          "label": "Final combo cap",
-          "b19": "210 base maximum",
-          "elite": "210 after movement bonus",
-          "note": ""
-        },
-        {
-          "label": "Damage at outer edge",
-          "b19": "40 raw at 390 UU",
-          "elite": "50 at 390 UU",
-          "note": "Before movement bonuses and armor."
-        },
-        {
-          "label": "Combo falloff exponent",
-          "b19": "1.5",
-          "elite": "1.5",
-          "note": "Curved falloff between 77 and 390 UU."
-        },
-        {
           "label": "Foreign-core feedback",
-          "b19": "No 10K Denial feedback",
+          "b19": "No Anticombo notice",
           "elite": "Anticombo!",
-          "note": "No movement bonus for a foreign core."
+          "note": "A foreign core is another player’s shock ball. Detonating one gives no movement damage bonus."
         }
       ],
       "notes": [
-        "Nice starts at movement score 8; Amazing at 20; Spectacular at 32. The angle/perpendicular-speed score uses the existing distance multiplier, clamped from 1× to 2×.",
-        "Raw combo damage: D = 50 + 160 × (1 − clamp((r − 77) / 313, 0, 1))^1.5 within 390 UU. Inside 77 UU it is 210; beyond 390 UU it is zero. r is engine radial-hit distance, which can differ from player-center distance.",
-        "No separate base damage boost. B19 uses 40–210 damage with the same 77/390 UU radii and falloff 1.5. Raising the floor to 50 is mathematically equivalent to the former tapered +10 base boost before rounding.",
-        "Eligible own-core bonuses: Nice +10, Amazing +15, Spectacular +20. Final damage = min(210, trunc(D + bonus + 0.0001)).",
-        "Actual-hit notices and kill-feed entries show actual whole-number movement bonus damage, with a single DMG suffix for an ordered multi-target list, e.g. Spectacular Combo! (+20, +8, +0 DMG). Bonus labels show movement damage only.",
-        "No-kill notices use the existing shared yellow message class, steady 1× size and no announcer. Kill notices use their existing tier color and 3×→1× scale-in; qualifying voiced tiers use the usual announcer. Warmup own-core misses retain the blue bonus preview; live misses do not gain an own-core hit award.",
-        "A foreign-core detonation displays Anticombo!, with no +DMG suffix or movement bonus. Without a kill it is yellow, steady 1× and silent. With a credited kill it is red, 3×→1× and uses the Denied voice cue and a dedicated Anticombo kill-feed label. Kill detection counts credited kills for that explosion, including warmup kills.",
-        "One beam can pass through multiple cores. Its center-message priority is Spectacular > Amazing > Nice > Denial, independent of hit order. A qualifying own-core tier takes precedence over Denial.",
-        "A positive enemy hit is recognized even when native radial-hit credit arrives late; self hits and zero damage do not count as that evidence. Native foreign-core tier announcements are suppressed independently of the center text.",
-        "Diagnostic enlarged hitboxes/blasts and the 10% damage multiplier have been removed. Current release uses normal core collision, 390-UU outer radius and full damage.",
-        "The refire put-down multiplier is 0.15 for both normal beams and combos. There is no separate combo-specific weapon-switch path."
+        "If you know B19, beam damage and beam firing interval are familiar: 45 damage and 0.71 seconds. Shock balls travel 9% slower and fire at 91% of B19’s rate, so allow a little more time for them to reach your target.",
+        "Both combo blasts reach 390 UU and deal 210 damage near the center. At the outer edge, B19 falls to 40 damage and Elite10K falls to 50. The extra edge damage does not extend the blast radius.",
+        "Detonate your own core while moving across its path to earn a movement bonus:Nice +10, Amazing +15 or Spectacular +20. Damage is capped at 210, so a close-center hit may show a smaller bonus or +0.",
+        "Movement score 8 earns Nice, 20 earns Amazing and 32 earns Spectacular. The score uses your angle to the core’s flight path, your sideways speed and your distance from the core; being airborne alone adds no extra multiplier.",
+        "Yellow combo text means confirmed enemy health or armor damage without a kill. Red means a credited kill. In warmup, a qualifying combo that misses can show a blue practice preview; during a match, a miss shows no notice. Self/team-only damage does not qualify.",
+        "Detonating another player’s core is an Anticombo. It gets no movement damage bonus. The notice is yellow and silent without a kill; a credited kill uses red text, the Denied voice and an Anticombo kill-feed label.",
+        "The+DMG label shows the extra movement damage actually applied, rather than the total blast damage. Multiple targets can produce a list such as +20,+8,+0 DMG.",
+        "When one beam detonates several cores, the main notice favors Spectacular, then Amazing, then Nice, then Anticombo. Use the calculator for the detailed damage curve."
       ],
       "lab": "shock"
     },
@@ -105,19 +42,19 @@
       "id": "flak",
       "name": "Flak Cannon",
       "tag": "Distance tiers",
-      "summary": "A slower primary cadence, clear shard damage bands, and a smaller flak ball.",
+      "summary": "Familiar firing speed, fixed shard damage bands and a smaller secondary blast with a stronger edge.",
       "rows": [
         {
           "label": "Primary firing interval",
           "b19": "0.80 s",
-          "elite": "0.90 s",
-          "note": ""
+          "elite": "0.80 s",
+          "note": "Matches the authoritative B19 primary interval."
         },
         {
           "label": "Primary shard speed",
           "b19": "≈18.67 dodge lengths/s (13,000 UU/s)",
           "elite": "≈18.67 dodge lengths/s (13,000 UU/s)",
-          "note": "Restored to 100% of B19 in v1.3."
+          "note": "Same projectile speed as B19."
         },
         {
           "label": "Primary projectile count",
@@ -127,9 +64,9 @@
         },
         {
           "label": "Primary damage model",
-          "b19": "Native time attenuation / center bonus",
+          "b19": "Damage decreases with flight time; central-hit bonus",
           "elite": "Travel-distance tiers",
-          "note": "See the shard explorer below."
+          "note": "B19 also reduces shard damage after a bounce. Elite10K uses the fixed travel-distance bands below."
         },
         {
           "label": "Bounce damage multiplier",
@@ -171,7 +108,7 @@
           "label": "Weapon raise time",
           "b19": "0.29 s",
           "elite": "0.41 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         },
         {
           "label": "Ball base splash damage",
@@ -180,18 +117,19 @@
           "note": ""
         },
         {
-          "label": "Low splash cutoff",
-          "b19": "No custom 40 filter",
-          "elite": "Below 40 rejected",
-          "note": ""
+          "label": "Ball splash damage / blast radii",
+          "b19": "95 max / 20 min · 0–300 UU",
+          "elite": "95 max / 35 min · 0–240 UU",
+          "note": "The center damage is unchanged. Elite10K has a smaller blast with a higher minimum damage at its edge. These values describe the explosion; ball-spawned shards are separate."
         }
       ],
       "notes": [
-        "Ordinary / central shards deal 10 / 20 below about 1½ dodge lengths travelled (1,050 UU), 7 / 14 from about 1½ to below 2¼ dodge lengths (1,575 UU), and 4 / 8 beyond that. Dodge equivalents are approximate; the exact thresholds remain 1,050 and 1,575 UU.",
-        "The primary still has nine physical shards. The central shard counts as double damage; it is not a tenth projectile.",
-        "Ball-spawned shards retain their separate 5-damage base. The primary distance-tier table does not apply to those shards.",
-        "The ball has an orange visibility rim. Native attenuation and the temporary centered-hit bonus are disabled for primary tiered shards.",
-        "The yellow projectile layers remain. The visible rocket-trail smoke layer uses opacity 0.2, half its previous 0.4 value; emitters are retained."
+        "Primary fires at the same 0.80-second interval and shard speed as B19. Each shot has eight ordinary shards and one central shard; the central shard deals double an ordinary shard’s damage.",
+        "Elite10K shard damage depends on total travel distance: 10 ordinary/20 central below 1, 050 UU, 7/14 from 1, 050 to below 1, 575 UU, and 4/8 farther away. That is roughly 1½ and 2¼ dodge lengths. Bounces count toward distance but do not apply B19’s separate 0.65× damage multiplier.",
+        "B19’s shards lose damage with flight time and can receive a central-hit bonus. The explorer shows their starting damage potential; it does not model all of B19’s flight-time and hit-position effects.",
+        "The secondary ball has a smaller collision radius: 13 UU versus 30 in B19. Its initial and maximum speeds are 92.5% of B19’s, so it travels slightly slower.",
+        "Ball splash still peaks at 95 damage. B19 fades to 20 at 300 UU; Elite10K fades to 35 at 240 UU. Elite10K reaches less far, with a stronger edge hit. The ball also releases separate 5-damage shards.",
+        "An orange rim helps the ball stand out in flight. Its yellow trail remains visible, with lighter smoke."
       ],
       "lab": "flak"
     },
@@ -199,7 +137,7 @@
       "id": "rocket",
       "name": "Rocket Launcher",
       "tag": "Volley pacing",
-      "summary": "Extra recovery for larger volleys, clearer projectile warnings, and a load-status HUD.",
+      "summary": "Slower loaded-volley recovery than B19, smaller splash radius and a stronger minimum edge hit.",
       "rows": [
         {
           "label": "Primary interval",
@@ -228,18 +166,18 @@
         {
           "label": "Delay between rockets in a volley",
           "b19": "0.015 s",
-          "elite": "No added custom gap (0 s)",
-          "note": "The custom VolleyGap term is zero; native scheduling still applies."
+          "elite": "0 s added delay",
+          "note": "Rockets in a loaded volley have no intentional extra gap in Elite10K; frame timing can still separate their launches."
         },
         {
           "label": "Normal rocket speed",
-          "b19": "Stock projectile setting",
+          "b19": "Stock UT rocket speed",
           "elite": "≈3.55 dodge lengths/s (2,475 UU/s)",
-          "note": "The active normal rocket is a replacement projectile."
+          "note": "B19 fires the stock UT rocket. Elite10K uses its own rocket projectile."
         },
         {
           "label": "Seeking initial / maximum speed",
-          "b19": "Stock seeking setting",
+          "b19": "Stock UT seeking-rocket speeds",
           "elite": "≈2.58 / 3.1 dodge lengths/s (1,800 / 2,160 UU/s)",
           "note": ""
         },
@@ -253,29 +191,28 @@
           "label": "Weapon raise / lower time",
           "b19": "0.47 / 0.08 s",
           "elite": "0.41 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch. Loaded rocket/grenade volleys finish firing before a queued switch; switching back does not skip the remaining cooldown."
         },
         {
-          "label": "Low splash cutoff",
-          "b19": "No custom 40 filter",
-          "elite": "Below 40 rejected",
-          "note": ""
+          "label": "Splash damage / blast radii",
+          "b19": "100 max / 20 min · 15–360 UU",
+          "elite": "100 max / 35 min · 15–296.667 UU",
+          "note": "Full damage inside the inner radius, then a straight-line decrease to the minimum at the outer edge. Zero beyond the outer radius. Applies to normal, seeking and loaded rockets, plus Rocket Launcher grenades."
         },
         {
           "label": "Cooldown bar",
-          "b19": "Original presentation",
-          "elite": "Removed",
-          "note": "Loading rings and native crosshair remain."
+          "b19": "B19 weapon HUD",
+          "elite": "Loading rings; no cooldown bar",
+          "note": "The crosshair and loaded-rocket indicators remain visible."
         }
       ],
       "notes": [
-        "Single-, double- and triple-rocket loaded volleys all use the 1.05-second base refire interval at the default fire-rate multiplier. The removed saved VolleyGap setting no longer adds delay; the normal EarliestFireTime guard still applies.",
-        "The prominent front collar and short red sleeve improve rocket visibility. Opponents can see muzzle/load warning rings.",
-        "The HUD shows loaded centers, charge progress, and release/grace feedback. A steady filled circle has a solid bright red inner disk at 50% of the dark red outer disk’s radius. The inner disk uses the ring red, without a gradient; opacity is unchanged. Newly loaded circles retain the 0.15-second completion pulse.",
-        "The older Elite projectile with 3,200 initial speed is still packaged but is not the active normal rocket. Its values are not used as the comparison baseline here.",
-        "The rocket cooldown bar is removed. The native crosshair, loaded-center circles, progress rings and separate loading/completion effects remain.",
-        "The v1.72 projectile has a raised gunmetal shell over recessed translucent red panels. The shell blends into the original rear metal; the nose uses a uniform 0.45-unit surface offset, with a short transition at the triangle ring.",
-        "The ring has centered, recessed red triangles with beveled metal edges. Red coating ends at the native rear shoulder. The red nose panels ease into a subtle orange tint at the front; rear red and underlying metal remain visible through the coating."
+        "Primary rockets keep the 1.05-second firing interval. Loaded secondary volleys use 1.05 seconds after the last rocket, compared with B19’s 0.74 seconds; one-, two- and three-rocket volleys use the same interval. Time spent loading is separate.",
+        "Rocket splash peaks at 100 damage in both versions. B19 falls to 20 at 360 UU; Elite10K falls to 35 at about 296.667 UU. The full-damage core is 15 UU in both. Elite10K’s blast is smaller, but its edge hits harder.",
+        "Splash damage decreases in a straight line between the inner and outer radii. Beyond the outer radius it is zero. Armor, damage amplification, collision and line of sight can change the health actually lost.",
+        "You can queue a weapon switch while firing loaded rockets or grenades. It takes effect once the loaded volley has emptied. Switching away and back keeps the remaining shot cooldown.",
+        "If a fire-rate modifier slows you during that cooldown, switching back can keep you locked out for the slower interval. Switching does not give an early next shot.",
+        "Loading rings show progress and how many rockets are ready. A bright red center marks a loaded rocket; a brief pulse marks completion. The rocket’s red panels and metal collar help it stand out to other players."
       ],
       "lab": "rocket"
     },
@@ -283,11 +220,11 @@
       "id": "stinger",
       "name": "Stinger",
       "tag": "Burst reserve",
-      "summary": "A nine-projectile accelerating opening with persistent recovery debt.",
+      "summary": "Ten opening secondary shots instead of twelve, with recovery that carries across weapon switches.",
       "rows": [
         {
           "label": "Primary damage",
-          "b19": "12, inherited stock",
+          "b19": "12",
           "elite": "11",
           "note": ""
         },
@@ -306,20 +243,20 @@
         {
           "label": "Opening sequence length",
           "b19": "12 projectiles",
-          "elite": "9 projectiles",
+          "elite": "10 projectiles",
           "note": ""
         },
         {
           "label": "Opening potential / all hits",
           "b19": "120 damage",
-          "elite": "90 damage",
+          "elite": "100 damage",
           "note": "Before armor and other modifiers."
         },
         {
           "label": "Opening first-to-last shot span",
           "b19": "≈0.379 s",
-          "elite": "≈0.378 s",
-          "note": "Modelled native scheduling; not a network timing guarantee."
+          "elite": "≈0.379 s",
+          "note": "Time from first to last opening shot: 12 shots in B19 and 10 in Elite10K. Frame timing may shift actual shot times."
         },
         {
           "label": "Sustained secondary interval",
@@ -334,24 +271,24 @@
           "note": ""
         },
         {
-          "label": "Full custom burst recovery",
-          "b19": "No custom reserve system",
-          "elite": "0.5 s debt",
-          "note": "Restored v1.59 recharge setting, including partial-burst recovery budgets."
+          "label": "Recovery after a full opening burst",
+          "b19": "B19 firing cycle; no separate reserve cooldown",
+          "elite": "0.5 s recovery",
+          "note": "Shorter bursts need less recovery. Switching does not clear the cooldown."
         },
         {
           "label": "Weapon raise / lower time",
           "b19": "0.48 / 0.08 s",
           "elite": "0.22 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         }
       ],
       "notes": [
-        "The opening is an acceleration sequence, not a claim that holding fire always stops after nine projectiles. The sustained interval remains separate.",
-        "Actual modelled opening gaps are 200, 70, 50, 30, 14, 8, 4, and 2 ms. The 70 ms gap between bullets 2 and 3 and the 30 ms gap between bullets 4 and 5 match B19. The opening sequence contains nine shots.",
-        "Releasing early does not erase recovery debt. Switching weapons does not reset it, and primary firing pauses reserve recovery.",
-        "Stinger visuals are blue. Living-player momentum from secondary hits is removed, and projectile/trace responses were adjusted to avoid interference with shock cores.",
-        "A full nine-shot burst needs 0.5 game seconds of recovery; partial bursts retain their corresponding recovery debt."
+        "Primary damage is 11 instead of B19’s 12, at the same firing interval. Secondary projectiles still deal 10 each.",
+        "The accelerating secondary opening contains ten shots instead of B19’s twelve: 100 potential damage instead of 120 if every shot hits. Both configured openings span about 0.379 seconds from first to last shot.",
+        "Keep holding secondary to continue at the sustained 0.148-second interval. Ten is the opening reserve, rather than an automatic stopping point.",
+        "A full opening burst takes 0.5 game seconds to recover. Releasing early needs less recovery; switching weapons does not erase it, and primary fire pauses recovery. This limits repeated rapid openings.",
+        "Blue effects make the Stinger easier to recognize. Secondary hits do not push living players."
       ],
       "lab": "stinger"
     },
@@ -371,7 +308,7 @@
           "label": "Rapid mini-goo damage",
           "b19": "20",
           "elite": "13",
-          "note": "Base damage 26 × GlobStrength 0.5 in v1.72."
+          "note": "Each small glob deals 13 damage before armor or amplification."
         },
         {
           "label": "Normal fire interval",
@@ -407,12 +344,12 @@
           "label": "Weapon raise / lower time",
           "b19": "0.48 / 0.08 s",
           "elite": "0.41 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         }
       ],
       "notes": [
-        "Mini-goo damage is derived from its base damage and 0.5 glob strength. Older notes that say 12 damage describe an earlier build.",
-        "Collision responses reduce projectile interactions. The large/charged mode was not given the same direct damage reduction as normal and mini goo."
+        "Normal goo deals 35 instead of 40; rapid mini goo deals 13 instead of 20. Firing intervals match B19.",
+        "The large charged glob keeps its damage settings and travels at 95% of B19’s speed. Its actual damage also depends on glob strength and charged-goo rules."
       ],
       "lab": "bio"
     },
@@ -424,7 +361,7 @@
       "rows": [
         {
           "label": "Primary projectile damage",
-          "b19": "20, inherited native",
+          "b19": "20",
           "elite": "17",
           "note": ""
         },
@@ -474,18 +411,13 @@
           "label": "Weapon raise / lower time",
           "b19": "0.22 / 0.08 s",
           "elite": "0.22 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
-        },
-        {
-          "label": "Heat presentation",
-          "b19": "Original Elite behavior",
-          "elite": "No-heat wrapper / heat bar suppressed",
-          "note": ""
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         }
       ],
       "notes": [
-        "The native-derived Link implementation is retained. It does not use the temporary NCP weapon parent.",
-        "The no-heat wrapper removes the heat presentation while keeping primary, beam, and pull roles. Primary plasma is a more defined green with a restrained white highlight."
+        "Primary plasma deals 17 instead of 20, with the same firing interval and projectile speeds as B19.",
+        "Beam damage, tick interval, range and pull settings match B19. Elite10K keeps the primary/beam/pull roles and omits the heat bar.",
+        "Plasma is green with a restrained white center for visibility."
       ],
       "lab": "link"
     },
@@ -516,8 +448,8 @@
         {
           "label": "Trace half-size",
           "b19": "15 UU",
-          "elite": "7.5 UU",
-          "note": "Verified in both weapon InstantHitInfo.TraceHalfSize and the trace controller defaults."
+          "elite": "10 UU",
+          "note": "Shot trace half-width: 15 UU in B19 and 10 UU in Elite10K. A smaller value requires a tighter aim."
         },
         {
           "label": "Shot momentum",
@@ -535,12 +467,12 @@
           "label": "Weapon raise / lower time",
           "b19": "0.41 / 0.08 s",
           "elite": "0.41 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         }
       ],
       "notes": [
-        "Trace size can be affected by mutator settings; the packaged default is 7.5 UU. Body/headshot damage and firing cadence are preserved.",
-        "The current weapon is based on the pre-NCP foundation, not the experimental NCP sniper."
+        "Body/headshot damage remains 70/140 and the firing interval stays 1.36 seconds.",
+        "The normal shot trace half-width is 10 UU instead of B19’s 15 UU, requiring tighter aim. Hits no longer apply the 20, 000 shot momentum from B19. Server weapon settings can override defaults."
       ],
       "lab": "sniper"
     },
@@ -552,7 +484,7 @@
       "rows": [
         {
           "label": "Map weapon replacement",
-          "b19": "No custom B19 replacement",
+          "b19": "Stock map weapon",
           "elite": "Elite10K Lightning Rifle",
           "note": ""
         },
@@ -577,8 +509,8 @@
         {
           "label": "Normal shot trace half-size",
           "b19": "Projectile primary",
-          "elite": "7.5 UU",
-          "note": "Verified in both weapon InstantHitInfo.TraceHalfSize and the trace controller defaults."
+          "elite": "10 UU",
+          "note": "The normal shot uses a 10-UU trace half-width. It is an instant shot rather than the stock map weapon’s projectile."
         },
         {
           "label": "Charged body / headshot",
@@ -596,13 +528,12 @@
           "label": "Weapon raise / lower time",
           "b19": "Stock map weapon",
           "elite": "0.41 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         }
       ],
       "notes": [
-        "B19 does not supply a custom Lightning Rifle asset. Its side of this comparison therefore refers to the stock map weapon, not a fictional B19-specific rifle.",
-        "The normal shot is instant hitscan. Charged-shot and chaining behavior are retained. The charged interval adds 0.30 seconds to the 1.36-second base.",
-        "The packaged trace default is 7.5 UU for this replacement. The old stock weapon’s stored 45-damage hitscan entry is not used as a verified primary projectile damage value here."
+        "B19 leaves this map slot as the stock Lightning weapon. Elite10K replaces it with a rifle whose normal shot is instant hitscan: 70 damage, 1.36-second interval and 10-UU trace half-width.",
+        "The charged shot retains 85 body/140 headshot damage, chaining behavior and a 1.66-second refire interval. The B19 column describes the stock map weapon for this slot."
       ],
       "lab": null
     },
@@ -646,7 +577,7 @@
           "label": "Weapon raise / lower time",
           "b19": "0.115 / 0.07 s",
           "elite": "0.115 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         },
         {
           "label": "Alt shield blocking size",
@@ -656,10 +587,9 @@
         }
       ],
       "notes": [
-        "The faster full damage charge is separate from the movement-ready point. The movement threshold remains 0.50 seconds.",
-        "The HUD adds a charge arc and compact jump/blood-drop indicators, with translucent icons and a gold-to-red progression.",
-        "The enlarged alt block uses a dedicated 10K shield projectile. Lifetime, movement and growth behavior are retained.",
-        "The HUD halo feathers smoothly across the top red/gold join. Solid fill, border, icons and charge timing are unchanged."
+        "Full damage charge takes 1.60 seconds instead of B19’s 2.00. The impact/jump-ready point still arrives at 0.50 seconds, so the faster damage charge does not make hammer jumps ready earlier.",
+        "Secondary refire is 0.66 seconds instead of 0.88, and shield blocking is 15% wider and taller. Shield depth is unchanged.",
+        "The charge arc and jump/damage icons show readiness. The halo blends smoothly between gold and red."
       ],
       "lab": "hammer"
     },
@@ -667,7 +597,7 @@
       "id": "enforcer",
       "name": "Enforcer",
       "tag": "Core tuning retained",
-      "summary": "The active modern Enforcer keeps B19’s main damage and firing defaults.",
+      "summary": "B19 damage and firing cadence, with a longer equip time.",
       "rows": [
         {
           "label": "Damage per shot",
@@ -709,20 +639,20 @@
           "label": "Weapon raise / lower time",
           "b19": "0.26 / 0.08 s",
           "elite": "0.41 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         }
       ],
       "notes": [
-        "The comparison uses the active Enforcer-EliteW asset on both sides. The separate older backup Enforcer has different timings and is not the active replacement.",
-        "The temporary NCP Enforcer inheritance is absent from v1.72. No precision increase is inferred simply from the weapon’s name."
+        "Damage, primary/secondary firing intervals, ammo costs and trace range match B19. Equipping the Enforcer takes 0.41 seconds instead of 0.26.",
+        "The shot trace has no added width in either version. The 10K display name does not indicate a separate accuracy bonus."
       ],
       "lab": "enforcer"
     },
     {
       "id": "grenade",
       "name": "Grenade Launcher",
-      "tag": "Low splash filter",
-      "summary": "Retained firing cadence with a 40-damage splash threshold.",
+      "tag": "Native splash",
+      "summary": "B19 firing cadence, with a smaller blast and 35 minimum edge damage.",
       "rows": [
         {
           "label": "Primary / secondary intervals",
@@ -731,33 +661,22 @@
           "note": ""
         },
         {
-          "label": "Low splash cutoff",
-          "b19": "No custom 40 filter",
-          "elite": "Below 40 rejected",
-          "note": ""
-        },
-        {
-          "label": "Normal / sticky projectile handling",
-          "b19": "Original projectile path",
-          "elite": "Integrated cutoff wrappers",
-          "note": ""
-        },
-        {
-          "label": "Replacement grenade damage parameters",
-          "b19": "Original grenade behavior",
-          "elite": "Base 90 / minimum 20",
-          "note": "Candidate damage below 40 is filtered."
+          "label": "Splash damage / blast radii",
+          "b19": "90 max / 20 min · 50–300 UU",
+          "elite": "90 max / 35 min · 50–248 UU",
+          "note": "Both regular and sticky grenades deal full damage through 50 UU, then decrease linearly to the minimum. Elite10K reaches 35 at 248 UU; B19 reaches 20 at 300 UU."
         },
         {
           "label": "Weapon raise / lower time",
           "b19": "0.51 / 0.08 s",
           "elite": "0.41 / 0.08 s",
-          "note": "Normal v1.72 timing. All weapon lower times are 0.08 game seconds; firing-state restrictions still apply."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         }
       ],
       "notes": [
-        "Normal and sticky grenades use dedicated cutoff handling. The raw minimum parameter can still say 20 while the custom filter rejects qualifying damage below 40.",
-        "This is different from shock combos: shock already has a native radial minimum of 40, and its bonus modifier does not expand its explosion reach."
+        "Regular and sticky grenades keep B19’s 0.94/1.00-second primary/secondary firing intervals.",
+        "Both versions deal 90 maximum splash damage through 50 UU. B19 falls to 20 at 300 UU; Elite10K falls to 35 at 248 UU. Elite10K trades some reach for a higher minimum edge hit.",
+        "Damage decreases linearly between the inner and outer radii and is zero beyond the outer radius. The explorer shows the raw explosion damage before armor or amplification."
       ],
       "lab": "grenade"
     },
@@ -765,23 +684,17 @@
       "id": "redeemer",
       "name": "Redeemer",
       "tag": "Stock slot retained",
-      "summary": "No custom Redeemer rebalance is introduced by the active replacement list.",
+      "summary": "The Redeemer keeps its stock weapon behavior in both versions.",
       "rows": [
         {
-          "label": "Map weapon replacement",
-          "b19": "No custom B19 replacement",
-          "elite": "Stock Redeemer retained",
-          "note": ""
-        },
-        {
-          "label": "Custom damage rebalance",
-          "b19": "None in B19 package",
-          "elite": "None in the active replacement list",
-          "note": ""
+          "label": "Weapon in this slot",
+          "b19": "Stock Redeemer",
+          "elite": "Stock Redeemer",
+          "note": "No Redeemer-specific damage rebalance in either package."
         }
       ],
       "notes": [
-        "This slot is included so the guide accounts for the full replacement list. It is not presented as a new Elite10K weapon feature."
+        "Play the Redeemer as you would in B19. This slot retains the stock weapon."
       ],
       "lab": null
     }
@@ -795,73 +708,71 @@
       "rows": [
         {
           "label": "Ground-dodge reset delay",
-          "b19": "0.35 s native default",
+          "b19": "0.35 s",
           "elite": "0.01 s",
           "note": ""
         },
         {
           "label": "Wall-dodge reset delay",
-          "b19": "0.20 s native default",
+          "b19": "0.20 s",
           "elite": "0.01 s",
           "note": ""
         },
         {
           "label": "Movement tier thresholds",
-          "b19": "Native cosmetic combo award",
+          "b19": "Standard UT combo awards (no damage bonus)",
           "elite": "8 / 20 / 32",
-          "note": ""
+          "note": "Elite10K scores 8/20/32 earn Nice/Amazing/Spectacular damage bonuses."
         },
         {
           "label": "Airborne score weighting",
-          "b19": "Native 5 vs ground 3",
+          "b19": "Speed weighting: 5 in air / 3 on ground",
           "elite": "3 on ground and in air",
-          "note": ""
+          "note": "Controls the sideways-speed contribution to combo scoring."
         },
         {
           "label": "Dodge-jump reset delay",
-          "b19": "Native / no custom B19 override",
+          "b19": "Stock UT movement setting",
           "elite": "0.01 s",
           "note": "Movement-state restrictions and airtime remain."
         },
         {
           "label": "Ground acceleration",
-          "b19": "Native / no custom B19 override",
+          "b19": "Stock UT movement setting",
           "elite": "5,000 UU/s²",
           "note": "MaxAcceleration; normal ground acceleration."
         },
         {
           "label": "Walking braking / deceleration",
-          "b19": "Native / no custom B19 override",
+          "b19": "Stock UT movement setting",
           "elite": "20,000 UU/s²",
           "note": "Both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking."
         },
         {
           "label": "Ground friction",
-          "b19": "Native / no custom B19 override",
+          "b19": "Stock UT movement setting",
           "elite": "14",
           "note": "Affects ground direction changes as well as stopping behavior."
         },
         {
           "label": "Fast initial acceleration",
-          "b19": "Native / no custom B19 override",
+          "b19": "Stock UT movement setting",
           "elite": "100,000 UU/s²",
           "note": "Low-speed acceleration boost; blends toward regular acceleration as speed rises. It does not apply at full running speed."
         },
         {
           "label": "Air control / dodge-air control",
-          "b19": "Native / no custom B19 override",
+          "b19": "Stock UT movement setting",
           "elite": "0.7 / 0.7",
           "note": "Normal and dodge air-control overrides."
         }
       ],
       "notes": [
-        "Reset delay is the cooldown after the relevant movement event. It does not remove dodge airtime or other movement-state restrictions.",
-        "Combo movement uses perpendicular player speed, not equal credit for running along the core’s flight direction. Its angle-plus-speed score is multiplied by 1× at one reference dodge length or less, up to 2× at two lengths or farther.",
-        "Shock, flak, goo, and Stinger collision/trace responses were revised to reduce projectile interception. A server’s plugins and mutator configuration can still change runtime behavior.",
-        "Distance reference: one dodge length ≈696 UU (Unreal Units), using the same reference as combo scoring. These are approximate distances, not a count of dodge inputs. Dodge lengths/s describes speed: how many reference lengths a projectile covers per second. Tiny collision and trace widths retain exact units because fractions of a dodge are less useful for them.",
-        "These are the active movement overrides. The proposed v1.56 rollback and full-v1.25 movement test were shelved and are not installed.",
-        "The reported rubber-banding was resolved by clients deleting old packages; it was not established as a movement-tuning bug. Use a single current Elite10K package with matching client/server versions.",
-        "Fast initial acceleration applies at low speed. At speed, normal acceleration and ground friction govern steering; releasing input or exceeding the speed limit engages braking. The 220-UU/s boost threshold seen in the older local engine source is not presented here as a verified installed-binary override."
+        "Ground- and wall-dodge reset delays are 0.01 seconds instead of B19’s 0.35 and 0.20. You still need to complete the relevant movement and satisfy normal ground/wall requirements.",
+        "Combo movement rewards sideways movement relative to the core’s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
+        "Acceleration is strongest when starting from low speed, then blends toward normal running acceleration. Ground friction affects steering; braking slows you when you release movement input or exceed the speed limit.",
+        "Distance is shown in UU (Unreal Units) and approximate dodge lengths. One reference dodge length is about 696 UU. These describe distance, rather than how many dodge inputs to press.",
+        "Projectile interactions are adjusted to reduce accidental interception between weapons. Server mutators and saved settings can change the defaults shown here."
       ],
       "lab": null
     },
@@ -872,75 +783,72 @@
       "summary": "More readable projectiles and clearer information while loading or charging.",
       "rows": [
         {
-          "label": "Rocket loading HUD",
-          "b19": "Original crosshair feedback",
-          "elite": "Loaded centers, progress rings, grace/release handling",
-          "note": ""
-        },
-        {
-          "label": "Rocket completion pulse",
-          "b19": "No custom pulse material",
-          "elite": "0.15 s red pulse",
-          "note": ""
-        },
-        {
-          "label": "Filled center peak opacity",
-          "b19": "No custom disk",
-          "elite": "96%",
-          "note": ""
-        },
-        {
-          "label": "Rocket pulse glow",
-          "b19": "No custom completion glow",
-          "elite": "Bright red core + soft ring halo",
-          "note": ""
+          "label": "Rocket loading feedback",
+          "b19": "B19 crosshair feedback",
+          "elite": "Progress rings, loaded centers and completion pulse",
+          "note": "A filled center marks a ready rocket; a 0.15-second red pulse marks loading completion."
         },
         {
           "label": "Hammer feedback",
-          "b19": "Original weapon feedback",
-          "elite": "Charge arc, jump and damage badges",
-          "note": ""
+          "b19": "B19 weapon feedback",
+          "elite": "Charge arc and jump/damage indicators",
+          "note": "Read jump readiness separately from full damage charge."
         },
         {
-          "label": "Stinger presentation",
-          "b19": "Original Elite effects",
-          "elite": "Blue primary/secondary effects",
-          "note": ""
+          "label": "Stinger appearance",
+          "b19": "B19 weapon effects",
+          "elite": "Blue primary and secondary effects",
+          "note": "Cosmetic weapon identification."
         },
         {
-          "label": "Standalone layout HUD",
-          "b19": "Not part of B19",
-          "elite": "Separate optional HUD package",
-          "note": ""
+          "label": "Full-screen HUD",
+          "b19": "B19 / stock HUD",
+          "elite": "Separate optional Elite10K HUD v1.13",
+          "note": "The weapon package and the full-screen HUD are separate downloads."
         },
         {
-          "label": "Steady loaded rocket center",
-          "b19": "No custom disk",
-          "elite": "Solid ring-red inner disk / 50% radius",
-          "note": "Dark red outer disk; separate from the completion pulse."
+          "label": "Firing feedback",
+          "b19": "Stock HUD presentation",
+          "elite": "Coordinated widget bounce",
+          "note": "Ammo, vitals, weapon bar, kill feed, scoreboard and announcements follow the firing impulse."
         },
         {
-          "label": "Blue preview / combo text",
-          "b19": "Original blue text",
-          "elite": "#4DC9FF — RGB 77, 201, 255",
-          "note": "Slightly more saturated than #55CCFF; opacity unchanged."
+          "label": "Weapon identification",
+          "b19": "B19 weapon colors",
+          "elite": "Shared weapon-bar and kill-feed colors",
+          "note": "Shock, combo and Anticombo feed icons have a slightly lighter tint."
         },
         {
-          "label": "Stinger switch color",
-          "b19": "Original weapon materials",
-          "elite": "Linear RGB 0.015, 0.15, 1.5",
-          "note": "Final retained v1.48 material revision."
+          "label": "Health / armor bars",
+          "b19": "B19 / stock HUD",
+          "elite": "Smooth 0.36-second fill/drain and glow",
+          "note": "Numbers update with their own brief feedback animation."
+        },
+        {
+          "label": "Ammo feedback",
+          "b19": "B19 / stock HUD",
+          "elite": "Brief number pulse when held ammo increases",
+          "note": "Low-ammo warnings and unlimited-ammo infinity display are retained."
+        },
+        {
+          "label": "Powerup display",
+          "b19": "Stock icons and counters",
+          "elite": "Sharper amp/boots icons and centered bold counters",
+          "note": "Antialiased artwork, consistent padding and equal-width panels."
+        },
+        {
+          "label": "Match status",
+          "b19": "Stock game status",
+          "elite": "Native status wording beneath the clock",
+          "note": "Appears when the game supplies a status such as Waiting for Host or Overtime. Clock/status spacing adjusts when text is present."
         }
       ],
       "notes": [
-        "Each steady loaded rocket circle has a solid bright red center at 50% of the outer disk’s radius. The completion pulse and its soft ring halo remain separate from this steady filled state.",
-        "The brighter rocket material is cosmetic. It does not change loading intervals, damage, or projectile reach.",
-        "The full-screen Elite10K HUD is a separate optional package. Weapon-specific overlays and projectile visuals are part of the weapon work; the two should not be confused.",
-        "Visual changes have cooked successfully, but exact perceived brightness depends on the renderer and still needs live visual verification.",
-        "Opponent weapon switches use destination-weapon colors and a brief glow; normal materials return after the switch. These cosmetics do not change weapon raise/lower times.",
-        "Rocket red panels and collar details use rocky red surface variation. Link projectiles have a broader white center. Weapon display names use the 10K prefix.",
-        "The switch helper synchronizes presentation with the native switch phase. Pending-weapon colors apply only while FlashExtra is zero and the synchronized phase is lowering; the latest pending request is reevaluated. Current-weapon fallback handles completed or missed transitions.",
-        "Switch diagnostics/console spam are disabled in the normal release. Normal switch timing remains gameplay-controlled; cosmetic effects do not advance firing readiness."
+        "The weapons supply their own load/charge indicators and projectile effects. Install the separate optional HUD for the full-screen header, vitals, ammo layout, kill feed, mini scoreboard and powerup panels.",
+        "Loaded rocket rings and Hammer icons explain weapon readiness; they do not change firing or charge times.",
+        "Other players’ weapon switches use destination-weapon colors with a brief glow. This helps identify what they are switching to.",
+        "The optional HUD uses antialiased graphics and Ubuntu Mono clocks. DM and team modes have their own headers; the team layout includes your team and personal score.",
+        "Status text keeps the game’s normal capitalization. It appears below the clock only while a status is supplied; the clock returns to its normal placement when the line is empty."
       ],
       "lab": null
     },
@@ -948,49 +856,48 @@
       "id": "foundation",
       "name": "Version & setup",
       "tag": "Know what is running",
-      "summary": "This guide describes the installed v1.72 weapon package and its default settings.",
+      "summary": "Choose the right package and read the comparisons with your B19 experience in mind.",
       "rows": [
         {
-          "label": "Comparison baseline",
-          "b19": "Authoritative original Elite B19",
-          "elite": "Installed normal Elite10K v1.72",
-          "note": ""
+          "label": "Weapons compared",
+          "b19": "Original Elite Weapons B19",
+          "elite": "Elite10K v1.78",
+          "note": "The two columns describe each version’s default behavior."
         },
         {
-          "label": "NCP-derived weapon conversion",
-          "b19": "Not used",
-          "elite": "Removed from the current weapon foundation",
-          "note": ""
+          "label": "Optional full-screen HUD",
+          "b19": "B19 / stock HUD",
+          "elite": "Elite10K HUD v1.13",
+          "note": "Separate from weapon-specific indicators."
         },
         {
-          "label": "Alternative builds / tests",
-          "b19": "Original package",
-          "elite": "Reverted experiments excluded",
-          "note": ""
+          "label": "Damage examples",
+          "b19": "Before armor/amplification",
+          "elite": "Before armor/amplification",
+          "note": "Actual health loss depends on armor, damage boosts and server rules."
         },
         {
-          "label": "Game speed, armor, amplification",
-          "b19": "Server/game settings",
-          "elite": "Not included in calculator predictions",
-          "note": ""
+          "label": "Timing examples",
+          "b19": "Game seconds",
+          "elite": "Game seconds",
+          "note": "Game speed and fire-rate modifiers affect real elapsed time."
         }
       ],
       "notes": [
-        "A locally installed v1.72 file does not upgrade a public server. Its server package controls gameplay, and older downloads can share internal paths with newer assets.",
-        "Use matching client/server packages for reliable testing. Saved mutator settings may override packaged defaults.",
-        "The authoritative B19 reference is preserved read-only. Earlier development backups are not used as the baseline for this guide.",
-        "Package defaults and script inspection establish configured behavior. They do not prove every feature is free of multiplayer or scheduling issues.",
-        "The active package now uses the stable filename Elite10K-WindowsNoEditor.pak and stable registry metadata, independent of the displayed release version.",
-        "The v1.44 cleanup removed 100 unused asset entries (19,038,044 bytes at that step). Required effects and gameplay assets were retained.",
-        "Use only the current Elite10K package. Disable or remove older copies instead of leaving multiple versions with the same internal asset paths mounted.",
-        "This guide describes the final normal release, not the enlarged-core/radius or reduced-damage diagnostics. The confirmed Denial notification and multi-core priority fixes are retained.",
-        "v1.72 restores the three v1.58 effect/sound/overlay assets, v1.59 Stinger recovery, Anticombo! text, and immediate weapon-switch glow. Client, server, launcher and redirect are synchronized for this release."
+        "Joining a server uses that server’s gameplay version. A newer local download does not change an older server’s balance.",
+        "Keep one current Elite10K weapon package installed and avoid duplicate older copies. The weapon filename is Elite10K-WindowsNoEditor.pak; the optional full-screen HUD is a separate package.",
+        "Tables show default settings. Server configuration and other mutators can override them. Times are game seconds, and damage examples exclude armor and amplification.",
+        "Read max/min splash damage as center/edge damage. The inner radius is the full-damage zone; the outer radius is the blast’s limit. Minimum damage applies at the edge of an eligible hit, not outside the blast.",
+        "The comparison uses the original Elite B19 package identified in Sources. Detailed formulas and package hashes are available there and in the combo calculator."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "3CC6AD50DE25337EEF8CF1E8A037DD56D6674C2354BC16C2B89958B337F1E282",
-  "verifiedDate": "2026-11-05",
-  "assumptions": "Default settings, game seconds, no armor or damage amplification. Native/stock inherited values are labelled in the tables."
+  "packageSha256": "5FC0F19E125E09E7A8D915768F0FA3B7FBAF5867F21565A592D31A4304E15DF4",
+  "verifiedDate": "2026-11-08",
+  "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
+  "hudVersion": "1.13",
+  "hudPackageSha256": "56453F0BA87A77F0A04CFA95452373CB96642D543ACBD83C2594FA29575CA8A7",
+  "shockVariantData": "shock-variants.js"
 }
