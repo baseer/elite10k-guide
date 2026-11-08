@@ -170,22 +170,22 @@
           "note": "Rockets in a loaded volley have no intentional extra gap in Elite10K; frame timing can still separate their launches."
         },
         {
-          "label": "Normal rocket speed",
-          "b19": "Stock UT rocket speed",
-          "elite": "≈3.55 dodge lengths/s (2,475 UU/s)",
-          "note": "B19 fires the stock UT rocket. Elite10K uses its own rocket projectile."
+          "label": "Normal rocket initial / maximum speed",
+          "b19": "2,700 / 2,700 UU/s",
+          "elite": "2,475 / 2,475 UU/s · 91.7% of B19",
+          "note": "Initial speed is launch speed; maximum speed is the configured speed cap. Both values are 8.3% lower in Elite10K. Normal and loaded non-seeking rockets use this profile."
         },
         {
           "label": "Seeking initial / maximum speed",
-          "b19": "Stock UT seeking-rocket speeds",
-          "elite": "≈2.58 / 3.1 dodge lengths/s (1,800 / 2,160 UU/s)",
-          "note": ""
+          "b19": "2,000 / 2,400 UU/s",
+          "elite": "1,800 / 2,160 UU/s · 90% of B19",
+          "note": "Both launch speed and maximum speed are 10% lower than B19."
         },
         {
           "label": "Grenade initial / maximum speed",
-          "b19": "≈2.73 / 4.31 dodge lengths/s (1,900 / 3,000 UU/s)",
-          "elite": "≈2.73 / 4.31 dodge lengths/s (1,900 / 3,000 UU/s)",
-          "note": ""
+          "b19": "1,900 / 3,000 UU/s",
+          "elite": "1,900 / 3,000 UU/s · 100% of B19",
+          "note": "Launch speed and maximum speed are unchanged. These are Rocket Launcher grenades."
         },
         {
           "label": "Weapon raise / lower time",
@@ -208,6 +208,7 @@
       ],
       "notes": [
         "Primary rockets keep the 1.05-second firing interval. Loaded secondary volleys use 1.05 seconds after the last rocket, compared with B19’s 0.74 seconds; one-, two- and three-rocket volleys use the same interval. Time spent loading is separate.",
+        "Normal rockets launch at 2,475 UU/s versus B19’s 2,700: 91.7% of the original speed (8.3% slower). Seeking rockets launch at 1,800 versus 2,000 UU/s and have a 2,160 versus 2,400 UU/s cap: 90% in both cases. Rocket Launcher grenade speeds remain 100% of B19.",
         "Rocket splash peaks at 100 damage in both versions. B19 falls to 20 at 360 UU; Elite10K falls to 35 at about 296.667 UU. The full-damage core is 15 UU in both. Elite10K’s blast is smaller, but its edge hits harder.",
         "Splash damage decreases in a straight line between the inner and outer radii. Beyond the outer radius it is zero. Armor, damage amplification, collision and line of sight can change the health actually lost.",
         "You can queue a weapon switch while firing loaded rockets or grenades. It takes effect once the loaded volley has emptied. Switching away and back keeps the remaining shot cooldown.",
@@ -448,8 +449,20 @@
         {
           "label": "Trace half-size",
           "b19": "15 UU",
-          "elite": "10 UU",
-          "note": "Shot trace half-width: 15 UU in B19 and 10 UU in Elite10K. A smaller value requires a tighter aim."
+          "elite": "10 UU · 66.7% of B19 Sniper",
+          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower)."
+        },
+        {
+          "label": "Full normal-shot thickness",
+          "b19": "30 UU",
+          "elite": "20 UU · 66.7% of B19 Sniper",
+          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness."
+        },
+        {
+          "label": "Effective body-hit width · 80-UU target example",
+          "b19": "110 UU",
+          "elite": "100 UU · 90.9% of B19 Sniper",
+          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width."
         },
         {
           "label": "Shot momentum",
@@ -472,7 +485,9 @@
       ],
       "notes": [
         "Body/headshot damage remains 70/140 and the firing interval stays 1.36 seconds.",
-        "The normal shot trace half-width is 10 UU instead of B19’s 15 UU, requiring tighter aim. Hits no longer apply the 20, 000 shot momentum from B19. Server weapon settings can override defaults."
+        "The normal shot trace half-width is 10 UU instead of B19’s 15 UU, requiring tighter aim. Hits no longer apply the 20, 000 shot momentum from B19. Server weapon settings can override defaults.",
+        "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
+        "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result."
       ],
       "lab": "sniper"
     },
@@ -509,8 +524,20 @@
         {
           "label": "Normal shot trace half-size",
           "b19": "Projectile primary",
-          "elite": "10 UU",
-          "note": "The normal shot uses a 10-UU trace half-width. It is an instant shot rather than the stock map weapon’s projectile."
+          "elite": "10 UU · 66.7% of B19 Sniper",
+          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower). B19 Lightning uses a projectile primary, so this percentage compares with B19 Sniper, not B19 Lightning."
+        },
+        {
+          "label": "Full normal-shot thickness",
+          "b19": "Projectile primary; no hitscan width",
+          "elite": "20 UU · 66.7% of B19 Sniper",
+          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness."
+        },
+        {
+          "label": "Effective body-hit width · 80-UU target example",
+          "b19": "Projectile primary; separate collision rules",
+          "elite": "100 UU · 90.9% of B19 Sniper",
+          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width."
         },
         {
           "label": "Charged body / headshot",
@@ -533,7 +560,10 @@
       ],
       "notes": [
         "B19 leaves this map slot as the stock Lightning weapon. Elite10K replaces it with a rifle whose normal shot is instant hitscan: 70 damage, 1.36-second interval and 10-UU trace half-width.",
-        "The charged shot retains 85 body/140 headshot damage, chaining behavior and a 1.66-second refire interval. The B19 column describes the stock map weapon for this slot."
+        "The charged shot retains 85 body/140 headshot damage, chaining behavior and a 1.66-second refire interval. The B19 column describes the stock map weapon for this slot.",
+        "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
+        "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result.",
+        "These trace dimensions describe normal fire only. B19 Lightning’s projectile and the charged shot are separate hit-detection cases; the Sniper percentages do not imply an equivalent B19 Lightning projectile size."
       ],
       "lab": null
     },
