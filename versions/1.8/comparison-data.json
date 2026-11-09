@@ -322,6 +322,15 @@
           "b19": "0.48 / 0.08 s",
           "elite": "0.22 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "stock": "Native per-class behavior",
+          "utplus": "Native per-class behavior",
+          "ncp": "Native per-class behavior",
+          "b19": "Native per-class behavior",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
         }
       ],
       "notes": [
@@ -886,6 +895,15 @@
           "b19": "0.26 / 0.08 s",
           "elite": "0.41 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "stock": "Native per-class behavior",
+          "utplus": "Native per-class behavior",
+          "ncp": "Native per-class behavior",
+          "b19": "Native per-class behavior",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
         }
       ],
       "notes": [
@@ -946,6 +964,15 @@
           "b19": "Stock Redeemer",
           "elite": "Stock Redeemer",
           "note": "No Redeemer-specific damage rebalance in either package."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "stock": "Native per-class behavior",
+          "utplus": "Native per-class behavior",
+          "ncp": "Native per-class behavior",
+          "b19": "Native per-class behavior",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
         }
       ],
       "notes": [

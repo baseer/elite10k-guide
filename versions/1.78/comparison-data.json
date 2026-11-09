@@ -141,7 +141,7 @@
           "label": "Primary range damage",
           "b19": "Native behavior",
           "elite": "10/20 below 1,050 UU; 7/14 below 1,575 UU; 4/8 afterward",
-          "note": "Ordinary / central shard. Full damage through the start distance; minimum at and beyond the end. Total travelled path includes bounces."
+          "note": "Ordinary / central shard. At 1,050 UU the middle band starts; at 1,575 UU the far band starts. Total travelled path includes bounces."
         },
         {
           "label": "Attack interactions (v1.8 policy)",
@@ -321,6 +321,15 @@
           "b19": "0.48 / 0.08 s",
           "elite": "0.22 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "stock": "Native per-class behavior",
+          "utplus": "Native per-class behavior",
+          "ncp": "Native per-class behavior",
+          "b19": "Native per-class behavior",
+          "elite": "Earlier native projectile-contact and trace behavior; v1.8 exclusions are not applied.",
+          "note": ""
         }
       ],
       "notes": [
@@ -885,6 +894,15 @@
           "b19": "0.26 / 0.08 s",
           "elite": "0.41 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "stock": "Native per-class behavior",
+          "utplus": "Native per-class behavior",
+          "ncp": "Native per-class behavior",
+          "b19": "Native per-class behavior",
+          "elite": "Earlier native projectile-contact and trace behavior; v1.8 exclusions are not applied.",
+          "note": ""
         }
       ],
       "notes": [
@@ -945,6 +963,15 @@
           "b19": "Stock Redeemer",
           "elite": "Stock Redeemer",
           "note": "No Redeemer-specific damage rebalance in either package."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "stock": "Native per-class behavior",
+          "utplus": "Native per-class behavior",
+          "ncp": "Native per-class behavior",
+          "b19": "Native per-class behavior",
+          "elite": "Earlier native projectile-contact and trace behavior; v1.8 exclusions are not applied.",
+          "note": ""
         }
       ],
       "notes": [
