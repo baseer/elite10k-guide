@@ -1313,18 +1313,6 @@
           "note": ""
         },
         {
-          "label": "Movement tier thresholds",
-          "b19": "Standard UT combo awards (no damage bonus)",
-          "elite": "8 / 20 / 32",
-          "note": "Elite10K scores 8/20/32 earn Nice/Amazing/Spectacular damage bonuses."
-        },
-        {
-          "label": "Airborne score weighting",
-          "b19": "Speed weighting: 5 in air / 3 on ground",
-          "elite": "3 on ground and in air",
-          "note": "Controls the sideways-speed contribution to combo scoring."
-        },
-        {
           "label": "Dodge-jump reset delay",
           "b19": "Stock UT movement setting",
           "elite": "0.01 s",
@@ -1369,9 +1357,7 @@
       ],
       "notes": [
         "Ground- and wall-dodge reset delays are 0.01 seconds instead of B19’s 0.35 and 0.20. You still need to complete the relevant movement and satisfy normal ground/wall requirements.",
-        "Combo movement rewards sideways movement relative to the core’s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
         "Acceleration is strongest when starting from low speed, then blends toward normal running acceleration. Ground friction affects steering; braking slows you when you release movement input or exceed the speed limit.",
-        "Distance is shown in UU (Unreal Units) and approximate dodge lengths. One reference dodge length is about 696 UU. These describe distance, rather than how many dodge inputs to press.",
         "Projectile interactions are adjusted to reduce accidental interception between weapons. Server mutators and saved settings can change the defaults shown here."
       ],
       "lab": null
@@ -1601,5 +1587,27 @@
     "receipt": "elite-v1.69/trail-tests-reverted/report.json",
     "artifact": "github-export\\elite-refined\\elite-v1.69\\snapshots\\7E778102FBFB4FD5E58E2A6DECE32F0126B5A4A17539EC55AD2E7857829C91F1.json",
     "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+  },
+  "comboMovement": {
+    "id": "combo-movement",
+    "name": "Combo movement scoring",
+    "rows": [
+      {
+        "label": "Movement tier thresholds",
+        "b19": "Standard UT combo awards (no damage bonus)",
+        "elite": "8 / 20 / 32",
+        "note": "Elite10K scores 8/20/32 earn Nice/Amazing/Spectacular damage bonuses."
+      },
+      {
+        "label": "Airborne score weighting",
+        "b19": "Speed weighting: 5 in air / 3 on ground",
+        "elite": "3 on ground and in air",
+        "note": "Controls the sideways-speed contribution to combo scoring."
+      }
+    ],
+    "notes": [
+      "Combo movement rewards sideways movement relative to the core’s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
+      "Distance is shown in UU (Unreal Units) and approximate dodge lengths. One reference dodge length is about 696 UU. These describe distance, rather than how many dodge inputs to press."
+    ]
   }
 }

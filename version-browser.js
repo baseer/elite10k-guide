@@ -32,10 +32,10 @@
  document.addEventListener('click',e=>{for(const menu of controls.querySelectorAll('details'))if(!menu.contains(e.target))menu.open=false;});
  const normalize=s=>String(s||'').replace(/v1\.\d+\b/g,'selected version');
  window.renderVersionComparison=id=>{
-  const current=versions[version],other=versions[compare],items=d=>[...d.weapons,...d.shared];
-  const selected=['overview','foundation'].includes(id)?items(current):items(current).filter(w=>w.id===(id==='combo'?'shock':id==='switch-times'?'shock':id));
+  const current=versions[version],other=versions[compare],items=d=>[...d.weapons,...d.shared,d.comboMovement];
+  const selected=['overview','foundation'].includes(id)?items(current):items(current).filter(w=>(id==='combo'?['shock','combo-movement'].includes(w.id):w.id===(id==='switch-times'?'shock':id)));
   const changes=[];
-  if(compare)for(const w of selected){const prior=items(other).find(x=>x.id===w.id);for(const r of w.rows){const p=prior?.rows.find(x=>x.label===r.label);if(normalize(p?.elite)!==normalize(r.elite))changes.push({section:w.name,id:w.id,label:r.label,before:p?.elite||'Not listed',after:r.elite});}}
+  if(compare)for(const w of selected){const prior=items(other).find(x=>x.id===w.id);for(const r of w.rows){const p=prior?.rows.find(x=>x.label===r.label);if(normalize(p?.elite)!==normalize(r.elite))changes.push({section:w.name,id:w.id==='combo-movement'?'combo':w.id,label:r.label,before:p?.elite||'Not listed',after:r.elite});}}
   quick.textContent=compare?'v'+compare+' → v'+version+' · '+(changes.length?changes.length+' change'+(changes.length===1?'':'s')+' · '+[...new Set(changes.map(c=>c.label))].slice(0,3).join(' / '):'No changes in this section'):versions[version].revision;
   quick.disabled=!compare;quick.setAttribute('aria-label',compare?'Show version comparison: '+quick.textContent:'Release summary: '+quick.textContent);if(compare)quick.setAttribute('aria-expanded','false');else quick.removeAttribute('aria-expanded');
   if(compare){
