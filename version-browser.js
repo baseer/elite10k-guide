@@ -18,6 +18,7 @@
  document.addEventListener('keydown',e=>{if(e.key==='Tab')keyboardNavigation=true;});
  document.addEventListener('pointerdown',()=>{keyboardNavigation=false;});
  for(const menu of controls.querySelectorAll('details')){
+  menu.querySelector('summary').addEventListener('click',e=>{if(e.pointerType==='mouse'){e.preventDefault();menu.open=true;}});
   menu.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){for(const other of controls.querySelectorAll('details'))if(other!==menu)other.open=false;menu.open=true;}});
   menu.addEventListener('pointerleave',()=>{if(!menu.contains(document.activeElement))menu.open=false;});
   menu.addEventListener('focusin',()=>{if(keyboardNavigation)menu.open=true;});
