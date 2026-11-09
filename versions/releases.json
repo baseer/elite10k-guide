@@ -1,0 +1,1616 @@
+[
+  {
+    "version": "1.57",
+    "sha256": "FA718406C5083D1D7E2897AE296FA0FDF2F9B48FBE5298F0DFCEF63FC608671A",
+    "revision": "Normal release; ownership and Denial feedback",
+    "source": {
+      "receipt": "elite-v1.57/release/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.43\\snapshots\\FA718406C5083D1D7E2897AE296FA0FDF2F9B48FBE5298F0DFCEF63FC608671A.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 35,
+        "inner": 77,
+        "outer": 410,
+        "falloff": 1.5,
+        "baseBoost": 10
+      },
+      "trace": 10,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.08,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.75,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Denial Combo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.58",
+    "sha256": "2927BE05EC532385BCEDE91F126974F026AEC7C90F3198573526B025C62B812B",
+    "revision": "Restored Stinger sound, sniper overlay and Flak explosion assets",
+    "source": {
+      "receipt": "elite-v1.58/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.58\\snapshots\\2927BE05EC532385BCEDE91F126974F026AEC7C90F3198573526B025C62B812B.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 35,
+        "inner": 77,
+        "outer": 410,
+        "falloff": 1.5,
+        "baseBoost": 10
+      },
+      "trace": 10,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.08,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.75,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Denial Combo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.59",
+    "sha256": "A554E237265AA3884EE2455E604A89223C424248DA072D5550E7689C79D3736A",
+    "revision": "Stinger full-burst recovery reduced to 0.625 s",
+    "source": {
+      "receipt": "elite-v1.59/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.59\\snapshots\\A554E237265AA3884EE2455E604A89223C424248DA072D5550E7689C79D3736A.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 35,
+        "inner": 77,
+        "outer": 410,
+        "falloff": 1.5,
+        "baseBoost": 10
+      },
+      "trace": 10,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.08,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.625,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Denial Combo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.6",
+    "sha256": "38D13A9B2481513F1152052C46A39FAB2BA5E0E040B377E50070BA59930029DF",
+    "revision": "Final normal-trace revision: Anticombo label and immediate switch glow",
+    "source": {
+      "receipt": "switch-glow-immediate/report.json",
+      "artifact": "switch-glow-immediate\\Elite10K-WindowsNoEditor.normal-trace.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 35,
+        "inner": 77,
+        "outer": 410,
+        "falloff": 1.5,
+        "baseBoost": 10
+      },
+      "trace": 10,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.08,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.625,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.61",
+    "sha256": "932FCDB4F86D36C2A010AD2E1EE049102F30324AD7C603CFDF4C098C4D2670D5",
+    "revision": "Sniper and Lightning trace half-size 7.5 UU",
+    "source": {
+      "receipt": "elite-v1.61/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.61\\snapshots\\932FCDB4F86D36C2A010AD2E1EE049102F30324AD7C603CFDF4C098C4D2670D5.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 35,
+        "inner": 77,
+        "outer": 410,
+        "falloff": 1.5,
+        "baseBoost": 10
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.08,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.625,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.62",
+    "sha256": "34AE7988683968BDDE63BC61F5CAACA001A3E70921B9F6E24EE3E4299461A39F",
+    "revision": "Final revision: combo falloff 1.25, 40 floor, no base boost",
+    "source": {
+      "receipt": "elite-v1.62/falloff125-no-boost/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.62\\snapshots\\34AE7988683968BDDE63BC61F5CAACA001A3E70921B9F6E24EE3E4299461A39F.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.08,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.75,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Denial Combo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.63",
+    "sha256": "3D67030A81CAD6C58CD5E9DC83A91070C43C20D44011BC68526D0F9614B8DF7A",
+    "revision": "Normal release consolidating combo and trace tuning",
+    "source": {
+      "receipt": "elite-v1.63/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.63\\snapshots\\3D67030A81CAD6C58CD5E9DC83A91070C43C20D44011BC68526D0F9614B8DF7A.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.08,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.625,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.64",
+    "sha256": "9FA51A66093692A4742450D32C8636D7E58A284366E005D7E0910329A6169289",
+    "revision": "Shock switching multiplier 0.14",
+    "source": {
+      "receipt": "elite-v1.64/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.64\\snapshots\\9FA51A66093692A4742450D32C8636D7E58A284366E005D7E0910329A6169289.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.14,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.625,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.65",
+    "sha256": "76E003E36F9284C7BC8F83F8C7EE0DAEBB231E7FBE917A10DFBCF7084606BCE5",
+    "revision": "Shock switching multiplier 0.15; diagnostic logging removed",
+    "source": {
+      "receipt": "elite-v1.65/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.65\\snapshots\\76E003E36F9284C7BC8F83F8C7EE0DAEBB231E7FBE917A10DFBCF7084606BCE5.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.625,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.66",
+    "sha256": "220F793427BCF934BFF6A57810AD129109E455C4C1D76CF943BE1D0D6F6B1FFC",
+    "revision": "Stinger full-burst recovery reduced to 0.5 s",
+    "source": {
+      "receipt": "elite-v1.66/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.66\\snapshots\\220F793427BCF934BFF6A57810AD129109E455C4C1D76CF943BE1D0D6F6B1FFC.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.67",
+    "sha256": "713216642A8A9930F2B79F0CD848033E5903092E62DE7C52463313A91B74351C",
+    "revision": "Final revision: native combo switching restored; Anticombo kill feed fixed",
+    "source": {
+      "receipt": "anticombo-feed-property-fix/report.json",
+      "artifact": "anticombo-feed-property-fix\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.68",
+    "sha256": "4477AFC0CDC6D971DC93BD073E7C0B8B14CFBCD3643A3AFE06DC55197936457A",
+    "revision": "Final approved physical rocket shell and fitted coating",
+    "source": {
+      "receipt": "elite-v1.68/physical-shell-release/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.68\\snapshots\\4477AFC0CDC6D971DC93BD073E7C0B8B14CFBCD3643A3AFE06DC55197936457A.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.69",
+    "sha256": "7E778102FBFB4FD5E58E2A6DECE32F0126B5A4A17539EC55AD2E7857829C91F1",
+    "revision": "Unused rocket materials removed; trail experiments reverted",
+    "source": {
+      "receipt": "elite-v1.69/trail-tests-reverted/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.69\\snapshots\\7E778102FBFB4FD5E58E2A6DECE32F0126B5A4A17539EC55AD2E7857829C91F1.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.7",
+    "sha256": "B1248C0276C06A90EFFC726E4E9294ED30491D956400084DEC09B207A9B557D7",
+    "revision": "Final revision: half-opacity Flak smoke and feathered Hammer halo",
+    "source": {
+      "receipt": "elite-v1.7/hammer-glow-blend/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.7\\snapshots\\B1248C0276C06A90EFFC726E4E9294ED30491D956400084DEC09B207A9B557D7.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.71",
+    "sha256": "580791BD38E57B6C632A75C7EE2E27EF75C547FD0046FFB38726F31A170575E5",
+    "revision": "Final rocket design and weapon icon colors",
+    "source": {
+      "receipt": "elite-v1.71/weapon-icon-colors/report.json",
+      "artifact": "elite-v1.71\\weapon-icon-colors\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 40,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.25,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.72",
+    "sha256": "3CC6AD50DE25337EEF8CF1E8A037DD56D6674C2354BC16C2B89958B337F1E282",
+    "revision": "Combo falloff 1.5 and 50 minimum damage",
+    "source": {
+      "receipt": "elite-v1.72/combo-floor50/report.json",
+      "artifact": "github-export\\elite-refined\\elite-v1.72\\snapshots\\3CC6AD50DE25337EEF8CF1E8A037DD56D6674C2354BC16C2B89958B337F1E282.json",
+      "verification": "Reconstructed complete pak SHA256 and every asset SHA256"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": true,
+        "rocket": [
+          100,
+          20,
+          15,
+          360
+        ],
+        "flak": [
+          95,
+          20,
+          0,
+          300
+        ],
+        "grenade": [
+          90,
+          20,
+          50,
+          300
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.73",
+    "sha256": "C914586647A92D61811781BA98C685062E962A6923C9DCE86050A8F05228C97C",
+    "revision": "Native projectile explosions and 40 minimum splash damage",
+    "source": {
+      "receipt": "elite-v1.73/report.json",
+      "artifact": "elite-v1.73\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          40,
+          15,
+          275
+        ],
+        "flak": [
+          95,
+          40,
+          0,
+          220
+        ],
+        "grenade": [
+          90,
+          40,
+          50,
+          230
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.74",
+    "sha256": "C6335F8DE1344C9E2558AA50F659E0796AAD61A120E9F97EA85C3DDB76862F9B",
+    "revision": "Final revision: native icon defaults and mid-blue Stinger cooldown",
+    "source": {
+      "receipt": "elite-v1.74/stinger-mid-blue/report.json",
+      "artifact": "elite-v1.74\\stinger-mid-blue\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.47368,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 9,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          40,
+          15,
+          275
+        ],
+        "flak": [
+          95,
+          40,
+          0,
+          220
+        ],
+        "grenade": [
+          90,
+          40,
+          50,
+          230
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.75",
+    "sha256": "3AC1EF48D8AD00FE77F5F24EC2C9406D859CC4FF94CADDE225135C8C8F8C32DD",
+    "revision": "Final revision: ten-shot Stinger, 91% core rate and expanded splash",
+    "source": {
+      "receipt": "elite-v1.75-stinger10/report.json",
+      "artifact": "elite-v1.75-stinger10\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.8
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": false,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.76",
+    "sha256": "936BF90943CC430C46F496B23954908AC8C1915BEA2864CF2502040551A0640A",
+    "revision": "Confirmed enemy damage gates combo notices",
+    "source": {
+      "receipt": "elite-v1.76/report.json",
+      "artifact": "elite-v1.76\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.8
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.77",
+    "sha256": "5CA24D1409646B5D063D753C1996F4CEC80BA613D43BF0A8C36A60519E3525B8",
+    "revision": "Sniper and Lightning trace half-size 10 UU",
+    "source": {
+      "receipt": "elite-v1.77/report.json",
+      "artifact": "elite-v1.77\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.8
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false
+    }
+  },
+  {
+    "version": "1.78",
+    "sha256": "5FC0F19E125E09E7A8D915768F0FA3B7FBAF5867F21565A592D31A4304E15DF4",
+    "revision": "Loaded rocket switches preserve firing deadlines",
+    "source": {
+      "receipt": "elite-v1.78/report.json",
+      "artifact": "elite-v1.78\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": false,
+        "start": 1050,
+        "end": 1575,
+        "interval": 0.8
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true
+    }
+  },
+  {
+    "version": "1.79",
+    "sha256": "F44C08D742757DCB5FCF58B932A31ED2C9F4A959EFDBAA628AC0DB74BA84AB12",
+    "revision": "Final revision: native Flak acceptance and linear 700â€“1,400 UU falloff",
+    "source": {
+      "receipt": "elite-v1.79-flak-linear1-2/report.json",
+      "artifact": "elite-v1.79-flak-linear1-2\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": true,
+        "start": 700,
+        "end": 1400,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true
+    }
+  },
+  {
+    "version": "1.8",
+    "sha256": "BC2890DD069CCB9C985C3655AF844143D858663300B8ECA8F6E30A228B5AE18C",
+    "revision": "Latest: corrected attack interactions; linear Flak 875â€“1,750 UU",
+    "source": {
+      "receipt": "elite-v1.8/flak-linear125-25/report.json",
+      "artifact": "elite-v1.8\\flak-linear125-25\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true
+    }
+  }
+]

@@ -5,7 +5,7 @@
       "id": "shock",
       "name": "Shock Rifle",
       "tag": "Movement rewards",
-      "summary": "More reward for impressive combos that catch targets near the blast edge.",
+      "summary": "Combos use a 50–210 raw damage curve, 390-UU outer radius and movement bonuses.",
       "rows": [
         {
           "label": "Weapon raise time",
@@ -23,27 +23,70 @@
           "label": "Foreign-core feedback",
           "b19": "No Anticombo notice",
           "elite": "Anticombo!",
-          "note": "A foreign core is another player’s shock ball. Detonating one gives no movement damage bonus."
+          "note": "Foreign cores receive no movement bonus."
+        },
+        {
+          "label": "Combo raw damage / blast radii",
+          "b19": "40–210 · 77/390 UU",
+          "elite": "50–210 · 77/390 UU",
+          "note": "Before movement bonuses and any tapered base boost."
+        },
+        {
+          "label": "Combo falloff exponent",
+          "b19": "1.5",
+          "elite": "1.5",
+          "note": "Applied between the inner and outer radii."
+        },
+        {
+          "label": "Base combo bonus",
+          "b19": "None",
+          "elite": "None",
+          "note": "No separate base boost."
+        },
+        {
+          "label": "Core firing interval",
+          "b19": "0.45 s",
+          "elite": "0.49451 s",
+          "note": "91% of B19 fire rate."
+        },
+        {
+          "label": "Refire switching multiplier",
+          "b19": "0.08",
+          "elite": "0.15",
+          "note": "Dimensionless multiplier used by firing-state switching."
+        },
+        {
+          "label": "Own-core notice eligibility",
+          "b19": "Native awards",
+          "elite": "Confirmed enemy health/armor loss or credited kill",
+          "note": "The v1.76 revision changed feedback eligibility, not damage."
+        },
+        {
+          "label": "Foreign-core kill feed",
+          "b19": "Native combo label",
+          "elite": "Anticombo label and Denied voice",
+          "note": "Final v1.67 restores normal switching and adds the dedicated kill-feed label."
         },
         {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "If you know B19, beam damage and beam firing interval are familiar: 45 damage and 0.71 seconds. Shock balls travel 9% slower and fire at 91% of B19’s rate, so allow a little more time for them to reach your target.",
-        "Both combo blasts reach 390 UU and deal 210 damage near the center. At the outer edge, B19 falls to 40 damage and Elite10K falls to 50. The extra edge damage does not extend the blast radius.",
-        "Detonate your own core while moving across its path to earn a movement bonus:Nice +10, Amazing +15 or Spectacular +20. Damage is capped at 210, so a close-center hit may show a smaller bonus or +0.",
-        "Movement score 8 earns Nice, 20 earns Amazing and 32 earns Spectacular. The score uses your angle to the core’s flight path, your sideways speed and your distance from the core; being airborne alone adds no extra multiplier.",
-        "Yellow combo text means confirmed enemy health or armor damage without a kill. Red means a credited kill. In warmup, a qualifying combo that misses can show a blue practice preview; during a match, a miss shows no notice. Self/team-only damage does not qualify.",
-        "Detonating another player’s core is an Anticombo. It gets no movement damage bonus. The notice is yellow and silent without a kill; a credited kill uses red text, the Denied voice and an Anticombo kill-feed label.",
-        "The+DMG label shows the extra movement damage actually applied, rather than the total blast damage. Multiple targets can produce a list such as +20,+8,+0 DMG.",
-        "When one beam detonates several cores, the main notice favors Spectacular, then Amazing, then Nice, then Anticombo. Use the calculator for the detailed damage curve."
+        "Raw combo damage ranges from 50 to 210 within 390 UU, with full damage inside 77 UU and falloff exponent 1.5.",
+        "No separate base boost is applied.",
+        "Own-core movement adds Nice +10, Amazing +15 or Spectacular +20, with a 210 cap. A foreign core receives no movement bonus.",
+        "Core interval 0.49451 s; switching multiplier 0.15.",
+        "Own-core notices use confirmed enemy health/armor loss. Credited kills show red, confirmed damage yellow, and live no-damage notices are suppressed.",
+        "Foreign-core notice: Anticombo!."
       ],
       "lab": "shock"
     },
@@ -51,13 +94,13 @@
       "id": "flak",
       "name": "Flak Cannon",
       "tag": "Linear distance falloff",
-      "summary": "Native shard hit acceptance, a 0.90-second primary interval and linear damage loss with travelled distance.",
+      "summary": "0.90-second primary fire with linear shard damage by travelled distance.",
       "rows": [
         {
           "label": "Primary firing interval",
           "b19": "0.80 s",
           "elite": "0.90 s",
-          "note": "Previously 0.80 s in v1.78; secondary remains 0.97 s."
+          "note": "Secondary remains 0.97 s."
         },
         {
           "label": "Primary shard speed",
@@ -75,7 +118,7 @@
           "label": "Primary damage model",
           "b19": "Damage decreases with flight time; central-hit bonus",
           "elite": "Linear travel-distance falloff",
-          "note": "Replaces the fixed bands used in v1.78."
+          "note": "Total travelled path includes bounces."
         },
         {
           "label": "Bounce damage multiplier",
@@ -129,7 +172,13 @@
           "label": "Ball splash damage / blast radii",
           "b19": "95 max / 20 min · 0–300 UU",
           "elite": "95 max / 35 min · 0–240 UU",
-          "note": "The center damage is unchanged. Elite10K has a smaller blast with a higher minimum damage at its edge. These values describe the explosion; ball-spawned shards are separate."
+          "note": "Native linear splash."
+        },
+        {
+          "label": "Primary range damage",
+          "b19": "Native behavior",
+          "elite": "Linear 10/20 → 4/8 over 875–1750 UU",
+          "note": "Ordinary / central shard."
         },
         {
           "label": "Primary hit acceptance",
@@ -138,29 +187,42 @@
           "note": ""
         },
         {
-          "label": "Primary range damage",
-          "b19": "Native behavior",
-          "elite": "Linear 10/20 → 4/8 over 875–1,750 UU",
-          "note": "Ordinary / central shard. Full damage through the start distance; minimum at and beyond the end. Total travelled path includes bounces."
+          "label": "Explosion handling",
+          "b19": "Native explosion",
+          "elite": "Native explosion path",
+          "note": "Legacy projectile cutoff is disabled."
+        },
+        {
+          "label": "Flight smoke opacity",
+          "b19": "Original effect",
+          "elite": "0.2 · half of earlier opacity",
+          "note": "The visible M_Rocket_trail_01 layer; all emitters retained."
+        },
+        {
+          "label": "Explosion effect asset",
+          "b19": "Original effect",
+          "elite": "Restored explosion particle asset",
+          "note": "v1.58 restores the packaged effect; v1.62 temporarily uses an earlier build base."
         },
         {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "Primary fires every 0.90 game seconds, compared with 0.80 in B19 and v1.78. Each shot still has eight ordinary shards and one central shard, with double damage for the central shard.",
-        "Full 10/20 damage through 875 UU; linear falloff to 4/8 at 1,750 UU, then constant. These are the release’s nominal 1.25/2.5-dodge thresholds.",
-        "B19’s shards lose damage with flight time and can receive a central-hit bonus. The explorer shows their starting damage potential; it does not model all of B19’s flight-time and hit-position effects.",
-        "The secondary ball has a smaller collision radius: 13 UU versus 30 in B19. Its initial and maximum speeds are 92.5% of B19’s, so it travels slightly slower.",
-        "Ball splash still peaks at 95 damage. B19 fades to 20 at 300 UU; Elite10K fades to 35 at 240 UU. Elite10K reaches less far, with a stronger edge hit. The ball also releases separate 5-damage shards.",
-        "An orange rim helps the ball stand out in flight. Its yellow trail remains visible, with lighter smoke.",
-        "The extra trajectory-to-capsule body rejection is removed. Native hit checks remain; projectile geometry, spread and assist radii are unchanged by that fix."
+        "Primary interval 0.90 s, secondary 0.97 s. Each shot contains eight ordinary shards and one central shard; the central shard deals double damage.",
+        "Full 10/20 damage through 875 UU, then linear falloff to 4/8 at 1750 UU. Minimum damage remains constant farther away.",
+        "The additional trajectory-to-capsule body filter has been removed; native collision checks remain.",
+        "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,006.25/6,364 UU/s. Ball-spawned shards are separate from the primary model.",
+        "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers."
       ],
       "lab": "flak"
     },
@@ -168,7 +230,7 @@
       "id": "rocket",
       "name": "Rocket Launcher",
       "tag": "Volley pacing",
-      "summary": "Slower loaded-volley recovery than B19, smaller splash radius and a stronger minimum edge hit.",
+      "summary": "Loaded volleys use a 1.05-second base refire interval with native splash.",
       "rows": [
         {
           "label": "Primary interval",
@@ -227,8 +289,8 @@
         {
           "label": "Splash damage / blast radii",
           "b19": "100 max / 20 min · 15–360 UU",
-          "elite": "100 max / 35 min · 15–296.667 UU",
-          "note": "Full damage inside the inner radius, then a straight-line decrease to the minimum at the outer edge. Zero beyond the outer radius. Applies to normal, seeking and loaded rockets, plus Rocket Launcher grenades."
+          "elite": "100 max / 35 min · 15–296.66666 UU",
+          "note": "Native linear splash."
         },
         {
           "label": "Cooldown bar",
@@ -237,23 +299,48 @@
           "note": "The crosshair and loaded-rocket indicators remain visible."
         },
         {
+          "label": "Explosion handling",
+          "b19": "Native explosion",
+          "elite": "Native explosion path",
+          "note": "Legacy projectile cutoff is disabled."
+        },
+        {
+          "label": "Loaded volley switching deadline",
+          "b19": "Original firing state",
+          "elite": "Queued switch retains firing deadline after the loaded count reaches zero",
+          "note": "The v1.78 change fixes cooldown retention during queued switches."
+        },
+        {
+          "label": "Projectile shell design",
+          "b19": "Original projectile art",
+          "elite": "Final merged shell and native rear blend",
+          "note": "Visual-only revisions."
+        },
+        {
+          "label": "Unused material cleanup",
+          "b19": "Original package contents",
+          "elite": "Obsolete runtime overrides removed; appearance preserved",
+          "note": "v1.69 removes unused material data without changing gameplay or the approved appearance."
+        },
+        {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "Primary rockets keep the 1.05-second firing interval. Loaded secondary volleys use 1.05 seconds after the last rocket, compared with B19’s 0.74 seconds; one-, two- and three-rocket volleys use the same interval. Time spent loading is separate.",
+        "Loaded volleys of one, two or three rockets use the same 1.05-second base refire interval. Loading time and native scheduling are separate.",
         "Normal rockets launch at 2,475 UU/s versus B19’s 2,700: 91.7% of the original speed (8.3% slower). Seeking rockets launch at 1,800 versus 2,000 UU/s and have a 2,160 versus 2,400 UU/s cap: 90% in both cases. Rocket Launcher grenade speeds remain 100% of B19.",
-        "Rocket splash peaks at 100 damage in both versions. B19 falls to 20 at 360 UU; Elite10K falls to 35 at about 296.667 UU. The full-damage core is 15 UU in both. Elite10K’s blast is smaller, but its edge hits harder.",
-        "Splash damage decreases in a straight line between the inner and outer radii. Beyond the outer radius it is zero. Armor, damage amplification, collision and line of sight can change the health actually lost.",
-        "You can queue a weapon switch while firing loaded rockets or grenades. It takes effect once the loaded volley has emptied. Switching away and back keeps the remaining shot cooldown.",
-        "If a fire-rate modifier slows you during that cooldown, switching back can keep you locked out for the slower interval. Switching does not give an early next shot.",
-        "Loading rings show progress and how many rockets are ready. A bright red center marks a loaded rocket; a brief pulse marks completion. The rocket’s red panels and metal collar help it stand out to other players."
+        "Loading rings show progress and how many rockets are ready. A bright red center marks a loaded rocket; a brief pulse marks completion. The rocket’s red panels and metal collar help it stand out to other players.",
+        "Native splash: 100 max, 35 minimum, 15/296.66666 UU inner/outer radii. Values are before armor and other modifiers.",
+        "Queued switching waits for the loaded count to reach zero and preserves the existing firing deadline."
       ],
       "lab": "rocket"
     },
@@ -261,7 +348,7 @@
       "id": "stinger",
       "name": "Stinger",
       "tag": "Burst reserve",
-      "summary": "Ten opening secondary shots instead of twelve, with recovery that carries across weapon switches.",
+      "summary": "10 opening secondary shots with 0.5-second full-burst recovery.",
       "rows": [
         {
           "label": "Primary damage",
@@ -291,13 +378,13 @@
           "label": "Opening potential / all hits",
           "b19": "120 damage",
           "elite": "100 damage",
-          "note": "Before armor and other modifiers."
+          "note": ""
         },
         {
           "label": "Opening first-to-last shot span",
           "b19": "≈0.379 s",
           "elite": "≈0.379 s",
-          "note": "Time from first to last opening shot: 12 shots in B19 and 10 in Elite10K. Frame timing may shift actual shot times."
+          "note": ""
         },
         {
           "label": "Sustained secondary interval",
@@ -315,7 +402,7 @@
           "label": "Recovery after a full opening burst",
           "b19": "B19 firing cycle; no separate reserve cooldown",
           "elite": "0.5 s recovery",
-          "note": "Shorter bursts need less recovery. Switching does not clear the cooldown."
+          "note": ""
         },
         {
           "label": "Weapon raise / lower time",
@@ -324,21 +411,34 @@
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         },
         {
+          "label": "Primary sound asset",
+          "b19": "Original sound",
+          "elite": "Restored primary sound cue",
+          "note": "v1.58 restores the previously removed cue; v1.62 temporarily uses an earlier build base."
+        },
+        {
+          "label": "Cooldown fill color",
+          "b19": "Original presentation",
+          "elite": "Mid-blue #15B4FF",
+          "note": "Optional HUD palette can override weapon presentation."
+        },
+        {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "Primary damage is 11 instead of B19’s 12, at the same firing interval. Secondary projectiles still deal 10 each.",
-        "The accelerating secondary opening contains ten shots instead of B19’s twelve: 100 potential damage instead of 120 if every shot hits. Both configured openings span about 0.379 seconds from first to last shot.",
-        "Keep holding secondary to continue at the sustained 0.148-second interval. Ten is the opening reserve, rather than an automatic stopping point.",
-        "A full opening burst takes 0.5 game seconds to recover. Releasing early needs less recovery; switching weapons does not erase it, and primary fire pauses recovery. This limits repeated rapid openings.",
-        "Blue effects make the Stinger easier to recognize. Secondary hits do not push living players."
+        "Primary damage is 11 at 0.088 s per shot. Secondary base damage is 10 with a sustained 0.148-second interval.",
+        "The opening sequence has 10 shots over 0.379 seconds from first to last.",
+        "A full opening burst incurs 0.5 game seconds of reserve recovery. Shorter bursts have smaller recovery budgets; switching does not clear the debt."
       ],
       "lab": "stinger"
     },
@@ -398,12 +498,15 @@
         },
         {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
@@ -474,12 +577,15 @@
         },
         {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
@@ -493,7 +599,7 @@
       "id": "sniper",
       "name": "Sniper Rifle",
       "tag": "Less push",
-      "summary": "The same body and headshot damage, with a narrower trace and no shot momentum.",
+      "summary": "70 body / 140 headshot damage, 10-UU trace half-size and no shot momentum.",
       "rows": [
         {
           "label": "Normal fire model",
@@ -534,8 +640,8 @@
         {
           "label": "Trace half-size",
           "b19": "15 UU",
-          "elite": "10 UU · 66.7% of B19 Sniper",
-          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
+          "elite": "10 UU",
+          "note": "Added allowance per side. Player capsule size remains separate.",
           "stock": "0 UU · line trace",
           "utplus": "0 UU · line trace",
           "ncp": "0 UU · line trace"
@@ -543,8 +649,8 @@
         {
           "label": "Full normal-shot thickness",
           "b19": "30 UU",
-          "elite": "20 UU · 66.7% of B19 Sniper",
-          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness.",
+          "elite": "20 UU added",
+          "note": "",
           "stock": "0 UU added · line trace",
           "utplus": "0 UU added · line trace",
           "ncp": "0 UU added · line trace"
@@ -552,8 +658,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "110 UU · 137.5% of Stock",
-          "elite": "100 UU · 125% of line-trace example; 90.9% of B19 Sniper",
-          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width.",
+          "elite": "100 UU · 125% of line trace",
+          "note": "",
           "stock": "80 UU · 100% of Stock",
           "utplus": "80 UU · 100% of Stock",
           "ncp": "80 UU · 100% of Stock"
@@ -595,20 +701,38 @@
           "note": "Separate head-sphere test. These multipliers do not change the body capsule shown below. Movement categories follow the weapon’s headshot-scale logic."
         },
         {
+          "label": "Sniper overlay asset",
+          "b19": "Original overlay",
+          "stock": "Original overlay",
+          "utplus": "Original overlay",
+          "ncp": "Original overlay",
+          "elite": "Restored overlay asset",
+          "note": "v1.58 restores the packaged overlay."
+        },
+        {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
+          "stock": "Native behavior",
+          "utplus": "Native behavior",
+          "ncp": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "stock": "Original colors",
+          "utplus": "Original colors",
+          "ncp": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "Body/headshot damage remains 70/140 and the firing interval stays 1.36 seconds.",
-        "The normal shot trace half-width is 10 UU instead of B19’s 15 UU, requiring tighter aim. Hits no longer apply the 20, 000 shot momentum from B19. Server weapon settings can override defaults.",
-        "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
-        "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result."
+        "Normal hitscan uses 10 UU of added allowance on each side of the aim line. Body/headshot damage is 70/140; firing interval is 1.36 s.",
+        "An example 80-UU target has 100 UU effective body-hit width: 80 + 2 × 10. This is 90.9090909090909% of B19 Sniper’s 110-UU example.",
+        "The 20-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
+        "B19 Sniper uses 15-UU trace half-size. Stock, UT+ and NCP Sniper use zero added thickness."
       ],
       "lab": "sniper",
       "comparisonColumns": [
@@ -639,7 +763,7 @@
       "id": "lightning",
       "name": "Lightning Rifle",
       "tag": "Hitscan replacement",
-      "summary": "A custom map-slot replacement with an instant normal shot and retained charged behavior.",
+      "summary": "70 body / 140 headshot damage, 10-UU trace half-size and no shot momentum.",
       "rows": [
         {
           "label": "Map weapon replacement",
@@ -689,8 +813,8 @@
         {
           "label": "Full normal-shot thickness",
           "b19": "Projectile primary; no hitscan width",
-          "elite": "20 UU · 66.7% of B19 Sniper",
-          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness.",
+          "elite": "20 UU added",
+          "note": "",
           "stock": "Projectile; separate collision rules",
           "utplus": "0 UU added · line trace",
           "ncp": "0 UU added · line trace"
@@ -698,8 +822,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "Projectile; separate collision rules",
-          "elite": "100 UU · 125% of line-trace example; 90.9% of B19 Sniper",
-          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width.",
+          "elite": "100 UU · 125% of line trace",
+          "note": "",
           "stock": "Projectile; separate collision rules",
           "utplus": "80 UU · 100% of line-trace example",
           "ncp": "80 UU · 100% of line-trace example"
@@ -741,22 +865,38 @@
           "note": "Stock/B19 primary is a projectile, but its charged shot is hitscan. The 10K charged trace is 200% of Stock’s thickness; for an 80-UU target, effective widths are 100 versus 90 UU (111.1%)."
         },
         {
+          "label": "Trace half-size",
+          "b19": "Native behavior",
+          "stock": "Native behavior",
+          "utplus": "Native behavior",
+          "ncp": "Native behavior",
+          "elite": "10 UU",
+          "note": "Added allowance per side. Player capsule size remains separate."
+        },
+        {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
+          "stock": "Native behavior",
+          "utplus": "Native behavior",
+          "ncp": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "stock": "Original colors",
+          "utplus": "Original colors",
+          "ncp": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "B19 leaves this map slot as the stock Lightning weapon. Elite10K replaces it with a rifle whose normal shot is instant hitscan: 70 damage, 1.36-second interval and 10-UU trace half-width.",
-        "The charged shot retains 85 body/140 headshot damage, chaining behavior and a 1.66-second refire interval. The B19 column describes the stock map weapon for this slot.",
-        "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
-        "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result.",
-        "These trace dimensions describe normal fire only. B19 Lightning’s projectile and the charged shot are separate hit-detection cases; the Sniper percentages do not imply an equivalent B19 Lightning projectile size.",
-        "UT+ and NCP Lightning use a 70-damage hitscan normal shot with zero added trace thickness and a 1.30-second interval. Their alternate fire zooms; it does not provide Stock/Elite10K’s charged and chaining shot. Their normal headshot damage is 125, with a 1.10 UT+ or 0.95 NCP head-sphere multiplier."
+        "Normal hitscan uses 10 UU of added allowance on each side of the aim line. Body/headshot damage is 70/140; firing interval is 1.36 s.",
+        "An example 80-UU target has 100 UU effective body-hit width: 80 + 2 × 10. This is 90.9090909090909% of B19 Sniper’s 110-UU example.",
+        "The 20-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
+        "Normal and charged initial Lightning shots share the selected trace setting; charged chaining is subsequent behavior. Stock/B19 normal Lightning is a projectile."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -832,13 +972,22 @@
           "note": "Visible shield mesh matches the 15% larger blocking coverage. Shield depth is unchanged."
         },
         {
+          "label": "Halo color join",
+          "b19": "Original halo",
+          "elite": "Feathered red/gold join",
+          "note": "Weapon-owned HUD material; gameplay unchanged."
+        },
+        {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
@@ -898,12 +1047,15 @@
         },
         {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
@@ -916,7 +1068,7 @@
       "id": "grenade",
       "name": "Grenade Launcher",
       "tag": "Native splash",
-      "summary": "B19 firing cadence, with a smaller blast and 35 minimum edge damage.",
+      "summary": "35 minimum native splash damage with 248-UU outer radius.",
       "rows": [
         {
           "label": "Primary / secondary intervals",
@@ -928,7 +1080,7 @@
           "label": "Splash damage / blast radii",
           "b19": "90 max / 20 min · 50–300 UU",
           "elite": "90 max / 35 min · 50–248 UU",
-          "note": "Both regular and sticky grenades deal full damage through 50 UU, then decrease linearly to the minimum. Elite10K reaches 35 at 248 UU; B19 reaches 20 at 300 UU."
+          "note": "Native linear splash."
         },
         {
           "label": "Weapon raise / lower time",
@@ -937,19 +1089,28 @@
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
         },
         {
+          "label": "Explosion handling",
+          "b19": "Native explosion",
+          "elite": "Native explosion path",
+          "note": "Legacy projectile cutoff is disabled."
+        },
+        {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "Regular and sticky grenades keep B19’s 0.94/1.00-second primary/secondary firing intervals.",
-        "Both versions deal 90 maximum splash damage through 50 UU. B19 falls to 20 at 300 UU; Elite10K falls to 35 at 248 UU. Elite10K trades some reach for a higher minimum edge hit.",
-        "Damage decreases linearly between the inner and outer radii and is zero beyond the outer radius. The explorer shows the raw explosion damage before armor or amplification."
+        "Primary/secondary intervals remain 0.94/1.00 game seconds.",
+        "Native splash: 90 max, 35 minimum, 50/248 UU inner/outer radii. Values are before armor and other modifiers.",
+        "Normal and sticky grenade profiles use the same radial parameters. Cover, armor, amplification and collision can change actual damage."
       ],
       "lab": "grenade"
     },
@@ -967,12 +1128,15 @@
         },
         {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
@@ -1050,12 +1214,9 @@
         },
         {
           "label": "Attack interactions (v1.8 policy)",
-          "stock": "Native per-class behavior",
-          "utplus": "Native per-class behavior",
-          "ncp": "Native per-class behavior",
-          "b19": "Native per-class behavior",
+          "b19": "Native behavior",
           "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
-          "note": "Contact/trace exclusions do not change damage values, geometry or speeds. Combat verification remains pending user testing."
+          "note": ""
         }
       ],
       "notes": [
@@ -1071,7 +1232,7 @@
       "id": "visuals",
       "name": "HUD & readability",
       "tag": "Visual feedback",
-      "summary": "More readable projectiles and clearer information while loading or charging.",
+      "summary": "Weapon-owned effects for this release; optional HUD versioning is separate.",
       "rows": [
         {
           "label": "Rocket loading feedback",
@@ -1132,14 +1293,35 @@
           "b19": "Stock game status",
           "elite": "Native status wording beneath the clock",
           "note": "Appears when the game supplies a status such as Waiting for Host or Overtime. Clock/status spacing adjusts when text is present."
+        },
+        {
+          "label": "Rocket projectile art",
+          "b19": "Native behavior",
+          "elite": "Final merged shell",
+          "note": ""
+        },
+        {
+          "label": "Flak visible smoke opacity",
+          "b19": "Native behavior",
+          "elite": "0.2",
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Native behavior",
+          "elite": "Explicit Elite10K colors restored",
+          "note": ""
+        },
+        {
+          "label": "Switch highlight timing",
+          "b19": "Native behavior",
+          "elite": "Immediate pending-weapon glow",
+          "note": "The final normal-trace v1.6 revision introduces the immediate gate; v1.62 temporarily reverts to its older build base."
         }
       ],
       "notes": [
-        "The weapons supply their own load/charge indicators and projectile effects. Install the separate optional HUD for the full-screen header, vitals, ammo layout, kill feed, mini scoreboard and powerup panels.",
-        "Loaded rocket rings and Hammer icons explain weapon readiness; they do not change firing or charge times.",
-        "Other players’ weapon switches use destination-weapon colors with a brief glow. This helps identify what they are switching to.",
-        "The optional HUD uses antialiased graphics and Ubuntu Mono clocks. DM and team modes have their own headers; the team layout includes your team and personal score.",
-        "Status text keeps the game’s normal capitalization. It appears below the clock only while a status is supplied; the clock returns to its normal placement when the line is empty."
+        "Weapon-owned visual changes follow the selected weapons release.",
+        "The optional full-screen HUD shown elsewhere is companion v1.13, independently released. It is not claimed as the historical HUD shipped alongside this weapons version."
       ],
       "lab": null
     },
@@ -1175,12 +1357,10 @@
         }
       ],
       "notes": [
-        "Joining a server uses that server’s gameplay version. A newer local download does not change an older server’s balance.",
-        "Keep one current Elite10K weapon package installed and avoid duplicate older copies. The weapon filename is Elite10K-WindowsNoEditor.pak; the optional full-screen HUD is a separate package.",
-        "Tables show default settings. Server configuration and other mutators can override them. Times are game seconds, and damage examples exclude armor and amplification.",
-        "Read max/min splash damage as center/edge damage. The inner radius is the full-damage zone; the outer radius is the blast’s limit. Minimum damage applies at the edge of an eligible hit, not outside the blast.",
-        "The comparison uses the original Elite B19 package identified in Sources. Detailed formulas and package hashes are available there and in the combo calculator.",
-        "Version browsing uses the latest completed revision under each version label. Intermediate tuning tests are not separate releases. Latest: corrected interactions; linear Flak, 875–1,750 UU."
+        "Each version represents its final completed normal revision. Diagnostics and superseded experiments are excluded.",
+        "Release: Latest: corrected attack interactions; linear Flak 875â€“1,750 UU.",
+        "The complete release artifact was verified by SHA256: BC2890DD069CCB9C985C3655AF844143D858663300B8ECA8F6E30A228B5AE18C.",
+        "The original Elite B19 reference remains unchanged. Optional HUD and native client DLL releases have separate histories."
       ],
       "lab": null
     }
@@ -1192,5 +1372,68 @@
   "hudVersion": "1.13",
   "hudPackageSha256": "56453F0BA87A77F0A04CFA95452373CB96642D543ACBD83C2594FA29575CA8A7",
   "shockVariantData": "shock-variants.js",
-  "revision": "Latest: corrected interactions; linear Flak, 875–1,750 UU"
+  "revision": "Latest: corrected attack interactions; linear Flak 875â€“1,750 UU",
+  "model": {
+    "combo": {
+      "max": 210,
+      "min": 50,
+      "inner": 77,
+      "outer": 390,
+      "falloff": 1.5,
+      "baseBoost": 0
+    },
+    "trace": 10,
+    "shockInterval": 0.49451,
+    "shockSwitch": 0.15,
+    "stinger": {
+      "shots": 10,
+      "recovery": 0.5,
+      "gaps": [
+        0.2,
+        0.07,
+        0.05,
+        0.03,
+        0.014,
+        0.008,
+        0.004,
+        0.002,
+        0.001
+      ]
+    },
+    "flak": {
+      "linear": true,
+      "start": 875,
+      "end": 1750,
+      "interval": 0.9
+    },
+    "splash": {
+      "legacy": false,
+      "rocket": [
+        100,
+        35,
+        15,
+        296.66666
+      ],
+      "flak": [
+        95,
+        35,
+        0,
+        240
+      ],
+      "grenade": [
+        90,
+        35,
+        50,
+        248
+      ]
+    },
+    "foreignLabel": "Anticombo!",
+    "confirmedNotices": true,
+    "rocketDeadline": true
+  },
+  "releaseSource": {
+    "receipt": "elite-v1.8/flak-linear125-25/report.json",
+    "artifact": "elite-v1.8\\flak-linear125-25\\Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete pak SHA256 and entry integrity"
+  }
 }
