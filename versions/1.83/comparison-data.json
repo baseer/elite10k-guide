@@ -809,7 +809,7 @@
         "The 20-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
         "B19 Sniper uses 15-UU trace half-size. Stock, UT+ and NCP Sniper use zero added thickness.",
         "Headshot radius scales: 1.2 / 1.2 / 1.2 / 1.2 for stopped / slow / aimed / running SHOOTER states. They are independent of headshot damage and the body trace. Final v1.81 uses 1.15× throughout; final v1.82 uses 1.2× throughout.",
-        "The sniper tracer retains the original yellow effect and native fade, identical to v1.82."
+        "The sniper tracer and lingering smoky streak match v1.82: original yellow effect, smoke length, lifetime, opacity and native fade."
       ],
       "lab": "sniper",
       "comparisonColumns": [
@@ -1602,8 +1602,8 @@
     "shreddedAllNine": true
   },
   "releaseSource": {
-    "receipt": "elite-v1.83/sniper-v182-restored/report.json",
-    "artifact": "elite-v1.83\\sniper-v182-restored\\Elite10K-WindowsNoEditor.pak.pending",
+    "receipt": "elite-v1.83/sniper-all-visuals-reverted/report.json",
+    "artifact": "elite-v1.83\\sniper-all-visuals-reverted\\Elite10K-WindowsNoEditor.pak.pending",
     "verification": "Complete pak SHA256 and entry integrity"
   },
   "comboMovement": {

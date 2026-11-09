@@ -2248,8 +2248,8 @@
     "sha256": "73C5A37689DEADF2CBE5F9B351A459E22ED0BC8B6215B0A89AC194CE3D082AF8",
     "revision": "Finished rocket grenade mesh; own behind-view switch glow; original sniper and Flak visuals",
     "source": {
-      "receipt": "elite-v1.83/sniper-v182-restored/report.json",
-      "artifact": "elite-v1.83\\sniper-v182-restored\\Elite10K-WindowsNoEditor.pak.pending",
+      "receipt": "elite-v1.83/sniper-all-visuals-reverted/report.json",
+      "artifact": "elite-v1.83\\sniper-all-visuals-reverted\\Elite10K-WindowsNoEditor.pak.pending",
       "verification": "Complete pak SHA256 and entry integrity"
     },
     "model": {
