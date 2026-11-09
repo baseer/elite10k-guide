@@ -1,10 +1,11 @@
 {
   "passed": true,
-  "cases": 286208,
-  "versions": 26,
+  "cases": 297216,
+  "versions": 27,
   "releaseHashesVerified": true,
   "normalV160RevisionVerified": true,
   "diagnosticLightningV176Excluded": true,
   "headshotScalesVerified": true,
-  "latestV182RevisionVerified": true
+  "latestV182RevisionVerified": true,
+  "latestV183RevisionVerified": true
 }

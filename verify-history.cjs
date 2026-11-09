@@ -1,7 +1,7 @@
 const fs=require('fs'),p=require('path'),vm=require('vm'),assert=require('assert');
 const root=__dirname,box={window:{}};vm.runInNewContext(fs.readFileSync(p.join(root,'versions-data.js'),'utf8'),box);
 const versions=box.window.ELITE_VERSIONS,history=require('./release-history.js');let cases=0;
-assert.equal(Object.keys(versions).length,26);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'1.82');
+assert.equal(Object.keys(versions).length,27);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'1.83');
 for(const [v,d] of Object.entries(versions)){
  const m=d.model,c=m.combo;
  assert.equal(d.weapons.length,12);assert.equal(d.shared.length,3);assert(/^[A-F0-9]{64}$/.test(d.packageSha256));
@@ -30,6 +30,9 @@ assert.deepEqual(versions['1.81'].model.headshots.sniper,[1.15,1.15,1.15,1.15]);
 assert.deepEqual(versions['1.82'].model.headshots.sniper,[1.2,1.2,1.2,1.2]);assert.deepEqual(versions['1.82'].model.headshots.lightning,[1,1,1,1]);
 assert.equal(versions['1.82'].model.flak.start,875);assert.equal(versions['1.82'].model.flak.end,1750);
 assert.equal(versions['1.82'].packageSha256,'33430A395FE449180749C5C5BABFA986C8DC427E2C10C320163E85AD481D972E');
+assert.equal(versions['1.83'].packageSha256,'73C5A37689DEADF2CBE5F9B351A459E22ED0BC8B6215B0A89AC194CE3D082AF8');
+assert.deepEqual(versions['1.83'].model,versions['1.82'].model);
+assert(versions['1.83'].shared.find(x=>x.id==='visuals').rows.some(r=>r.elite==='Visible in behindview 1; hidden in first person'));
 const {bodyGeometry}=require('./rifle-comparison.js');
 for(const allowance of [0,5,7.5,10,15]){
  const g=bodyGeometry(allowance),r=40+allowance;
@@ -40,5 +43,5 @@ for(const allowance of [0,5,7.5,10,15]){
 }
 assert.equal(Math.round(bodyGeometry(10).frontArea),21454);
 assert.equal(Math.round(bodyGeometry(10).surfaceArea),74142);
-console.log('PASS',cases,'release-model cases, 26 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
-fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:26,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true},null,2)+'\n');
+console.log('PASS',cases,'release-model cases, 27 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
+fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:27,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');

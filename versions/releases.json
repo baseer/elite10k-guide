@@ -2242,5 +2242,92 @@
       },
       "shreddedAllNine": true
     }
+  },
+  {
+    "version": "1.83",
+    "sha256": "73C5A37689DEADF2CBE5F9B351A459E22ED0BC8B6215B0A89AC194CE3D082AF8",
+    "revision": "Finished rocket grenade mesh; own behind-view switch glow; original sniper and Flak visuals",
+    "source": {
+      "receipt": "elite-v1.83/sniper-v182-restored/report.json",
+      "artifact": "elite-v1.83\\sniper-v182-restored\\Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256 and entry integrity"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.3125
+      },
+      "shreddedAllNine": true
+    }
   }
 ]
