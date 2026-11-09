@@ -40,3 +40,6 @@
 
 /* Tracks remain square; slider handles regain their circular shape. */
 input[type=range]::-webkit-slider-thumb{border-radius:50%}input[type=range]::-moz-range-thumb{border-radius:50%}#combo-calc input[type=range]::-webkit-slider-thumb{border-radius:50%}#combo-calc input[type=range]::-moz-range-thumb{border-radius:50%}.navbar-menu-options{max-height:300px;overflow-y:auto;overscroll-behavior:contain}
+
+.navbar-menu-options>p{position:sticky;top:0;z-index:1;margin:0 0 6px;padding:6px 9px 9px;background:#211e29;box-shadow:0 -7px 0 #211e29;border-bottom:1px solid var(--line)}
+
