@@ -215,6 +215,18 @@
           "b19": "Original colors",
           "elite": "Explicit Elite10K colors",
           "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Shredded award requirements",
+          "b19": "Native Shredded qualification",
+          "elite": "Earlier native Shredded qualification",
+          "note": "This release predates the all-nine same-victim rule."
+        },
+        {
+          "label": "Shard visual sizing",
+          "b19": "Original shard visuals",
+          "elite": "Original shard visuals",
+          "note": "The dynamic sphere-matching experiment was reverted in final v1.82."
         }
       ],
       "notes": [
@@ -692,15 +704,6 @@
           "ncp": "0.30 / 0.30 s"
         },
         {
-          "label": "Headshot size multiplier · stopped/slow vs moving",
-          "stock": "1.40 / 1.00",
-          "utplus": "1.10 / 1.10",
-          "ncp": "0.95 / 0.95",
-          "b19": "1.65 / 1.15",
-          "elite": "1.65 / 1.15",
-          "note": "Separate head-sphere test. These multipliers do not change the body capsule shown below. Movement categories follow the weapon’s headshot-scale logic."
-        },
-        {
           "label": "Sniper overlay asset",
           "b19": "Original overlay",
           "stock": "Original overlay",
@@ -726,13 +729,77 @@
           "ncp": "Original colors",
           "elite": "Explicit Elite10K colors",
           "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Headshot radius scale · shooter stopped",
+          "b19": "1.65×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.65×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter slow",
+          "b19": "1.65×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.65×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter aimed",
+          "b19": "1.15×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.15×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter running",
+          "b19": "1.15×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.15×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot geometry",
+          "b19": "Separate scaled head-sphere test",
+          "stock": "Separate scaled head-sphere test",
+          "utplus": "Separate scaled head-sphere test",
+          "ncp": "Separate scaled head-sphere test",
+          "elite": "Separate scaled head-sphere test",
+          "note": "Weapon headshot scales do not change the body capsule or add trace thickness."
+        },
+        {
+          "label": "Effective front-on area · 80×216 UU example",
+          "b19": "24,463 UU² · 153.8% of line-trace example",
+          "stock": "15,907 UU² · 100.0% of line-trace example",
+          "utplus": "15,907 UU² · 100.0% of line-trace example",
+          "ncp": "15,907 UU² · 100.0% of line-trace example",
+          "elite": "20,008 UU² · 125.8% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
+        },
+        {
+          "label": "Effective 3D capsule surface · same example",
+          "b19": "85,011 UU² · 156.6% of line-trace example",
+          "stock": "54,287 UU² · 100.0% of line-trace example",
+          "utplus": "54,287 UU² · 100.0% of line-trace example",
+          "ncp": "54,287 UU² · 100.0% of line-trace example",
+          "elite": "68,942 UU² · 127.0% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         }
       ],
       "notes": [
         "Normal hitscan uses 7.5 UU of added allowance on each side of the aim line. Body/headshot damage is 70/140; firing interval is 1.36 s.",
         "An example 80-UU target has 95 UU effective body-hit width: 80 + 2 × 7.5. This is 86.36363636363636% of B19 Sniper’s 110-UU example.",
         "The 15-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
-        "B19 Sniper uses 15-UU trace half-size. Stock, UT+ and NCP Sniper use zero added thickness."
+        "B19 Sniper uses 15-UU trace half-size. Stock, UT+ and NCP Sniper use zero added thickness.",
+        "Headshot radius scales: 1.65 / 1.65 / 1.15 / 1.15 for stopped / slow / aimed / running SHOOTER states. They are independent of headshot damage and the body trace. Final v1.81 uses 1.15× throughout; final v1.82 uses 1.2× throughout."
       ],
       "lab": "sniper",
       "comparisonColumns": [
@@ -763,7 +830,7 @@
       "id": "lightning",
       "name": "Lightning Rifle",
       "tag": "Hitscan replacement",
-      "summary": "70 body / 140 headshot damage, 7.5-UU trace half-size and no shot momentum.",
+      "summary": "70 normal body damage; charged headshots use 1.4× stopped and 1× running head-radius scales.",
       "rows": [
         {
           "label": "Map weapon replacement",
@@ -890,13 +957,94 @@
           "ncp": "Original colors",
           "elite": "Explicit Elite10K colors",
           "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Headshot radius scale · shooter stopped",
+          "b19": "1.4×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.4×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter slow",
+          "b19": "1.4×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.4×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter aimed",
+          "b19": "1×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter running",
+          "b19": "1×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot geometry",
+          "b19": "Separate scaled head-sphere test",
+          "stock": "Separate scaled head-sphere test",
+          "utplus": "Separate scaled head-sphere test",
+          "ncp": "Separate scaled head-sphere test",
+          "elite": "Separate scaled head-sphere test",
+          "note": "Weapon headshot scales do not change the body capsule or add trace thickness."
+        },
+        {
+          "label": "Effective front-on area · 80×216 UU example",
+          "b19": "Charged beam only: 18,602 UU² · 116.9% of line-trace example",
+          "stock": "Charged beam only: 18,602 UU² · 116.9% of line-trace example",
+          "utplus": "15,907 UU² · 100.0% of line-trace example",
+          "ncp": "15,907 UU² · 100.0% of line-trace example",
+          "elite": "20,008 UU² · 125.8% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
+        },
+        {
+          "label": "Effective 3D capsule surface · same example",
+          "b19": "Charged beam only: 63,900 UU² · 117.7% of line-trace example",
+          "stock": "Charged beam only: 63,900 UU² · 117.7% of line-trace example",
+          "utplus": "54,287 UU² · 100.0% of line-trace example",
+          "ncp": "54,287 UU² · 100.0% of line-trace example",
+          "elite": "68,942 UU² · 127.0% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
+        },
+        {
+          "label": "Headshot damage",
+          "b19": "125",
+          "stock": "125",
+          "utplus": "No charged shot",
+          "ncp": "No charged shot",
+          "elite": "140",
+          "note": "Applies to an eligible fully powered headshot, not an uncharged normal hit."
+        },
+        {
+          "label": "Native headshot eligibility",
+          "b19": "Fully powered charged shot",
+          "stock": "Fully powered charged shot",
+          "utplus": "No charged shot; zoom only",
+          "ncp": "No charged shot; zoom only",
+          "elite": "Fully powered (charged) firing state",
+          "note": "Native Lightning CanHeadShot reads the same powered-state flag used for FullPowerBonusDamage."
         }
       ],
       "notes": [
-        "Normal hitscan uses 7.5 UU of added allowance on each side of the aim line. Body/headshot damage is 70/140; firing interval is 1.36 s.",
-        "An example 80-UU target has 95 UU effective body-hit width: 80 + 2 × 7.5. This is 86.36363636363636% of B19 Sniper’s 110-UU example.",
-        "The 15-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
-        "Normal and charged initial Lightning shots share the selected trace setting; charged chaining is subsequent behavior. Stock/B19 normal Lightning is a projectile."
+        "Normal uncharged fire deals 70 body damage. Headshots require the native fully powered firing state; the charged profile is 85 body / 140 headshot damage.",
+        "The headshot radius scales are 1.4 / 1.4 / 1 / 1 for stopped / slow / aimed / running SHOOTER states. Victim movement does not select these multipliers.",
+        "This head-sphere check is separate from the 7.5-UU body trace half-size and its body-hit allowance. It does not resize the player’s body capsule.",
+        "From v1.81, the stationary and slow multipliers match the existing moving values: Lightning is 1.0× in all four states. Stock/B19 normal Lightning is a projectile; their charged beam uses its own native headshot rules."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -927,7 +1075,7 @@
       "id": "hammer",
       "name": "Impact Hammer",
       "tag": "Charge feedback",
-      "summary": "Full charge arrives sooner, with clearer charge and mobility feedback.",
+      "summary": "Full damage charge at 1.6 game seconds, with the existing charge and mobility feedback.",
       "rows": [
         {
           "label": "Full damage charge time",
@@ -939,13 +1087,13 @@
           "label": "Full impact/jump charge fraction",
           "b19": "25%",
           "elite": "31.25%",
-          "note": "Both correspond to 0.50 seconds of charge."
+          "note": "The fraction is unchanged; its time is derived from this release’s full-charge duration."
         },
         {
           "label": "Full impact/jump charge time",
           "b19": "0.50 s",
-          "elite": "0.50 s",
-          "note": ""
+          "elite": "0.5 s",
+          "note": "Full-charge time × full-impact charge fraction."
         },
         {
           "label": "Stored primary hit damage",
@@ -991,9 +1139,9 @@
         }
       ],
       "notes": [
-        "Full damage charge takes 1.60 seconds instead of B19’s 2.00. The impact/jump-ready point still arrives at 0.50 seconds, so the faster damage charge does not make hammer jumps ready earlier.",
-        "Secondary refire is 0.66 seconds instead of 0.88, and shield blocking is 15% wider and taller. Shield depth is unchanged.",
-        "The charge arc and jump/damage icons show readiness. The halo blends smoothly between gold and red."
+        "Full damage charge takes 1.6 game seconds; B19 takes 2.00 seconds.",
+        "The full impact/jump fraction remains 31.25% of full charge: 0.5 game seconds at the selected release’s charge time.",
+        "The weapon-owned charge HUD reads the native full-charge duration and follows this timing."
       ],
       "lab": "hammer"
     },
@@ -1428,7 +1576,26 @@
     },
     "foreignLabel": "Anticombo!",
     "confirmedNotices": false,
-    "rocketDeadline": false
+    "rocketDeadline": false,
+    "headshots": {
+      "sniper": [
+        1.65,
+        1.65,
+        1.15,
+        1.15
+      ],
+      "lightning": [
+        1.4,
+        1.4,
+        1,
+        1
+      ]
+    },
+    "hammer": {
+      "full": 1.6,
+      "impactFraction": 0.3125
+    },
+    "shreddedAllNine": false
   },
   "releaseSource": {
     "receipt": "elite-v1.71/weapon-icon-colors/report.json",
