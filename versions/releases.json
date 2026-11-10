@@ -1898,7 +1898,7 @@
   {
     "version": "1.79",
     "sha256": "F44C08D742757DCB5FCF58B932A31ED2C9F4A959EFDBAA628AC0DB74BA84AB12",
-    "revision": "Final revision: native Flak acceptance and linear 700â€“1,400 UU falloff",
+    "revision": "Final revision: native Flak acceptance and linear 700Ã¢â‚¬â€œ1,400 UU falloff",
     "source": {
       "receipt": "elite-v1.79-flak-linear1-2/report.json",
       "artifact": "elite-v1.79-flak-linear1-2\\Elite10K-WindowsNoEditor.pak.pending",
@@ -1985,7 +1985,7 @@
   {
     "version": "1.8",
     "sha256": "BC2890DD069CCB9C985C3655AF844143D858663300B8ECA8F6E30A228B5AE18C",
-    "revision": "Corrected attack interactions; linear Flak 875â€“1,750 UU",
+    "revision": "Corrected attack interactions; linear Flak 875Ã¢â‚¬â€œ1,750 UU",
     "source": {
       "receipt": "elite-v1.8/flak-linear125-25/report.json",
       "artifact": "elite-v1.8\\flak-linear125-25\\Elite10K-WindowsNoEditor.pak.pending",
@@ -2328,6 +2328,194 @@
         "impactFraction": 0.3125
       },
       "shreddedAllNine": true
+    }
+  },
+  {
+    "version": "1.84",
+    "sha256": "FF29919BD77A1E396571F0EB0075A49D5889C53A1B97C6FA98A0EF79661A511C",
+    "revision": "Shredded: central shard plus seven outer shards on one live victim",
+    "source": {
+      "receipt": "elite-v1.84/report.json",
+      "artifact": "elite-v1.84/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256; build and deployment verification"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.3125,
+        "shieldLifetime": 0.5
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "centralRequired": true,
+        "outerRequired": 7,
+        "liveHitsOnly": true,
+        "finishWindow": 0.05
+      }
+    }
+  },
+  {
+    "version": "1.85",
+    "sha256": "E316EC611DC815693E95E298BCF9EEF6D0D9DFCF27B1C093EE4A62328E428C0B",
+    "revision": "Centered rocket spin, single-loaded-rocket HUD reset and 0.75-second Hammer shield",
+    "source": {
+      "receipt": "elite-v1.85/hammer-alt075/report.json",
+      "artifact": "elite-v1.85/hammer-alt075/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete pak SHA256; build and deployment verification"
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ]
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.3125,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "centralRequired": true,
+        "outerRequired": 7,
+        "liveHitsOnly": true,
+        "finishWindow": 0.05
+      }
     }
   }
 ]
