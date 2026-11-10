@@ -5,7 +5,7 @@
       "id": "shock",
       "name": "Shock Rifle",
       "tag": "Movement rewards",
-      "summary": "Combos use a 50â€“210 raw damage curve, 390-UU outer radius and movement bonuses.",
+      "summary": "Combos use a 50–210 raw damage curve, 390-UU outer radius and movement bonuses.",
       "rows": [
         {
           "label": "Weapon raise time",
@@ -27,8 +27,8 @@
         },
         {
           "label": "Combo raw damage / blast radii",
-          "b19": "40â€“210 Â· 77/390 UU",
-          "elite": "50â€“210 Â· 77/390 UU",
+          "b19": "40–210 · 77/390 UU",
+          "elite": "50–210 · 77/390 UU",
           "note": "Before movement bonuses and any tapered base boost."
         },
         {
@@ -70,7 +70,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -104,8 +104,8 @@
         },
         {
           "label": "Primary shard speed",
-          "b19": "â‰ˆ18.67 dodge lengths/s (13,000 UU/s)",
-          "elite": "â‰ˆ18.67 dodge lengths/s (13,000 UU/s)",
+          "b19": "≈18.67 dodge lengths/s (13,000 UU/s)",
+          "elite": "≈18.67 dodge lengths/s (13,000 UU/s)",
           "note": "Same projectile speed as B19."
         },
         {
@@ -122,9 +122,9 @@
         },
         {
           "label": "Bounce damage multiplier",
-          "b19": "0.65Ã—",
-          "elite": "1Ã—",
-          "note": "Total shard travel includes bouncesâ€”not just your current distance from the target."
+          "b19": "0.65×",
+          "elite": "1×",
+          "note": "Total shard travel includes bounces—not just your current distance from the target."
         },
         {
           "label": "Shard hit momentum",
@@ -140,13 +140,13 @@
         },
         {
           "label": "Ball initial speed",
-          "b19": "â‰ˆ4.67 dodge lengths/s (3,250 UU/s)",
+          "b19": "≈4.67 dodge lengths/s (3,250 UU/s)",
           "elite": "3,006.25 UU/s (92.5% of B19)",
           "note": "92.5% of the corresponding authoritative B19 projectile speed."
         },
         {
           "label": "Ball maximum speed",
-          "b19": "â‰ˆ9.88 dodge lengths/s (6,880 UU/s)",
+          "b19": "≈9.88 dodge lengths/s (6,880 UU/s)",
           "elite": "6,364 UU/s (92.5% of B19)",
           "note": "92.5% of the corresponding authoritative B19 projectile speed."
         },
@@ -170,14 +170,14 @@
         },
         {
           "label": "Ball splash damage / blast radii",
-          "b19": "95 max / 20 min Â· 0â€“300 UU",
-          "elite": "95 max / 35 min Â· 0â€“240 UU",
+          "b19": "95 max / 20 min · 0–300 UU",
+          "elite": "95 max / 35 min · 0–240 UU",
           "note": "Native linear splash."
         },
         {
           "label": "Primary range damage",
           "b19": "Native behavior",
-          "elite": "Linear 10/20 â†’ 4/8 over 875â€“1750 UU",
+          "elite": "Linear 10/20 → 4/8 over 875–1750 UU",
           "note": "Ordinary / central shard."
         },
         {
@@ -195,7 +195,7 @@
         {
           "label": "Flight smoke opacity",
           "b19": "Original effect",
-          "elite": "0.2 Â· half of earlier opacity",
+          "elite": "0.2 · half of earlier opacity",
           "note": "The visible M_Rocket_trail_01 layer; all emitters retained."
         },
         {
@@ -207,7 +207,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -279,19 +279,19 @@
         {
           "label": "Normal rocket initial / maximum speed",
           "b19": "2,700 / 2,700 UU/s",
-          "elite": "2,475 / 2,475 UU/s Â· 91.7% of B19",
+          "elite": "2,475 / 2,475 UU/s · 91.7% of B19",
           "note": "Initial speed is launch speed; maximum speed is the configured speed cap. Both values are 8.3% lower in Elite10K. Normal and loaded non-seeking rockets use this profile."
         },
         {
           "label": "Seeking initial / maximum speed",
           "b19": "2,000 / 2,400 UU/s",
-          "elite": "1,800 / 2,160 UU/s Â· 90% of B19",
+          "elite": "1,800 / 2,160 UU/s · 90% of B19",
           "note": "Both launch speed and maximum speed are 10% lower than B19."
         },
         {
           "label": "Grenade initial / maximum speed",
           "b19": "1,900 / 3,000 UU/s",
-          "elite": "1,900 / 3,000 UU/s Â· 100% of B19",
+          "elite": "1,900 / 3,000 UU/s · 100% of B19",
           "note": "Launch speed and maximum speed are unchanged. These are Rocket Launcher grenades."
         },
         {
@@ -302,8 +302,8 @@
         },
         {
           "label": "Splash damage / blast radii",
-          "b19": "100 max / 20 min Â· 15â€“360 UU",
-          "elite": "100 max / 35 min Â· 15â€“296.66666 UU",
+          "b19": "100 max / 20 min · 15–360 UU",
+          "elite": "100 max / 35 min · 15–296.66666 UU",
           "note": "Native linear splash."
         },
         {
@@ -339,7 +339,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -357,8 +357,8 @@
       ],
       "notes": [
         "Loaded volleys of one, two or three rockets use the same 1.05-second base refire interval. Loading time and native scheduling are separate.",
-        "Normal rockets launch at 2,475 UU/s versus B19â€™s 2,700: 91.7% of the original speed (8.3% slower). Seeking rockets launch at 1,800 versus 2,000 UU/s and have a 2,160 versus 2,400 UU/s cap: 90% in both cases. Rocket Launcher grenade speeds remain 100% of B19.",
-        "Loading rings show progress and how many rockets are ready. A bright red center marks a loaded rocket; a brief pulse marks completion. The rocketâ€™s red panels and metal collar help it stand out to other players.",
+        "Normal rockets launch at 2,475 UU/s versus B19’s 2,700: 91.7% of the original speed (8.3% slower). Seeking rockets launch at 1,800 versus 2,000 UU/s and have a 2,160 versus 2,400 UU/s cap: 90% in both cases. Rocket Launcher grenade speeds remain 100% of B19.",
+        "Loading rings show progress and how many rockets are ready. A bright red center marks a loaded rocket; a brief pulse marks completion. The rocket’s red panels and metal collar help it stand out to other players.",
         "Native splash: 100 max, 35 minimum, 15/296.66666 UU inner/outer radii. Values are before armor and other modifiers.",
         "Queued switching waits for the loaded count to reach zero and preserves the existing firing deadline.",
         "Rocket grenades use the same finished shell and red coating as regular rockets. This changes appearance only."
@@ -403,8 +403,8 @@
         },
         {
           "label": "Opening first-to-last shot span",
-          "b19": "â‰ˆ0.379 s",
-          "elite": "â‰ˆ0.379 s",
+          "b19": "≈0.379 s",
+          "elite": "≈0.379 s",
           "note": ""
         },
         {
@@ -446,7 +446,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -495,14 +495,14 @@
         },
         {
           "label": "Large glob initial speed",
-          "b19": "â‰ˆ9.33 dodge lengths/s (6,500 UU/s)",
-          "elite": "â‰ˆ8.87 dodge lengths/s (6,175 UU/s)",
+          "b19": "≈9.33 dodge lengths/s (6,500 UU/s)",
+          "elite": "≈8.87 dodge lengths/s (6,175 UU/s)",
           "note": "95% of B19."
         },
         {
           "label": "Large glob maximum speed",
-          "b19": "â‰ˆ14.07 dodge lengths/s (9,800 UU/s)",
-          "elite": "â‰ˆ13.37 dodge lengths/s (9,310 UU/s)",
+          "b19": "≈14.07 dodge lengths/s (9,800 UU/s)",
+          "elite": "≈13.37 dodge lengths/s (9,310 UU/s)",
           "note": ""
         },
         {
@@ -520,7 +520,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -532,7 +532,7 @@
       ],
       "notes": [
         "Normal goo deals 35 instead of 40; rapid mini goo deals 13 instead of 20. Firing intervals match B19.",
-        "The large charged glob keeps its damage settings and travels at 95% of B19â€™s speed. Its actual damage also depends on glob strength and charged-goo rules."
+        "The large charged glob keeps its damage settings and travels at 95% of B19’s speed. Its actual damage also depends on glob strength and charged-goo rules."
       ],
       "lab": "bio"
     },
@@ -556,8 +556,8 @@
         },
         {
           "label": "Primary initial / maximum speed",
-          "b19": "â‰ˆ13.21 / 14.22 dodge lengths/s (9,200 / 9,900 UU/s)",
-          "elite": "â‰ˆ13.21 / 14.22 dodge lengths/s (9,200 / 9,900 UU/s)",
+          "b19": "≈13.21 / 14.22 dodge lengths/s (9,200 / 9,900 UU/s)",
+          "elite": "≈13.21 / 14.22 dodge lengths/s (9,200 / 9,900 UU/s)",
           "note": ""
         },
         {
@@ -574,8 +574,8 @@
         },
         {
           "label": "Beam range",
-          "b19": "â‰ˆ3.37 dodge lengths (2,350 UU)",
-          "elite": "â‰ˆ3.37 dodge lengths (2,350 UU)",
+          "b19": "≈3.37 dodge lengths (2,350 UU)",
+          "elite": "≈3.37 dodge lengths (2,350 UU)",
           "note": ""
         },
         {
@@ -599,7 +599,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -663,27 +663,27 @@
           "b19": "15 UU",
           "elite": "10 UU",
           "note": "Added allowance per side. Player capsule size remains separate.",
-          "stock": "0 UU Â· line trace",
-          "utplus": "0 UU Â· line trace",
-          "ncp": "0 UU Â· line trace"
+          "stock": "0 UU · line trace",
+          "utplus": "0 UU · line trace",
+          "ncp": "0 UU · line trace"
         },
         {
           "label": "Full normal-shot thickness",
           "b19": "30 UU",
           "elite": "20 UU added",
           "note": "",
-          "stock": "0 UU added Â· line trace",
-          "utplus": "0 UU added Â· line trace",
-          "ncp": "0 UU added Â· line trace"
+          "stock": "0 UU added · line trace",
+          "utplus": "0 UU added · line trace",
+          "ncp": "0 UU added · line trace"
         },
         {
-          "label": "Effective body-hit width Â· 80-UU target example",
-          "b19": "110 UU Â· 137.5% of Stock",
-          "elite": "100 UU Â· 125% of line trace",
+          "label": "Effective body-hit width · 80-UU target example",
+          "b19": "110 UU · 137.5% of Stock",
+          "elite": "100 UU · 125% of line trace",
           "note": "",
-          "stock": "80 UU Â· 100% of Stock",
-          "utplus": "80 UU Â· 100% of Stock",
-          "ncp": "80 UU Â· 100% of Stock"
+          "stock": "80 UU · 100% of Stock",
+          "utplus": "80 UU · 100% of Stock",
+          "ncp": "80 UU · 100% of Stock"
         },
         {
           "label": "Shot momentum",
@@ -696,8 +696,8 @@
         },
         {
           "label": "Trace range",
-          "b19": "â‰ˆ143.6 dodge lengths (100,000 UU)",
-          "elite": "â‰ˆ143.6 dodge lengths (100,000 UU)",
+          "b19": "≈143.6 dodge lengths (100,000 UU)",
+          "elite": "≈143.6 dodge lengths (100,000 UU)",
           "note": "",
           "stock": "100,000 UU",
           "utplus": "100,000 UU",
@@ -727,7 +727,7 @@
           "stock": "Native behavior",
           "utplus": "Native behavior",
           "ncp": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -740,39 +740,39 @@
           "note": "Independent HUD palettes can override presentation."
         },
         {
-          "label": "Headshot radius scale Â· shooter stopped",
-          "b19": "1.65Ã—",
-          "stock": "1.4Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1.2Ã—",
+          "label": "Headshot radius scale · shooter stopped",
+          "b19": "1.65×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
-          "label": "Headshot radius scale Â· shooter slow",
-          "b19": "1.65Ã—",
-          "stock": "1.4Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1.2Ã—",
+          "label": "Headshot radius scale · shooter slow",
+          "b19": "1.65×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
-          "label": "Headshot radius scale Â· shooter aimed",
-          "b19": "1.15Ã—",
-          "stock": "1Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1.2Ã—",
+          "label": "Headshot radius scale · shooter aimed",
+          "b19": "1.15×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
-          "label": "Headshot radius scale Â· shooter running",
-          "b19": "1.15Ã—",
-          "stock": "1Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1.2Ã—",
+          "label": "Headshot radius scale · shooter running",
+          "b19": "1.15×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
@@ -785,30 +785,30 @@
           "note": "Weapon headshot scales do not change the body capsule or add trace thickness."
         },
         {
-          "label": "Effective front-on area Â· 80Ã—216 UU example",
-          "b19": "24,463 UUÂ² Â· 153.8% of line-trace example",
-          "stock": "15,907 UUÂ² Â· 100.0% of line-trace example",
-          "utplus": "15,907 UUÂ² Â· 100.0% of line-trace example",
-          "ncp": "15,907 UUÂ² Â· 100.0% of line-trace example",
-          "elite": "21,454 UUÂ² Â· 134.9% of line-trace example",
+          "label": "Effective front-on area · 80×216 UU example",
+          "b19": "24,463 UU² · 153.8% of line-trace example",
+          "stock": "15,907 UU² · 100.0% of line-trace example",
+          "utplus": "15,907 UU² · 100.0% of line-trace example",
+          "ncp": "15,907 UU² · 100.0% of line-trace example",
+          "elite": "21,454 UU² · 134.9% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         },
         {
-          "label": "Effective 3D capsule surface Â· same example",
-          "b19": "85,011 UUÂ² Â· 156.6% of line-trace example",
-          "stock": "54,287 UUÂ² Â· 100.0% of line-trace example",
-          "utplus": "54,287 UUÂ² Â· 100.0% of line-trace example",
-          "ncp": "54,287 UUÂ² Â· 100.0% of line-trace example",
-          "elite": "74,142 UUÂ² Â· 136.6% of line-trace example",
+          "label": "Effective 3D capsule surface · same example",
+          "b19": "85,011 UU² · 156.6% of line-trace example",
+          "stock": "54,287 UU² · 100.0% of line-trace example",
+          "utplus": "54,287 UU² · 100.0% of line-trace example",
+          "ncp": "54,287 UU² · 100.0% of line-trace example",
+          "elite": "74,142 UU² · 136.6% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         }
       ],
       "notes": [
         "Normal hitscan uses 10 UU of added allowance on each side of the aim line. Body/headshot damage is 70/140; firing interval is 1.36 s.",
-        "An example 80-UU target has 100 UU effective body-hit width: 80 + 2 Ã— 10. This is 90.9090909090909% of B19 Sniperâ€™s 110-UU example.",
+        "An example 80-UU target has 100 UU effective body-hit width: 80 + 2 × 10. This is 90.9090909090909% of B19 Sniper’s 110-UU example.",
         "The 20-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
         "B19 Sniper uses 15-UU trace half-size. Stock, UT+ and NCP Sniper use zero added thickness.",
-        "Headshot radius scales: 1.2 / 1.2 / 1.2 / 1.2 for stopped / slow / aimed / running SHOOTER states. They are independent of headshot damage and the body trace. Final v1.81 uses 1.15Ã— throughout; final v1.82 uses 1.2Ã— throughout.",
+        "Headshot radius scales: 1.2 / 1.2 / 1.2 / 1.2 for stopped / slow / aimed / running SHOOTER states. They are independent of headshot damage and the body trace. Final v1.81 uses 1.15× throughout; final v1.82 uses 1.2× throughout.",
         "The sniper tracer and lingering smoky streak match v1.82: original yellow effect, smoke length, lifetime, opacity and native fade."
       ],
       "lab": "sniper",
@@ -834,13 +834,13 @@
           "label": "Elite10K v1.83"
         }
       ],
-      "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeaponsâ€™ stock-mode option. Server overrides and alternate UT+ presets can differ."
+      "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
     },
     {
       "id": "lightning",
       "name": "Lightning Rifle",
       "tag": "Hitscan replacement",
-      "summary": "70 normal body damage; charged headshots use 1Ã— stopped and 1Ã— running head-radius scales.",
+      "summary": "70 normal body damage; charged headshots use 1× stopped and 1× running head-radius scales.",
       "rows": [
         {
           "label": "Map weapon replacement",
@@ -881,11 +881,11 @@
         {
           "label": "Normal shot trace half-size",
           "b19": "Projectile primary",
-          "elite": "10 UU Â· 66.7% of B19 Sniper",
-          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10Kâ€™s 20-UU trace is 66.7% as wide as B19 Sniperâ€™s 30-UU trace (33.3% narrower). B19 Lightning uses a projectile primary, so this percentage compares with B19 Sniper, not B19 Lightning.",
+          "elite": "10 UU · 66.7% of B19 Sniper",
+          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower). B19 Lightning uses a projectile primary, so this percentage compares with B19 Sniper, not B19 Lightning.",
           "stock": "Projectile; not a hitscan trace",
-          "utplus": "0 UU Â· line trace",
-          "ncp": "0 UU Â· line trace"
+          "utplus": "0 UU · line trace",
+          "ncp": "0 UU · line trace"
         },
         {
           "label": "Full normal-shot thickness",
@@ -893,17 +893,17 @@
           "elite": "20 UU added",
           "note": "",
           "stock": "Projectile; separate collision rules",
-          "utplus": "0 UU added Â· line trace",
-          "ncp": "0 UU added Â· line trace"
+          "utplus": "0 UU added · line trace",
+          "ncp": "0 UU added · line trace"
         },
         {
-          "label": "Effective body-hit width Â· 80-UU target example",
+          "label": "Effective body-hit width · 80-UU target example",
           "b19": "Projectile; separate collision rules",
-          "elite": "100 UU Â· 125% of line trace",
+          "elite": "100 UU · 125% of line trace",
           "note": "",
           "stock": "Projectile; separate collision rules",
-          "utplus": "80 UU Â· 100% of line-trace example",
-          "ncp": "80 UU Â· 100% of line-trace example"
+          "utplus": "80 UU · 100% of line-trace example",
+          "ncp": "80 UU · 100% of line-trace example"
         },
         {
           "label": "Charged body / headshot",
@@ -939,7 +939,7 @@
           "ncp": "No charged beam",
           "b19": "5 / 10 UU",
           "elite": "10 / 20 UU",
-          "note": "Stock/B19 primary is a projectile, but its charged shot is hitscan. The 10K charged trace is 200% of Stockâ€™s thickness; for an 80-UU target, effective widths are 100 versus 90 UU (111.1%)."
+          "note": "Stock/B19 primary is a projectile, but its charged shot is hitscan. The 10K charged trace is 200% of Stock’s thickness; for an 80-UU target, effective widths are 100 versus 90 UU (111.1%)."
         },
         {
           "label": "Trace half-size",
@@ -956,7 +956,7 @@
           "stock": "Native behavior",
           "utplus": "Native behavior",
           "ncp": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -969,39 +969,39 @@
           "note": "Independent HUD palettes can override presentation."
         },
         {
-          "label": "Headshot radius scale Â· shooter stopped",
-          "b19": "1.4Ã—",
-          "stock": "1.4Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1Ã—",
+          "label": "Headshot radius scale · shooter stopped",
+          "b19": "1.4×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
-          "label": "Headshot radius scale Â· shooter slow",
-          "b19": "1.4Ã—",
-          "stock": "1.4Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1Ã—",
+          "label": "Headshot radius scale · shooter slow",
+          "b19": "1.4×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
-          "label": "Headshot radius scale Â· shooter aimed",
-          "b19": "1Ã—",
-          "stock": "1Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1Ã—",
+          "label": "Headshot radius scale · shooter aimed",
+          "b19": "1×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
-          "label": "Headshot radius scale Â· shooter running",
-          "b19": "1Ã—",
-          "stock": "1Ã—",
-          "utplus": "1.1Ã—",
-          "ncp": "0.95Ã—",
-          "elite": "1Ã—",
+          "label": "Headshot radius scale · shooter running",
+          "b19": "1×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
           "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
         },
         {
@@ -1014,21 +1014,21 @@
           "note": "Weapon headshot scales do not change the body capsule or add trace thickness."
         },
         {
-          "label": "Effective front-on area Â· 80Ã—216 UU example",
-          "b19": "Charged beam only: 18,602 UUÂ² Â· 116.9% of line-trace example",
-          "stock": "Charged beam only: 18,602 UUÂ² Â· 116.9% of line-trace example",
-          "utplus": "15,907 UUÂ² Â· 100.0% of line-trace example",
-          "ncp": "15,907 UUÂ² Â· 100.0% of line-trace example",
-          "elite": "21,454 UUÂ² Â· 134.9% of line-trace example",
+          "label": "Effective front-on area · 80×216 UU example",
+          "b19": "Charged beam only: 18,602 UU² · 116.9% of line-trace example",
+          "stock": "Charged beam only: 18,602 UU² · 116.9% of line-trace example",
+          "utplus": "15,907 UU² · 100.0% of line-trace example",
+          "ncp": "15,907 UU² · 100.0% of line-trace example",
+          "elite": "21,454 UU² · 134.9% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         },
         {
-          "label": "Effective 3D capsule surface Â· same example",
-          "b19": "Charged beam only: 63,900 UUÂ² Â· 117.7% of line-trace example",
-          "stock": "Charged beam only: 63,900 UUÂ² Â· 117.7% of line-trace example",
-          "utplus": "54,287 UUÂ² Â· 100.0% of line-trace example",
-          "ncp": "54,287 UUÂ² Â· 100.0% of line-trace example",
-          "elite": "74,142 UUÂ² Â· 136.6% of line-trace example",
+          "label": "Effective 3D capsule surface · same example",
+          "b19": "Charged beam only: 63,900 UU² · 117.7% of line-trace example",
+          "stock": "Charged beam only: 63,900 UU² · 117.7% of line-trace example",
+          "utplus": "54,287 UU² · 100.0% of line-trace example",
+          "ncp": "54,287 UU² · 100.0% of line-trace example",
+          "elite": "74,142 UU² · 136.6% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         },
         {
@@ -1053,8 +1053,8 @@
       "notes": [
         "Normal uncharged fire deals 70 body damage. Headshots require the native fully powered firing state; the charged profile is 85 body / 140 headshot damage.",
         "The headshot radius scales are 1 / 1 / 1 / 1 for stopped / slow / aimed / running SHOOTER states. Victim movement does not select these multipliers.",
-        "This head-sphere check is separate from the 10-UU body trace half-size and its body-hit allowance. It does not resize the playerâ€™s body capsule.",
-        "From v1.81, the stationary and slow multipliers match the existing moving values: Lightning is 1.0Ã— in all four states. Stock/B19 normal Lightning is a projectile; their charged beam uses its own native headshot rules."
+        "This head-sphere check is separate from the 10-UU body trace half-size and its body-hit allowance. It does not resize the player’s body capsule.",
+        "From v1.81, the stationary and slow multipliers match the existing moving values: Lightning is 1.0× in all four states. Stock/B19 normal Lightning is a projectile; their charged beam uses its own native headshot rules."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -1079,7 +1079,7 @@
           "label": "Elite10K v1.83"
         }
       ],
-      "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeaponsâ€™ stock-mode option. Server overrides and alternate UT+ presets can differ."
+      "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
     },
     {
       "id": "hammer",
@@ -1097,13 +1097,13 @@
           "label": "Full impact/jump charge fraction",
           "b19": "25%",
           "elite": "31.25%",
-          "note": "The fraction is unchanged; its time is derived from this releaseâ€™s full-charge duration."
+          "note": "The fraction is unchanged; its time is derived from this release’s full-charge duration."
         },
         {
           "label": "Full impact/jump charge time",
           "b19": "0.50 s",
           "elite": "0.5625 s",
-          "note": "Full-charge time Ã— full-impact charge fraction."
+          "note": "Full-charge time × full-impact charge fraction."
         },
         {
           "label": "Stored primary hit damage",
@@ -1115,7 +1115,7 @@
           "label": "Primary / secondary intervals",
           "b19": "0.20 / 0.88 s",
           "elite": "0.20 / 0.66 s",
-          "note": "Secondary refire interval reduced 25% from B19â€™s 0.88 seconds."
+          "note": "Secondary refire interval reduced 25% from B19’s 0.88 seconds."
         },
         {
           "label": "Weapon raise / lower time",
@@ -1138,7 +1138,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -1156,7 +1156,7 @@
       ],
       "notes": [
         "Full damage charge takes 1.8 game seconds; B19 takes 2.00 seconds.",
-        "The full impact/jump fraction remains 31.25% of full charge: 0.5625 game seconds at the selected releaseâ€™s charge time.",
+        "The full impact/jump fraction remains 31.25% of full charge: 0.5625 game seconds at the selected release’s charge time.",
         "The weapon-owned charge HUD reads the native full-charge duration and follows this timing."
       ],
       "lab": "hammer"
@@ -1193,8 +1193,8 @@
         },
         {
           "label": "Trace range",
-          "b19": "â‰ˆ35.9 dodge lengths (25,000 UU)",
-          "elite": "â‰ˆ35.9 dodge lengths (25,000 UU)",
+          "b19": "≈35.9 dodge lengths (25,000 UU)",
+          "elite": "≈35.9 dodge lengths (25,000 UU)",
           "note": ""
         },
         {
@@ -1212,7 +1212,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -1242,8 +1242,8 @@
         },
         {
           "label": "Splash damage / blast radii",
-          "b19": "90 max / 20 min Â· 50â€“300 UU",
-          "elite": "90 max / 35 min Â· 50â€“248 UU",
+          "b19": "90 max / 20 min · 50–300 UU",
+          "elite": "90 max / 35 min · 50–248 UU",
           "note": "Native linear splash."
         },
         {
@@ -1261,7 +1261,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -1293,7 +1293,7 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         },
         {
@@ -1337,13 +1337,13 @@
         {
           "label": "Ground acceleration",
           "b19": "Stock UT movement setting",
-          "elite": "5,000 UU/sÂ²",
+          "elite": "5,000 UU/s²",
           "note": "MaxAcceleration; normal ground acceleration."
         },
         {
           "label": "Walking braking / deceleration",
           "b19": "Stock UT movement setting",
-          "elite": "20,000 UU/sÂ²",
+          "elite": "20,000 UU/s²",
           "note": "Both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking."
         },
         {
@@ -1355,7 +1355,7 @@
         {
           "label": "Fast initial acceleration",
           "b19": "Stock UT movement setting",
-          "elite": "100,000 UU/sÂ²",
+          "elite": "100,000 UU/s²",
           "note": "Low-speed acceleration boost; blends toward regular acceleration as speed rises. It does not apply at full running speed."
         },
         {
@@ -1367,12 +1367,12 @@
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
-          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma â†” Shock core, core â†” core and Bio â†” Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
+          "elite": "Other projectile pairs ignore contact, with native exceptions for Link plasma ↔ Shock core, core ↔ core and Bio ↔ Bio. Shock beam can still combo cores; Impact Hammer interactions remain native. Non-core projectiles ignore Weapon and WeaponNoCharacter traces; the Shock core retains its shootable WeaponNoCharacter collider. Link beam skips Shock cores. Original per-class damage reception is retained: this is not blanket splash immunity.",
           "note": ""
         }
       ],
       "notes": [
-        "Ground- and wall-dodge reset delays are 0.01 seconds instead of B19â€™s 0.35 and 0.20. You still need to complete the relevant movement and satisfy normal ground/wall requirements.",
+        "Ground- and wall-dodge reset delays are 0.01 seconds instead of B19’s 0.35 and 0.20. You still need to complete the relevant movement and satisfy normal ground/wall requirements.",
         "Acceleration is strongest when starting from low speed, then blends toward normal running acceleration. Ground friction affects steering; braking slows you when you release movement input or exceed the speed limit.",
         "Projectile interactions are adjusted to reduce accidental interception between weapons. Server mutators and saved settings can change the defaults shown here."
       ],
@@ -1492,7 +1492,7 @@
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
           "elite": "Elite10K v1.84",
-          "note": "The two columns describe each versionâ€™s default behavior."
+          "note": "The two columns describe each version’s default behavior."
         },
         {
           "label": "Optional full-screen HUD",
@@ -1637,7 +1637,7 @@
       }
     ],
     "notes": [
-      "Combo movement rewards sideways movement relative to the coreâ€™s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
+      "Combo movement rewards sideways movement relative to the core’s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
       "Distance is shown in UU (Unreal Units) and approximate dodge lengths. One reference dodge length is about 696 UU. These describe distance, rather than how many dodge inputs to press."
     ]
   }

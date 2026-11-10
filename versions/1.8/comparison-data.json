@@ -1492,7 +1492,7 @@
       ],
       "notes": [
         "Each version represents its final completed normal revision. Diagnostics and superseded experiments are excluded.",
-        "Release: Corrected attack interactions; linear Flak 875â€“1,750 UU.",
+        "Release: Corrected attack interactions; linear Flak 875–1,750 UU.",
         "The complete release artifact was verified by SHA256: BC2890DD069CCB9C985C3655AF844143D858663300B8ECA8F6E30A228B5AE18C.",
         "The original Elite B19 reference remains unchanged. Optional HUD and native client DLL releases have separate histories."
       ],
@@ -1506,7 +1506,7 @@
   "hudVersion": "1.13",
   "hudPackageSha256": "56453F0BA87A77F0A04CFA95452373CB96642D543ACBD83C2594FA29575CA8A7",
   "shockVariantData": "shock-variants.js",
-  "revision": "Corrected attack interactions; linear Flak 875â€“1,750 UU",
+  "revision": "Corrected attack interactions; linear Flak 875–1,750 UU",
   "model": {
     "combo": {
       "max": 210,

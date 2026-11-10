@@ -1492,7 +1492,7 @@
       ],
       "notes": [
         "Each version represents its final completed normal revision. Diagnostics and superseded experiments are excluded.",
-        "Release: Final revision: native Flak acceptance and linear 700â€“1,400 UU falloff.",
+        "Release: Final revision: native Flak acceptance and linear 700–1,400 UU falloff.",
         "The complete release artifact was verified by SHA256: F44C08D742757DCB5FCF58B932A31ED2C9F4A959EFDBAA628AC0DB74BA84AB12.",
         "The original Elite B19 reference remains unchanged. Optional HUD and native client DLL releases have separate histories."
       ],
@@ -1506,7 +1506,7 @@
   "hudVersion": "1.13",
   "hudPackageSha256": "56453F0BA87A77F0A04CFA95452373CB96642D543ACBD83C2594FA29575CA8A7",
   "shockVariantData": "shock-variants.js",
-  "revision": "Final revision: native Flak acceptance and linear 700â€“1,400 UU falloff",
+  "revision": "Final revision: native Flak acceptance and linear 700–1,400 UU falloff",
   "model": {
     "combo": {
       "max": 210,

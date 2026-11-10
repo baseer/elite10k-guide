@@ -1898,7 +1898,7 @@
   {
     "version": "1.79",
     "sha256": "F44C08D742757DCB5FCF58B932A31ED2C9F4A959EFDBAA628AC0DB74BA84AB12",
-    "revision": "Final revision: native Flak acceptance and linear 700Ã¢â‚¬â€œ1,400 UU falloff",
+    "revision": "Final revision: native Flak acceptance and linear 700–1,400 UU falloff",
     "source": {
       "receipt": "elite-v1.79-flak-linear1-2/report.json",
       "artifact": "elite-v1.79-flak-linear1-2\\Elite10K-WindowsNoEditor.pak.pending",
@@ -1985,7 +1985,7 @@
   {
     "version": "1.8",
     "sha256": "BC2890DD069CCB9C985C3655AF844143D858663300B8ECA8F6E30A228B5AE18C",
-    "revision": "Corrected attack interactions; linear Flak 875Ã¢â‚¬â€œ1,750 UU",
+    "revision": "Corrected attack interactions; linear Flak 875–1,750 UU",
     "source": {
       "receipt": "elite-v1.8/flak-linear125-25/report.json",
       "artifact": "elite-v1.8\\flak-linear125-25\\Elite10K-WindowsNoEditor.pak.pending",
