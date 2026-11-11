@@ -2,7 +2,7 @@
 (function(root){
  const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
  const api={
-  flak(distance,model,ordinary=8,central=true){const f=model.flak,n=f.linear?10-6*clamp((distance-f.start)/(f.end-f.start),0,1):distance<f.start?10:distance<f.end?7:4;return {ordinary:n,central:n*2,total:ordinary*n+(central?n*2:0)};},
+  flak(distance,model,ordinary=8,central=true){const f=model.flak,age=distance/(f.speed||13000),n=f.nativeTime?10-6*clamp((age-f.delay)/(f.floorAge-f.delay),0,1):f.linear?10-6*clamp((distance-f.start)/(f.end-f.start),0,1):distance<f.start?10:distance<f.end?7:4;return {ordinary:n,central:n*2,total:ordinary*n+(central?n*2:0)};},
   splash(distance,profile,legacy=false){const [max,min,inner,outer]=profile;if(distance>outer)return 0;const raw=max+(min-max)*clamp((distance-inner)/(outer-inner),0,1);return legacy&&raw<40?0:raw;},
   activate(data){const m=data.model,c=m.combo;Object.assign(root.ShockVariants.models.elite10k,{name:'Elite10K v'+data.version,min:c.min,max:c.max,inner:c.inner,outer:c.outer,falloff:c.falloff,baseBoost:c.baseBoost,coreInterval:m.shockInterval,source:{sha256:data.packageSha256}});},
   comboCopy(html){const d=root.ELITE_GUIDE,m=d.model.combo,box=document.createElement('div');box.innerHTML=html;

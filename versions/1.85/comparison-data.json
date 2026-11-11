@@ -1098,14 +1098,14 @@
         {
           "label": "Full impact/jump charge fraction",
           "b19": "25%",
-          "elite": "31.25%",
-          "note": "The fraction is unchanged; its time is derived from this release’s full-charge duration."
+          "elite": "27.7778%",
+          "note": "Full damage charge remains 1.80 s; jump readiness is 0.50 s."
         },
         {
           "label": "Full impact/jump charge time",
           "b19": "0.50 s",
-          "elite": "0.5625 s",
-          "note": "Full-charge time × full-impact charge fraction."
+          "elite": "0.50 s",
+          "note": "Restored in the final v1.85 revision."
         },
         {
           "label": "Stored primary hit damage",
@@ -1158,7 +1158,7 @@
       ],
       "notes": [
         "Full damage charge takes 1.8 game seconds; B19 takes 2.00 seconds.",
-        "The full impact/jump fraction remains 31.25% of full charge: 0.5625 game seconds at the selected release’s charge time.",
+        "Full impact/jump readiness is 0.50 game seconds; full damage charge remains 1.80 seconds.",
         "The weapon-owned charge HUD reads the native full-charge duration and follows this timing.",
         "Each alt-fire shield stays active for 0.75 game seconds, increased from 0.50. Secondary refire remains 0.66 game seconds."
       ],
@@ -1517,22 +1517,22 @@
         }
       ],
       "notes": [
-        "Each version represents its final completed normal revision. Diagnostics and superseded experiments are excluded.",
-        "Release: Centered rocket spin, single-loaded-rocket HUD reset and 0.75-second Hammer shield.",
-        "The complete release artifact was verified by SHA256: E316EC611DC815693E95E298BCF9EEF6D0D9DFCF27B1C093EE4A62328E428C0B.",
-        "The original Elite B19 reference remains unchanged. Optional HUD and native client DLL releases have separate histories."
+        "Each version represents its final completed normal revision; superseded experiments are excluded.",
+        "Release: Restore Impact Hammer full jump charge to 0.50 game seconds.",
+        "Complete preserved artifact SHA256: D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D.",
+        "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separately versioned. Native isolated tests do not establish rendered or multiplayer acceptance."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "E316EC611DC815693E95E298BCF9EEF6D0D9DFCF27B1C093EE4A62328E428C0B",
-  "verifiedDate": "2026-11-10",
+  "packageSha256": "D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D",
+  "verifiedDate": "2026-11-11",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.13",
   "hudPackageSha256": "56453F0BA87A77F0A04CFA95452373CB96642D543ACBD83C2594FA29575CA8A7",
   "shockVariantData": "shock-variants.js",
-  "revision": "Centered rocket spin, single-loaded-rocket HUD reset and 0.75-second Hammer shield",
+  "revision": "Restore Impact Hammer full jump charge to 0.50 game seconds",
   "model": {
     "combo": {
       "max": 210,
@@ -1606,7 +1606,7 @@
     },
     "hammer": {
       "full": 1.8,
-      "impactFraction": 0.3125,
+      "impactFraction": 0.2777777777777778,
       "shieldLifetime": 0.75
     },
     "shreddedAllNine": false,
@@ -1618,9 +1618,9 @@
     }
   },
   "releaseSource": {
-    "receipt": "elite-v1.85/hammer-alt075/report.json",
-    "artifact": "elite-v1.85/hammer-alt075/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Complete pak SHA256; build and deployment verification"
+    "receipt": "elite-v1.85/latest-release.json",
+    "artifact": "elite-v1.85/hammer-jump050/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
   },
   "comboMovement": {
     "id": "combo-movement",

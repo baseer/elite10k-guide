@@ -2426,12 +2426,12 @@
   },
   {
     "version": "1.85",
-    "sha256": "E316EC611DC815693E95E298BCF9EEF6D0D9DFCF27B1C093EE4A62328E428C0B",
-    "revision": "Centered rocket spin, single-loaded-rocket HUD reset and 0.75-second Hammer shield",
+    "sha256": "D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D",
+    "revision": "Restore Impact Hammer full jump charge to 0.50 game seconds",
     "source": {
-      "receipt": "elite-v1.85/hammer-alt075/report.json",
-      "artifact": "elite-v1.85/hammer-alt075/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Complete pak SHA256; build and deployment verification"
+      "receipt": "elite-v1.85/latest-release.json",
+      "artifact": "elite-v1.85/hammer-jump050/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
     },
     "model": {
       "combo": {
@@ -2506,7 +2506,7 @@
       },
       "hammer": {
         "full": 1.8,
-        "impactFraction": 0.3125,
+        "impactFraction": 0.2777777777777778,
         "shieldLifetime": 0.75
       },
       "shreddedAllNine": false,
@@ -2516,6 +2516,695 @@
         "liveHitsOnly": true,
         "finishWindow": 0.05
       }
+    }
+  },
+  {
+    "version": "1.86",
+    "sha256": "8DFAABDAC76E9B1B75FFC579A5E5920A54551A7C93190160DF19C883C62EDECA",
+    "revision": "Revert dark unreplenished fill; restore verified whiter pulse release",
+    "source": {
+      "receipt": "elite-v1.86/latest-release.json",
+      "artifact": "elite-v1.86/dark-fill-reverted/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.148,
+          0,
+          0,
+          0.0316,
+          0.0579,
+          0.0739,
+          0.0799,
+          0.0839,
+          0.0859,
+          0.0869
+        ],
+        "samePressOpeningCredit": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "centralRequired": true,
+        "outerRequired": 7,
+        "liveHitsOnly": true,
+        "finishWindow": 0.05
+      }
+    }
+  },
+  {
+    "version": "1.87",
+    "sha256": "DC3D90E065B3823E4D3677749F64CD55AE12586624E7CFA2523BF4803686EC1C",
+    "revision": "Abstract internal rocket helper classes so loaded grants only configured launchers",
+    "source": {
+      "receipt": "elite-v1.87/latest-release.json",
+      "artifact": "elite-v1.87/loaded-fix/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.148,
+          0,
+          0,
+          0.0316,
+          0.0579,
+          0.0739,
+          0.0799,
+          0.0839,
+          0.0859,
+          0.0869
+        ],
+        "samePressOpeningCredit": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": true,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "centralRequired": true,
+        "outerRequired": 7,
+        "liveHitsOnly": true,
+        "finishWindow": 0.05
+      }
+    }
+  },
+  {
+    "version": "1.88",
+    "sha256": "B5F4B474E7BEAF942958C7999FC9E27404832CA4DDB1D73586DCEFA84F84DB8B",
+    "revision": "Retry pending weapon switch after completed loaded volley; no custom firing deadline",
+    "source": {
+      "receipt": "elite-v1.88/latest-release.json",
+      "artifact": "elite-v1.88/volley-switch-only/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.148,
+          0,
+          0,
+          0.0316,
+          0.0579,
+          0.0739,
+          0.0799,
+          0.0839,
+          0.0859,
+          0.0869
+        ],
+        "samePressOpeningCredit": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "centralRequired": true,
+        "outerRequired": 7,
+        "liveHitsOnly": true,
+        "finishWindow": 0.05
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41
+    }
+  },
+  {
+    "version": "1.89",
+    "sha256": "CD53983C5BD186E9D8B17B36B0BFDEFE2FBCE8D519CA372FD8DEB684462E70A2",
+    "revision": "B19 native primary Flak with native time decay; remove custom distance and Shredded logic",
+    "source": {
+      "receipt": "elite-v1.89/latest-release.json",
+      "artifact": "elite-v1.89/native-flak-primary/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.148,
+          0,
+          0,
+          0.0316,
+          0.0579,
+          0.0739,
+          0.0799,
+          0.0839,
+          0.0859,
+          0.0869
+        ],
+        "samePressOpeningCredit": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9,
+        "nativeTime": true,
+        "delay": 0.06730769574642181,
+        "floorAge": 0.1346153846153846,
+        "speed": 13000,
+        "storedBase": [
+          15.384615898132324,
+          30.76923179626465
+        ],
+        "storedMinimum": [
+          6.153846263885498,
+          12.307692527770996
+        ],
+        "multiplier": 0.65
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "native": true,
+        "maxShreddedTime": 0.15
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41
+    }
+  },
+  {
+    "version": "1.90",
+    "sha256": "D86C1462B28CF8BC92956C7CC81282A3A4C0C39790309DAABE1F205CAB56B6B0",
+    "revision": "Simple native Flak values: 10/20 base, 4/8 floor, 1x multiplier",
+    "source": {
+      "receipt": "elite-v1.90/latest-release.json",
+      "artifact": "elite-v1.90/flak-simple-values/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.148,
+          0,
+          0,
+          0.0316,
+          0.0579,
+          0.0739,
+          0.0799,
+          0.0839,
+          0.0859,
+          0.0869
+        ],
+        "samePressOpeningCredit": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9,
+        "nativeTime": true,
+        "delay": 0.06730769574642181,
+        "floorAge": 0.1346153846153846,
+        "speed": 13000,
+        "storedBase": [
+          10,
+          20
+        ],
+        "storedMinimum": [
+          4,
+          8
+        ],
+        "multiplier": 1
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "native": true,
+        "maxShreddedTime": 0.15
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41
+    }
+  },
+  {
+    "version": "1.91",
+    "sha256": "C4A7C7F35C63AF2CA283303017BECEB523283476B386247A5900FBEF30E4CA9C",
+    "revision": "Rocket and rocket-grenade main/assist colliders ignore both weapon trace channels15/19",
+    "source": {
+      "receipt": "elite-v1.91/latest-release.json",
+      "artifact": "elite-v1.91/rocket-trace-exclusions/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.475,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.14059999999999997,
+          0,
+          0,
+          0.03002,
+          0.055005,
+          0.07020499999999999,
+          0.075905,
+          0.079705,
+          0.081605,
+          0.082555
+        ],
+        "samePressOpeningCredit": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9,
+        "nativeTime": true,
+        "delay": 0.06730769574642181,
+        "floorAge": 0.1346153846153846,
+        "speed": 13000,
+        "storedBase": [
+          10,
+          20
+        ],
+        "storedMinimum": [
+          4,
+          8
+        ],
+        "multiplier": 1
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "native": true,
+        "maxShreddedTime": 0.15
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41
     }
   }
 ]

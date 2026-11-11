@@ -1,11 +1,11 @@
 {
-  "version": "1.78",
+  "version": "1.91",
   "weapons": [
     {
       "id": "shock",
       "name": "Shock Rifle",
       "tag": "Movement rewards",
-      "summary": "More reward for impressive combos that catch targets near the blast edge.",
+      "summary": "Combos use a 50–210 raw damage curve, 390-UU outer radius and movement bonuses.",
       "rows": [
         {
           "label": "Weapon raise time",
@@ -23,32 +23,84 @@
           "label": "Foreign-core feedback",
           "b19": "No Anticombo notice",
           "elite": "Anticombo!",
-          "note": "A foreign core is another player’s shock ball. Detonating one gives no movement damage bonus."
+          "note": "Foreign cores receive no movement bonus."
+        },
+        {
+          "label": "Combo raw damage / blast radii",
+          "b19": "40–210 · 77/390 UU",
+          "elite": "50–210 · 77/390 UU",
+          "note": "Before movement bonuses and any tapered base boost."
+        },
+        {
+          "label": "Combo falloff exponent",
+          "b19": "1.5",
+          "elite": "1.5",
+          "note": "Applied between the inner and outer radii."
+        },
+        {
+          "label": "Base combo bonus",
+          "b19": "None",
+          "elite": "None",
+          "note": "No separate base boost."
+        },
+        {
+          "label": "Core firing interval",
+          "b19": "0.45 s",
+          "elite": "0.49451 s",
+          "note": "91% of B19 fire rate."
+        },
+        {
+          "label": "Refire switching multiplier",
+          "b19": "0.08",
+          "elite": "0.15",
+          "note": "Dimensionless multiplier used by firing-state switching."
+        },
+        {
+          "label": "Own-core notice eligibility",
+          "b19": "Native awards",
+          "elite": "Confirmed enemy health/armor loss or credited kill",
+          "note": "The v1.76 revision changed feedback eligibility, not damage."
+        },
+        {
+          "label": "Foreign-core kill feed",
+          "b19": "Native combo label",
+          "elite": "Anticombo label and Denied voice",
+          "note": "Final v1.67 restores normal switching and adds the dedicated kill-feed label."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "If you know B19, beam damage and beam firing interval are familiar: 45 damage and 0.71 seconds. Shock balls travel 9% slower and fire at 91% of B19’s rate, so allow a little more time for them to reach your target.",
-        "Both combo blasts reach 390 UU and deal 210 damage near the center. At the outer edge, B19 falls to 40 damage and Elite10K falls to 50. The extra edge damage does not extend the blast radius.",
-        "Detonate your own core while moving across its path to earn a movement bonus:Nice +10, Amazing +15 or Spectacular +20. Damage is capped at 210, so a close-center hit may show a smaller bonus or +0.",
-        "Movement score 8 earns Nice, 20 earns Amazing and 32 earns Spectacular. The score uses your angle to the core’s flight path, your sideways speed and your distance from the core; being airborne alone adds no extra multiplier.",
-        "Yellow combo text means confirmed enemy health or armor damage without a kill. Red means a credited kill. In warmup, a qualifying combo that misses can show a blue practice preview; during a match, a miss shows no notice. Self/team-only damage does not qualify.",
-        "Detonating another player’s core is an Anticombo. It gets no movement damage bonus. The notice is yellow and silent without a kill; a credited kill uses red text, the Denied voice and an Anticombo kill-feed label.",
-        "The+DMG label shows the extra movement damage actually applied, rather than the total blast damage. Multiple targets can produce a list such as +20,+8,+0 DMG.",
-        "When one beam detonates several cores, the main notice favors Spectacular, then Amazing, then Nice, then Anticombo. Use the calculator for the detailed damage curve."
+        "Raw combo damage ranges from 50 to 210 within 390 UU, with full damage inside 77 UU and falloff exponent 1.5.",
+        "No separate base boost is applied.",
+        "Own-core movement adds Nice +10, Amazing +15 or Spectacular +20, with a 210 cap. A foreign core receives no movement bonus.",
+        "Core interval 0.49451 s; switching multiplier 0.15.",
+        "Own-core notices use confirmed enemy health/armor loss. Credited kills show red, confirmed damage yellow, and live no-damage notices are suppressed.",
+        "Foreign-core notice: Anticombo!."
       ],
       "lab": "shock"
     },
     {
       "id": "flak",
       "name": "Flak Cannon",
-      "tag": "Distance tiers",
-      "summary": "Familiar firing speed, fixed shard damage bands and a smaller secondary blast with a stronger edge.",
+      "tag": "Linear distance falloff",
+      "summary": "Native time-decaying primary shards: 10/20 damage to 4/8; native Shredded.",
       "rows": [
         {
           "label": "Primary firing interval",
           "b19": "0.80 s",
-          "elite": "0.80 s",
-          "note": "Matches the authoritative B19 primary interval."
+          "elite": "0.90 s",
+          "note": "Secondary remains 0.97 s."
         },
         {
           "label": "Primary shard speed",
@@ -65,20 +117,20 @@
         {
           "label": "Primary damage model",
           "b19": "Damage decreases with flight time; central-hit bonus",
-          "elite": "Travel-distance tiers",
-          "note": "B19 also reduces shard damage after a bounce. Elite10K uses the fixed travel-distance bands below."
+          "elite": "Native flight-time decay",
+          "note": "No custom travelled-distance accumulator or impact damage rewrite."
         },
         {
           "label": "Bounce damage multiplier",
           "b19": "0.65×",
           "elite": "1×",
-          "note": "Total shard travel includes bounces—not just your current distance from the target."
+          "note": "Native enemy damage multiplier; stored base/minimum compensate in v1.89."
         },
         {
           "label": "Shard hit momentum",
           "b19": "Native momentum",
-          "elite": "0",
-          "note": ""
+          "elite": "Native B19 momentum",
+          "note": "Custom zero-momentum hit handling removed."
         },
         {
           "label": "Ball collision radius",
@@ -120,16 +172,83 @@
           "label": "Ball splash damage / blast radii",
           "b19": "95 max / 20 min · 0–300 UU",
           "elite": "95 max / 35 min · 0–240 UU",
-          "note": "The center damage is unchanged. Elite10K has a smaller blast with a higher minimum damage at its edge. These values describe the explosion; ball-spawned shards are separate."
+          "note": "Native linear splash."
+        },
+        {
+          "label": "Primary range damage",
+          "b19": "Native behavior",
+          "elite": "10/20 → 4/8 by projectile age",
+          "note": "Decay starts at approximately 0.067308 s and reaches the floor at 0.134615 s. At constant 13,000 UU/s this corresponds to 875–1,750 UU; bounces and speed changes break that distance equivalence."
+        },
+        {
+          "label": "Primary hit acceptance",
+          "b19": "Native behavior",
+          "elite": "Native projectile checks; extra geometric filter removed",
+          "note": ""
+        },
+        {
+          "label": "Explosion handling",
+          "b19": "Native explosion",
+          "elite": "Native explosion path",
+          "note": "Legacy projectile cutoff is disabled."
+        },
+        {
+          "label": "Flight smoke opacity",
+          "b19": "Original effect",
+          "elite": "0.2 · half of earlier opacity",
+          "note": "The visible M_Rocket_trail_01 layer; all emitters retained."
+        },
+        {
+          "label": "Explosion effect asset",
+          "b19": "Original effect",
+          "elite": "Restored explosion particle asset",
+          "note": "v1.58 restores the packaged effect; v1.62 temporarily uses an earlier build base."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Shredded award requirements",
+          "b19": "Native Shredded qualification",
+          "elite": "Native B19 qualification",
+          "note": "Custom central-plus-seven/all-nine tracker removed; native center MaxShreddedTime is 0.15 game seconds."
+        },
+        {
+          "label": "Shard visual sizing",
+          "b19": "Original shard visuals",
+          "elite": "Original shard visuals",
+          "note": "The dynamic sphere-matching experiment was reverted in final v1.82."
+        },
+        {
+          "label": "Stored ordinary / central base damage",
+          "b19": "Native behavior",
+          "elite": "10 / 20",
+          "note": "Enemy effective initial damage is 10 / 20 before armor."
+        },
+        {
+          "label": "Primary self damage",
+          "b19": "Native behavior",
+          "elite": "Stored base 10/20; up to 100 before self attenuation",
+          "note": "Self damage uses a separate native branch, bypassing enemy multiplier/floors. Shipping minimum is one per shard; 25 damage/s attenuation starts after 0.11 s."
         }
       ],
       "notes": [
-        "Primary fires at the same 0.80-second interval and shard speed as B19. Each shot has eight ordinary shards and one central shard; the central shard deals double an ordinary shard’s damage.",
-        "Elite10K shard damage depends on total travel distance: 10 ordinary/20 central below 1, 050 UU, 7/14 from 1, 050 to below 1, 575 UU, and 4/8 farther away. That is roughly 1½ and 2¼ dodge lengths. Bounces count toward distance but do not apply B19’s separate 0.65× damage multiplier.",
-        "B19’s shards lose damage with flight time and can receive a central-hit bonus. The explorer shows their starting damage potential; it does not model all of B19’s flight-time and hit-position effects.",
-        "The secondary ball has a smaller collision radius: 13 UU versus 30 in B19. Its initial and maximum speeds are 92.5% of B19’s, so it travels slightly slower.",
-        "Ball splash still peaks at 95 damage. B19 fades to 20 at 300 UU; Elite10K fades to 35 at 240 UU. Elite10K reaches less far, with a stronger edge hit. The ball also releases separate 5-damage shards.",
-        "An orange rim helps the ball stand out in flight. Its yellow trail remains visible, with lighter smoke."
+        "Primary interval 0.90 s, secondary 0.97 s. Each shot contains eight ordinary shards and one central shard; the central shard deals double damage.",
+        "Primary projectiles directly inherit native Flak shard classes. Custom distance, body-hit and Shredded tracker helpers are removed.",
+        "Enemy ordinary/central damage starts at 10/20 and decays with age to 4/8 between approximately 0.067308 and 0.134615 game seconds. Native hit position and other modifiers still apply.",
+        "875–1,750 UU is only the straight-flight equivalent at 13,000 UU/s, not an accumulated path-distance rule.",
+        "Native Shredded qualification and native momentum are restored. Secondary ball geometry, damage and speed are unchanged.",
+        "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,006.25/6,364 UU/s. Ball-spawned shards are separate from the primary model.",
+        "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers."
       ],
       "lab": "flak"
     },
@@ -137,7 +256,7 @@
       "id": "rocket",
       "name": "Rocket Launcher",
       "tag": "Volley pacing",
-      "summary": "Slower loaded-volley recovery than B19, smaller splash radius and a stronger minimum edge hit.",
+      "summary": "Loaded volleys use a 1.05-second base refire interval with native splash.",
       "rows": [
         {
           "label": "Primary interval",
@@ -166,14 +285,14 @@
         {
           "label": "Delay between rockets in a volley",
           "b19": "0.015 s",
-          "elite": "0 s added delay",
-          "note": "Rockets in a loaded volley have no intentional extra gap in Elite10K; frame timing can still separate their launches."
+          "elite": "Native B19 volley scheduling",
+          "note": "Custom volley scheduling removed; native loading/firing retained."
         },
         {
           "label": "Normal rocket initial / maximum speed",
-          "b19": "2,700 / 2,700 UU/s",
-          "elite": "2,475 / 2,475 UU/s · 91.7% of B19",
-          "note": "Initial speed is launch speed; maximum speed is the configured speed cap. Both values are 8.3% lower in Elite10K. Normal and loaded non-seeking rockets use this profile."
+          "b19": "3,200 / 5,200 UU/s",
+          "elite": "2,880 / 4,680 UU/s · 90% of B19",
+          "note": "Acceleration 600 UU/s² retained. Earlier guide values described an inactive route."
         },
         {
           "label": "Seeking initial / maximum speed",
@@ -196,24 +315,79 @@
         {
           "label": "Splash damage / blast radii",
           "b19": "100 max / 20 min · 15–360 UU",
-          "elite": "100 max / 35 min · 15–296.667 UU",
-          "note": "Full damage inside the inner radius, then a straight-line decrease to the minimum at the outer edge. Zero beyond the outer radius. Applies to normal, seeking and loaded rockets, plus Rocket Launcher grenades."
+          "elite": "100 max / 35 min · 15–296.66666 UU",
+          "note": "Native linear splash."
         },
         {
           "label": "Cooldown bar",
           "b19": "B19 weapon HUD",
-          "elite": "Loading rings; no cooldown bar",
-          "note": "The crosshair and loaded-rocket indicators remain visible."
+          "elite": "Red loading rings; native white dots hidden",
+          "note": "During release each spent ring clears from the actual remaining loaded count. Remaining rings continue the existing grace depletion."
+        },
+        {
+          "label": "Explosion handling",
+          "b19": "Native explosion",
+          "elite": "Native explosion path",
+          "note": "Legacy projectile cutoff is disabled."
+        },
+        {
+          "label": "Loaded volley switching deadline",
+          "b19": "Original firing state",
+          "elite": "Native firing state plus pending-switch retry",
+          "note": "Retries an existing valid pending switch after the volley finishes. No custom firing deadline, refire calculation or EarliestFireTime write."
+        },
+        {
+          "label": "Projectile shell design",
+          "b19": "Original projectile art",
+          "elite": "Final merged shell and native rear blend",
+          "note": "Visual-only revisions."
+        },
+        {
+          "label": "Unused material cleanup",
+          "b19": "Original package contents",
+          "elite": "Obsolete runtime overrides removed; appearance preserved",
+          "note": "v1.69 removes unused material data without changing gameplay or the approved appearance."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Rocket grenade art",
+          "b19": "Original grenade art",
+          "elite": "Finished regular-rocket shell and coating",
+          "note": "Rocket grenades share the regular rocket mesh; size, collision and damage are unchanged."
+        },
+        {
+          "label": "Loading ring size",
+          "b19": "Native behavior",
+          "elite": "67.5% of pre-v1.87 size",
+          "note": "Ring centers unchanged; v1.90 applies a further 10% reduction."
+        },
+        {
+          "label": "Loaded inventory safety",
+          "b19": "Native behavior",
+          "elite": "Internal rocket helper weapons excluded",
+          "note": "The configured launcher remains available; final v1.87 fixes the Loaded-command helper grant."
         }
       ],
       "notes": [
-        "Primary rockets keep the 1.05-second firing interval. Loaded secondary volleys use 1.05 seconds after the last rocket, compared with B19’s 0.74 seconds; one-, two- and three-rocket volleys use the same interval. Time spent loading is separate.",
-        "Normal rockets launch at 2,475 UU/s versus B19’s 2,700: 91.7% of the original speed (8.3% slower). Seeking rockets launch at 1,800 versus 2,000 UU/s and have a 2,160 versus 2,400 UU/s cap: 90% in both cases. Rocket Launcher grenade speeds remain 100% of B19.",
-        "Rocket splash peaks at 100 damage in both versions. B19 falls to 20 at 360 UU; Elite10K falls to 35 at about 296.667 UU. The full-damage core is 15 UU in both. Elite10K’s blast is smaller, but its edge hits harder.",
-        "Splash damage decreases in a straight line between the inner and outer radii. Beyond the outer radius it is zero. Armor, damage amplification, collision and line of sight can change the health actually lost.",
-        "You can queue a weapon switch while firing loaded rockets or grenades. It takes effect once the loaded volley has emptied. Switching away and back keeps the remaining shot cooldown.",
-        "If a fire-rate modifier slows you during that cooldown, switching back can keep you locked out for the slower interval. Switching does not give an early next shot.",
-        "Loading rings show progress and how many rockets are ready. A bright red center marks a loaded rocket; a brief pulse marks completion. The rocket’s red panels and metal collar help it stand out to other players."
+        "Loaded volleys of one, two or three rockets use the same 1.05-second base refire interval. Loading time and native scheduling are separate.",
+        "Loading rings show progress and how many rockets are ready. A bright red center marks a loaded rocket; a brief pulse marks completion. The rocket’s red panels and metal collar help it stand out to other players.",
+        "Native splash: 100 max, 35 minimum, 15/296.66666 UU inner/outer radii. Values are before armor and other modifiers.",
+        "Rocket grenades use the same finished shell and red coating as regular rockets. This changes appearance only.",
+        "The rocket spins about its centered visual axis.",
+        "Firing a single loaded rocket starts the HUD ring fade immediately, preventing a lingering red ring.",
+        "Normal rockets use 2,880/4,680 UU/s initial/maximum speed, 90% of B19’s 3,200/5,200; acceleration is 600 UU/s².",
+        "The configured launcher uses native B19 loading and firing with 1.05-second secondary refire, 0.41-second equip time, and a pending-switch retry after a completed volley. No custom firing deadline is added."
       ],
       "lab": "rocket"
     },
@@ -221,7 +395,7 @@
       "id": "stinger",
       "name": "Stinger",
       "tag": "Burst reserve",
-      "summary": "Ten opening secondary shots instead of twelve, with recovery that carries across weapon switches.",
+      "summary": "10 opening secondary shots with 0.475-second full-burst recovery.",
       "rows": [
         {
           "label": "Primary damage",
@@ -251,13 +425,13 @@
           "label": "Opening potential / all hits",
           "b19": "120 damage",
           "elite": "100 damage",
-          "note": "Before armor and other modifiers."
+          "note": ""
         },
         {
           "label": "Opening first-to-last shot span",
           "b19": "≈0.379 s",
           "elite": "≈0.379 s",
-          "note": "Time from first to last opening shot: 12 shots in B19 and 10 in Elite10K. Frame timing may shift actual shot times."
+          "note": ""
         },
         {
           "label": "Sustained secondary interval",
@@ -274,22 +448,57 @@
         {
           "label": "Recovery after a full opening burst",
           "b19": "B19 firing cycle; no separate reserve cooldown",
-          "elite": "0.5 s recovery",
-          "note": "Shorter bursts need less recovery. Switching does not clear the cooldown."
+          "elite": "0.475 s recovery",
+          "note": "Game seconds; recovery pauses during firing. Switching does not clear unpaid debt."
         },
         {
           "label": "Weapon raise / lower time",
           "b19": "0.48 / 0.08 s",
           "elite": "0.22 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Primary sound asset",
+          "b19": "Original sound",
+          "elite": "Restored primary sound cue",
+          "note": "v1.58 restores the previously removed cue; v1.62 temporarily uses an earlier build base."
+        },
+        {
+          "label": "Cooldown fill color",
+          "b19": "Original presentation",
+          "elite": "Mid-blue #15B4FF",
+          "note": "Optional HUD palette can override weapon presentation."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Mixed-burst recovery order",
+          "b19": "Native behavior",
+          "elite": "Cheapest remaining unpaid round first",
+          "note": "Partial balances persist. A new cheap round may return before an older expensive round. Shot two credits only shot one of the same press."
+        },
+        {
+          "label": "Ready pulse",
+          "b19": "Native behavior",
+          "elite": "White/blue fill and glow; no size expansion",
+          "note": "Unreplenished fill remains normal blue."
         }
       ],
       "notes": [
-        "Primary damage is 11 instead of B19’s 12, at the same firing interval. Secondary projectiles still deal 10 each.",
-        "The accelerating secondary opening contains ten shots instead of B19’s twelve: 100 potential damage instead of 120 if every shot hits. Both configured openings span about 0.379 seconds from first to last shot.",
-        "Keep holding secondary to continue at the sustained 0.148-second interval. Ten is the opening reserve, rather than an automatic stopping point.",
-        "A full opening burst takes 0.5 game seconds to recover. Releasing early needs less recovery; switching weapons does not erase it, and primary fire pauses recovery. This limits repeated rapid openings.",
-        "Blue effects make the Stinger easier to recognize. Secondary hits do not push living players."
+        "Primary damage is 11 at 0.088 s per shot. Secondary base damage is 10 with a sustained 0.148-second interval.",
+        "The opening sequence has 10 shots over approximately 0.379 game seconds.",
+        "A fresh full opening burst incurs 0.475 game seconds of reserve debt. Recovery pays the lowest remaining unpaid balance first and preserves partially paid older rounds.",
+        "Shot two cancels only the opening debt from the same trigger press. It cannot erase older burst debt. Recovery pauses while firing; switching does not erase it."
       ],
       "lab": "stinger"
     },
@@ -346,11 +555,30 @@
           "b19": "0.48 / 0.08 s",
           "elite": "0.41 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Landed goo interactions",
+          "b19": "Native behavior",
+          "elite": "Native shootable collision and damage handling",
+          "note": "Rocket/core flight contacts and rocket splash can remove live landed normal/large goo. Mini-goo already shuts down natively on landing. Native rules, range and damage gates apply."
         }
       ],
       "notes": [
         "Normal goo deals 35 instead of 40; rapid mini goo deals 13 instead of 20. Firing intervals match B19.",
-        "The large charged glob keeps its damage settings and travels at 95% of B19’s speed. Its actual damage also depends on glob strength and charged-goo rules."
+        "The large charged glob keeps its damage settings and travels at 95% of B19’s speed. Its actual damage also depends on glob strength and charged-goo rules.",
+        "Landed goo uses native landing collision rather than reapplied trace exclusions. Rocket splash and direct rocket/core contact were checked in an isolated native server; rendered/network behavior remains pending."
       ],
       "lab": "bio"
     },
@@ -413,6 +641,24 @@
           "b19": "0.22 / 0.08 s",
           "elite": "0.22 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Primary overheating",
+          "b19": "Native behavior",
+          "elite": "Disabled",
+          "note": "Existing weapon tick resets native heat; generic crosshair hides heat-box presentation. The removed helper is not required."
         }
       ],
       "notes": [
@@ -426,7 +672,7 @@
       "id": "sniper",
       "name": "Sniper Rifle",
       "tag": "Less push",
-      "summary": "The same body and headshot damage, with a narrower trace and no shot momentum.",
+      "summary": "70 body / 140 headshot damage, 10-UU trace half-size and no shot momentum.",
       "rows": [
         {
           "label": "Normal fire model",
@@ -467,8 +713,8 @@
         {
           "label": "Trace half-size",
           "b19": "15 UU",
-          "elite": "10 UU · 66.7% of B19 Sniper",
-          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
+          "elite": "10 UU",
+          "note": "Added allowance per side. Player capsule size remains separate.",
           "stock": "0 UU · line trace",
           "utplus": "0 UU · line trace",
           "ncp": "0 UU · line trace"
@@ -476,8 +722,8 @@
         {
           "label": "Full normal-shot thickness",
           "b19": "30 UU",
-          "elite": "20 UU · 66.7% of B19 Sniper",
-          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness.",
+          "elite": "20 UU added",
+          "note": "",
           "stock": "0 UU added · line trace",
           "utplus": "0 UU added · line trace",
           "ncp": "0 UU added · line trace"
@@ -485,8 +731,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "110 UU · 137.5% of Stock",
-          "elite": "100 UU · 125% of line-trace example; 90.9% of B19 Sniper",
-          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width.",
+          "elite": "100 UU · 125% of line trace",
+          "note": "",
           "stock": "80 UU · 100% of Stock",
           "utplus": "80 UU · 100% of Stock",
           "ncp": "80 UU · 100% of Stock"
@@ -519,20 +765,103 @@
           "ncp": "0.30 / 0.30 s"
         },
         {
-          "label": "Headshot size multiplier · stopped/slow vs moving",
-          "stock": "1.40 / 1.00",
-          "utplus": "1.10 / 1.10",
-          "ncp": "0.95 / 0.95",
-          "b19": "1.65 / 1.15",
-          "elite": "1.65 / 1.15",
-          "note": "Separate head-sphere test. These multipliers do not change the body capsule shown below. Movement categories follow the weapon’s headshot-scale logic."
+          "label": "Sniper overlay asset",
+          "b19": "Original overlay",
+          "stock": "Original overlay",
+          "utplus": "Original overlay",
+          "ncp": "Original overlay",
+          "elite": "Restored overlay asset",
+          "note": "v1.58 restores the packaged overlay."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "stock": "Native behavior",
+          "utplus": "Native behavior",
+          "ncp": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "stock": "Original colors",
+          "utplus": "Original colors",
+          "ncp": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Headshot radius scale · shooter stopped",
+          "b19": "1.65×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter slow",
+          "b19": "1.65×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter aimed",
+          "b19": "1.15×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter running",
+          "b19": "1.15×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1.2×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot geometry",
+          "b19": "Separate scaled head-sphere test",
+          "stock": "Separate scaled head-sphere test",
+          "utplus": "Separate scaled head-sphere test",
+          "ncp": "Separate scaled head-sphere test",
+          "elite": "Separate scaled head-sphere test",
+          "note": "Weapon headshot scales do not change the body capsule or add trace thickness."
+        },
+        {
+          "label": "Effective front-on area · 80×216 UU example",
+          "b19": "24,463 UU² · 153.8% of line-trace example",
+          "stock": "15,907 UU² · 100.0% of line-trace example",
+          "utplus": "15,907 UU² · 100.0% of line-trace example",
+          "ncp": "15,907 UU² · 100.0% of line-trace example",
+          "elite": "21,454 UU² · 134.9% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
+        },
+        {
+          "label": "Effective 3D capsule surface · same example",
+          "b19": "85,011 UU² · 156.6% of line-trace example",
+          "stock": "54,287 UU² · 100.0% of line-trace example",
+          "utplus": "54,287 UU² · 100.0% of line-trace example",
+          "ncp": "54,287 UU² · 100.0% of line-trace example",
+          "elite": "74,142 UU² · 136.6% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         }
       ],
       "notes": [
-        "Body/headshot damage remains 70/140 and the firing interval stays 1.36 seconds.",
-        "The normal shot trace half-width is 10 UU instead of B19’s 15 UU, requiring tighter aim. Hits no longer apply the 20, 000 shot momentum from B19. Server weapon settings can override defaults.",
-        "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
-        "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result."
+        "Normal hitscan uses 10 UU of added allowance on each side of the aim line. Body/headshot damage is 70/140; firing interval is 1.36 s.",
+        "An example 80-UU target has 100 UU effective body-hit width: 80 + 2 × 10. This is 90.9090909090909% of B19 Sniper’s 110-UU example.",
+        "The 20-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
+        "B19 Sniper uses 15-UU trace half-size. Stock, UT+ and NCP Sniper use zero added thickness.",
+        "Headshot radius scales: 1.2 / 1.2 / 1.2 / 1.2 for stopped / slow / aimed / running SHOOTER states. They are independent of headshot damage and the body trace. Final v1.81 uses 1.15× throughout; final v1.82 uses 1.2× throughout.",
+        "The sniper tracer and lingering smoky streak match v1.82: original yellow effect, smoke length, lifetime, opacity and native fade."
       ],
       "lab": "sniper",
       "comparisonColumns": [
@@ -554,7 +883,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v1.78"
+          "label": "Elite10K v1.83"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -563,7 +892,7 @@
       "id": "lightning",
       "name": "Lightning Rifle",
       "tag": "Hitscan replacement",
-      "summary": "A custom map-slot replacement with an instant normal shot and retained charged behavior.",
+      "summary": "70 normal body damage; charged headshots use 1× stopped and 1× running head-radius scales.",
       "rows": [
         {
           "label": "Map weapon replacement",
@@ -613,8 +942,8 @@
         {
           "label": "Full normal-shot thickness",
           "b19": "Projectile primary; no hitscan width",
-          "elite": "20 UU · 66.7% of B19 Sniper",
-          "note": "Full thickness = 2 × trace half-size. Elite10K normal Lightning and Sniper have the same shot thickness.",
+          "elite": "20 UU added",
+          "note": "",
           "stock": "Projectile; separate collision rules",
           "utplus": "0 UU added · line trace",
           "ncp": "0 UU added · line trace"
@@ -622,8 +951,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "Projectile; separate collision rules",
-          "elite": "100 UU · 125% of line-trace example; 90.9% of B19 Sniper",
-          "note": "Example target width 80 UU + full shot thickness: 80 + 30 = 110 UU versus 80 + 20 = 100 UU. This describes total horizontal body-hit allowance, not the character model’s visible width.",
+          "elite": "100 UU · 125% of line trace",
+          "note": "",
           "stock": "Projectile; separate collision rules",
           "utplus": "80 UU · 100% of line-trace example",
           "ncp": "80 UU · 100% of line-trace example"
@@ -663,15 +992,121 @@
           "b19": "5 / 10 UU",
           "elite": "10 / 20 UU",
           "note": "Stock/B19 primary is a projectile, but its charged shot is hitscan. The 10K charged trace is 200% of Stock’s thickness; for an 80-UU target, effective widths are 100 versus 90 UU (111.1%)."
+        },
+        {
+          "label": "Trace half-size",
+          "b19": "Native behavior",
+          "stock": "Native behavior",
+          "utplus": "Native behavior",
+          "ncp": "Native behavior",
+          "elite": "10 UU",
+          "note": "Added allowance per side. Player capsule size remains separate."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "stock": "Native behavior",
+          "utplus": "Native behavior",
+          "ncp": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "stock": "Original colors",
+          "utplus": "Original colors",
+          "ncp": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Headshot radius scale · shooter stopped",
+          "b19": "1.4×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter slow",
+          "b19": "1.4×",
+          "stock": "1.4×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter aimed",
+          "b19": "1×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot radius scale · shooter running",
+          "b19": "1×",
+          "stock": "1×",
+          "utplus": "1.1×",
+          "ncp": "0.95×",
+          "elite": "1×",
+          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+        },
+        {
+          "label": "Headshot geometry",
+          "b19": "Separate scaled head-sphere test",
+          "stock": "Separate scaled head-sphere test",
+          "utplus": "Separate scaled head-sphere test",
+          "ncp": "Separate scaled head-sphere test",
+          "elite": "Separate scaled head-sphere test",
+          "note": "Weapon headshot scales do not change the body capsule or add trace thickness."
+        },
+        {
+          "label": "Effective front-on area · 80×216 UU example",
+          "b19": "Charged beam only: 18,602 UU² · 116.9% of line-trace example",
+          "stock": "Charged beam only: 18,602 UU² · 116.9% of line-trace example",
+          "utplus": "15,907 UU² · 100.0% of line-trace example",
+          "ncp": "15,907 UU² · 100.0% of line-trace example",
+          "elite": "21,454 UU² · 134.9% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
+        },
+        {
+          "label": "Effective 3D capsule surface · same example",
+          "b19": "Charged beam only: 63,900 UU² · 117.7% of line-trace example",
+          "stock": "Charged beam only: 63,900 UU² · 117.7% of line-trace example",
+          "utplus": "54,287 UU² · 100.0% of line-trace example",
+          "ncp": "54,287 UU² · 100.0% of line-trace example",
+          "elite": "74,142 UU² · 136.6% of line-trace example",
+          "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
+        },
+        {
+          "label": "Headshot damage",
+          "b19": "125",
+          "stock": "125",
+          "utplus": "No charged shot",
+          "ncp": "No charged shot",
+          "elite": "140",
+          "note": "Applies to an eligible fully powered headshot, not an uncharged normal hit."
+        },
+        {
+          "label": "Native headshot eligibility",
+          "b19": "Fully powered charged shot",
+          "stock": "Fully powered charged shot",
+          "utplus": "No charged shot; zoom only",
+          "ncp": "No charged shot; zoom only",
+          "elite": "Fully powered (charged) firing state",
+          "note": "Native Lightning CanHeadShot reads the same powered-state flag used for FullPowerBonusDamage."
         }
       ],
       "notes": [
-        "B19 leaves this map slot as the stock Lightning weapon. Elite10K replaces it with a rifle whose normal shot is instant hitscan: 70 damage, 1.36-second interval and 10-UU trace half-width.",
-        "The charged shot retains 85 body/140 headshot damage, chaining behavior and a 1.66-second refire interval. The B19 column describes the stock map weapon for this slot.",
-        "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower).",
-        "For a body-hit example, a target capsule with radius 40 UU is 80 UU wide. Add the shot allowance on both sides: B19 Sniper accepts an aim-line offset of up to 40 + 15 = 55 UU (110 UU across); Elite10K Sniper and normal Lightning accept 40 + 10 = 50 UU (100 UU across). That effective body-hit width is 90.9% of B19 Sniper’s (9.1% narrower). This is a width comparison, not a 33.3% reduction in the whole player hitbox or hit probability. Actual capsule size, pose, headshot checks, obstruction and server settings can change the result.",
-        "These trace dimensions describe normal fire only. B19 Lightning’s projectile and the charged shot are separate hit-detection cases; the Sniper percentages do not imply an equivalent B19 Lightning projectile size.",
-        "UT+ and NCP Lightning use a 70-damage hitscan normal shot with zero added trace thickness and a 1.30-second interval. Their alternate fire zooms; it does not provide Stock/Elite10K’s charged and chaining shot. Their normal headshot damage is 125, with a 1.10 UT+ or 0.95 NCP head-sphere multiplier."
+        "Normal uncharged fire deals 70 body damage. Headshots require the native fully powered firing state; the charged profile is 85 body / 140 headshot damage.",
+        "The headshot radius scales are 1 / 1 / 1 / 1 for stopped / slow / aimed / running SHOOTER states. Victim movement does not select these multipliers.",
+        "This head-sphere check is separate from the 10-UU body trace half-size and its body-hit allowance. It does not resize the player’s body capsule.",
+        "From v1.81, the stationary and slow multipliers match the existing moving values: Lightning is 1.0× in all four states. Stock/B19 normal Lightning is a projectile; their charged beam uses its own native headshot rules."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -693,7 +1128,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v1.78"
+          "label": "Elite10K v1.83"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -702,25 +1137,25 @@
       "id": "hammer",
       "name": "Impact Hammer",
       "tag": "Charge feedback",
-      "summary": "Full charge arrives sooner, with clearer charge and mobility feedback.",
+      "summary": "Full damage charge at 1.8 game seconds, with the existing charge and mobility feedback.",
       "rows": [
         {
           "label": "Full damage charge time",
           "b19": "2.00 s",
-          "elite": "1.60 s",
+          "elite": "1.80 s",
           "note": ""
         },
         {
           "label": "Full impact/jump charge fraction",
           "b19": "25%",
-          "elite": "31.25%",
-          "note": "Both correspond to 0.50 seconds of charge."
+          "elite": "27.7778%",
+          "note": "Full damage charge remains 1.80 s; jump readiness is 0.50 s."
         },
         {
           "label": "Full impact/jump charge time",
           "b19": "0.50 s",
           "elite": "0.50 s",
-          "note": ""
+          "note": "Restored in the final v1.85 revision."
         },
         {
           "label": "Stored primary hit damage",
@@ -745,12 +1180,37 @@
           "b19": "100% stock shield",
           "elite": "115% width and height",
           "note": "Visible shield mesh matches the 15% larger blocking coverage. Shield depth is unchanged."
+        },
+        {
+          "label": "Halo color join",
+          "b19": "Original halo",
+          "elite": "Feathered red/gold join",
+          "note": "Weapon-owned HUD material; gameplay unchanged."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
+        },
+        {
+          "label": "Alt shield active duration",
+          "b19": "0.50 s",
+          "elite": "0.75 s",
+          "note": "Lifetime of each shield in game seconds. Secondary refire remains 0.66 s."
         }
       ],
       "notes": [
-        "Full damage charge takes 1.60 seconds instead of B19’s 2.00. The impact/jump-ready point still arrives at 0.50 seconds, so the faster damage charge does not make hammer jumps ready earlier.",
-        "Secondary refire is 0.66 seconds instead of 0.88, and shield blocking is 15% wider and taller. Shield depth is unchanged.",
-        "The charge arc and jump/damage icons show readiness. The halo blends smoothly between gold and red."
+        "Full damage charge takes 1.8 game seconds; B19 takes 2.00 seconds.",
+        "Full impact/jump readiness is 0.50 game seconds; full damage charge remains 1.80 seconds.",
+        "The weapon-owned charge HUD reads the native full-charge duration and follows this timing.",
+        "Each alt-fire shield stays active for 0.75 game seconds, increased from 0.50. Secondary refire remains 0.66 game seconds."
       ],
       "lab": "hammer"
     },
@@ -801,6 +1261,18 @@
           "b19": "0.26 / 0.08 s",
           "elite": "0.41 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
@@ -813,7 +1285,7 @@
       "id": "grenade",
       "name": "Grenade Launcher",
       "tag": "Native splash",
-      "summary": "B19 firing cadence, with a smaller blast and 35 minimum edge damage.",
+      "summary": "35 minimum native splash damage with 248-UU outer radius.",
       "rows": [
         {
           "label": "Primary / secondary intervals",
@@ -825,19 +1297,37 @@
           "label": "Splash damage / blast radii",
           "b19": "90 max / 20 min · 50–300 UU",
           "elite": "90 max / 35 min · 50–248 UU",
-          "note": "Both regular and sticky grenades deal full damage through 50 UU, then decrease linearly to the minimum. Elite10K reaches 35 at 248 UU; B19 reaches 20 at 300 UU."
+          "note": "Native linear splash."
         },
         {
           "label": "Weapon raise / lower time",
           "b19": "0.51 / 0.08 s",
           "elite": "0.41 / 0.08 s",
           "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+        },
+        {
+          "label": "Explosion handling",
+          "b19": "Native explosion",
+          "elite": "Native explosion path",
+          "note": "Legacy projectile cutoff is disabled."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
-        "Regular and sticky grenades keep B19’s 0.94/1.00-second primary/secondary firing intervals.",
-        "Both versions deal 90 maximum splash damage through 50 UU. B19 falls to 20 at 300 UU; Elite10K falls to 35 at 248 UU. Elite10K trades some reach for a higher minimum edge hit.",
-        "Damage decreases linearly between the inner and outer radii and is zero beyond the outer radius. The explorer shows the raw explosion damage before armor or amplification."
+        "Primary/secondary intervals remain 0.94/1.00 game seconds.",
+        "Native splash: 90 max, 35 minimum, 50/248 UU inner/outer radii. Values are before armor and other modifiers.",
+        "Normal and sticky grenade profiles use the same radial parameters. Cover, armor, amplification and collision can change actual damage."
       ],
       "lab": "grenade"
     },
@@ -852,6 +1342,18 @@
           "b19": "Stock Redeemer",
           "elite": "Stock Redeemer",
           "note": "No Redeemer-specific damage rebalance in either package."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Original colors",
+          "elite": "Explicit Elite10K colors restored",
+          "note": "Independent HUD palettes can override presentation."
         }
       ],
       "notes": [
@@ -878,18 +1380,6 @@
           "b19": "0.20 s",
           "elite": "0.01 s",
           "note": ""
-        },
-        {
-          "label": "Movement tier thresholds",
-          "b19": "Standard UT combo awards (no damage bonus)",
-          "elite": "8 / 20 / 32",
-          "note": "Elite10K scores 8/20/32 earn Nice/Amazing/Spectacular damage bonuses."
-        },
-        {
-          "label": "Airborne score weighting",
-          "b19": "Speed weighting: 5 in air / 3 on ground",
-          "elite": "3 on ground and in air",
-          "note": "Controls the sideways-speed contribution to combo scoring."
         },
         {
           "label": "Dodge-jump reset delay",
@@ -926,13 +1416,17 @@
           "b19": "Stock UT movement setting",
           "elite": "0.7 / 0.7",
           "note": "Normal and dodge air-control overrides."
+        },
+        {
+          "label": "Attack interactions (v1.8 policy)",
+          "b19": "Native behavior",
+          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+          "note": "Contact predicates, component collision and damage response are separate gates."
         }
       ],
       "notes": [
         "Ground- and wall-dodge reset delays are 0.01 seconds instead of B19’s 0.35 and 0.20. You still need to complete the relevant movement and satisfy normal ground/wall requirements.",
-        "Combo movement rewards sideways movement relative to the core’s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
         "Acceleration is strongest when starting from low speed, then blends toward normal running acceleration. Ground friction affects steering; braking slows you when you release movement input or exceed the speed limit.",
-        "Distance is shown in UU (Unreal Units) and approximate dodge lengths. One reference dodge length is about 696 UU. These describe distance, rather than how many dodge inputs to press.",
         "Projectile interactions are adjusted to reduce accidental interception between weapons. Server mutators and saved settings can change the defaults shown here."
       ],
       "lab": null
@@ -941,13 +1435,13 @@
       "id": "visuals",
       "name": "HUD & readability",
       "tag": "Visual feedback",
-      "summary": "More readable projectiles and clearer information while loading or charging.",
+      "summary": "Weapon-owned effects for this release; optional HUD versioning is separate.",
       "rows": [
         {
           "label": "Rocket loading feedback",
           "b19": "B19 crosshair feedback",
-          "elite": "Progress rings, loaded centers and completion pulse",
-          "note": "A filled center marks a ready rocket; a 0.15-second red pulse marks loading completion."
+          "elite": "Red-only loading rings with per-shot clearing",
+          "note": "Native crosshair/mode/locking drawing retained; no gameplay loaded-count suppression."
         },
         {
           "label": "Hammer feedback",
@@ -964,7 +1458,7 @@
         {
           "label": "Full-screen HUD",
           "b19": "B19 / stock HUD",
-          "elite": "Separate optional Elite10K HUD v1.13",
+          "elite": "Separate optional Elite10K HUD v1.15",
           "note": "The weapon package and the full-screen HUD are separate downloads."
         },
         {
@@ -1002,14 +1496,42 @@
           "b19": "Stock game status",
           "elite": "Native status wording beneath the clock",
           "note": "Appears when the game supplies a status such as Waiting for Host or Overtime. Clock/status spacing adjusts when text is present."
+        },
+        {
+          "label": "Rocket projectile art",
+          "b19": "Native behavior",
+          "elite": "Final merged shell",
+          "note": ""
+        },
+        {
+          "label": "Flak visible smoke opacity",
+          "b19": "Native behavior",
+          "elite": "0.2",
+          "note": ""
+        },
+        {
+          "label": "Weapon icon defaults",
+          "b19": "Native behavior",
+          "elite": "Explicit Elite10K colors restored",
+          "note": ""
+        },
+        {
+          "label": "Switch highlight timing",
+          "b19": "Native behavior",
+          "elite": "Immediate pending-weapon glow",
+          "note": "The final normal-trace v1.6 revision introduces the immediate gate; v1.62 temporarily reverts to its older build base."
+        },
+        {
+          "label": "Own weapon switch glow",
+          "b19": "Original visibility",
+          "elite": "Visible in behindview 1; hidden in first person",
+          "note": "Uses the existing switch effect and timing. Other clients can receive switch state later because of network delay."
         }
       ],
       "notes": [
-        "The weapons supply their own load/charge indicators and projectile effects. Install the separate optional HUD for the full-screen header, vitals, ammo layout, kill feed, mini scoreboard and powerup panels.",
-        "Loaded rocket rings and Hammer icons explain weapon readiness; they do not change firing or charge times.",
-        "Other players’ weapon switches use destination-weapon colors with a brief glow. This helps identify what they are switching to.",
-        "The optional HUD uses antialiased graphics and Ubuntu Mono clocks. DM and team modes have their own headers; the team layout includes your team and personal score.",
-        "Status text keeps the game’s normal capitalization. It appears below the clock only while a status is supplied; the clock returns to its normal placement when the line is empty."
+        "Weapon-owned visual changes follow the selected weapons release.",
+        "The optional full-screen HUD shown elsewhere is companion v1.15, independently released. It is not claimed as the historical HUD shipped alongside this weapons version.",
+        "In behindview 1, your own third-person weapon shows the same switch glow and timing used for other players. Your first-person weapon remains unhighlighted."
       ],
       "lab": null
     },
@@ -1022,13 +1544,13 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v1.78",
+          "elite": "Elite10K v1.91",
           "note": "The two columns describe each version’s default behavior."
         },
         {
           "label": "Optional full-screen HUD",
           "b19": "B19 / stock HUD",
-          "elite": "Elite10K HUD v1.13",
+          "elite": "Elite10K HUD v1.15",
           "note": "Separate from weapon-specific indicators."
         },
         {
@@ -1045,20 +1567,158 @@
         }
       ],
       "notes": [
-        "Joining a server uses that server’s gameplay version. A newer local download does not change an older server’s balance.",
-        "Keep one current Elite10K weapon package installed and avoid duplicate older copies. The weapon filename is Elite10K-WindowsNoEditor.pak; the optional full-screen HUD is a separate package.",
-        "Tables show default settings. Server configuration and other mutators can override them. Times are game seconds, and damage examples exclude armor and amplification.",
-        "Read max/min splash damage as center/edge damage. The inner radius is the full-damage zone; the outer radius is the blast’s limit. Minimum damage applies at the edge of an eligible hit, not outside the blast.",
-        "The comparison uses the original Elite B19 package identified in Sources. Detailed formulas and package hashes are available there and in the combo calculator."
+        "Each version represents its final completed normal revision; superseded experiments are excluded.",
+        "Release: Rocket and rocket-grenade main/assist colliders ignore both weapon trace channels15/19.",
+        "Complete preserved artifact SHA256: C4A7C7F35C63AF2CA283303017BECEB523283476B386247A5900FBEF30E4CA9C.",
+        "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separately versioned. Native isolated tests do not establish rendered or multiplayer acceptance."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "5FC0F19E125E09E7A8D915768F0FA3B7FBAF5867F21565A592D31A4304E15DF4",
-  "verifiedDate": "2026-11-08",
+  "packageSha256": "C4A7C7F35C63AF2CA283303017BECEB523283476B386247A5900FBEF30E4CA9C",
+  "verifiedDate": "2026-11-11",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
-  "hudVersion": "1.13",
-  "hudPackageSha256": "56453F0BA87A77F0A04CFA95452373CB96642D543ACBD83C2594FA29575CA8A7",
-  "shockVariantData": "shock-variants.js"
+  "hudVersion": "1.15",
+  "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
+  "shockVariantData": "shock-variants.js",
+  "revision": "Rocket and rocket-grenade main/assist colliders ignore both weapon trace channels15/19",
+  "model": {
+    "combo": {
+      "max": 210,
+      "min": 50,
+      "inner": 77,
+      "outer": 390,
+      "falloff": 1.5,
+      "baseBoost": 0
+    },
+    "trace": 10,
+    "shockInterval": 0.49451,
+    "shockSwitch": 0.15,
+    "stinger": {
+      "shots": 10,
+      "recovery": 0.475,
+      "gaps": [
+        0.2,
+        0.07,
+        0.05,
+        0.03,
+        0.014,
+        0.008,
+        0.004,
+        0.002,
+        0.001
+      ],
+      "recoveryOrder": "lowest remaining unpaid debt first",
+      "perPressDebt": [
+        0.14059999999999997,
+        0,
+        0,
+        0.03002,
+        0.055005,
+        0.07020499999999999,
+        0.075905,
+        0.079705,
+        0.081605,
+        0.082555
+      ],
+      "samePressOpeningCredit": true
+    },
+    "flak": {
+      "linear": true,
+      "start": 875,
+      "end": 1750,
+      "interval": 0.9,
+      "nativeTime": true,
+      "delay": 0.06730769574642181,
+      "floorAge": 0.1346153846153846,
+      "speed": 13000,
+      "storedBase": [
+        10,
+        20
+      ],
+      "storedMinimum": [
+        4,
+        8
+      ],
+      "multiplier": 1
+    },
+    "splash": {
+      "legacy": false,
+      "rocket": [
+        100,
+        35,
+        15,
+        296.66666
+      ],
+      "flak": [
+        95,
+        35,
+        0,
+        240
+      ],
+      "grenade": [
+        90,
+        35,
+        50,
+        248
+      ]
+    },
+    "foreignLabel": "Anticombo!",
+    "confirmedNotices": true,
+    "rocketDeadline": false,
+    "headshots": {
+      "sniper": [
+        1.2,
+        1.2,
+        1.2,
+        1.2
+      ],
+      "lightning": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "hammer": {
+      "full": 1.8,
+      "impactFraction": 0.2777777777777778,
+      "shieldLifetime": 0.75
+    },
+    "shreddedAllNine": false,
+    "shredded": {
+      "native": true,
+      "maxShreddedTime": 0.15
+    },
+    "rocketNativeSwitch": true,
+    "rocketEquip": 0.41
+  },
+  "releaseSource": {
+    "receipt": "elite-v1.91/latest-release.json",
+    "artifact": "elite-v1.91/rocket-trace-exclusions/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  },
+  "comboMovement": {
+    "id": "combo-movement",
+    "name": "Combo movement scoring",
+    "rows": [
+      {
+        "label": "Movement tier thresholds",
+        "b19": "Standard UT combo awards (no damage bonus)",
+        "elite": "8 / 20 / 32",
+        "note": "Elite10K scores 8/20/32 earn Nice/Amazing/Spectacular damage bonuses."
+      },
+      {
+        "label": "Airborne score weighting",
+        "b19": "Speed weighting: 5 in air / 3 on ground",
+        "elite": "3 on ground and in air",
+        "note": "Controls the sideways-speed contribution to combo scoring."
+      }
+    ],
+    "notes": [
+      "Combo movement rewards sideways movement relative to the core’s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
+      "Distance is shown in UU (Unreal Units) and approximate dodge lengths. One reference dodge length is about 696 UU. These describe distance, rather than how many dodge inputs to press."
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 const fs=require('fs'),p=require('path'),vm=require('vm'),assert=require('assert');
 const root=__dirname,box={window:{}};vm.runInNewContext(fs.readFileSync(p.join(root,'versions-data.js'),'utf8'),box);
 const versions=box.window.ELITE_VERSIONS,history=require('./release-history.js');let cases=0;
-assert.equal(Object.keys(versions).length,29);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'1.85');
+assert.equal(Object.keys(versions).length,35);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'1.91');
 for(const [v,d] of Object.entries(versions)){
  const m=d.model,c=m.combo;
  assert.equal(d.weapons.length,12);assert.equal(d.shared.length,3);assert(/^[A-F0-9]{64}$/.test(d.packageSha256));
@@ -14,7 +14,7 @@ for(const [v,d] of Object.entries(versions)){
   const expected=dist>c.outer?0:Math.min(210,Math.trunc(raw+(c.baseBoost||0)*Math.max(0,Math.min(1,(210-raw)/170))+bonus+.0001));
   assert(Math.abs(r.raw-raw)<.0001,v+' raw '+dist);assert(Math.abs(r.final-expected)<=1,v+' final '+dist);assert(r.final>=0&&r.final<=210);if(dist>c.outer)assert.equal(r.final,0);cases++;
  }
- for(let dist=0;dist<=3000;dist+=3){const r=history.flak(dist,m);const f=m.flak,expected=f.linear?10-6*Math.max(0,Math.min(1,(dist-f.start)/(f.end-f.start))):dist<1050?10:dist<1575?7:4;assert(Math.abs(r.total-expected*10)<1e-8);cases++;}
+ for(let dist=0;dist<=3000;dist+=3){const r=history.flak(dist,m);const f=m.flak,expected=f.nativeTime?10-6*Math.max(0,Math.min(1,(dist/13000-f.delay)/(f.floorAge-f.delay))):f.linear?10-6*Math.max(0,Math.min(1,(dist-f.start)/(f.end-f.start))):dist<1050?10:dist<1575?7:4;assert(Math.abs(r.total-expected*10)<1e-8);cases++;}
  for(const profile of Object.values(m.splash).filter(Array.isArray)){assert.equal(history.splash(profile[3]+1,profile,m.splash.legacy),0);assert.equal(history.splash(0,profile,m.splash.legacy),profile[0]);for(let dist=0;dist<=400;dist++){const damage=history.splash(dist,profile,m.splash.legacy);assert(damage>=0&&damage<=profile[0]);if(m.splash.legacy)assert(damage===0||damage>=40);cases++;}}
  assert.equal(m.stinger.gaps.length,m.stinger.shots-1);
  for(const id of ['sniper','lightning']){assert.equal(m.headshots[id].length,4);for(const scale of m.headshots[id])assert(scale>0);}
@@ -43,7 +43,13 @@ for(const allowance of [0,5,7.5,10,15]){
 }
 assert.equal(Math.round(bodyGeometry(10).frontArea),21454);
 assert.equal(Math.round(bodyGeometry(10).surfaceArea),74142);
-console.log('PASS',cases,'release-model cases, 29 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
-fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:29,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
+console.log('PASS',cases,'release-model cases, 35 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
+fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:35,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
 
-assert.equal(versions['1.85'].model.hammer.shieldLifetime,.75);assert.equal(versions['1.84'].model.hammer.shieldLifetime,.5);assert.equal(versions['1.85'].packageSha256,'E316EC611DC815693E95E298BCF9EEF6D0D9DFCF27B1C093EE4A62328E428C0B');
+assert.equal(versions['1.85'].model.hammer.shieldLifetime,.75);assert.equal(versions['1.84'].model.hammer.shieldLifetime,.5);assert.equal(versions['1.85'].packageSha256,'D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D');
+
+assert.equal(versions['1.91'].model.stinger.recovery,.475);
+assert.equal(versions['1.91'].packageSha256,'C4A7C7F35C63AF2CA283303017BECEB523283476B386247A5900FBEF30E4CA9C');
+assert(versions['1.91'].model.flak.nativeTime);assert(versions['1.91'].model.shredded.native);
+assert(Math.abs(versions['1.85'].model.hammer.full*versions['1.85'].model.hammer.impactFraction-.5)<1e-7);
+for(const v of ['1.86','1.87','1.88','1.89','1.90','1.91']){const m=versions[v].model.stinger;assert.equal(m.recoveryOrder,'lowest remaining unpaid debt first');assert(Math.abs(m.perPressDebt.slice(3).reduce((a,b)=>a+b,0)-m.recovery)<1e-7);}

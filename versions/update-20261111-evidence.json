@@ -1,0 +1,51 @@
+[
+  {
+    "version": "1.85",
+    "sha256": "D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D",
+    "receipt": "elite-v1.85/latest-release.json",
+    "artifact": "elite-v1.85/hammer-jump050/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  },
+  {
+    "version": "1.86",
+    "sha256": "8DFAABDAC76E9B1B75FFC579A5E5920A54551A7C93190160DF19C883C62EDECA",
+    "receipt": "elite-v1.86/latest-release.json",
+    "artifact": "elite-v1.86/dark-fill-reverted/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  },
+  {
+    "version": "1.87",
+    "sha256": "DC3D90E065B3823E4D3677749F64CD55AE12586624E7CFA2523BF4803686EC1C",
+    "receipt": "elite-v1.87/latest-release.json",
+    "artifact": "elite-v1.87/loaded-fix/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  },
+  {
+    "version": "1.88",
+    "sha256": "B5F4B474E7BEAF942958C7999FC9E27404832CA4DDB1D73586DCEFA84F84DB8B",
+    "receipt": "elite-v1.88/latest-release.json",
+    "artifact": "elite-v1.88/volley-switch-only/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  },
+  {
+    "version": "1.89",
+    "sha256": "CD53983C5BD186E9D8B17B36B0BFDEFE2FBCE8D519CA372FD8DEB684462E70A2",
+    "receipt": "elite-v1.89/latest-release.json",
+    "artifact": "elite-v1.89/native-flak-primary/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  },
+  {
+    "version": "1.90",
+    "sha256": "D86C1462B28CF8BC92956C7CC81282A3A4C0C39790309DAABE1F205CAB56B6B0",
+    "receipt": "elite-v1.90/latest-release.json",
+    "artifact": "elite-v1.90/flak-simple-values/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  },
+  {
+    "version": "1.91",
+    "sha256": "C4A7C7F35C63AF2CA283303017BECEB523283476B386247A5900FBEF30E4CA9C",
+    "receipt": "elite-v1.91/latest-release.json",
+    "artifact": "elite-v1.91/rocket-trace-exclusions/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+  }
+]
