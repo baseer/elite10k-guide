@@ -93,7 +93,7 @@
     {
       "id": "flak",
       "name": "Flak Cannon",
-      "tag": "Linear distance falloff",
+      "tag": "Native time decay",
       "summary": "Native time-decaying primary shards: 10/20 damage to 4/8; native Shredded.",
       "rows": [
         {
