@@ -490,8 +490,8 @@
         {
           "label": "Ready pulse",
           "b19": "Native behavior",
-          "elite": "White/blue fill and glow; no size expansion",
-          "note": "Unreplenished fill remains normal blue."
+          "elite": "One finite glow pulse per completed recovery; no size expansion",
+          "note": "Readiness is timestamped from live game time when replenishment completes. Fractional fill tracks the best recovery reached during a press, so fallback charges do not make it jump backward. A new burst resets that display; gameplay debt is unchanged."
         },
         {
           "label": "Dynamic recovery formula",
@@ -1600,21 +1600,21 @@
         }
       ],
       "notes": [
-        "Final completed weapons revision: Dynamic Stinger 0.5 recovery; fallback debt/recovery; new-press reserve and tap gate.",
-        "Complete preserved artifact SHA256: 0D9A39BA69E2DB28371264B400FBEF49F2A23E1698DD9109B01BE19486485FC2.",
+        "Final completed weapons revision: Stinger continuous HUD fill and one-shot ready pulse; dynamic recovery/gameplay preserved.",
+        "Complete preserved artifact SHA256: E5521F7C6CA83CE157335D7FAA68072A2E24AA9B9089211EB797B9810C0B06E9.",
         "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separate."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "0D9A39BA69E2DB28371264B400FBEF49F2A23E1698DD9109B01BE19486485FC2",
+  "packageSha256": "E5521F7C6CA83CE157335D7FAA68072A2E24AA9B9089211EB797B9810C0B06E9",
   "verifiedDate": "2026-11-12",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.15",
   "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
   "shockVariantData": "shock-variants.js",
-  "revision": "Dynamic Stinger 0.5 recovery; fallback debt/recovery; new-press reserve and tap gate",
+  "revision": "Stinger continuous HUD fill and one-shot ready pulse; dynamic recovery/gameplay preserved",
   "model": {
     "combo": {
       "max": 210,
@@ -1737,8 +1737,8 @@
     "rocketEquip": 0.41
   },
   "releaseSource": {
-    "receipt": "elite-v1.93/report.json",
-    "artifact": "elite-v1.93/Elite10K-WindowsNoEditor.pak.pending",
+    "receipt": "elite-v1.93/hud-recovery-fix/report.json",
+    "artifact": "elite-v1.93/hud-recovery-fix/Elite10K-WindowsNoEditor.pak.pending",
     "verification": "Preserved pak SHA256 and byte scope verified; v1.93 cooked VM/native function/real firing tests passed. Client rendering and packet-loss synchronization not verified."
   },
   "comboMovement": {

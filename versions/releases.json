@@ -3330,11 +3330,11 @@
   },
   {
     "version": "1.93",
-    "sha256": "0D9A39BA69E2DB28371264B400FBEF49F2A23E1698DD9109B01BE19486485FC2",
-    "revision": "Dynamic Stinger 0.5 recovery; fallback debt/recovery; new-press reserve and tap gate",
+    "sha256": "E5521F7C6CA83CE157335D7FAA68072A2E24AA9B9089211EB797B9810C0B06E9",
+    "revision": "Stinger continuous HUD fill and one-shot ready pulse; dynamic recovery/gameplay preserved",
     "source": {
-      "receipt": "elite-v1.93/report.json",
-      "artifact": "elite-v1.93/Elite10K-WindowsNoEditor.pak.pending",
+      "receipt": "elite-v1.93/hud-recovery-fix/report.json",
+      "artifact": "elite-v1.93/hud-recovery-fix/Elite10K-WindowsNoEditor.pak.pending",
       "verification": "Preserved pak SHA256 and byte scope verified; v1.93 cooked VM/native function/real firing tests passed. Client rendering and packet-loss synchronization not verified."
     },
     "model": {
