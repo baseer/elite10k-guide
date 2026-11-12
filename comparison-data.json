@@ -561,6 +561,12 @@
           "note": ""
         },
         {
+          "label": "Rapid mini-goo firing interval",
+          "b19": "0.120 s",
+          "elite": "0.120 s",
+          "note": "Squeeze fire (primary while holding secondary): 8.33 shots/s. SqueezeFireInterval is separate from the normal 0.30-second primary interval. Game seconds at the default fire-rate multiplier."
+        },
+        {
           "label": "Secondary interval",
           "b19": "0.35 s",
           "elite": "0.35 s",
@@ -612,7 +618,8 @@
       "notes": [
         "Normal goo deals 35 instead of 40; rapid mini goo deals 13 instead of 20. Firing intervals match B19.",
         "The large charged glob keeps its damage settings and travels at 95% of B19’s speed. Its actual damage also depends on glob strength and charged-goo rules.",
-        "Landed goo uses native landing collision rather than reapplied trace exclusions. Rocket splash and direct rocket/core contact were checked in an isolated native server; rendered/network behavior remains pending."
+        "Landed goo uses native landing collision rather than reapplied trace exclusions. Rocket splash and direct rocket/core contact were checked in an isolated native server; rendered/network behavior remains pending.",
+        "Bio rapid fire shoots every 0.120 s (8.33 shots/s), compared with Link primary every 0.124 s (8.06 shots/s): Bio fires about 3.3% faster, with 4 ms less between shots. Configured game-time cadence; native frame scheduling can affect actual shot times."
       ],
       "lab": "bio"
     },
@@ -700,7 +707,8 @@
         "Beam damage, tick interval, range and pull settings match B19. Elite10K keeps the primary/beam/pull roles and omits the heat bar.",
         "Plasma is green with a restrained white center for visibility.",
         "Ammo supply: maximum 135, normal weapon pickup 90, normal ammo pickup 45. Pickups cap at 135. Link ammo pickup replacement scales the original map amount by 1.125, rounded; other ammo types are unchanged. Dropped weapons can carry their remaining ammunition.",
-        "Ammo consumption: primary remains 1 per shot; beam secondary remains 2 per configured 0.23-second interval; a successful pull costs 3 additional ammo. Neither firing cost nor cadence changed."
+        "Ammo consumption: primary remains 1 per shot; beam secondary remains 2 per configured 0.23-second interval; a successful pull costs 3 additional ammo. Neither firing cost nor cadence changed.",
+        "Bio rapid fire shoots every 0.120 s (8.33 shots/s), compared with Link primary every 0.124 s (8.06 shots/s): Bio fires about 3.3% faster, with 4 ms less between shots. Configured game-time cadence; native frame scheduling can affect actual shot times."
       ],
       "lab": "link"
     },
