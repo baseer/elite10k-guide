@@ -3330,12 +3330,12 @@
   },
   {
     "version": "1.93",
-    "sha256": "FE40E96A3F2EBAB672C654545DD6C917DF4216C142B22F0E9347CA0F1546EB97",
-    "revision": "Stepped Stinger fill, monotone only during held fallback, accurate immediately on release; finite pulse preserved",
+    "sha256": "47CB22A77817C83141A1D03B576349054D3CFC38CA66A275F5D49C1DD221AE1A",
+    "revision": "Stinger idle recovery0.475; separate fallback debt multiplier for ideal0.971 recovery; latest stepped HUD preserved",
     "source": {
-      "receipt": "elite-v1.93/stepped-fallback-hud/report.json",
-      "artifact": "elite-v1.93/stepped-fallback-hud/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Only cosmetic UpdateRecoveryPresentation changed; other exports byte-identical. 1872 HUD draw checks and actual native firing/release checks passed; rendered/network acceptance pending."
+      "receipt": "elite-v1.93/recovery0475-fallback0971/report.json",
+      "artifact": "elite-v1.93/recovery0475-fallback0971/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved artifact hash/byte scope,1450 cooked checks and native firing/fallback-cost checks passed. Client rendering and packet-loss acceptance remain pending."
     },
     "model": {
       "combo": {
@@ -3351,7 +3351,7 @@
       "shockSwitch": 0.15,
       "stinger": {
         "shots": 10,
-        "recovery": 0.5,
+        "recovery": 0.475,
         "gaps": [
           0.2,
           0.07,
@@ -3365,28 +3365,30 @@
         ],
         "recoveryOrder": "lowest remaining unpaid debt first",
         "perPressDebt": [
-          0.06721162579473206,
-          -0.023614895549500463,
-          0.03542234332425068,
-          0.044504995458673924,
-          0.05358764759309718,
-          0.060853769300635775,
-          0.06357856494096276,
-          0.0653950953678474,
-          0.06630336058128973,
-          0.0667574931880109
+          0.06385104450499546,
+          -0.02243415077202544,
+          0.03365122615803814,
+          0.04227974568574023,
+          0.05090826521344232,
+          0.05781108083560398,
+          0.06039963669391461,
+          0.062125340599455035,
+          0.06298819255222525,
+          0.06341961852861035
         ],
         "samePressOpeningCredit": "bounded negative adjustment within this press only",
         "regularInterval": 0.148,
         "dynamicDebt": true,
-        "recoveryScale": 0.45413260672116257,
-        "fallbackDebt": 0.06721162579473206,
+        "recoveryScale": 0.43142597638510444,
+        "fallbackDebt": 0.08266666666666667,
         "recoveryDuringFallback": true,
         "primaryPausesRecovery": true,
         "heldBurstPausesRecovery": true,
         "reserveRequiresNewPress": true,
         "tapInterval": 0.148,
-        "continuousElapsedRecovery": true
+        "continuousElapsedRecovery": true,
+        "fallbackDebtMultiplier": 1.294679943100996,
+        "idealFallbackRecovery": 0.971
       },
       "flak": {
         "linear": true,

@@ -395,7 +395,7 @@
       "id": "stinger",
       "name": "Stinger",
       "tag": "Burst reserve",
-      "summary": "Dynamic 0.50-second burst recovery; regular alt fire repays debt while adding a charge per shot.",
+      "summary": "Dynamic 0.475-second idle burst recovery; separate fallback penalty gives approximately 0.971 seconds under ideal regular timing.",
       "rows": [
         {
           "label": "Primary damage",
@@ -448,8 +448,8 @@
         {
           "label": "Recovery after a full opening burst",
           "b19": "B19 firing cycle; no separate reserve cooldown",
-          "elite": "0.50 s idle recovery",
-          "note": "Measured from the final burst shot. Elapsed-time recovery runs every tick; primary and accelerated burst firing pause it."
+          "elite": "0.475 s idle recovery",
+          "note": "Measured after the final burst shot. Existing RefillSeconds controls this target; primary and accelerated burst fire pause recovery."
         },
         {
           "label": "Weapon raise / lower time",
@@ -502,8 +502,8 @@
         {
           "label": "Regular fallback recovery",
           "b19": "Native behavior",
-          "elite": "Continuous recovery; +0.067212 s per fallback shot",
-          "note": "Fallback fires at a configured 0.148 s interval. From a full depleted burst, ideal regular timing gives 0.836058 s until first full replenishment; native frame scheduling can change this."
+          "elite": "Continuous recovery; +0.082667 s per fallback shot",
+          "note": "FallbackDebtMultiplier1.294679943 independently scales the existing regular interval × recovery scale. Ideal .148-second shots give the first full refill at .971s; all preceding intervals were checked to exclude an earlier full refill. Native frame/timer scheduling can alter actual time."
         },
         {
           "label": "Recovered reserve availability",
@@ -527,12 +527,12 @@
       "notes": [
         "Primary damage is 11 at 0.088 s per shot. Secondary base damage is 10 with a sustained 0.148-second interval.",
         "Configured opening: 10 shots over 0.379 game seconds; native frame scheduling can spread the actual shots further apart.",
-        "The existing RefillSeconds variable is the 0.50-second full-burst target. Costs derive from the existing FireInterval and cached original native spin-up intervals, before per-press reserve limiting.",
-        "Scale = 0.50 / 1.101. Bullet 1 adds 0.067211626 s; bullet 2 credits 0.023614896 s of this press; subsequent shots add proportional debt.",
-        "Recovery runs continuously while idle or firing regular fallback, and pauses during primary or accelerated burst firing. Every regular fallback shot adds 0.067211626 s debt.",
         "Recovered reserve becomes usable only after release and a new press. New-press shots cannot bypass the regular 0.148-second interval. Switching never clears debt or the tap deadline.",
         "Missing tick updates catch up using elapsed game time. Native firing is retained; packet-loss synchronization and client rendering are not established by isolated-server tests.",
-        "HUD fill: discrete recovered-round steps, with no fluid debt interpolation. Only held fallback uses a nondecreasing visual latch; release immediately restores exact reserve, even before the stop callback. Gameplay debt and reserve availability are unchanged."
+        "HUD fill: discrete recovered-round steps, with no fluid debt interpolation. Only held fallback uses a nondecreasing visual latch; release immediately restores exact reserve, even before the stop callback. Gameplay debt and reserve availability are unchanged.",
+        "The existing RefillSeconds target is0.475s. Scale=.475/1.101; per-bullet adjustments remain dynamically derived from the native regular cadence and effective burst gaps.",
+        "Recovery runs continuously during idle and regular fallback, and pauses during primary or accelerated burst firing. FallbackDebtMultiplier1.294679943 gives0.082666667s added per regular fallback shot, independent of the idle-recovery target.",
+        "With ideal .148s fallback cadence starting .148s after the final burst shot, six fallback shots occur before the first full refill at .971s. The fifth-shot repayment lasts until .888333s, so refill does not occur before shot six at .888s. Real native frame scheduling can shift the result."
       ],
       "lab": "stinger"
     },
@@ -1601,21 +1601,21 @@
         }
       ],
       "notes": [
-        "Final completed weapons revision: Stepped Stinger fill, monotone only during held fallback, accurate immediately on release; finite pulse preserved.",
-        "Complete preserved artifact SHA256: FE40E96A3F2EBAB672C654545DD6C917DF4216C142B22F0E9347CA0F1546EB97.",
+        "Final completed weapons revision: Stinger idle recovery0.475; separate fallback debt multiplier for ideal0.971 recovery; latest stepped HUD preserved.",
+        "Complete preserved artifact SHA256: 47CB22A77817C83141A1D03B576349054D3CFC38CA66A275F5D49C1DD221AE1A.",
         "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separate."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "FE40E96A3F2EBAB672C654545DD6C917DF4216C142B22F0E9347CA0F1546EB97",
+  "packageSha256": "47CB22A77817C83141A1D03B576349054D3CFC38CA66A275F5D49C1DD221AE1A",
   "verifiedDate": "2026-11-12",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.15",
   "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
   "shockVariantData": "shock-variants.js",
-  "revision": "Stepped Stinger fill, monotone only during held fallback, accurate immediately on release; finite pulse preserved",
+  "revision": "Stinger idle recovery0.475; separate fallback debt multiplier for ideal0.971 recovery; latest stepped HUD preserved",
   "model": {
     "combo": {
       "max": 210,
@@ -1630,7 +1630,7 @@
     "shockSwitch": 0.15,
     "stinger": {
       "shots": 10,
-      "recovery": 0.5,
+      "recovery": 0.475,
       "gaps": [
         0.2,
         0.07,
@@ -1644,28 +1644,30 @@
       ],
       "recoveryOrder": "lowest remaining unpaid debt first",
       "perPressDebt": [
-        0.06721162579473206,
-        -0.023614895549500463,
-        0.03542234332425068,
-        0.044504995458673924,
-        0.05358764759309718,
-        0.060853769300635775,
-        0.06357856494096276,
-        0.0653950953678474,
-        0.06630336058128973,
-        0.0667574931880109
+        0.06385104450499546,
+        -0.02243415077202544,
+        0.03365122615803814,
+        0.04227974568574023,
+        0.05090826521344232,
+        0.05781108083560398,
+        0.06039963669391461,
+        0.062125340599455035,
+        0.06298819255222525,
+        0.06341961852861035
       ],
       "samePressOpeningCredit": "bounded negative adjustment within this press only",
       "regularInterval": 0.148,
       "dynamicDebt": true,
-      "recoveryScale": 0.45413260672116257,
-      "fallbackDebt": 0.06721162579473206,
+      "recoveryScale": 0.43142597638510444,
+      "fallbackDebt": 0.08266666666666667,
       "recoveryDuringFallback": true,
       "primaryPausesRecovery": true,
       "heldBurstPausesRecovery": true,
       "reserveRequiresNewPress": true,
       "tapInterval": 0.148,
-      "continuousElapsedRecovery": true
+      "continuousElapsedRecovery": true,
+      "fallbackDebtMultiplier": 1.294679943100996,
+      "idealFallbackRecovery": 0.971
     },
     "flak": {
       "linear": true,
@@ -1738,9 +1740,9 @@
     "rocketEquip": 0.41
   },
   "releaseSource": {
-    "receipt": "elite-v1.93/stepped-fallback-hud/report.json",
-    "artifact": "elite-v1.93/stepped-fallback-hud/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Only cosmetic UpdateRecoveryPresentation changed; other exports byte-identical. 1872 HUD draw checks and actual native firing/release checks passed; rendered/network acceptance pending."
+    "receipt": "elite-v1.93/recovery0475-fallback0971/report.json",
+    "artifact": "elite-v1.93/recovery0475-fallback0971/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved artifact hash/byte scope,1450 cooked checks and native firing/fallback-cost checks passed. Client rendering and packet-loss acceptance remain pending."
   },
   "comboMovement": {
     "id": "combo-movement",
