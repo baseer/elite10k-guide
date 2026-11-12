@@ -698,7 +698,9 @@
       "notes": [
         "Primary plasma deals 17 instead of 20, with the same firing interval and projectile speeds as B19.",
         "Beam damage, tick interval, range and pull settings match B19. Elite10K keeps the primary/beam/pull roles and omits the heat bar.",
-        "Plasma is green with a restrained white center for visibility."
+        "Plasma is green with a restrained white center for visibility.",
+        "Ammo supply: maximum 130, normal weapon pickup 88, normal ammo pickup 44. Pickups cap at 130. Link ammo pickup replacement scales the original map amount by 1.1, rounded; other ammo types are unchanged. Dropped weapons can carry their remaining ammunition.",
+        "Ammo consumption: primary remains 1 per shot; beam secondary remains 2 per configured 0.23-second interval; a successful pull costs 3 additional ammo. Neither firing cost nor cadence changed."
       ],
       "lab": "link"
     },
@@ -1601,21 +1603,21 @@
         }
       ],
       "notes": [
-        "Final completed weapons revision: Stinger fallback debt multiplier1.5; idle recovery0.475 and latest stepped HUD preserved.",
-        "Complete preserved artifact SHA256: 844155FE9491D02933402487EEB0C185B5AA9304B30DFE2F6BDCDE4F884B0298.",
+        "Final completed weapons revision: Link ammo130 capacity/88 weapon/44 normal ammo pickup; firing costs and latest Stinger preserved.",
+        "Complete preserved artifact SHA256: 441ED377B883B553DF96F84A1903562456227ADC527AE4FED80BBAB3A8890417.",
         "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separate."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "844155FE9491D02933402487EEB0C185B5AA9304B30DFE2F6BDCDE4F884B0298",
+  "packageSha256": "441ED377B883B553DF96F84A1903562456227ADC527AE4FED80BBAB3A8890417",
   "verifiedDate": "2026-11-12",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.15",
   "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
   "shockVariantData": "shock-variants.js",
-  "revision": "Stinger fallback debt multiplier1.5; idle recovery0.475 and latest stepped HUD preserved",
+  "revision": "Link ammo130 capacity/88 weapon/44 normal ammo pickup; firing costs and latest Stinger preserved",
   "model": {
     "combo": {
       "max": 210,
@@ -1737,12 +1739,21 @@
       "maxShreddedTime": 0.15
     },
     "rocketNativeSwitch": true,
-    "rocketEquip": 0.41
+    "rocketEquip": 0.41,
+    "linkAmmo": {
+      "maximum": 130,
+      "weaponPickup": 88,
+      "normalAmmoPickup": 44,
+      "primaryCost": 1,
+      "secondaryCost": 2,
+      "secondaryInterval": 0.23,
+      "successfulPullCost": 3
+    }
   },
   "releaseSource": {
-    "receipt": "elite-v1.93/fallback15/report.json",
-    "artifact": "elite-v1.93/fallback15/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Only FallbackDebtMultiplier float changed to1.5. All functions/other exports/unrelated payloads byte-identical. Artifact roundtrip, first-refill calculation and native UnrealPak integrity verified; no new rendered timing test."
+    "receipt": "elite-v1.93/link-ammo130/report.json",
+    "artifact": "elite-v1.93/link-ammo130/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "24 actual native pickup/stack/cap/cost checks passed; both asset GUIDs retained. Link firing functions and Stinger payload byte-identical. Rendered/network acceptance pending."
   },
   "comboMovement": {
     "id": "combo-movement",

@@ -3330,12 +3330,12 @@
   },
   {
     "version": "1.93",
-    "sha256": "844155FE9491D02933402487EEB0C185B5AA9304B30DFE2F6BDCDE4F884B0298",
-    "revision": "Stinger fallback debt multiplier1.5; idle recovery0.475 and latest stepped HUD preserved",
+    "sha256": "441ED377B883B553DF96F84A1903562456227ADC527AE4FED80BBAB3A8890417",
+    "revision": "Link ammo130 capacity/88 weapon/44 normal ammo pickup; firing costs and latest Stinger preserved",
     "source": {
-      "receipt": "elite-v1.93/fallback15/report.json",
-      "artifact": "elite-v1.93/fallback15/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Only FallbackDebtMultiplier float changed to1.5. All functions/other exports/unrelated payloads byte-identical. Artifact roundtrip, first-refill calculation and native UnrealPak integrity verified; no new rendered timing test."
+      "receipt": "elite-v1.93/link-ammo130/report.json",
+      "artifact": "elite-v1.93/link-ammo130/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "24 actual native pickup/stack/cap/cost checks passed; both asset GUIDs retained. Link firing functions and Stinger payload byte-identical. Rendered/network acceptance pending."
     },
     "model": {
       "combo": {
@@ -3458,7 +3458,16 @@
         "maxShreddedTime": 0.15
       },
       "rocketNativeSwitch": true,
-      "rocketEquip": 0.41
+      "rocketEquip": 0.41,
+      "linkAmmo": {
+        "maximum": 130,
+        "weaponPickup": 88,
+        "normalAmmoPickup": 44,
+        "primaryCost": 1,
+        "secondaryCost": 2,
+        "secondaryInterval": 0.23,
+        "successfulPullCost": 3
+      }
     }
   }
 ]
