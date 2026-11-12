@@ -3330,12 +3330,12 @@
   },
   {
     "version": "1.93",
-    "sha256": "47CB22A77817C83141A1D03B576349054D3CFC38CA66A275F5D49C1DD221AE1A",
-    "revision": "Stinger idle recovery0.475; separate fallback debt multiplier for ideal0.971 recovery; latest stepped HUD preserved",
+    "sha256": "844155FE9491D02933402487EEB0C185B5AA9304B30DFE2F6BDCDE4F884B0298",
+    "revision": "Stinger fallback debt multiplier1.5; idle recovery0.475 and latest stepped HUD preserved",
     "source": {
-      "receipt": "elite-v1.93/recovery0475-fallback0971/report.json",
-      "artifact": "elite-v1.93/recovery0475-fallback0971/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Preserved artifact hash/byte scope,1450 cooked checks and native firing/fallback-cost checks passed. Client rendering and packet-loss acceptance remain pending."
+      "receipt": "elite-v1.93/fallback15/report.json",
+      "artifact": "elite-v1.93/fallback15/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Only FallbackDebtMultiplier float changed to1.5. All functions/other exports/unrelated payloads byte-identical. Artifact roundtrip, first-refill calculation and native UnrealPak integrity verified; no new rendered timing test."
     },
     "model": {
       "combo": {
@@ -3380,15 +3380,15 @@
         "regularInterval": 0.148,
         "dynamicDebt": true,
         "recoveryScale": 0.43142597638510444,
-        "fallbackDebt": 0.08266666666666667,
+        "fallbackDebt": 0.09577656675749316,
         "recoveryDuringFallback": true,
         "primaryPausesRecovery": true,
         "heldBurstPausesRecovery": true,
         "reserveRequiresNewPress": true,
         "tapInterval": 0.148,
         "continuousElapsedRecovery": true,
-        "fallbackDebtMultiplier": 1.294679943100996,
-        "idealFallbackRecovery": 0.971
+        "fallbackDebtMultiplier": 1.5,
+        "idealFallbackRecovery": 1.1454359673024521
       },
       "flak": {
         "linear": true,

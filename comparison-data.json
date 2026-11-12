@@ -395,7 +395,7 @@
       "id": "stinger",
       "name": "Stinger",
       "tag": "Burst reserve",
-      "summary": "Dynamic 0.475-second idle burst recovery; separate fallback penalty gives approximately 0.971 seconds under ideal regular timing.",
+      "summary": "Dynamic 0.475-second idle burst recovery; fallback multiplier 1.5 gives approximately 1.145436 seconds under ideal regular timing.",
       "rows": [
         {
           "label": "Primary damage",
@@ -502,8 +502,8 @@
         {
           "label": "Regular fallback recovery",
           "b19": "Native behavior",
-          "elite": "Continuous recovery; +0.082667 s per fallback shot",
-          "note": "FallbackDebtMultiplier1.294679943 independently scales the existing regular interval × recovery scale. Ideal .148-second shots give the first full refill at .971s; all preceding intervals were checked to exclude an earlier full refill. Native frame/timer scheduling can alter actual time."
+          "elite": "Continuous recovery; +0.095777 s per fallback shot",
+          "note": "FallbackDebtMultiplier = 1.5. Regular interval × recovery scale × multiplier gives the per-shot cost. Ideal .148-second fallback shots give the first full refill at1.145436s, after seven fallback shots. Native frame scheduling can shift actual time."
         },
         {
           "label": "Recovered reserve availability",
@@ -531,8 +531,8 @@
         "Missing tick updates catch up using elapsed game time. Native firing is retained; packet-loss synchronization and client rendering are not established by isolated-server tests.",
         "HUD fill: discrete recovered-round steps, with no fluid debt interpolation. Only held fallback uses a nondecreasing visual latch; release immediately restores exact reserve, even before the stop callback. Gameplay debt and reserve availability are unchanged.",
         "The existing RefillSeconds target is0.475s. Scale=.475/1.101; per-bullet adjustments remain dynamically derived from the native regular cadence and effective burst gaps.",
-        "Recovery runs continuously during idle and regular fallback, and pauses during primary or accelerated burst firing. FallbackDebtMultiplier1.294679943 gives0.082666667s added per regular fallback shot, independent of the idle-recovery target.",
-        "With ideal .148s fallback cadence starting .148s after the final burst shot, six fallback shots occur before the first full refill at .971s. The fifth-shot repayment lasts until .888333s, so refill does not occur before shot six at .888s. Real native frame scheduling can shift the result."
+        "Recovery runs continuously during idle and regular fallback, and pauses during primary or accelerated burst firing. FallbackDebtMultiplier = 1.5 gives0.095776567s debt per regular fallback shot.",
+        "With ideal .148-second fallback cadence starting .148s after the final burst shot, seven fallback shots occur before first full refill at1.145435967s. Every earlier interval was checked to exclude an earlier full refill. Real native frame scheduling can shift the result."
       ],
       "lab": "stinger"
     },
@@ -1601,21 +1601,21 @@
         }
       ],
       "notes": [
-        "Final completed weapons revision: Stinger idle recovery0.475; separate fallback debt multiplier for ideal0.971 recovery; latest stepped HUD preserved.",
-        "Complete preserved artifact SHA256: 47CB22A77817C83141A1D03B576349054D3CFC38CA66A275F5D49C1DD221AE1A.",
+        "Final completed weapons revision: Stinger fallback debt multiplier1.5; idle recovery0.475 and latest stepped HUD preserved.",
+        "Complete preserved artifact SHA256: 844155FE9491D02933402487EEB0C185B5AA9304B30DFE2F6BDCDE4F884B0298.",
         "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separate."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "47CB22A77817C83141A1D03B576349054D3CFC38CA66A275F5D49C1DD221AE1A",
+  "packageSha256": "844155FE9491D02933402487EEB0C185B5AA9304B30DFE2F6BDCDE4F884B0298",
   "verifiedDate": "2026-11-12",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.15",
   "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
   "shockVariantData": "shock-variants.js",
-  "revision": "Stinger idle recovery0.475; separate fallback debt multiplier for ideal0.971 recovery; latest stepped HUD preserved",
+  "revision": "Stinger fallback debt multiplier1.5; idle recovery0.475 and latest stepped HUD preserved",
   "model": {
     "combo": {
       "max": 210,
@@ -1659,15 +1659,15 @@
       "regularInterval": 0.148,
       "dynamicDebt": true,
       "recoveryScale": 0.43142597638510444,
-      "fallbackDebt": 0.08266666666666667,
+      "fallbackDebt": 0.09577656675749316,
       "recoveryDuringFallback": true,
       "primaryPausesRecovery": true,
       "heldBurstPausesRecovery": true,
       "reserveRequiresNewPress": true,
       "tapInterval": 0.148,
       "continuousElapsedRecovery": true,
-      "fallbackDebtMultiplier": 1.294679943100996,
-      "idealFallbackRecovery": 0.971
+      "fallbackDebtMultiplier": 1.5,
+      "idealFallbackRecovery": 1.1454359673024521
     },
     "flak": {
       "linear": true,
@@ -1740,9 +1740,9 @@
     "rocketEquip": 0.41
   },
   "releaseSource": {
-    "receipt": "elite-v1.93/recovery0475-fallback0971/report.json",
-    "artifact": "elite-v1.93/recovery0475-fallback0971/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved artifact hash/byte scope,1450 cooked checks and native firing/fallback-cost checks passed. Client rendering and packet-loss acceptance remain pending."
+    "receipt": "elite-v1.93/fallback15/report.json",
+    "artifact": "elite-v1.93/fallback15/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Only FallbackDebtMultiplier float changed to1.5. All functions/other exports/unrelated payloads byte-identical. Artifact roundtrip, first-refill calculation and native UnrealPak integrity verified; no new rendered timing test."
   },
   "comboMovement": {
     "id": "combo-movement",

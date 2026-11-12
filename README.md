@@ -24,5 +24,5 @@ Final v1.84 requires the central shard plus seven outer shards on the same live 
 
 Final v1.85 restores Hammer jump readiness to 0.50 seconds. v1.86 adds globally cheapest-unpaid Stinger recovery. v1.88 restores native rocket firing with a pending-switch retry. v1.89 uses red-only rocket rings, native time-decaying Flak and native Shredded. v1.90 reduces ring size, removes the Stinger size pulse and simplifies Flak stored damage. Final v1.91 uses 0.475-second Stinger recovery, native Bio/rocket/Flak contacts and landed-goo handling, and rocket trace exclusions on both weapon channels. Latest optional HUD is separately versioned v1.15.
 
-Final v1.93 adds dynamic Stinger recovery (final idle target0.475s, independent fallback debt multiplier for ideal0.971s), continuous fallback repayment with per-shot debt, a new-press reserve lock and the native-interval tap gate. Primary fire pauses repayment. v1.92 is preserved as the earlier 0.45-second tuning-only release.
+Final v1.93 adds dynamic Stinger recovery (final idle target0.475s, fallback multiplier1.5 for ideal1.145436s), continuous fallback repayment with per-shot debt, a new-press reserve lock and the native-interval tap gate. Primary fire pauses repayment. v1.92 is preserved as the earlier 0.45-second tuning-only release.
 
