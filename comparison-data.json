@@ -490,8 +490,8 @@
         {
           "label": "Ready pulse",
           "b19": "Native behavior",
-          "elite": "One finite glow pulse per completed recovery; no size expansion",
-          "note": "Readiness is timestamped from live game time when replenishment completes. Fractional fill tracks the best recovery reached during a press, so fallback charges do not make it jump backward. A new burst resets that display; gameplay debt is unchanged."
+          "elite": "One finite glow pulse per completed recovery; stepped fill",
+          "note": "Fill uses actual recovered rounds. While alt fallback is held, it retains the highest step reached; releasing alt immediately snaps it to the actual reserve. New burst spending resets the display. Ready time is captured from live game time, not a fixed gameplay delay."
         },
         {
           "label": "Dynamic recovery formula",
@@ -531,7 +531,8 @@
         "Scale = 0.50 / 1.101. Bullet 1 adds 0.067211626 s; bullet 2 credits 0.023614896 s of this press; subsequent shots add proportional debt.",
         "Recovery runs continuously while idle or firing regular fallback, and pauses during primary or accelerated burst firing. Every regular fallback shot adds 0.067211626 s debt.",
         "Recovered reserve becomes usable only after release and a new press. New-press shots cannot bypass the regular 0.148-second interval. Switching never clears debt or the tap deadline.",
-        "Missing tick updates catch up using elapsed game time. Native firing is retained; packet-loss synchronization and client rendering are not established by isolated-server tests."
+        "Missing tick updates catch up using elapsed game time. Native firing is retained; packet-loss synchronization and client rendering are not established by isolated-server tests.",
+        "HUD fill: discrete recovered-round steps, with no fluid debt interpolation. Only held fallback uses a nondecreasing visual latch; release immediately restores exact reserve, even before the stop callback. Gameplay debt and reserve availability are unchanged."
       ],
       "lab": "stinger"
     },
@@ -1600,21 +1601,21 @@
         }
       ],
       "notes": [
-        "Final completed weapons revision: Stinger continuous HUD fill and one-shot ready pulse; dynamic recovery/gameplay preserved.",
-        "Complete preserved artifact SHA256: E5521F7C6CA83CE157335D7FAA68072A2E24AA9B9089211EB797B9810C0B06E9.",
+        "Final completed weapons revision: Stepped Stinger fill, monotone only during held fallback, accurate immediately on release; finite pulse preserved.",
+        "Complete preserved artifact SHA256: FE40E96A3F2EBAB672C654545DD6C917DF4216C142B22F0E9347CA0F1546EB97.",
         "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separate."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "E5521F7C6CA83CE157335D7FAA68072A2E24AA9B9089211EB797B9810C0B06E9",
+  "packageSha256": "FE40E96A3F2EBAB672C654545DD6C917DF4216C142B22F0E9347CA0F1546EB97",
   "verifiedDate": "2026-11-12",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.15",
   "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
   "shockVariantData": "shock-variants.js",
-  "revision": "Stinger continuous HUD fill and one-shot ready pulse; dynamic recovery/gameplay preserved",
+  "revision": "Stepped Stinger fill, monotone only during held fallback, accurate immediately on release; finite pulse preserved",
   "model": {
     "combo": {
       "max": 210,
@@ -1737,9 +1738,9 @@
     "rocketEquip": 0.41
   },
   "releaseSource": {
-    "receipt": "elite-v1.93/hud-recovery-fix/report.json",
-    "artifact": "elite-v1.93/hud-recovery-fix/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved pak SHA256 and byte scope verified; v1.93 cooked VM/native function/real firing tests passed. Client rendering and packet-loss synchronization not verified."
+    "receipt": "elite-v1.93/stepped-fallback-hud/report.json",
+    "artifact": "elite-v1.93/stepped-fallback-hud/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Only cosmetic UpdateRecoveryPresentation changed; other exports byte-identical. 1872 HUD draw checks and actual native firing/release checks passed; rendered/network acceptance pending."
   },
   "comboMovement": {
     "id": "combo-movement",
