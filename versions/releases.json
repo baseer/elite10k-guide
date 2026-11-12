@@ -3330,11 +3330,11 @@
   },
   {
     "version": "1.93",
-    "sha256": "441ED377B883B553DF96F84A1903562456227ADC527AE4FED80BBAB3A8890417",
-    "revision": "Link ammo130 capacity/88 weapon/44 normal ammo pickup; firing costs and latest Stinger preserved",
+    "sha256": "316399F2DE6AE260D6C89388C97826A6B1D11D909809F051447F19A923C533AE",
+    "revision": "Link ammo135 capacity/90 weapon/45 normal ammo pickup; costs and latest Stinger preserved",
     "source": {
-      "receipt": "elite-v1.93/link-ammo130/report.json",
-      "artifact": "elite-v1.93/link-ammo130/Elite10K-WindowsNoEditor.pak.pending",
+      "receipt": "elite-v1.93/link-ammo135/report.json",
+      "artifact": "elite-v1.93/link-ammo135/Elite10K-WindowsNoEditor.pak.pending",
       "verification": "24 actual native pickup/stack/cap/cost checks passed; both asset GUIDs retained. Link firing functions and Stinger payload byte-identical. Rendered/network acceptance pending."
     },
     "model": {
@@ -3460,9 +3460,9 @@
       "rocketNativeSwitch": true,
       "rocketEquip": 0.41,
       "linkAmmo": {
-        "maximum": 130,
-        "weaponPickup": 88,
-        "normalAmmoPickup": 44,
+        "maximum": 135,
+        "weaponPickup": 90,
+        "normalAmmoPickup": 45,
         "primaryCost": 1,
         "secondaryCost": 2,
         "secondaryInterval": 0.23,
