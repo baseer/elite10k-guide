@@ -3206,5 +3206,257 @@
       "rocketNativeSwitch": true,
       "rocketEquip": 0.41
     }
+  },
+  {
+    "version": "1.92",
+    "sha256": "467A461F2957B408BC14334375398B7DB5650ABB2B7AEA39D9640DF7852E731C",
+    "revision": "Stinger full-burst recovery 0.45 game seconds",
+    "source": {
+      "receipt": "elite-v1.92/report.json",
+      "artifact": "elite-v1.92/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved pak SHA256 and byte scope verified; v1.93 cooked VM/native function/real firing tests passed. Client rendering and packet-loss synchronization not verified."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.45,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.13319999999999999,
+          0,
+          0,
+          0.028440000000000003,
+          0.052110000000000004,
+          0.06651,
+          0.07191,
+          0.07551000000000001,
+          0.07731,
+          0.07821
+        ],
+        "samePressOpeningCredit": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9,
+        "nativeTime": true,
+        "delay": 0.06730769574642181,
+        "floorAge": 0.1346153846153846,
+        "speed": 13000,
+        "storedBase": [
+          10,
+          20
+        ],
+        "storedMinimum": [
+          4,
+          8
+        ],
+        "multiplier": 1
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "native": true,
+        "maxShreddedTime": 0.15
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41
+    }
+  },
+  {
+    "version": "1.93",
+    "sha256": "0D9A39BA69E2DB28371264B400FBEF49F2A23E1698DD9109B01BE19486485FC2",
+    "revision": "Dynamic Stinger 0.5 recovery; fallback debt/recovery; new-press reserve and tap gate",
+    "source": {
+      "receipt": "elite-v1.93/report.json",
+      "artifact": "elite-v1.93/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved pak SHA256 and byte scope verified; v1.93 cooked VM/native function/real firing tests passed. Client rendering and packet-loss synchronization not verified."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.5,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "recoveryOrder": "lowest remaining unpaid debt first",
+        "perPressDebt": [
+          0.06721162579473206,
+          -0.023614895549500463,
+          0.03542234332425068,
+          0.044504995458673924,
+          0.05358764759309718,
+          0.060853769300635775,
+          0.06357856494096276,
+          0.0653950953678474,
+          0.06630336058128973,
+          0.0667574931880109
+        ],
+        "samePressOpeningCredit": "bounded negative adjustment within this press only",
+        "regularInterval": 0.148,
+        "dynamicDebt": true,
+        "recoveryScale": 0.45413260672116257,
+        "fallbackDebt": 0.06721162579473206,
+        "recoveryDuringFallback": true,
+        "primaryPausesRecovery": true,
+        "heldBurstPausesRecovery": true,
+        "reserveRequiresNewPress": true,
+        "tapInterval": 0.148,
+        "continuousElapsedRecovery": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9,
+        "nativeTime": true,
+        "delay": 0.06730769574642181,
+        "floorAge": 0.1346153846153846,
+        "speed": 13000,
+        "storedBase": [
+          10,
+          20
+        ],
+        "storedMinimum": [
+          4,
+          8
+        ],
+        "multiplier": 1
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ],
+        "lightning": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "native": true,
+        "maxShreddedTime": 0.15
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41
+    }
   }
 ]

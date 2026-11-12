@@ -1,5 +1,5 @@
 {
-  "version": "1.91",
+  "version": "1.93",
   "weapons": [
     {
       "id": "shock",
@@ -395,7 +395,7 @@
       "id": "stinger",
       "name": "Stinger",
       "tag": "Burst reserve",
-      "summary": "10 opening secondary shots with 0.475-second full-burst recovery.",
+      "summary": "Dynamic 0.50-second burst recovery; regular alt fire repays debt while adding a charge per shot.",
       "rows": [
         {
           "label": "Primary damage",
@@ -448,8 +448,8 @@
         {
           "label": "Recovery after a full opening burst",
           "b19": "B19 firing cycle; no separate reserve cooldown",
-          "elite": "0.475 s recovery",
-          "note": "Game seconds; recovery pauses during firing. Switching does not clear unpaid debt."
+          "elite": "0.50 s idle recovery",
+          "note": "Measured from the final burst shot. Elapsed-time recovery runs every tick; primary and accelerated burst firing pause it."
         },
         {
           "label": "Weapon raise / lower time",
@@ -485,20 +485,53 @@
           "label": "Mixed-burst recovery order",
           "b19": "Native behavior",
           "elite": "Cheapest remaining unpaid round first",
-          "note": "Partial balances persist. A new cheap round may return before an older expensive round. Shot two credits only shot one of the same press."
+          "note": "Credits affect only outstanding debt from the same press. Partial repayments and older debt persist."
         },
         {
           "label": "Ready pulse",
           "b19": "Native behavior",
           "elite": "White/blue fill and glow; no size expansion",
           "note": "Unreplenished fill remains normal blue."
+        },
+        {
+          "label": "Dynamic recovery formula",
+          "b19": "Native behavior",
+          "elite": "Scale = target / (N × regular interval − sum of burst gaps)",
+          "note": "Bullet 1 adds regular interval × scale. Later bullets add (regular interval − preceding gap) × scale; negative amounts credit this press only. Existing native cadence is the source."
+        },
+        {
+          "label": "Regular fallback recovery",
+          "b19": "Native behavior",
+          "elite": "Continuous recovery; +0.067212 s per fallback shot",
+          "note": "Fallback fires at a configured 0.148 s interval. From a full depleted burst, ideal regular timing gives 0.836058 s until first full replenishment; native frame scheduling can change this."
+        },
+        {
+          "label": "Recovered reserve availability",
+          "b19": "Native behavior",
+          "elite": "Release and press alt again",
+          "note": "Reserve available at the start of a press is fixed for that press; holding alt never spends newly recovered rounds."
+        },
+        {
+          "label": "Rapid tap limit",
+          "b19": "Native behavior",
+          "elite": "0.148 s minimum from the last secondary shot",
+          "note": "New presses use the existing regular interval; blocked shots spawn no projectile/effects and restore native authority-side ammo consumption."
+        },
+        {
+          "label": "Primary-fire recovery",
+          "b19": "Native behavior",
+          "elite": "Paused",
+          "note": "Primary spends no burst reserve and adds no burst debt; primary time cannot be reclaimed as later recovery."
         }
       ],
       "notes": [
         "Primary damage is 11 at 0.088 s per shot. Secondary base damage is 10 with a sustained 0.148-second interval.",
-        "The opening sequence has 10 shots over approximately 0.379 game seconds.",
-        "A fresh full opening burst incurs 0.475 game seconds of reserve debt. Recovery pays the lowest remaining unpaid balance first and preserves partially paid older rounds.",
-        "Shot two cancels only the opening debt from the same trigger press. It cannot erase older burst debt. Recovery pauses while firing; switching does not erase it."
+        "Configured opening: 10 shots over 0.379 game seconds; native frame scheduling can spread the actual shots further apart.",
+        "The existing RefillSeconds variable is the 0.50-second full-burst target. Costs derive from the existing FireInterval and cached original native spin-up intervals, before per-press reserve limiting.",
+        "Scale = 0.50 / 1.101. Bullet 1 adds 0.067211626 s; bullet 2 credits 0.023614896 s of this press; subsequent shots add proportional debt.",
+        "Recovery runs continuously while idle or firing regular fallback, and pauses during primary or accelerated burst firing. Every regular fallback shot adds 0.067211626 s debt.",
+        "Recovered reserve becomes usable only after release and a new press. New-press shots cannot bypass the regular 0.148-second interval. Switching never clears debt or the tap deadline.",
+        "Missing tick updates catch up using elapsed game time. Native firing is retained; packet-loss synchronization and client rendering are not established by isolated-server tests."
       ],
       "lab": "stinger"
     },
@@ -1544,7 +1577,7 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v1.91",
+          "elite": "Elite10K v1.93",
           "note": "The two columns describe each version’s default behavior."
         },
         {
@@ -1567,22 +1600,21 @@
         }
       ],
       "notes": [
-        "Each version represents its final completed normal revision; superseded experiments are excluded.",
-        "Release: Rocket and rocket-grenade main/assist colliders ignore both weapon trace channels15/19.",
-        "Complete preserved artifact SHA256: C4A7C7F35C63AF2CA283303017BECEB523283476B386247A5900FBEF30E4CA9C.",
-        "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separately versioned. Native isolated tests do not establish rendered or multiplayer acceptance."
+        "Final completed weapons revision: Dynamic Stinger 0.5 recovery; fallback debt/recovery; new-press reserve and tap gate.",
+        "Complete preserved artifact SHA256: 0D9A39BA69E2DB28371264B400FBEF49F2A23E1698DD9109B01BE19486485FC2.",
+        "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separate."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "C4A7C7F35C63AF2CA283303017BECEB523283476B386247A5900FBEF30E4CA9C",
-  "verifiedDate": "2026-11-11",
+  "packageSha256": "0D9A39BA69E2DB28371264B400FBEF49F2A23E1698DD9109B01BE19486485FC2",
+  "verifiedDate": "2026-11-12",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.15",
   "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
   "shockVariantData": "shock-variants.js",
-  "revision": "Rocket and rocket-grenade main/assist colliders ignore both weapon trace channels15/19",
+  "revision": "Dynamic Stinger 0.5 recovery; fallback debt/recovery; new-press reserve and tap gate",
   "model": {
     "combo": {
       "max": 210,
@@ -1597,7 +1629,7 @@
     "shockSwitch": 0.15,
     "stinger": {
       "shots": 10,
-      "recovery": 0.475,
+      "recovery": 0.5,
       "gaps": [
         0.2,
         0.07,
@@ -1611,18 +1643,28 @@
       ],
       "recoveryOrder": "lowest remaining unpaid debt first",
       "perPressDebt": [
-        0.14059999999999997,
-        0,
-        0,
-        0.03002,
-        0.055005,
-        0.07020499999999999,
-        0.075905,
-        0.079705,
-        0.081605,
-        0.082555
+        0.06721162579473206,
+        -0.023614895549500463,
+        0.03542234332425068,
+        0.044504995458673924,
+        0.05358764759309718,
+        0.060853769300635775,
+        0.06357856494096276,
+        0.0653950953678474,
+        0.06630336058128973,
+        0.0667574931880109
       ],
-      "samePressOpeningCredit": true
+      "samePressOpeningCredit": "bounded negative adjustment within this press only",
+      "regularInterval": 0.148,
+      "dynamicDebt": true,
+      "recoveryScale": 0.45413260672116257,
+      "fallbackDebt": 0.06721162579473206,
+      "recoveryDuringFallback": true,
+      "primaryPausesRecovery": true,
+      "heldBurstPausesRecovery": true,
+      "reserveRequiresNewPress": true,
+      "tapInterval": 0.148,
+      "continuousElapsedRecovery": true
     },
     "flak": {
       "linear": true,
@@ -1695,9 +1737,9 @@
     "rocketEquip": 0.41
   },
   "releaseSource": {
-    "receipt": "elite-v1.91/latest-release.json",
-    "artifact": "elite-v1.91/rocket-trace-exclusions/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Complete preserved pak SHA256; final revision receipts and isolated native validation. Rendered/network acceptance remains pending."
+    "receipt": "elite-v1.93/report.json",
+    "artifact": "elite-v1.93/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved pak SHA256 and byte scope verified; v1.93 cooked VM/native function/real firing tests passed. Client rendering and packet-loss synchronization not verified."
   },
   "comboMovement": {
     "id": "combo-movement",
