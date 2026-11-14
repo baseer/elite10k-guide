@@ -1,7 +1,7 @@
 # elite10k-guide
 Elite10K Field Guide and interactive weapon calculators
 
-The archive covers 39 completed weapon releases from v1.57 through v1.95.
+The archive covers 41 completed weapon releases from v1.57 through v1.97.
 Version labels retain the game's spelling (v1.6, v1.7 and v1.8). Each entry uses
 the final normal revision, with diagnostic-only and superseded tuning builds
 excluded. The optional HUD and native client DLL have separate release histories.
@@ -11,7 +11,7 @@ calculator parameters. Each version has a downloadable comparison-data snapshot.
 `versions-data.js` supplies the same data to the navbar, comparisons and tools;
 `release-history.js` applies the selected model to the calculators and copy.
 
-Run `node verify-history.cjs` to check all 39 snapshots and 429,312 numerical
+Run `node verify-history.cjs` to check all 41 snapshots and 451,328 numerical
 cases. Release artifacts were independently verified by full pak SHA256; archived
 snapshots were reconstructed in memory from verified hash-addressed assets.
 The authoritative original B19 remains the comparison reference.
@@ -28,3 +28,5 @@ Final v1.93 adds dynamic Stinger recovery (final idle target0.475s, fallback mul
 
 
 Final v1.94 replaces the movement tick helper with owner inventory initialization and replaces additive Stinger fallback debt with shot-confirmed quiet recovery, frozen during primary fire. Final v1.95 retains this gameplay and uses Link core white endpoint 0.6 / opacity 1.0. Final rendered/network acceptance is pending. Earlier snapshots remain unchanged.
+
+Final v1.96 updates public branding. Final v1.97 uses Flak bases10.4/20.8 with floors4/8 and native age decay over875–1750UU at a constant13000UU/s (about1.25–2.5 tuning dodges),15% smaller rocket rings, and two independent saved local commands:10kWeaponSwitchFlash0/1 and10kRocketLoadRings0/1. Optional HUD1.18 supplies the spectator spread fix and current ON/OFF console notices at join/map initialization. The preferences use local SaveGames, not Game.ini. Native persistence/console status tests passed; rendered acceptance remains pending.

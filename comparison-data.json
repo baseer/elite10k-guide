@@ -1,5 +1,5 @@
 {
-  "version": "1.95",
+  "version": "1.97",
   "weapons": [
     {
       "id": "shock",
@@ -94,7 +94,7 @@
       "id": "flak",
       "name": "Flak Cannon",
       "tag": "Native time decay",
-      "summary": "Native time-decaying primary shards: 10/20 damage to 4/8; native Shredded.",
+      "summary": "Native time-decaying primary shards: 10.4/20.8 damage to 4/8, with decay over approximately 1.25–2.5 dodge distances.",
       "rows": [
         {
           "label": "Primary firing interval",
@@ -124,7 +124,7 @@
           "label": "Bounce damage multiplier",
           "b19": "0.65×",
           "elite": "1×",
-          "note": "Native enemy damage multiplier; stored base/minimum compensate in v1.89."
+          "note": "B19 uses 0.65× when the native gravity/bounce branch applies: 16×0.65 = 10.4 and 32×0.65 = 20.8 before per-hit truncation. B19 flight-time rules differ."
         },
         {
           "label": "Shard hit momentum",
@@ -177,8 +177,8 @@
         {
           "label": "Primary range damage",
           "b19": "Native behavior",
-          "elite": "10/20 → 4/8 by projectile age",
-          "note": "Decay starts at approximately 0.067308 s and reaches the floor at 0.134615 s. At constant 13,000 UU/s this corresponds to 875–1,750 UU; bounces and speed changes break that distance equivalence."
+          "elite": "10.4/20.8 → 4/8 by projectile age",
+          "note": "Decay starts near 0.067308 s and reaches the floor near 0.134615 s. At constant 13,000 UU/s this is 875–1,750 UU (about 1.25–2.5 dodge distances, using 700 UU for tuning). Actual impacts depend on age, not accumulated travel distance."
         },
         {
           "label": "Primary hit acceptance",
@@ -237,18 +237,25 @@
         {
           "label": "Primary self damage",
           "b19": "Native behavior",
-          "elite": "Stored base 10/20; up to 100 before self attenuation",
+          "elite": "Stored base 10.4/20.8; up to 100 before self attenuation",
           "note": "Self damage uses a separate native branch, bypassing enemy multiplier/floors. Shipping minimum is one per shard; 25 damage/s attenuation starts after 0.11 s."
+        },
+        {
+          "label": "Primary stored base / minimum",
+          "b19": "Ordinary base 16 / minimum 8; central base 32 / minimum 5",
+          "elite": "Ordinary 10.4 / 4; central 20.8 / 8",
+          "note": "Each hit is truncated separately when applied to a character. Eight full ordinary hits plus a full central hit produce 8×10 + 20 = 100 before armor or other modifiers."
         }
       ],
       "notes": [
         "Primary interval 0.90 s, secondary 0.97 s. Each shot contains eight ordinary shards and one central shard; the central shard deals double damage.",
         "Primary projectiles directly inherit native Flak shard classes. Custom distance, body-hit and Shredded tracker helpers are removed.",
-        "Enemy ordinary/central damage starts at 10/20 and decays with age to 4/8 between approximately 0.067308 and 0.134615 game seconds. Native hit position and other modifiers still apply.",
+        "Enemy ordinary/central damage starts at 10.4/20.8 and decays with age to 4/8 between approximately 0.067308 and 0.134615 game seconds. Native hit position and other modifiers still apply.",
         "875–1,750 UU is only the straight-flight equivalent at 13,000 UU/s, not an accumulated path-distance rule.",
         "Native Shredded qualification and native momentum are restored. Secondary ball geometry, damage and speed are unchanged.",
         "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,006.25/6,364 UU/s. Ball-spawned shards are separate from the primary model.",
-        "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers."
+        "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
+        "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v1.97 endpoint is approximately 2.5 dodge distances."
       ],
       "lab": "flak"
     },
@@ -1476,8 +1483,8 @@
         {
           "label": "Rocket loading feedback",
           "b19": "B19 crosshair feedback",
-          "elite": "Red-only loading rings with per-shot clearing",
-          "note": "Native crosshair/mode/locking drawing retained; no gameplay loaded-count suppression."
+          "elite": "15% smaller red rings; locally optional",
+          "note": "Centers, animations, native aiming crosshair and lock display are preserved. 10kRocketLoadRings 0 hides only the custom loading rings; 1 restores them."
         },
         {
           "label": "Hammer feedback",
@@ -1494,8 +1501,8 @@
         {
           "label": "Full-screen HUD",
           "b19": "B19 / stock HUD",
-          "elite": "Separate optional Elite10K HUD v1.15",
-          "note": "The weapon package and the full-screen HUD are separate downloads."
+          "elite": "Separate optional Elite10K HUD v1.18",
+          "note": "Weapons and HUD packages have independent versions."
         },
         {
           "label": "Firing feedback",
@@ -1568,12 +1575,30 @@
           "b19": "Native behavior",
           "elite": "White endpoint 0.6 / opacity 1.0",
           "note": "Final v1.95 revision; earlier 200, 0.4, 0.8 and zero-opacity trials are superseded."
+        },
+        {
+          "label": "Weapon-switch flash option",
+          "b19": "Not available in original B19",
+          "elite": "10kWeaponSwitchFlash 0 = OFF; 1 = ON",
+          "note": "Default ON. Changes only this viewer’s colored switch flash. Saved locally across UT restarts."
+        },
+        {
+          "label": "Rocket loading rings option",
+          "b19": "Not available in original B19",
+          "elite": "10kRocketLoadRings 0 = OFF; 1 = ON",
+          "note": "Default ON. Independent of weapon-switch flash; saved across UT restarts. Loading and firing are unchanged."
+        },
+        {
+          "label": "Initial console notices",
+          "b19": "Not available in original B19",
+          "elite": "Current ON/OFF status and commands for both options",
+          "note": "Printed on join/map HUD initialization. Later changes print a saved confirmation. Invalid or missing values show usage without changing the saved preference."
         }
       ],
       "notes": [
-        "Weapon-owned visual changes follow the selected weapons release.",
-        "The optional full-screen HUD shown elsewhere is companion v1.15, independently released. It is not claimed as the historical HUD shipped alongside this weapons version.",
-        "In behindview 1, your own third-person weapon shows the same switch glow and timing used for other players. Your first-person weapon remains unhighlighted."
+        "Weapon-owned visual effects follow the selected weapons release; the full-screen HUD is a separate package.",
+        "Both visual preferences affect only your view, default ON, and save independently across restarts. Native aiming crosshair, weapon timing, and other players’ preferences are unaffected.",
+        "On join or map load, the console shows each saved ON/OFF state and the command to change it. No temporary HUD overlay notice is added."
       ],
       "lab": null
     },
@@ -1586,14 +1611,14 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v1.95",
-          "note": "Final completed revision; superseded experiments excluded."
+          "elite": "Elite10K v1.97",
+          "note": "Final completed revision; intermediate tuning builds are excluded."
         },
         {
           "label": "Optional full-screen HUD",
           "b19": "B19 / stock HUD",
-          "elite": "Elite10K HUD v1.15",
-          "note": "Separate from weapon-specific indicators."
+          "elite": "Elite10K HUD v1.18",
+          "note": "Fixes the spectator score-spread function import and supplies console-command fallback plus status notices across the five HUD modes."
         },
         {
           "label": "Damage examples",
@@ -1606,24 +1631,30 @@
           "b19": "Game seconds",
           "elite": "Game seconds",
           "note": "Game speed and fire-rate modifiers affect real elapsed time."
+        },
+        {
+          "label": "Local visual preferences",
+          "b19": "Not available in original B19",
+          "elite": "Enter either 0/1 command in the console",
+          "note": "Both choices default ON and save independently on the player’s computer in Saved/SaveGames. They are not Game.ini entries."
         }
       ],
       "notes": [
-        "Final revision: Link primary white emissive .8 to .6; retain opacity 1.0.",
-        "Complete preserved artifact SHA256: DDA873C033F3E93CBEDB739F23EABCFD6C7F8E704A3FD636838CBDDD6DAE5CDF.",
-        "Original Elite B19 is the authoritative reference. Optional HUD and native client DLL are separate releases. Final rendered/network acceptance remains pending."
+        "Final weapons package SHA256: 373A5B46677D91F89E65A0AD51DB0DD3DC848D65411BFC0AB32477500EC208AC.",
+        "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
+        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "DDA873C033F3E93CBEDB739F23EABCFD6C7F8E704A3FD636838CBDDD6DAE5CDF",
-  "verifiedDate": "2026-11-13",
+  "packageSha256": "373A5B46677D91F89E65A0AD51DB0DD3DC848D65411BFC0AB32477500EC208AC",
+  "verifiedDate": "2026-11-14",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
-  "hudVersion": "1.15",
-  "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
+  "hudVersion": "1.18",
+  "hudPackageSha256": "A92586266AA2721E6C270C4A2E2B10EF0952793A67D75A3ACBE7E176A49A0897",
   "shockVariantData": "shock-variants.js",
-  "revision": "Link primary white emissive .8 to .6; retain opacity 1.0",
+  "revision": "Flak 10.4/20.8, 15% smaller rocket rings, and independently saved local visual options",
   "model": {
     "combo": {
       "max": 210,
@@ -1669,14 +1700,18 @@
       "floorAge": 0.1346153846153846,
       "speed": 13000,
       "storedBase": [
-        10,
-        20
+        10.399999618530273,
+        20.799999237060547
       ],
       "storedMinimum": [
         4,
         8
       ],
-      "multiplier": 1
+      "multiplier": 1,
+      "base": 10.399999618530273,
+      "minimum": 4,
+      "centralBase": 20.799999237060547,
+      "attenuation": 95.08570861816406
     },
     "splash": {
       "legacy": false,
@@ -1741,12 +1776,14 @@
       "whiteEndpoint": 0.6,
       "opacity": 1,
       "highlightExponent": 2
-    }
+    },
+    "rocketRingScaleFromV196": 0.85,
+    "localVisualSettings": true
   },
   "releaseSource": {
-    "receipt": "elite-v1.95/latest-release.json",
-    "artifact": "elite-v1.95/white06-opacity1/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved artifact SHA256 verified. Final v1.94 native primary-freeze, secondary, lifecycle and cooked HUD checks passed; final rendered client, multiplayer prediction and packet-loss acceptance remain pending."
+    "receipt": "elite-v1.97/latest-release.json",
+    "artifact": "elite-v1.97/rocket-load-rings-option/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved full artifact SHA256 verified. Matching client/server and redirect downloads verified. Console routing, save persistence after a full UT restart, and all four notice status combinations verified in an isolated native client. Rendered effects and broader multiplayer acceptance remain pending."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -1769,5 +1806,19 @@
       "Combo movement rewards sideways movement relative to the core’s flight. Running straight along its path contributes less than changing the angle. The score uses the same speed weighting on the ground and in the air.",
       "Distance is shown in UU (Unreal Units) and approximate dodge lengths. One reference dodge length is about 696 UU. These describe distance, rather than how many dodge inputs to press."
     ]
-  }
+  },
+  "localOptions": [
+    {
+      "command": "10kWeaponSwitchFlash",
+      "name": "Weapon-switch flash",
+      "off": "Hide the colored switch flash",
+      "on": "Show the colored switch flash"
+    },
+    {
+      "command": "10kRocketLoadRings",
+      "name": "Rocket loading rings",
+      "off": "Hide the custom rocket loading rings",
+      "on": "Show the custom rocket loading rings"
+    }
+  ]
 }
