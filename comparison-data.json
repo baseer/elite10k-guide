@@ -1,5 +1,5 @@
 {
-  "version": "1.97",
+  "version": "1.98",
   "weapons": [
     {
       "id": "shock",
@@ -1483,8 +1483,8 @@
         {
           "label": "Rocket loading feedback",
           "b19": "B19 crosshair feedback",
-          "elite": "15% smaller red rings; locally optional",
-          "note": "Centers, animations, native aiming crosshair and lock display are preserved. 10kRocketLoadRings 0 hides only the custom loading rings; 1 restores them."
+          "elite": "5% smaller red rings; adjustable radius and opacity",
+          "note": "Default radius scale 1.0; maximum 1.75. Default opacity 87.5%. Either value set to exactly 0 skips custom-ring drawing while preserving native aiming and lock indicators."
         },
         {
           "label": "Hammer feedback",
@@ -1577,28 +1577,34 @@
           "note": "Final v1.95 revision; earlier 200, 0.4, 0.8 and zero-opacity trials are superseded."
         },
         {
-          "label": "Weapon-switch flash option",
-          "b19": "Not available in original B19",
-          "elite": "10kWeaponSwitchFlash 0 = OFF; 1 = ON",
-          "note": "Default ON. Changes only this viewer’s colored switch flash. Saved locally across UT restarts."
-        },
-        {
-          "label": "Rocket loading rings option",
-          "b19": "Not available in original B19",
-          "elite": "10kRocketLoadRings 0 = OFF; 1 = ON",
-          "note": "Default ON. Independent of weapon-switch flash; saved across UT restarts. Loading and firing are unchanged."
-        },
-        {
           "label": "Initial console notices",
           "b19": "Not available in original B19",
-          "elite": "Current ON/OFF status and commands for both options",
-          "note": "Printed on join/map HUD initialization. Later changes print a saved confirmation. Invalid or missing values show usage without changing the saved preference."
+          "elite": "Elite10K Settings: type 10kSettings to open settings.",
+          "note": "Printed on HUD initialization. The old 10kRocketLoadRings and 10kWeaponSwitchFlash commands are removed. The redundant ring-enabled boolean is removed; old Off preferences migrate to radius 0 when no newer radius preference exists."
+        },
+        {
+          "label": "Rocket loading pulse white tint",
+          "b19": "Not available in original B19",
+          "elite": "13.5% at peak pulse",
+          "note": "White mixing in the filled disk during the pulse. This is separate from overall opacity and does not change the other pulse brightness, glow or timing settings."
+        },
+        {
+          "label": "Elite10K Settings",
+          "b19": "Not available in original B19",
+          "elite": "Type 10kSettings (or 10ksettings)",
+          "note": "Sliders and decimal input boxes for radius and opacity, a switch-indicator toggle, per-row Default buttons, Apply, and Close. Defaults are clearly labeled."
+        },
+        {
+          "label": "Apply and default behavior",
+          "b19": "Not available in original B19",
+          "elite": "Apply appears only for pending value changes",
+          "note": "Opening the dialog is clean. Reverting edits hides Apply. Default buttons change pending values only. Apply saves and applies; Close/Escape discard unapplied changes. Save errors retain pending edits. Applying a default removes its saved override, including manually entered or slider-selected defaults."
         }
       ],
       "notes": [
-        "Weapon-owned visual effects follow the selected weapons release; the full-screen HUD is a separate package.",
-        "Both visual preferences affect only your view, default ON, and save independently across restarts. Native aiming crosshair, weapon timing, and other players’ preferences are unaffected.",
-        "On join or map load, the console shows each saved ON/OFF state and the command to change it. No temporary HUD overlay notice is added."
+        "Preferences affect only your view; weapon balance, firing timing and other players are unchanged.",
+        "Native aiming and lock indicators remain visible when custom loading rings are hidden.",
+        "Joining an older server can replace the installed pak. That does not replace the preserved final development artifact or change which release this guide describes."
       ],
       "lab": null
     },
@@ -1617,8 +1623,8 @@
         {
           "label": "Optional full-screen HUD",
           "b19": "B19 / stock HUD",
-          "elite": "Elite10K HUD v1.18",
-          "note": "Fixes the spectator score-spread function import and supplies console-command fallback plus status notices across the five HUD modes."
+          "elite": "Elite10K HUD v1.18, updated settings revision",
+          "note": "Independent HUD version preserved; supplies settings access and the Elite10K Settings console notice across five HUD modes."
         },
         {
           "label": "Damage examples",
@@ -1635,12 +1641,12 @@
         {
           "label": "Local visual preferences",
           "b19": "Not available in original B19",
-          "elite": "Enter either 0/1 command in the console",
-          "note": "Both choices default ON and save independently on the player’s computer in Saved/SaveGames. They are not Game.ini entries."
+          "elite": "Elite10K Settings or the three dotted console commands",
+          "note": "Saved on your computer in Saved/SaveGames, not Game.ini. Direct commands save/apply immediately. Preferences persist across UT restarts."
         }
       ],
       "notes": [
-        "Final weapons package SHA256: 373A5B46677D91F89E65A0AD51DB0DD3DC848D65411BFC0AB32477500EC208AC.",
+        "Final weapons package SHA256: 6E8946E3D3E9D2E639997CBD4C1025F8D319F8DB11EA7640035C40A3401B9C0E.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
         "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
       ],
@@ -1648,13 +1654,13 @@
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "373A5B46677D91F89E65A0AD51DB0DD3DC848D65411BFC0AB32477500EC208AC",
+  "packageSha256": "6E8946E3D3E9D2E639997CBD4C1025F8D319F8DB11EA7640035C40A3401B9C0E",
   "verifiedDate": "2026-11-14",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
-  "hudPackageSha256": "A92586266AA2721E6C270C4A2E2B10EF0952793A67D75A3ACBE7E176A49A0897",
+  "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "Flak 10.4/20.8, 15% smaller rocket rings, and independently saved local visual options",
+  "revision": "Final v1.98: Elite10K Settings, radius maximum 1.75, pulse white tint 13.5%",
   "model": {
     "combo": {
       "max": 210,
@@ -1777,13 +1783,24 @@
       "opacity": 1,
       "highlightExponent": 2
     },
-    "rocketRingScaleFromV196": 0.85,
-    "localVisualSettings": true
+    "rocketRingScaleFromV196": 0.95,
+    "localVisualSettings": true,
+    "rocketRingRadiusScale": {
+      "min": 0,
+      "max": 1.75,
+      "default": 1
+    },
+    "rocketRingOpacity": {
+      "min": 0,
+      "max": 1,
+      "default": 0.875
+    },
+    "rocketRingPulseWhiteTint": 0.135
   },
   "releaseSource": {
-    "receipt": "elite-v1.97/latest-release.json",
-    "artifact": "elite-v1.97/rocket-load-rings-option/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved full artifact SHA256 verified. Matching client/server and redirect downloads verified. Console routing, save persistence after a full UT restart, and all four notice status combinations verified in an isolated native client. Rendered effects and broader multiplayer acceptance remain pending."
+    "receipt": "elite-v1.98/latest-release.json",
+    "artifact": "elite-v1.98/pulse-white135/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved final artifact hash verified independently of the installed client pak. Matching client/server, redirect checksums and native settings tests passed. Exact-zero drawing guards, slider/input/command limits, saved-value clamping, clean-open Apply, save failures and restart persistence verified. Material opacity rendering measured at 0%, 25% and 87.5%; final pulse tint constant compiled and package scope verified."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -1809,16 +1826,26 @@
   },
   "localOptions": [
     {
-      "command": "10kWeaponSwitchFlash",
-      "name": "Weapon-switch flash",
-      "off": "Hide the colored switch flash",
-      "on": "Show the colored switch flash"
+      "command": "10k.rocketLoadHudRings.radiusScale",
+      "name": "Rocket Loading Rings on HUD - Radius Scale",
+      "range": "0–1.75",
+      "default": "1.0",
+      "note": "0 hides the rocket loading rings. The default preserves the final v1.98 size, 5% smaller than the pre-reduction rings. Older saved values above 1.75 clamp when loaded."
     },
     {
-      "command": "10kRocketLoadRings",
-      "name": "Rocket loading rings",
-      "off": "Hide the custom rocket loading rings",
-      "on": "Show the custom rocket loading rings"
+      "command": "10k.rocketLoadHudRings.opacity",
+      "name": "Rocket Loading Rings on HUD - Opacity",
+      "range": "0–1",
+      "default": "0.875 (87.5%)",
+      "note": "0 hides the rocket loading rings. Changes the actual shared material opacity for all three rings."
+    },
+    {
+      "command": "10k.weaponSwitchIndicators.enabled",
+      "name": "Weapon switch indicators",
+      "range": "0 (Off) or 1 (On)",
+      "default": "1 (On)",
+      "note": "Controls your colored weapon-switch indicator; the menu uses a sliding toggle with an On/Off label."
     }
-  ]
+  ],
+  "settingsMenu": true
 }
