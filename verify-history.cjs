@@ -1,7 +1,7 @@
 const fs=require('fs'),p=require('path'),vm=require('vm'),assert=require('assert');
 const root=__dirname,box={window:{}};vm.runInNewContext(fs.readFileSync(p.join(root,'versions-data.js'),'utf8'),box);
 const versions=box.window.ELITE_VERSIONS,history=require('./release-history.js');let cases=0;
-assert.equal(Object.keys(versions).length,37);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'1.93');
+assert.equal(Object.keys(versions).length,39);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'1.95');
 for(const [v,d] of Object.entries(versions)){
  const m=d.model,c=m.combo;
  assert.equal(d.weapons.length,12);assert.equal(d.shared.length,3);assert(/^[A-F0-9]{64}$/.test(d.packageSha256));
@@ -43,8 +43,8 @@ for(const allowance of [0,5,7.5,10,15]){
 }
 assert.equal(Math.round(bodyGeometry(10).frontArea),21454);
 assert.equal(Math.round(bodyGeometry(10).surfaceArea),74142);
-console.log('PASS',cases,'release-model cases, 37 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
-fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:37,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
+console.log('PASS',cases,'release-model cases, 39 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
+fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:39,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
 
 assert.equal(versions['1.85'].model.hammer.shieldLifetime,.75);assert.equal(versions['1.84'].model.hammer.shieldLifetime,.5);assert.equal(versions['1.85'].packageSha256,'D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D');
 
@@ -53,3 +53,5 @@ assert.equal(versions['1.91'].packageSha256,'C4A7C7F35C63AF2CA283303017BECEB5232
 assert(versions['1.91'].model.flak.nativeTime);assert(versions['1.91'].model.shredded.native);
 assert(Math.abs(versions['1.85'].model.hammer.full*versions['1.85'].model.hammer.impactFraction-.5)<1e-7);
 for(const v of ['1.86','1.87','1.88','1.89','1.90','1.91']){const m=versions[v].model.stinger;assert.equal(m.recoveryOrder,'lowest remaining unpaid debt first');assert(Math.abs(m.perPressDebt.slice(3).reduce((a,b)=>a+b,0)-m.recovery)<1e-7);}
+
+for(const v of ['1.94','1.95']){const m=versions[v].model.stinger;assert.equal(m.recovery,.475);assert(m.shotBasedQuietConfirmation&&m.primaryPausesRecovery&&m.nativeScheduling);assert.equal(m.recoveryDuringFallback,false);assert.equal(m.fallbackAddsDebt,false);assert(!('fallbackDebtMultiplier' in m));}assert.equal(versions['1.95'].model.linkCore.whiteEndpoint,.6);assert.equal(versions['1.95'].model.linkCore.opacity,1);

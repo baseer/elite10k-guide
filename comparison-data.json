@@ -1,5 +1,5 @@
 {
-  "version": "1.93",
+  "version": "1.95",
   "weapons": [
     {
       "id": "shock",
@@ -395,7 +395,7 @@
       "id": "stinger",
       "name": "Stinger",
       "tag": "Burst reserve",
-      "summary": "Dynamic 0.475-second idle burst recovery; fallback multiplier 1.5 gives approximately 1.145436 seconds under ideal regular timing.",
+      "summary": "Native shot scheduling with 0.475-second full-burst recovery; recovery freezes throughout secondary and primary fire.",
       "rows": [
         {
           "label": "Primary damage",
@@ -448,8 +448,8 @@
         {
           "label": "Recovery after a full opening burst",
           "b19": "B19 firing cycle; no separate reserve cooldown",
-          "elite": "0.475 s idle recovery",
-          "note": "Measured after the final burst shot. Existing RefillSeconds controls this target; primary and accelerated burst fire pause recovery."
+          "elite": "0.475 s from the last actual secondary shot",
+          "note": "Recovery is revealed after the expected next-shot interval plus one update confirms quiet, then credits elapsed quiet time retrospectively. Native state timing and update quantization still apply."
         },
         {
           "label": "Weapon raise / lower time",
@@ -482,57 +482,37 @@
           "note": "Independent HUD palettes can override presentation."
         },
         {
-          "label": "Mixed-burst recovery order",
-          "b19": "Native behavior",
-          "elite": "Cheapest remaining unpaid round first",
-          "note": "Credits affect only outstanding debt from the same press. Partial repayments and older debt persist."
-        },
-        {
           "label": "Ready pulse",
           "b19": "Native behavior",
-          "elite": "One finite glow pulse per completed recovery; stepped fill",
-          "note": "Fill uses actual recovered rounds. While alt fallback is held, it retains the highest step reached; releasing alt immediately snaps it to the actual reserve. New burst spending resets the display. Ready time is captured from live game time, not a fixed gameplay delay."
-        },
-        {
-          "label": "Dynamic recovery formula",
-          "b19": "Native behavior",
-          "elite": "Scale = target / (N × regular interval − sum of burst gaps)",
-          "note": "Bullet 1 adds regular interval × scale. Later bullets add (regular interval − preceding gap) × scale; negative amounts credit this press only. Existing native cadence is the source."
+          "elite": "Finite ready pulse; original v1.93 blue styling",
+          "note": "Discrete debt-weighted sections deplete and replenish from the outside inward. Sections indicate recovery progress, not individually usable rounds."
         },
         {
           "label": "Regular fallback recovery",
           "b19": "Native behavior",
-          "elite": "Continuous recovery; +0.095777 s per fallback shot",
-          "note": "FallbackDebtMultiplier = 1.5. Regular interval × recovery scale × multiplier gives the per-shot cost. Ideal .148-second fallback shots give the first full refill at1.145436s, after seven fallback shots. Native frame scheduling can shift actual time."
-        },
-        {
-          "label": "Recovered reserve availability",
-          "b19": "Native behavior",
-          "elite": "Release and press alt again",
-          "note": "Reserve available at the start of a press is fixed for that press; holding alt never spends newly recovered rounds."
-        },
-        {
-          "label": "Rapid tap limit",
-          "b19": "Native behavior",
-          "elite": "0.148 s minimum from the last secondary shot",
-          "note": "New presses use the existing regular interval; blocked shots spawn no projectile/effects and restore native authority-side ammo consumption."
+          "elite": "Frozen while continuous fallback fires; no added fallback debt",
+          "note": "Each actual secondary shot pauses recovery. Continuous held fire shows no provisional partial refill. Earlier additive fallback multipliers and ideal continuous-refill predictions no longer apply."
         },
         {
           "label": "Primary-fire recovery",
           "b19": "Native behavior",
-          "elite": "Paused",
-          "note": "Primary spends no burst reserve and adds no burst debt; primary time cannot be reclaimed as later recovery."
+          "elite": "Remaining debt frozen until native primary fire ends",
+          "note": "Preserves genuine quiet-time credit earned before primary fire. Primary time is never credited later; primary adds no secondary debt."
+        },
+        {
+          "label": "Partial bursts and re-presses",
+          "b19": "Native behavior",
+          "elite": "Positive prefix cooldown with native scheduling",
+          "note": "Native partial timing floors and quick re-press continuation are retained. No custom re-press gate, forced spin reset or reserve queue."
         }
       ],
       "notes": [
-        "Primary damage is 11 at 0.088 s per shot. Secondary base damage is 10 with a sustained 0.148-second interval.",
-        "Configured opening: 10 shots over 0.379 game seconds; native frame scheduling can spread the actual shots further apart.",
-        "Recovered reserve becomes usable only after release and a new press. New-press shots cannot bypass the regular 0.148-second interval. Switching never clears debt or the tap deadline.",
-        "Missing tick updates catch up using elapsed game time. Native firing is retained; packet-loss synchronization and client rendering are not established by isolated-server tests.",
-        "HUD fill: discrete recovered-round steps, with no fluid debt interpolation. Only held fallback uses a nondecreasing visual latch; release immediately restores exact reserve, even before the stop callback. Gameplay debt and reserve availability are unchanged.",
-        "The existing RefillSeconds target is0.475s. Scale=.475/1.101; per-bullet adjustments remain dynamically derived from the native regular cadence and effective burst gaps.",
-        "Recovery runs continuously during idle and regular fallback, and pauses during primary or accelerated burst firing. FallbackDebtMultiplier = 1.5 gives0.095776567s debt per regular fallback shot.",
-        "With ideal .148-second fallback cadence starting .148s after the final burst shot, seven fallback shots occur before first full refill at1.145435967s. Every earlier interval was checked to exclude an earlier full refill. Real native frame scheduling can shift the result."
+        "The configured opening remains 10 shots over approximately 0.379 game seconds; actual native frame scheduling can spread the shots further apart.",
+        "Positive prefix cooldown uses the existing native cadence; the full recovery target is 0.475 game seconds. Every actual secondary shot freezes recovery.",
+        "Quiet is confirmed after the dynamic expected next-shot interval and one additional update. Recovery then counts quiet time back to the last actual secondary shot. Continuous fallback neither adds debt nor displays provisional replenishment.",
+        "Primary firing freezes the remaining recovery debt until its native firing state ends. Switching does not erase outstanding recovery.",
+        "Native scheduling, refire and spread are retained. The old additive fallback model and custom tap/reserve gates are superseded.",
+        "Discrete debt-weighted outside-in refill retains v1.93 styling. Final rendered-client, multiplayer prediction and packet-loss acceptance remain pending."
       ],
       "lab": "stinger"
     },
@@ -700,6 +680,12 @@
           "b19": "Native behavior",
           "elite": "Disabled",
           "note": "Existing weapon tick resets native heat; generic crosshair hides heat-box presentation. The removed helper is not required."
+        },
+        {
+          "label": "Primary projectile core appearance",
+          "b19": "Native behavior",
+          "elite": "White emissive endpoint 0.6; core opacity 1.0",
+          "note": "Highlight exponent 2 retained. Material brightness and particle opacity are separate parameters; gameplay and other effects unchanged. Final appearance pending in-game verification."
         }
       ],
       "notes": [
@@ -1466,6 +1452,12 @@
           "b19": "Native behavior",
           "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
           "note": "Contact predicates, component collision and damage response are separate gates."
+        },
+        {
+          "label": "Movement initialization",
+          "b19": "Native behavior",
+          "elite": "UTPlus-style owner inventory initialization",
+          "note": "Existing Elite movement values retained; old per-tick movement helper removed. UTPlus lifecycle retained with its sync-config override disabled."
         }
       ],
       "notes": [
@@ -1570,6 +1562,12 @@
           "b19": "Original visibility",
           "elite": "Visible in behindview 1; hidden in first person",
           "note": "Uses the existing switch effect and timing. Other clients can receive switch state later because of network delay."
+        },
+        {
+          "label": "Link primary core",
+          "b19": "Native behavior",
+          "elite": "White endpoint 0.6 / opacity 1.0",
+          "note": "Final v1.95 revision; earlier 200, 0.4, 0.8 and zero-opacity trials are superseded."
         }
       ],
       "notes": [
@@ -1588,8 +1586,8 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v1.93",
-          "note": "The two columns describe each version’s default behavior."
+          "elite": "Elite10K v1.95",
+          "note": "Final completed revision; superseded experiments excluded."
         },
         {
           "label": "Optional full-screen HUD",
@@ -1611,21 +1609,21 @@
         }
       ],
       "notes": [
-        "Final completed weapons revision: Link ammo135 capacity/90 weapon/45 normal ammo pickup; costs and latest Stinger preserved.",
-        "Complete preserved artifact SHA256: 316399F2DE6AE260D6C89388C97826A6B1D11D909809F051447F19A923C533AE.",
-        "Original Elite B19 remains the authoritative reference. Optional HUD and native client DLL are separate."
+        "Final revision: Link primary white emissive .8 to .6; retain opacity 1.0.",
+        "Complete preserved artifact SHA256: DDA873C033F3E93CBEDB739F23EABCFD6C7F8E704A3FD636838CBDDD6DAE5CDF.",
+        "Original Elite B19 is the authoritative reference. Optional HUD and native client DLL are separate releases. Final rendered/network acceptance remains pending."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "316399F2DE6AE260D6C89388C97826A6B1D11D909809F051447F19A923C533AE",
-  "verifiedDate": "2026-11-12",
+  "packageSha256": "DDA873C033F3E93CBEDB739F23EABCFD6C7F8E704A3FD636838CBDDD6DAE5CDF",
+  "verifiedDate": "2026-11-13",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.15",
   "hudPackageSha256": "559837FD5108594CAF4330A109A52A5D2816AE4A47396C626EA79B5F97AF1EA5",
   "shockVariantData": "shock-variants.js",
-  "revision": "Link ammo135 capacity/90 weapon/45 normal ammo pickup; costs and latest Stinger preserved",
+  "revision": "Link primary white emissive .8 to .6; retain opacity 1.0",
   "model": {
     "combo": {
       "max": 210,
@@ -1652,32 +1650,14 @@
         0.002,
         0.001
       ],
-      "recoveryOrder": "lowest remaining unpaid debt first",
-      "perPressDebt": [
-        0.06385104450499546,
-        -0.02243415077202544,
-        0.03365122615803814,
-        0.04227974568574023,
-        0.05090826521344232,
-        0.05781108083560398,
-        0.06039963669391461,
-        0.062125340599455035,
-        0.06298819255222525,
-        0.06341961852861035
-      ],
-      "samePressOpeningCredit": "bounded negative adjustment within this press only",
       "regularInterval": 0.148,
-      "dynamicDebt": true,
-      "recoveryScale": 0.43142597638510444,
-      "fallbackDebt": 0.09577656675749316,
-      "recoveryDuringFallback": true,
+      "recoveryDuringFallback": false,
       "primaryPausesRecovery": true,
       "heldBurstPausesRecovery": true,
-      "reserveRequiresNewPress": true,
-      "tapInterval": 0.148,
-      "continuousElapsedRecovery": true,
-      "fallbackDebtMultiplier": 1.5,
-      "idealFallbackRecovery": 1.1454359673024521
+      "shotBasedQuietConfirmation": true,
+      "fallbackAddsDebt": false,
+      "nativeScheduling": true,
+      "prefixCooldown": true
     },
     "flak": {
       "linear": true,
@@ -1756,12 +1736,17 @@
       "secondaryCost": 2,
       "secondaryInterval": 0.23,
       "successfulPullCost": 3
+    },
+    "linkCore": {
+      "whiteEndpoint": 0.6,
+      "opacity": 1,
+      "highlightExponent": 2
     }
   },
   "releaseSource": {
-    "receipt": "elite-v1.93/link-ammo135/report.json",
-    "artifact": "elite-v1.93/link-ammo135/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "24 actual native pickup/stack/cap/cost checks passed; both asset GUIDs retained. Link firing functions and Stinger payload byte-identical. Rendered/network acceptance pending."
+    "receipt": "elite-v1.95/latest-release.json",
+    "artifact": "elite-v1.95/white06-opacity1/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved artifact SHA256 verified. Final v1.94 native primary-freeze, secondary, lifecycle and cooked HUD checks passed; final rendered client, multiplayer prediction and packet-loss acceptance remain pending."
   },
   "comboMovement": {
     "id": "combo-movement",

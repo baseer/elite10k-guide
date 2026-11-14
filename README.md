@@ -1,7 +1,7 @@
 # elite10k-guide
 Elite10K Field Guide and interactive weapon calculators
 
-The archive covers 37 completed weapon releases from v1.57 through v1.93.
+The archive covers 39 completed weapon releases from v1.57 through v1.95.
 Version labels retain the game's spelling (v1.6, v1.7 and v1.8). Each entry uses
 the final normal revision, with diagnostic-only and superseded tuning builds
 excluded. The optional HUD and native client DLL have separate release histories.
@@ -11,7 +11,7 @@ calculator parameters. Each version has a downloadable comparison-data snapshot.
 `versions-data.js` supplies the same data to the navbar, comparisons and tools;
 `release-history.js` applies the selected model to the calculators and copy.
 
-Run `node verify-history.cjs` to check all 37 snapshots and 407,296 numerical
+Run `node verify-history.cjs` to check all 39 snapshots and 429,312 numerical
 cases. Release artifacts were independently verified by full pak SHA256; archived
 snapshots were reconstructed in memory from verified hash-addressed assets.
 The authoritative original B19 remains the comparison reference.
@@ -26,3 +26,5 @@ Final v1.85 restores Hammer jump readiness to 0.50 seconds. v1.86 adds globally 
 
 Final v1.93 adds dynamic Stinger recovery (final idle target0.475s, fallback multiplier1.5 for ideal1.145436s), continuous fallback repayment with per-shot debt, a new-press reserve lock and the native-interval tap gate. Primary fire pauses repayment. v1.92 is preserved as the earlier 0.45-second tuning-only release.
 
+
+Final v1.94 replaces the movement tick helper with owner inventory initialization and replaces additive Stinger fallback debt with shot-confirmed quiet recovery, frozen during primary fire. Final v1.95 retains this gameplay and uses Link core white endpoint 0.6 / opacity 1.0. Final rendered/network acceptance is pending. Earlier snapshots remain unchanged.
