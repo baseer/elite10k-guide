@@ -65,4 +65,4 @@ assert.equal(versions['2.01'].model.groundMovement.profiles[2].fastThreshold,200
 
 assert.equal(versions['2.01'].model.groundMovement.profiles[2].acceleration,5000);assert.equal(versions['2.0'].model.groundMovement.profiles[2].acceleration,5000);
 
-assert.equal(versions['2.02'].packageSha256,'7646DF32F47EB242D771989BA2D4EDBEC1AEC691F17AA0A36B680B45260D86B0');assert.equal(versions['2.02'].model.groundMovement.profiles[2].fastAcceleration,16200);assert.equal(versions['2.02'].model.groundMovement.profiles[2].fastThreshold,400);
+assert.equal(versions['2.02'].packageSha256,'CBC4AD7398D9FFE25A34DFF32C6CE5AA0C9F1937EE214C4AAA77A31509C7DB52');assert.equal(versions['2.02'].model.groundMovement.profiles[2].fastAcceleration,48000);assert.equal(versions['2.02'].model.groundMovement.profiles[2].fastThreshold,300);
