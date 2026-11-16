@@ -41,7 +41,7 @@
   q('.ml-profiles').insertAdjacentHTML('beforeend',profiles.map(p=>`<label style="--profile:${colors[p.id]}"><input type="checkbox" data-profile="${p.id}" checked><span>${esc(p.name)}</span></label>`).join(''));
   const selected=()=>profiles.filter(p=>q(`[data-profile="${p.id}"]`).checked);
   function stop(){playing=false;cancelAnimationFrame(raf);q('#ml-play').textContent='Play';}
-  function recompute(){stop();q('#ml-gap-control').hidden=mode!=='reverse';q('#ml-gap-control').style.display=mode==='reverse'?'':'none';q('#ml-gap-value').textContent=gap+' ms real / '+n(gap*speed,0)+' ms game';allRuns=profiles.map(p=>simulate(p,{mode,startPercent:start,neutralGap:gap/1000*speed}));const ids=selected().map(p=>p.id);runs=allRuns.filter(r=>ids.includes(r.profile.id));duration=Math.max(.15,...runs.map(r=>(r.completed??1.5)/speed))*1.2;elapsed=0;q('#ml-time').max=Math.ceil(duration*1000);q('#ml-time').value=0;q('#ml-time-end').textContent=n(duration*1000,0)+' ms real time';q('#ml-start-value').textContent=start+'%';q('#ml-speed-value').textContent=n(speed,2)+'×';draw();}
+  function recompute(preserveTime=false){const previousTime=elapsed;stop();q('#ml-gap-control').hidden=mode!=='reverse';q('#ml-gap-control').style.display=mode==='reverse'?'':'none';q('#ml-gap-value').textContent=gap+' ms real / '+n(gap*speed,0)+' ms game';allRuns=profiles.map(p=>simulate(p,{mode,startPercent:start,neutralGap:gap/1000*speed}));const ids=selected().map(p=>p.id);runs=allRuns.filter(r=>ids.includes(r.profile.id));duration=Math.max(.15,...runs.map(r=>(r.completed??1.5)/speed))*1.2;elapsed=preserveTime?Math.min(previousTime,duration):0;q('#ml-time').max=Math.ceil(duration*1000);q('#ml-time').value=Math.round(elapsed*1000);q('#ml-time-end').textContent=n(duration*1000,0)+' ms real time';q('#ml-start-value').textContent=start+'%';q('#ml-speed-value').textContent=n(speed,2)+'×';draw();}
   function chart(){
    const W=800,H=280,l=58,r=20,top=48,bottom=38,max=940,y=v=>top+(max-v)/(2*max)*(H-top-bottom),x=t=>l+t/duration*(W-l-r);
    let out='';for(const v of [-940,0,940])out+=`<line x1="${l}" x2="${W-r}" y1="${y(v)}" y2="${y(v)}" class="ml-grid"/><text x="${l-8}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
@@ -70,7 +70,7 @@
    q('.ml-results tbody').innerHTML=runs.map(run=>`<tr><th style="color:${colors[run.profile.id]}">${esc(run.profile.name)}</th><td>${run.completed===null?'Beyond model window':n(run.completed/speed*1000,0)+' ms'}</td><td>${run.completed===null?'—':n(run.completed*1000,0)+' ms'}</td><td>${run.event?n(run.event.path,1)+' UU travelled':'—'}</td><td>${mode==='reverse'?n((run.zero??0)/speed*1000,0)+' ms · '+n(run.turnDistance??0,1)+' UU forward':'—'}</td></tr>`).join('');chart();
   }
   for(const button of qa('[data-mode]'))button.addEventListener('click',()=>{mode=button.dataset.mode;start=mode==='accelerate'?0:100;q('#ml-start').value=start;for(const b of qa('[data-mode]'))b.setAttribute('aria-pressed',String(b===button));recompute();});
-  q('#ml-start').addEventListener('input',e=>{start=+e.target.value;recompute();});q('#ml-speed').addEventListener('input',e=>{speed=+e.target.value;recompute();});q('#ml-axis').addEventListener('change',draw);q('#ml-gap').addEventListener('input',e=>{gap=+e.target.value;recompute();});
+  q('#ml-start').addEventListener('input',e=>{start=+e.target.value;recompute();});q('#ml-speed').addEventListener('input',e=>{speed=+e.target.value;recompute();});q('#ml-axis').addEventListener('change',draw);q('#ml-gap').addEventListener('input',e=>{gap=+e.target.value;recompute(true);});
   for(const c of qa('[data-profile]'))c.addEventListener('change',()=>{if(!selected().length)c.checked=true;recompute();});
   q('#ml-time').addEventListener('input',e=>{stop();elapsed=+e.target.value/1000;draw();});q('#ml-reset').addEventListener('click',()=>{stop();elapsed=0;q('#ml-time').value=0;draw();});
   function frame(now){if(!playing)return;if(last){elapsed=Math.min(duration,elapsed+(now-last)/1000*(q('#ml-slow').checked?.25:1));q('#ml-time').value=Math.round(elapsed*1000);draw();}last=now;if(elapsed>=duration){stop();return;}raf=requestAnimationFrame(frame);}
@@ -79,5 +79,6 @@
  }
  const api={acceleration,step,simulate,sampleAt,compareTimes,render,mount};root.MovementLab=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
+
 
 
