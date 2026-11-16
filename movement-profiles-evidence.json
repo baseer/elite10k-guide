@@ -80,7 +80,7 @@
       "maxSpeed": 940,
       "acceleration": 5000,
       "fastAcceleration": 96000,
-      "fastThreshold": 400,
+      "fastThreshold": 300,
       "friction": 14,
       "braking": 3120,
       "brakeFriction": 5,
@@ -107,12 +107,12 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "5A4A1BF5E83D0D3AA34759ABDC08A213F9AAE838A8CACCDC378799FB830E566F",
+    "pakSha256": "AD02DD790EE2BA7D17A867988E0A25BA0D95B8B2880391B5CEEF65FD54C915A3",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.01/threshold400-braking3120/report.json",
+    "source": "elite-v2.01/threshold300-braking3120/report.json",
     "selectedRelease": "2.01",
     "comparisonRelease": "2.0",
-    "method": "Native MaxFastAccelSpeed override400 in existing movement setup; FastInitialAcceleration96000, MaxAcceleration5000 and active/persistent walking braking4160. Native class network checksum measured unchanged across threshold200->400 update (1374654379)."
+    "method": "Existing native MaxFastAccelSpeed assignment300; FastInitialAcceleration96000, MaxAcceleration5000 and both walking braking3120. Only the threshold literal changed from400. The prior200->400 class checksum measurement does not independently measure this300 revision."
   },
   "equations": {
     "boost": "a(v)=fast*(1-clamp(abs(v)/profile.fastThreshold,0,1))+normal*clamp(abs(v)/profile.fastThreshold,0,1)",
@@ -193,7 +193,7 @@
       ]
     },
     "2.01": {
-      "pakSha256": "5A4A1BF5E83D0D3AA34759ABDC08A213F9AAE838A8CACCDC378799FB830E566F",
+      "pakSha256": "AD02DD790EE2BA7D17A867988E0A25BA0D95B8B2880391B5CEEF65FD54C915A3",
       "profiles": [
         {
           "id": "stock",
@@ -238,7 +238,7 @@
           "maxSpeed": 940,
           "acceleration": 5000,
           "fastAcceleration": 96000,
-          "fastThreshold": 400,
+          "fastThreshold": 300,
           "friction": 14,
           "braking": 3120,
           "brakeFriction": 5,

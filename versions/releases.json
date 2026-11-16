@@ -4353,12 +4353,12 @@
   },
   {
     "version": "2.01",
-    "sha256": "5A4A1BF5E83D0D3AA34759ABDC08A213F9AAE838A8CACCDC378799FB830E566F",
-    "revision": "v2.01: initial acceleration 96,000; normal acceleration 5,000; transition 400 UU/s; walking braking 3,120",
+    "sha256": "AD02DD790EE2BA7D17A867988E0A25BA0D95B8B2880391B5CEEF65FD54C915A3",
+    "revision": "v2.01: initial acceleration 96,000; normal acceleration 5,000; transition 300 UU/s; walking braking 3,120",
     "source": {
-      "receipt": "elite-v2.01/threshold400-braking3120/report.json",
-      "artifact": "elite-v2.01/fast-threshold400/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Restored preserved hash-verified native threshold400/braking3120 artifact. Matching installed client/server, full redirect download, launcher guard, HUD preservation and Pure startup verified. Native transition logic remains unchanged. Runtime feel acceptance pending."
+      "receipt": "elite-v2.01/threshold300-braking3120/report.json",
+      "artifact": "elite-v2.01/threshold300-braking3120/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Verified installed client/server artifact, full redirect download, launcher guard, HUD preservation and Pure startup. Only existing MaxFastAccelSpeed float changed from 400 to 300; native blend logic and all other settings preserved. Runtime feel acceptance pending."
     },
     "model": {
       "combo": {
@@ -4551,7 +4551,7 @@
             "maxSpeed": 940,
             "acceleration": 5000,
             "fastAcceleration": 96000,
-            "fastThreshold": 400,
+            "fastThreshold": 300,
             "friction": 14,
             "braking": 3120,
             "brakeFriction": 5,
