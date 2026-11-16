@@ -4353,12 +4353,12 @@
   },
   {
     "version": "2.01",
-    "sha256": "EEC2990E2CAEB01040C417334977B55C22186FB80A0901DD13F0D9D05A07A70D",
-    "revision": "v2.01: initial acceleration 96,000 UU/s²; walking braking 2,080 UU/s²; Flak ball 93% of B19",
+    "sha256": "E2512E3447D49836A3BBE836F39686D8BCEA0050D93CD0CA35CCE6F2E6E48AB9",
+    "revision": "v2.01: initial acceleration 96,000 UU/s²; walking braking 4,160 UU/s²; Flak ball 93% of B19",
     "source": {
-      "receipt": "elite-v2.01/braking2080/report.json",
-      "artifact": "elite-v2.01/braking2080/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Preserved artifact SHA256 verified. Matching installed client/server, full redirect download, launcher guard and Pure startup verified. Only two existing walking braking float literals changed from 1,040 to 2,080; initial acceleration remains 96,000. Runtime movement feel awaits user acceptance. Earlier grenade recovery validation limitations remain unchanged."
+      "receipt": "elite-v2.01/braking4160/report.json",
+      "artifact": "elite-v2.01/braking4160/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved artifact SHA256 verified. Matching installed client/server, full redirect download, launcher guard and Pure startup verified. Only two existing walking braking float literals changed from 2,080 to 4,160; initial acceleration remains 96,000. Runtime movement feel awaits user acceptance. Earlier grenade recovery validation limitations remain unchanged."
     },
     "model": {
       "combo": {
@@ -4553,7 +4553,7 @@
             "fastAcceleration": 96000,
             "fastThreshold": 200,
             "friction": 14,
-            "braking": 2080,
+            "braking": 4160,
             "brakeFriction": 5,
             "brakeFactor": 2,
             "stopThreshold": 10,

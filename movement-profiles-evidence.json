@@ -82,7 +82,7 @@
       "fastAcceleration": 96000,
       "fastThreshold": 200,
       "friction": 14,
-      "braking": 2080,
+      "braking": 4160,
       "brakeFriction": 5,
       "brakeFactor": 2,
       "stopThreshold": 10,
@@ -107,12 +107,12 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "EEC2990E2CAEB01040C417334977B55C22186FB80A0901DD13F0D9D05A07A70D",
+    "pakSha256": "E2512E3447D49836A3BBE836F39686D8BCEA0050D93CD0CA35CCE6F2E6E48AB9",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.01/braking2080/report.json",
+    "source": "elite-v2.01/braking4160/report.json",
     "selectedRelease": "2.01",
     "comparisonRelease": "2.0",
-    "method": "FastInitialAcceleration remains 96,000; both active and persistent walking braking literals are 2,080. Release-specific profiles are preserved under releaseProfiles."
+    "method": "FastInitialAcceleration remains 96,000; both active and persistent walking braking literals are 4,160. Release-specific profiles are preserved under releaseProfiles."
   },
   "equations": {
     "boost": "a(v)=fast*(1-clamp(abs(v)/200,0,1))+normal*clamp(abs(v)/200,0,1)",
@@ -193,7 +193,7 @@
       ]
     },
     "2.01": {
-      "pakSha256": "EEC2990E2CAEB01040C417334977B55C22186FB80A0901DD13F0D9D05A07A70D",
+      "pakSha256": "E2512E3447D49836A3BBE836F39686D8BCEA0050D93CD0CA35CCE6F2E6E48AB9",
       "profiles": [
         {
           "id": "stock",
@@ -240,7 +240,7 @@
           "fastAcceleration": 96000,
           "fastThreshold": 200,
           "friction": 14,
-          "braking": 2080,
+          "braking": 4160,
           "brakeFriction": 5,
           "brakeFactor": 2,
           "stopThreshold": 10,
