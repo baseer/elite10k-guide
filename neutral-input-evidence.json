@@ -1,0 +1,19 @@
+{
+  "defaultRealMilliseconds": 30,
+  "rangeRealMilliseconds": [
+    0,
+    200
+  ],
+  "interpretation": "Illustrative neutral-input duration, not an empirically established UT counter-strafing mean.",
+  "sources": [
+    {
+      "url": "https://userinterfaces.aalto.fi/136Mkeystrokes/resources/chi-18-analysis.pdf",
+      "finding": "Mean 30 ms overlap among rollover keystrokes in a typing study; not a positive release gap or gaming-specific measurement."
+    },
+    {
+      "url": "https://wooting.io/ja/post/rappy-snappy-tappy",
+      "finding": "Keyboard features can resolve opposing inputs using last-input priority rather than ordinary simultaneous inputs."
+    }
+  ],
+  "simulation": "The same real-time neutral duration is converted to game time for every profile. Release braking acts first, then directional friction and opposite acceleration. Release-specific movement parameters remain unchanged."
+}
