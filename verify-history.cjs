@@ -58,7 +58,7 @@ for(const v of ['1.94','1.95']){const m=versions[v].model.stinger;assert.equal(m
 
 
 assert.equal(versions['2.0'].model.trace,7.5);assert.deepEqual(versions['2.0'].model.headshots.sniper,[1.15,1.15,1.15,1.15]);assert.deepEqual(versions['2.0'].model.headshots.lightning,[0,0,0,0]);assert.equal(versions['2.0'].packageSha256,'BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF');assert.equal(versions['2.0'].model.flakBall.percentB19,93);assert(!versions['2.0'].pendingRevision);
-assert.equal(versions['2.01'].packageSha256,'AD02DD790EE2BA7D17A867988E0A25BA0D95B8B2880391B5CEEF65FD54C915A3');
+assert.equal(versions['2.01'].packageSha256,'2093B99C51ADBD6A3CC25FA39DE145610459CABAE06A24553B5CD6719EB27D03');
 for(const [v,a,b]of [['2.0',100000,20000],['2.01',96000,3120]]){const p=versions[v].model.groundMovement.profiles.find(p=>p.id==='elite');assert.equal(p.fastAcceleration,a);assert.equal(p.braking,b);assert.equal(versions[v].model.flakBall.percentB19,93);}
 
-assert.equal(versions['2.01'].model.groundMovement.profiles[2].fastThreshold,300);assert.equal(versions['2.0'].model.groundMovement.profiles[2].fastThreshold,200);
+assert.equal(versions['2.01'].model.groundMovement.profiles[2].fastThreshold,200);assert.equal(versions['2.0'].model.groundMovement.profiles[2].fastThreshold,200);
