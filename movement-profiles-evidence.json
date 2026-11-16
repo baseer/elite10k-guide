@@ -79,10 +79,10 @@
       "name": "Elite10K",
       "maxSpeed": 940,
       "acceleration": 5000,
-      "fastAcceleration": 100000,
+      "fastAcceleration": 96000,
       "fastThreshold": 200,
       "friction": 14,
-      "braking": 20000,
+      "braking": 520,
       "brakeFriction": 5,
       "brakeFactor": 2,
       "stopThreshold": 10,
@@ -107,9 +107,12 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E",
+    "pakSha256": "696C34CF134F1C05D077D84CFC121FF692C032D207E7C8ED0FAFE568513F6032",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v1.94/build.py settings, preserved byte-identically in current installed package"
+    "source": "elite-v2.01/initial-accel96000/report.json",
+    "selectedRelease": "2.01",
+    "comparisonRelease": "2.0",
+    "method": "Existing FastInitialAcceleration literal 96,000 and active/persistent walking braking literals 520. Release-specific profiles are preserved under releaseProfiles."
   },
   "equations": {
     "boost": "a(v)=fast*(1-clamp(abs(v)/200,0,1))+normal*clamp(abs(v)/200,0,1)",
@@ -127,5 +130,127 @@
       "Original B19"
     ],
     "reason": "All numeric movement parameters verified equal. Original evidence profiles retained individually for traceability. Calculator uses a single shared profile; attack interaction columns stay separate."
+  },
+  "releaseProfiles": {
+    "2.0": {
+      "pakSha256": "BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF",
+      "profiles": [
+        {
+          "id": "stock",
+          "name": "Stock / NCP / B19",
+          "maxSpeed": 940,
+          "acceleration": 3200,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 10.5,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.55,
+          "dodgeAirControl": 0.41
+        },
+        {
+          "id": "utplus",
+          "name": "UT+",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7,
+          "assignedBraking": 2000
+        },
+        {
+          "id": "elite",
+          "name": "Elite10K",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 100000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 20000,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.01,
+          "wallReset": 0.01,
+          "dodgeJumpReset": 0.01,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7
+        }
+      ]
+    },
+    "2.01": {
+      "pakSha256": "696C34CF134F1C05D077D84CFC121FF692C032D207E7C8ED0FAFE568513F6032",
+      "profiles": [
+        {
+          "id": "stock",
+          "name": "Stock / NCP / B19",
+          "maxSpeed": 940,
+          "acceleration": 3200,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 10.5,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.55,
+          "dodgeAirControl": 0.41
+        },
+        {
+          "id": "utplus",
+          "name": "UT+",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7,
+          "assignedBraking": 2000
+        },
+        {
+          "id": "elite",
+          "name": "Elite10K",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 96000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.01,
+          "wallReset": 0.01,
+          "dodgeJumpReset": 0.01,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7
+        }
+      ]
+    }
   }
 }

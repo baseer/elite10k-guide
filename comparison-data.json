@@ -1,5 +1,5 @@
 {
-  "version": "2.0",
+  "version": "2.01",
   "weapons": [
     {
       "id": "shock",
@@ -155,16 +155,16 @@
         {
           "label": "Ball initial speed",
           "b19": "≈4.67 dodge lengths/s (3,250 UU/s)",
-          "elite": "3,006.25 UU/s (92.5% of B19)",
-          "note": "92.5% of the corresponding authoritative B19 projectile speed. 20.25% faster launch than Stock/UT+.",
+          "elite": "3,022.5 UU/s (93% of B19)",
+          "note": "93% of the corresponding authoritative B19 speed; 20.9% faster launch than Stock/UT+.",
           "stock": "2,500 UU/s",
           "utplus": "2,500 UU/s"
         },
         {
           "label": "Ball maximum speed",
           "b19": "≈9.88 dodge lengths/s (6,880 UU/s)",
-          "elite": "6,364 UU/s (92.5% of B19)",
-          "note": "92.5% of the corresponding authoritative B19 projectile speed. 6.07% higher cap than Stock/UT+.",
+          "elite": "6,398.4 UU/s (93% of B19)",
+          "note": "93% of the corresponding authoritative B19 speed; 6.64% higher cap than Stock/UT+.",
           "stock": "6,000 UU/s",
           "utplus": "6,000 UU/s"
         },
@@ -303,11 +303,10 @@
         "Enemy ordinary/central damage starts at 10.4/20.8 and decays with age to 4/8 between approximately 0.053846 and 0.107692 game seconds. Native hit position and other modifiers still apply.",
         "700–1,400 UU is only the straight-flight equivalent at 13,000 UU/s, not an accumulated path-distance rule.",
         "Native Shredded qualification and native momentum are restored. Secondary ball geometry, damage and speed are unchanged.",
-        "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,006.25/6,364 UU/s. Ball-spawned shards are separate from the primary model.",
+        "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,022.5/6,398.4 UU/s. Ball-spawned shards are separate from the primary model.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
         "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v2.0 endpoint is approximately 2 tuning dodge distances of 700 UU.",
-        "Compared with both Stock and UT+, the 10K ball launches 20.25% faster (3,006.25 vs 2,500 UU/s) and has a 6.07% higher cap (6,364 vs 6,000 UU/s).",
-        "A later 93% B19 ball-speed build (3,022.5 initial / 6,398.4 maximum UU/s) is staged only, not installed. The installed speeds above remain 3,006.25 / 6,364 UU/s (92.5%)."
+        "Compared with both Stock and UT+, the 10K ball launches 20.9% faster (3,022.5 vs 2,500 UU/s) and has a 6.64% higher cap (6,398.4 vs 6,000 UU/s)."
       ],
       "lab": "flak",
       "comparisonColumns": [
@@ -325,7 +324,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.0"
+          "label": "Elite10K v2.01"
         }
       ],
       "comparisonStyle": "projectile",
@@ -534,7 +533,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.0"
+          "label": "Elite10K v2.01"
         }
       ],
       "comparisonStyle": "projectile",
@@ -1063,7 +1062,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.0"
+          "label": "Elite10K v2.01"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1318,7 +1317,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.0"
+          "label": "Elite10K v2.01"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1598,8 +1597,8 @@
         {
           "label": "Walking braking / deceleration",
           "b19": "520 UU/s²",
-          "elite": "20,000 UU/s²",
-          "note": "10K sets both walking braking and its persistent default to20,000. UT+ helper assigns2,000 only to the active walking field; native PerformMovement restores DefaultBrakingDecelerationWalking520 after movement. Settled stop simulation uses520 forUT+; its transient helper-application frame is excluded.",
+          "elite": "520 UU/s²",
+          "note": "v2.01 sets both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking to 520 (final v2.0: 20,000). Settled release braking matches Stock and UT+. Opposite-direction input uses directional ground friction and acceleration, rather than this release-braking calculation.",
           "stock": "520 UU/s²",
           "utplus": "520 persistent; helper assigns 2,000",
           "ncp": "520 UU/s²"
@@ -1616,8 +1615,8 @@
         {
           "label": "Fast initial acceleration",
           "b19": "12,000 UU/s²",
-          "elite": "100,000 UU/s²",
-          "note": "FastInitialAcceleration: stock/B19 12,000; 10K 100,000 UU/s². Low-speed boost blends toward regular ground acceleration as speed rises; it does not apply at full running speed.",
+          "elite": "96,000 UU/s²",
+          "note": "FastInitialAcceleration: 96,000 in v2.01 versus 100,000 in final v2.0. Low-speed boost blends toward 5,000 UU/s² at 200 UU/s; normal running speed remains 940 UU/s.",
           "stock": "12,000 UU/s²",
           "utplus": "12,000 UU/s²",
           "ncp": "12,000 UU/s²"
@@ -1668,7 +1667,8 @@
         "Use the interactive calculator above the table to compare starting, stopping and reversing. The scrubber shares one real-time clock across profiles and marks both reversal through zero and full speed in the opposite direction.",
         "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings.",
         "Stock, NCP and B19 share every numeric movement setting shown, so they use one movement column and one calculator profile. Attack interactions remain separate below the movement table.",
-        "Movement implementation: Stock/B19 use native character movement; NCP uses its TeamArena subclass with inherited core scalar defaults. UT+ and 10K use owner movement inventories; 10K retains its custom values and disables the UT+ sync-config override. Matching values do not mean these implementations are identical."
+        "Movement implementation: Stock/B19 use native character movement; NCP uses its TeamArena subclass with inherited core scalar defaults. UT+ and 10K use owner movement inventories; 10K retains its custom values and disables the UT+ sync-config override. Matching values do not mean these implementations are identical.",
+        "v2.01 versus final v2.0: fast initial acceleration changes from 100,000 to 96,000 UU/s²; walking braking and its persistent default change from 20,000 to 520 UU/s². Release stopping now matches Stock / NCP / B19 and settled UT+. Acceleration and reversal still use 10K’s higher low-speed acceleration."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -1682,7 +1682,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.0"
+          "label": "Elite10K v2.01"
         }
       ],
       "comparisonStyle": "movement",
@@ -1710,7 +1710,7 @@
           },
           {
             "key": "elite",
-            "label": "Elite10K v2.0"
+            "label": "Elite10K v2.01"
           }
         ],
         "rows": [
@@ -1871,8 +1871,8 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v2.0 · installed 92.5% ball revision",
-          "note": "Includes Sniper 1.15× scales, both rifle traces 7.5 UU and Lightning zero headshot scales. A prepared 93% ball build is explicitly staged only."
+          "elite": "Elite10K v2.01 · installed 96k / 520 revision",
+          "note": "Flak ball 93% of B19; Sniper scale 1.15; both rifle traces 7.5 UU; Lightning zero headshot scales."
         },
         {
           "label": "Optional full-screen HUD",
@@ -1900,22 +1900,21 @@
         }
       ],
       "notes": [
-        "Installed weapons package SHA256: FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E.",
+        "Installed weapons package SHA256: 696C34CF134F1C05D077D84CFC121FF692C032D207E7C8ED0FAFE568513F6032.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
-        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here.",
-        "The public comparison describes the installed 92.5% Flak ball revision. The separately staged 93% build has not been deployed. Server speed is separately configured at 1.0; package timing values are game seconds."
+        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E",
+  "packageSha256": "696C34CF134F1C05D077D84CFC121FF692C032D207E7C8ED0FAFE568513F6032",
   "verifiedDate": "2026-11-16",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "Installed v2.0: rifle traces 7.5 UU, Sniper headshot scales 1.15, Lightning headshots disabled, Flak ball 92.5% of B19",
+  "revision": "v2.01: initial acceleration 96,000 UU/s²; walking braking 520 UU/s²; Flak ball 93% of B19",
   "model": {
     "combo": {
       "max": 210,
@@ -2058,9 +2057,9 @@
     ],
     "lightningHeadshotsEnabled": false,
     "flakBall": {
-      "initialSpeed": 3006.25,
-      "maximumSpeed": 6364,
-      "percentB19": 92.5
+      "initialSpeed": 3022.5,
+      "maximumSpeed": 6398.4,
+      "percentB19": 93
     },
     "groundMovement": {
       "profiles": [
@@ -2106,10 +2105,10 @@
           "name": "Elite10K",
           "maxSpeed": 940,
           "acceleration": 5000,
-          "fastAcceleration": 100000,
+          "fastAcceleration": 96000,
           "fastThreshold": 200,
           "friction": 14,
-          "braking": 20000,
+          "braking": 520,
           "brakeFriction": 5,
           "brakeFactor": 2,
           "stopThreshold": 10,
@@ -2125,9 +2124,9 @@
     }
   },
   "releaseSource": {
-    "receipt": "elite-v2.0/ball925/report.json",
-    "artifact": "elite-v2.0/ball925/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved installed artifact SHA256 verified. Matching client/server, full HTTP redirect checksums and server startup verified. Only existing tuning parameters changed for these rifle and ball revisions; all 1,610 function bytecodes preserved. Combat acceptance remains pending. Earlier early-grenade recovery passed fixed-delay client/server tests at measured 312/624 ms; loss/jitter, queued switches and changing fire-rate cases remain unverified."
+    "receipt": "elite-v2.01/initial-accel96000/report.json",
+    "artifact": "elite-v2.01/initial-accel96000/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved artifact SHA256 verified; matching installed client/server, redirect download and launcher guard verified. Existing movement parameter changes only. Runtime movement feel awaits user acceptance. Earlier grenade recovery validation limitations remain unchanged."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2175,16 +2174,7 @@
     }
   ],
   "settingsMenu": true,
-  "pendingRevision": {
-    "status": "Staged only — not installed",
-    "artifact": "elite-v2.0/ball930/Elite10K-WindowsNoEditor.pak.pending",
-    "sha256": "BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF",
-    "flakBallPercentB19": 93,
-    "flakBallInitialSpeed": 3022.5,
-    "flakBallMaximumSpeed": 6398.4,
-    "note": "The requested 93% Flak ball build is prepared. Installation and server restart await explicit deployment approval. The installed comparison below remains 92.5%."
-  },
-  "releaseNotice": "Installed v2.0: Sniper and Lightning traces 7.5 UU; Sniper headshot scale 1.15 in every shooter state; Lightning headshots disabled. Flak ball is installed at 92.5% of B19. A separate 93% ball build is staged only.",
+  "releaseNotice": "Installed v2.01: initial acceleration 96,000 UU/s² and walking braking 520 UU/s². Final v2.0 remains selectable for comparison at 100,000 / 20,000. Both releases have Flak ball 93% of B19, rifle traces 7.5 UU, Sniper headshot scale 1.15 and Lightning headshots disabled.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",

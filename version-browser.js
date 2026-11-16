@@ -30,7 +30,7 @@
   menu.addEventListener('keydown',e=>{if(e.key==='Escape'){menu.querySelector('summary').focus();menu.open=false;e.preventDefault();}});
  }
  document.addEventListener('click',e=>{for(const menu of controls.querySelectorAll('details'))if(!menu.contains(e.target))menu.open=false;});
- const normalize=s=>String(s||'').replace(/v1\.\d+\b/g,'selected version');
+ const normalize=s=>String(s||'').replace(/v\d+(?:\.\d+)*\b/g,'selected version');
  window.renderVersionComparison=id=>{
   const current=versions[version],other=versions[compare],items=d=>[...d.weapons,...d.shared,d.comboMovement];
   const selected=['overview','foundation'].includes(id)?items(current):items(current).filter(w=>(id==='combo'?['shock','combo-movement'].includes(w.id):w.id===(id==='switch-times'?'shock':id)));
@@ -44,10 +44,11 @@
   document.getElementById('content').prepend(panel);
   }
   // Existing tools share unchanged models; update visible release labels without touching scripts.
-  for(const container of document.querySelectorAll('.side-foot,footer,#sources')){const walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode())n.textContent=n.textContent.replace(/v1\.78\b/g,'v'+version);}
+  for(const container of document.querySelectorAll('.side-foot,footer,#sources')){const walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode())n.textContent=n.textContent.replace(/v(?:1\.78|2\.0)\b/g,'v'+version);}
   document.querySelector('footer span').innerHTML=`Elite10K v${version} · Compared with authoritative B19<br>Package defaults, not a promise about every server.`;
   const download=document.querySelector('#sources a[download]');if(download)download.href=`./versions/${version}/comparison-data.json`;
   for(const summary of document.querySelectorAll('summary'))if(!summary.querySelector('.ui-chevron')){for(const marker of summary.querySelectorAll('[aria-hidden="true"]'))marker.remove();summary.insertAdjacentHTML('beforeend',"<svg class=\"ui-chevron\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"m4 6 4 4 4-4\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"/></svg>");}
   document.title+=` · v${version}`;
  };
 })();
+

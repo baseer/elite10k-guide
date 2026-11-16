@@ -1,7 +1,7 @@
 const fs=require('fs'),p=require('path'),vm=require('vm'),assert=require('assert');
 const root=__dirname,box={window:{}};vm.runInNewContext(fs.readFileSync(p.join(root,'versions-data.js'),'utf8'),box);
 const versions=box.window.ELITE_VERSIONS,history=require('./release-history.js');let cases=0;
-assert.equal(Object.keys(versions).length,43);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'2.0');
+assert.equal(Object.keys(versions).length,44);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'2.01');
 for(const [v,d] of Object.entries(versions)){
  const m=d.model,c=m.combo;
  assert.equal(d.weapons.length,12);assert.equal(d.shared.length,3);assert(/^[A-F0-9]{64}$/.test(d.packageSha256));
@@ -43,8 +43,8 @@ for(const allowance of [0,5,7.5,10,15]){
 }
 assert.equal(Math.round(bodyGeometry(10).frontArea),21454);
 assert.equal(Math.round(bodyGeometry(10).surfaceArea),74142);
-console.log('PASS',cases,'release-model cases, 43 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
-fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:43,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
+console.log('PASS',cases,'release-model cases, 44 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
+fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:44,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
 
 assert.equal(versions['1.85'].model.hammer.shieldLifetime,.75);assert.equal(versions['1.84'].model.hammer.shieldLifetime,.5);assert.equal(versions['1.85'].packageSha256,'D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D');
 
@@ -57,4 +57,6 @@ for(const v of ['1.86','1.87','1.88','1.89','1.90','1.91']){const m=versions[v].
 for(const v of ['1.94','1.95']){const m=versions[v].model.stinger;assert.equal(m.recovery,.475);assert(m.shotBasedQuietConfirmation&&m.primaryPausesRecovery&&m.nativeScheduling);assert.equal(m.recoveryDuringFallback,false);assert.equal(m.fallbackAddsDebt,false);assert(!('fallbackDebtMultiplier' in m));}assert.equal(versions['1.95'].model.linkCore.whiteEndpoint,.6);assert.equal(versions['1.95'].model.linkCore.opacity,1);
 
 
-assert.equal(versions['2.0'].model.trace,7.5);assert.deepEqual(versions['2.0'].model.headshots.sniper,[1.15,1.15,1.15,1.15]);assert.deepEqual(versions['2.0'].model.headshots.lightning,[0,0,0,0]);assert.equal(versions['2.0'].packageSha256,'FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E');assert.equal(versions['2.0'].model.flakBall.percentB19,92.5);assert.equal(versions['2.0'].pendingRevision.status,'Staged only — not installed');
+assert.equal(versions['2.0'].model.trace,7.5);assert.deepEqual(versions['2.0'].model.headshots.sniper,[1.15,1.15,1.15,1.15]);assert.deepEqual(versions['2.0'].model.headshots.lightning,[0,0,0,0]);assert.equal(versions['2.0'].packageSha256,'BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF');assert.equal(versions['2.0'].model.flakBall.percentB19,93);assert(!versions['2.0'].pendingRevision);
+assert.equal(versions['2.01'].packageSha256,'696C34CF134F1C05D077D84CFC121FF692C032D207E7C8ED0FAFE568513F6032');
+for(const [v,a,b]of [['2.0',100000,20000],['2.01',96000,520]]){const p=versions[v].model.groundMovement.profiles.find(p=>p.id==='elite');assert.equal(p.fastAcceleration,a);assert.equal(p.braking,b);assert.equal(versions[v].model.flakBall.percentB19,93);}

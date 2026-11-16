@@ -155,16 +155,16 @@
         {
           "label": "Ball initial speed",
           "b19": "≈4.67 dodge lengths/s (3,250 UU/s)",
-          "elite": "3,006.25 UU/s (92.5% of B19)",
-          "note": "92.5% of the corresponding authoritative B19 projectile speed. 20.25% faster launch than Stock/UT+.",
+          "elite": "3,022.5 UU/s (93% of B19)",
+          "note": "93% of the corresponding authoritative B19 speed; 20.9% faster launch than Stock/UT+.",
           "stock": "2,500 UU/s",
           "utplus": "2,500 UU/s"
         },
         {
           "label": "Ball maximum speed",
           "b19": "≈9.88 dodge lengths/s (6,880 UU/s)",
-          "elite": "6,364 UU/s (92.5% of B19)",
-          "note": "92.5% of the corresponding authoritative B19 projectile speed. 6.07% higher cap than Stock/UT+.",
+          "elite": "6,398.4 UU/s (93% of B19)",
+          "note": "93% of the corresponding authoritative B19 speed; 6.64% higher cap than Stock/UT+.",
           "stock": "6,000 UU/s",
           "utplus": "6,000 UU/s"
         },
@@ -303,11 +303,10 @@
         "Enemy ordinary/central damage starts at 10.4/20.8 and decays with age to 4/8 between approximately 0.053846 and 0.107692 game seconds. Native hit position and other modifiers still apply.",
         "700–1,400 UU is only the straight-flight equivalent at 13,000 UU/s, not an accumulated path-distance rule.",
         "Native Shredded qualification and native momentum are restored. Secondary ball geometry, damage and speed are unchanged.",
-        "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,006.25/6,364 UU/s. Ball-spawned shards are separate from the primary model.",
+        "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,022.5/6,398.4 UU/s. Ball-spawned shards are separate from the primary model.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
         "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v2.0 endpoint is approximately 2 tuning dodge distances of 700 UU.",
-        "Compared with both Stock and UT+, the 10K ball launches 20.25% faster (3,006.25 vs 2,500 UU/s) and has a 6.07% higher cap (6,364 vs 6,000 UU/s).",
-        "A later 93% B19 ball-speed build (3,022.5 initial / 6,398.4 maximum UU/s) is staged only, not installed. The installed speeds above remain 3,006.25 / 6,364 UU/s (92.5%)."
+        "Compared with both Stock and UT+, the 10K ball launches 20.9% faster (3,022.5 vs 2,500 UU/s) and has a 6.64% higher cap (6,398.4 vs 6,000 UU/s)."
       ],
       "lab": "flak",
       "comparisonColumns": [
@@ -1871,8 +1870,8 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v2.0 · installed 92.5% ball revision",
-          "note": "Includes Sniper 1.15× scales, both rifle traces 7.5 UU and Lightning zero headshot scales. A prepared 93% ball build is explicitly staged only."
+          "elite": "Elite10K v2.0 · final comparison checkpoint",
+          "note": "Flak ball 93% of B19; Sniper scale 1.15; both rifle traces 7.5 UU; Lightning zero headshot scales."
         },
         {
           "label": "Optional full-screen HUD",
@@ -1900,22 +1899,21 @@
         }
       ],
       "notes": [
-        "Installed weapons package SHA256: FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E.",
+        "Installed weapons package SHA256: BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
-        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here.",
-        "The public comparison describes the installed 92.5% Flak ball revision. The separately staged 93% build has not been deployed. Server speed is separately configured at 1.0; package timing values are game seconds."
+        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E",
+  "packageSha256": "BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF",
   "verifiedDate": "2026-11-16",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "Installed v2.0: rifle traces 7.5 UU, Sniper headshot scales 1.15, Lightning headshots disabled, Flak ball 92.5% of B19",
+  "revision": "Final v2.0: Flak ball 93% of B19; initial acceleration 100,000; walking braking 20,000",
   "model": {
     "combo": {
       "max": 210,
@@ -2058,9 +2056,9 @@
     ],
     "lightningHeadshotsEnabled": false,
     "flakBall": {
-      "initialSpeed": 3006.25,
-      "maximumSpeed": 6364,
-      "percentB19": 92.5
+      "initialSpeed": 3022.5,
+      "maximumSpeed": 6398.4,
+      "percentB19": 93
     },
     "groundMovement": {
       "profiles": [
@@ -2125,9 +2123,9 @@
     }
   },
   "releaseSource": {
-    "receipt": "elite-v2.0/ball925/report.json",
-    "artifact": "elite-v2.0/ball925/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved installed artifact SHA256 verified. Matching client/server, full HTTP redirect checksums and server startup verified. Only existing tuning parameters changed for these rifle and ball revisions; all 1,610 function bytecodes preserved. Combat acceptance remains pending. Earlier early-grenade recovery passed fixed-delay client/server tests at measured 312/624 ms; loss/jitter, queued switches and changing fire-rate cases remain unverified."
+    "receipt": "elite-v2.0/ball930/report.json",
+    "artifact": "elite-v2.0/ball930/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved final v2.0 artifact SHA256 verified. Historical comparison checkpoint; current installed release is v2.01. Earlier grenade recovery validation and its limitations remain as documented."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2175,16 +2173,7 @@
     }
   ],
   "settingsMenu": true,
-  "pendingRevision": {
-    "status": "Staged only — not installed",
-    "artifact": "elite-v2.0/ball930/Elite10K-WindowsNoEditor.pak.pending",
-    "sha256": "BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF",
-    "flakBallPercentB19": 93,
-    "flakBallInitialSpeed": 3022.5,
-    "flakBallMaximumSpeed": 6398.4,
-    "note": "The requested 93% Flak ball build is prepared. Installation and server restart await explicit deployment approval. The installed comparison below remains 92.5%."
-  },
-  "releaseNotice": "Installed v2.0: Sniper and Lightning traces 7.5 UU; Sniper headshot scale 1.15 in every shooter state; Lightning headshots disabled. Flak ball is installed at 92.5% of B19. A separate 93% ball build is staged only.",
+  "releaseNotice": "Final v2.0 comparison checkpoint: initial acceleration 100,000 UU/s², walking braking 20,000 UU/s² and Flak ball 93% of B19. Sniper / Lightning traces 7.5 UU; Sniper headshot scale 1.15; Lightning headshots disabled.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",
