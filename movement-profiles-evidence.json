@@ -119,5 +119,13 @@
   },
   "sourceContext": "Native UUTCharacterMovement::GetMaxAcceleration, PerformMovement, CalcVelocity; UCharacterMovementComponent::CalcVelocity and ApplyVelocityBraking.",
   "limits": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded.",
-  "nativeResetVerification": "Compiled stock editor code RVA1d544f reads DefaultBrakingDecelerationWalking at offset0x74c, then RVA1d545b stores it to active walking braking offset0x208, confirming the native post-movement reset in this build."
+  "nativeResetVerification": "Compiled stock editor code RVA1d544f reads DefaultBrakingDecelerationWalking at offset0x74c, then RVA1d545b stores it to active walking braking offset0x208, confirming the native post-movement reset in this build.",
+  "displayGrouping": {
+    "shared": [
+      "Stock UT",
+      "NCP",
+      "Original B19"
+    ],
+    "reason": "All numeric movement parameters verified equal. Original evidence profiles retained individually for traceability. Calculator uses a single shared profile; attack interaction columns stay separate."
+  }
 }

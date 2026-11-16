@@ -11,6 +11,5 @@ assert(Math.abs(M.simulate(constant,{mode:'accelerate',dt:.001,horizon:3}).compl
 assert(Math.abs(M.simulate(constant,{mode:'reverse',startPercent:100,dt:.001,horizon:3}).completed-2)<.002);
 const p=profiles[0],stop=M.simulate(p,{mode:'stop',startPercent:100});const exact=Math.log((940+p.braking/10)/(p.stopThreshold+p.braking/10))/10;assert(Math.abs(stop.completed-exact)<.003);
 assert.equal(M.simulate(profiles[0],{mode:'stop',startPercent:100}).completed,M.simulate(profiles[1],{mode:'stop',startPercent:100}).completed);
-for(const mode of ['accelerate','stop','reverse'])assert(M.simulate(profiles[4],{mode,startPercent:mode==='accelerate'?0:100}).completed<M.simulate(profiles[0],{mode,startPercent:mode==='accelerate'?0:100}).completed);
+for(const mode of ['accelerate','stop','reverse'])assert(M.simulate(profiles.find(p=>p.id==="elite"),{mode,startPercent:mode==='accelerate'?0:100}).completed<M.simulate(profiles[0],{mode,startPercent:mode==='accelerate'?0:100}).completed);
 console.log(JSON.stringify({passed:true,profileScenarios:cases,analyticAccelerationAndReversal:true,analyticReleaseBraking:true,timestepConvergence:true}));
-

@@ -1557,7 +1557,7 @@
       "id": "movement",
       "name": "Movement & interactions",
       "tag": "Shared rules",
-      "summary": "Compare acceleration, stopping and a 180° reversal across Stock, UT+, NCP, B19 and 10K.",
+      "summary": "Compare acceleration, stopping and a 180° reversal: Stock / NCP / B19, UT+, and 10K.",
       "rows": [
         {
           "label": "Ground-dodge reset delay",
@@ -1632,24 +1632,6 @@
           "ncp": "0.55 / 0.41"
         },
         {
-          "label": "Attack interactions (v1.8 policy)",
-          "b19": "Native behavior",
-          "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
-          "note": "Contact predicates, component collision and damage response are separate gates.",
-          "stock": "Native stock projectile rules",
-          "utplus": "UT+ profile rules; not part of this movement model",
-          "ncp": "Competitive NCP profile rules; not part of this movement model"
-        },
-        {
-          "label": "Movement initialization",
-          "b19": "Native behavior",
-          "elite": "UTPlus-style owner inventory initialization",
-          "note": "Existing Elite movement values retained; old per-tick movement helper removed. UTPlus lifecycle retained with its sync-config override disabled.",
-          "stock": "Native character movement",
-          "utplus": "UT+MovementInventory applies settings to owner",
-          "ncp": "Native TeamArena movement subclass; core defaults inherited"
-        },
-        {
           "label": "Normal running speed cap",
           "stock": "940 UU/s",
           "utplus": "940 UU/s",
@@ -1684,25 +1666,19 @@
         "The B19 column now gives explicit inherited stock defaults. The authoritative original B19 package has no overrides for these six movement settings. Current stock editor and dedicated-server native constructors agree on the values shown.",
         "Older public UT source uses 4,000 ground acceleration and 0.45 air control. Those older defaults differ from the installed stock build, whose verified values are 3,200 and 0.55. The table follows the installed build.",
         "Use the interactive calculator above the table to compare starting, stopping and reversing. The scrubber shares one real-time clock across profiles and marks both reversal through zero and full speed in the opposite direction.",
-        "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings."
+        "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings.",
+        "Stock, NCP and B19 share every numeric movement setting shown, so they use one movement column and one calculator profile. Attack interactions remain separate below the movement table.",
+        "Movement implementation: Stock/B19 use native character movement; NCP uses its TeamArena subclass with inherited core scalar defaults. UT+ and 10K use owner movement inventories; 10K retains its custom values and disables the UT+ sync-config override. Matching values do not mean these implementations are identical."
       ],
       "lab": null,
       "comparisonColumns": [
         {
-          "key": "stock",
-          "label": "Stock UT"
+          "key": "b19",
+          "label": "Stock / NCP / B19"
         },
         {
           "key": "utplus",
           "label": "UT+"
-        },
-        {
-          "key": "ncp",
-          "label": "NCP"
-        },
-        {
-          "key": "b19",
-          "label": "Original B19"
         },
         {
           "key": "elite",
@@ -1710,7 +1686,46 @@
         }
       ],
       "comparisonStyle": "movement",
-      "variantScope": "UT+ means the UTPlus mutator and its UT+MovementInventory. NCP means the competitive TeamArena pawn without an additional UT+ movement mutator. Stacked server mutators and optional profiles can differ. The calculator uses settled normal running, with sprint excluded."
+      "variantScope": "UT+ means the UTPlus mutator and its UT+MovementInventory. NCP means the competitive TeamArena pawn without an additional UT+ movement mutator. Stacked server mutators and optional profiles can differ. The calculator uses settled normal running, with sprint excluded.",
+      "attackComparison": {
+        "id": "movement-attacks",
+        "name": "Attack interactions",
+        "comparisonStyle": "interactions",
+        "comparisonColumns": [
+          {
+            "key": "stock",
+            "label": "Stock UT"
+          },
+          {
+            "key": "utplus",
+            "label": "UT+"
+          },
+          {
+            "key": "ncp",
+            "label": "NCP"
+          },
+          {
+            "key": "b19",
+            "label": "Original B19"
+          },
+          {
+            "key": "elite",
+            "label": "Elite10K v2.0"
+          }
+        ],
+        "rows": [
+          {
+            "label": "Attack interactions (v1.8 policy)",
+            "b19": "Native behavior",
+            "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
+            "note": "Contact predicates, component collision and damage response are separate gates.",
+            "stock": "Native stock projectile rules",
+            "utplus": "UT+ profile rules; not part of this movement model",
+            "ncp": "Competitive NCP profile rules; not part of this movement model"
+          }
+        ],
+        "variantScope": "These attack rules are separate from the movement timings above. Matching movement values do not imply matching projectile interactions."
+      }
     },
     {
       "id": "visuals",
@@ -2051,7 +2066,7 @@
       "profiles": [
         {
           "id": "stock",
-          "name": "Stock UT",
+          "name": "Stock / NCP / B19",
           "maxSpeed": 940,
           "acceleration": 3200,
           "fastAcceleration": 12000,
@@ -2085,42 +2100,6 @@
           "airControl": 0.7,
           "dodgeAirControl": 0.7,
           "assignedBraking": 2000
-        },
-        {
-          "id": "ncp",
-          "name": "NCP",
-          "maxSpeed": 940,
-          "acceleration": 3200,
-          "fastAcceleration": 12000,
-          "fastThreshold": 200,
-          "friction": 10.5,
-          "braking": 520,
-          "brakeFriction": 5,
-          "brakeFactor": 2,
-          "stopThreshold": 10,
-          "groundReset": 0.35,
-          "wallReset": 0.2,
-          "dodgeJumpReset": 0.35,
-          "airControl": 0.55,
-          "dodgeAirControl": 0.41
-        },
-        {
-          "id": "b19",
-          "name": "B19",
-          "maxSpeed": 940,
-          "acceleration": 3200,
-          "fastAcceleration": 12000,
-          "fastThreshold": 200,
-          "friction": 10.5,
-          "braking": 520,
-          "brakeFriction": 5,
-          "brakeFactor": 2,
-          "stopThreshold": 10,
-          "groundReset": 0.35,
-          "wallReset": 0.2,
-          "dodgeJumpReset": 0.35,
-          "airControl": 0.55,
-          "dodgeAirControl": 0.41
         },
         {
           "id": "elite",

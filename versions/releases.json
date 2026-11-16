@@ -4292,7 +4292,7 @@
         "profiles": [
           {
             "id": "stock",
-            "name": "Stock UT",
+            "name": "Stock / NCP / B19",
             "maxSpeed": 940,
             "acceleration": 3200,
             "fastAcceleration": 12000,
@@ -4326,42 +4326,6 @@
             "airControl": 0.7,
             "dodgeAirControl": 0.7,
             "assignedBraking": 2000
-          },
-          {
-            "id": "ncp",
-            "name": "NCP",
-            "maxSpeed": 940,
-            "acceleration": 3200,
-            "fastAcceleration": 12000,
-            "fastThreshold": 200,
-            "friction": 10.5,
-            "braking": 520,
-            "brakeFriction": 5,
-            "brakeFactor": 2,
-            "stopThreshold": 10,
-            "groundReset": 0.35,
-            "wallReset": 0.2,
-            "dodgeJumpReset": 0.35,
-            "airControl": 0.55,
-            "dodgeAirControl": 0.41
-          },
-          {
-            "id": "b19",
-            "name": "B19",
-            "maxSpeed": 940,
-            "acceleration": 3200,
-            "fastAcceleration": 12000,
-            "fastThreshold": 200,
-            "friction": 10.5,
-            "braking": 520,
-            "brakeFriction": 5,
-            "brakeFactor": 2,
-            "stopThreshold": 10,
-            "groundReset": 0.35,
-            "wallReset": 0.2,
-            "dodgeJumpReset": 0.35,
-            "airControl": 0.55,
-            "dodgeAirControl": 0.41
           },
           {
             "id": "elite",
