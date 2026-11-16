@@ -78,7 +78,7 @@
       "id": "elite",
       "name": "Elite10K",
       "maxSpeed": 940,
-      "acceleration": 7500,
+      "acceleration": 5000,
       "fastAcceleration": 72000,
       "fastThreshold": 200,
       "friction": 14,
@@ -107,12 +107,12 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "213DF04F576C5F572557585CAE7EF66B33F030A8D9D7845D4901E732A56A6EA2",
+    "pakSha256": "14909867692BD6DB081D8BF5A822CC267CB1770F65845FF0893C9AF8FD3EA345",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.01/normal7500-initial72000/report.json",
+    "source": "elite-v2.01/normal5000-initial72000/report.json",
     "selectedRelease": "2.01",
     "comparisonRelease": "2.0",
-    "method": "Existing normal acceleration7500 and initial72000 literals; threshold200 and both braking2080 preserved."
+    "method": "Existing normal acceleration5000 and initial72000; threshold200 and both braking2080 preserved."
   },
   "equations": {
     "boost": "a(v)=fast*(1-clamp(abs(v)/profile.fastThreshold,0,1))+normal*clamp(abs(v)/profile.fastThreshold,0,1)",
@@ -193,7 +193,7 @@
       ]
     },
     "2.01": {
-      "pakSha256": "213DF04F576C5F572557585CAE7EF66B33F030A8D9D7845D4901E732A56A6EA2",
+      "pakSha256": "14909867692BD6DB081D8BF5A822CC267CB1770F65845FF0893C9AF8FD3EA345",
       "profiles": [
         {
           "id": "stock",
@@ -236,7 +236,7 @@
           "id": "elite",
           "name": "Elite10K",
           "maxSpeed": 940,
-          "acceleration": 7500,
+          "acceleration": 5000,
           "fastAcceleration": 72000,
           "fastThreshold": 200,
           "friction": 14,
