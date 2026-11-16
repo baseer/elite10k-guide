@@ -42,3 +42,5 @@ Final v2.0 adds Stock UT and UT+ columns to Flak/Rocket. Primary Flak decay now 
 Movement calculator: currentv2.0 #movement adds accelerate/stop/reverse180 modes, starting-speed/game-speed/timeline sliders, profile toggles, shared-distance animation, signed velocity plot and event timings. Table now has Stock/UT+/NCP/B19/10K columns. Numerical native-rule simulation1ms game steps, flat ground/no sprint. UT+ transient braking assignment versus persistent520 is explicit; NCP profile excludes optional UT+ mutator.
 
 Movement layout refinement: combine identical Stock/NCP/B19 values into one movement column and one calculator toggle/lane/curve/result. Keep attack interaction profiles separate in their own table, and explain initialization differences in notes. No parameter or simulation-equation changes.
+
+Movement percentage cards: 10K versus Stock/NCP/B19 and UT+ for the selected mode/start speed. Show completion-rate percentage and elapsed-time reduction separately, plus zero-crossing time reduction for reversal. Percentages independent of common game-speed scaling; zero-time targets show no percentage. Hidden profile lanes do not disable reference comparisons.

@@ -13,3 +13,5 @@ const p=profiles[0],stop=M.simulate(p,{mode:'stop',startPercent:100});const exac
 assert.equal(M.simulate(profiles[0],{mode:'stop',startPercent:100}).completed,M.simulate(profiles[1],{mode:'stop',startPercent:100}).completed);
 for(const mode of ['accelerate','stop','reverse'])assert(M.simulate(profiles.find(p=>p.id==="elite"),{mode,startPercent:mode==='accelerate'?0:100}).completed<M.simulate(profiles[0],{mode,startPercent:mode==='accelerate'?0:100}).completed);
 console.log(JSON.stringify({passed:true,profileScenarios:cases,analyticAccelerationAndReversal:true,analyticReleaseBraking:true,timestepConvergence:true}));
+
+assert.deepEqual(M.compareTimes(200,100),{faster:100,lessTime:50});assert.deepEqual(M.compareTimes(100,100),{faster:0,lessTime:0});assert.equal(M.compareTimes(0,0),null);assert.equal(M.compareTimes(100,0),null);assert.deepEqual(M.compareTimes(100,200),{faster:-50,lessTime:-100});
