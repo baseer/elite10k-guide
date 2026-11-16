@@ -1,0 +1,90 @@
+{
+  "verifiedDate": "2026-11-16",
+  "method": "Read-only compiled native constructor assignments, cross-checked between stock editor and dedicated-server binaries. Property names/offsets matched using native reflection registration. No game process or package modified.",
+  "properties": [
+    {
+      "property": "DodgeJumpResetInterval",
+      "stockValue": 0.35,
+      "editorOffset": "0x7d4",
+      "serverOffset": "0x7d4",
+      "editorSerializedFloat": 0.3499999940395355,
+      "serverSerializedFloat": 0.3499999940395355
+    },
+    {
+      "property": "MaxAcceleration",
+      "stockValue": 3200.0,
+      "editorOffset": "0x1f8",
+      "serverOffset": "0x1e8",
+      "editorSerializedFloat": 3200.0,
+      "serverSerializedFloat": 3200.0
+    },
+    {
+      "property": "BrakingDecelerationWalking",
+      "stockValue": 520.0,
+      "editorOffset": "0x208",
+      "serverOffset": "0x1f8",
+      "editorSerializedFloat": 520.0,
+      "serverSerializedFloat": 520.0
+    },
+    {
+      "property": "DefaultBrakingDecelerationWalking",
+      "stockValue": 520.0,
+      "editorOffset": "0x74c",
+      "serverOffset": "0x74c",
+      "editorSerializedFloat": 520.0,
+      "serverSerializedFloat": 520.0
+    },
+    {
+      "property": "GroundFriction",
+      "stockValue": 10.5,
+      "editorOffset": "0x1e0",
+      "serverOffset": "0x1d0",
+      "editorSerializedFloat": 10.5,
+      "serverSerializedFloat": 10.5
+    },
+    {
+      "property": "FastInitialAcceleration",
+      "stockValue": 12000.0,
+      "editorOffset": "0x738",
+      "serverOffset": "0x738",
+      "editorSerializedFloat": 12000.0,
+      "serverSerializedFloat": 12000.0
+    },
+    {
+      "property": "AirControl",
+      "stockValue": 0.55,
+      "editorOffset": "0x218",
+      "serverOffset": "0x208",
+      "editorSerializedFloat": 0.550000011920929,
+      "serverSerializedFloat": 0.550000011920929
+    },
+    {
+      "property": "DodgeAirControl",
+      "stockValue": 0.41,
+      "editorOffset": "0x854",
+      "serverOffset": "0x854",
+      "editorSerializedFloat": 0.4099999964237213,
+      "serverSerializedFloat": 0.4099999964237213
+    }
+  ],
+  "binaries": [
+    {
+      "name": "UE4Editor-UnrealTournament.dll",
+      "sha256": "139FDBB0EF01F45E3442CDB4EBE5676F61AB5CC76E7D7EEEEE53D380D7584A45"
+    },
+    {
+      "name": "UE4Server-UnrealTournament-Win64-Shipping.dll",
+      "sha256": "F6CDBE49A6BC1A7212F6AD95F2C2C67E9B0D7D6A8FA94E7F8FA69D76AD2F0FD2"
+    }
+  ],
+  "originalB19": {
+    "sha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
+    "movementPropertyOverridesFound": false,
+    "note": "Authoritative original B19 package contains none of these property names in its asset name tables; these values inherit the stock native movement defaults."
+  },
+  "sourceContext": {
+    "url": "https://github.com/JimmieKJ/unrealTournament/blob/master/UnrealTournament/Source/UnrealTournament/Private/UTCharacterMovement.cpp",
+    "note": "Earlier public source explains native reset/acceleration behavior but predates this installed build. It uses ground acceleration4000 and air control0.45; those obsolete numbers are not used in this comparison. Installed stock binary values3200 and0.55 take precedence."
+  },
+  "limits": "Configured native defaults, not measured stopping times or distances. Player state, velocity, floor sliding and other server mutators can affect effective movement."
+}

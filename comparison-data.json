@@ -1573,39 +1573,39 @@
         },
         {
           "label": "Dodge-jump reset delay",
-          "b19": "Stock UT movement setting",
+          "b19": "0.35 s",
           "elite": "0.01 s",
-          "note": "Movement-state restrictions and airtime remain."
+          "note": "DodgeJumpResetInterval: stock/B19 0.35 game seconds, 10K 0.01. This cooldown does not itself enable dodge-jumping; movement-state restrictions, airtime and slide/landing behavior still apply."
         },
         {
           "label": "Ground acceleration",
-          "b19": "Stock UT movement setting",
+          "b19": "3,200 UU/s²",
           "elite": "5,000 UU/s²",
-          "note": "MaxAcceleration; normal ground acceleration."
+          "note": "MaxAcceleration: stock/B19 3,200; 10K 5,000 UU/s². Low-speed initial acceleration is a separate parameter."
         },
         {
           "label": "Walking braking / deceleration",
-          "b19": "Stock UT movement setting",
+          "b19": "520 UU/s²",
           "elite": "20,000 UU/s²",
-          "note": "Both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking."
+          "note": "Both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking: stock/B19 520; 10K 20,000 UU/s². Friction also contributes to slowing, so this is not a standalone stopping-distance result."
         },
         {
           "label": "Ground friction",
-          "b19": "Stock UT movement setting",
+          "b19": "10.5",
           "elite": "14",
-          "note": "Affects ground direction changes as well as stopping behavior."
+          "note": "GroundFriction: stock/B19 10.5; 10K 14. Affects steering and braking; this coefficient has no UU/s² unit."
         },
         {
           "label": "Fast initial acceleration",
-          "b19": "Stock UT movement setting",
+          "b19": "12,000 UU/s²",
           "elite": "100,000 UU/s²",
-          "note": "Low-speed acceleration boost; blends toward regular acceleration as speed rises. It does not apply at full running speed."
+          "note": "FastInitialAcceleration: stock/B19 12,000; 10K 100,000 UU/s². Low-speed boost blends toward regular ground acceleration as speed rises; it does not apply at full running speed."
         },
         {
           "label": "Air control / dodge-air control",
-          "b19": "Stock UT movement setting",
+          "b19": "0.55 / 0.41",
           "elite": "0.7 / 0.7",
-          "note": "Normal and dodge air-control overrides."
+          "note": "AirControl / DodgeAirControl: stock/B19 0.55 / 0.41; 10K 0.7 / 0.7. These are separate dimensionless control coefficients, not airspeed or percentage-speed caps."
         },
         {
           "label": "Attack interactions (v1.8 policy)",
@@ -1623,7 +1623,9 @@
       "notes": [
         "Ground- and wall-dodge reset delays are 0.01 seconds instead of B19’s 0.35 and 0.20. You still need to complete the relevant movement and satisfy normal ground/wall requirements.",
         "Acceleration is strongest when starting from low speed, then blends toward normal running acceleration. Ground friction affects steering; braking slows you when you release movement input or exceed the speed limit.",
-        "Projectile interactions are adjusted to reduce accidental interception between weapons. Server mutators and saved settings can change the defaults shown here."
+        "Projectile interactions are adjusted to reduce accidental interception between weapons. Server mutators and saved settings can change the defaults shown here.",
+        "The B19 column now gives explicit inherited stock defaults. The authoritative original B19 package has no overrides for these six movement settings. Current stock editor and dedicated-server native constructors agree on the values shown.",
+        "Older public UT source uses 4,000 ground acceleration and 0.45 air control. Those older defaults differ from the installed stock build, whose verified values are 3,200 and 0.55. The table follows the installed build."
       ],
       "lab": null
     },
@@ -2023,5 +2025,10 @@
     "flakBallMaximumSpeed": 6398.4,
     "note": "The requested 93% Flak ball build is prepared. Installation and server restart await explicit deployment approval. The installed comparison below remains 92.5%."
   },
-  "releaseNotice": "Installed v2.0: Sniper and Lightning traces 7.5 UU; Sniper headshot scale 1.15 in every shooter state; Lightning headshots disabled. Flak ball is installed at 92.5% of B19. A separate 93% ball build is staged only."
+  "releaseNotice": "Installed v2.0: Sniper and Lightning traces 7.5 UU; Sniper headshot scale 1.15 in every shooter state; Lightning headshots disabled. Flak ball is installed at 92.5% of B19. A separate 93% ball build is staged only.",
+  "stockMovementReference": {
+    "verifiedDate": "2026-11-16",
+    "evidence": "stock-movement-evidence.json",
+    "method": "Native stock constructor assignments and property metadata, independently matched across editor and dedicated-server binaries; authoritative B19 package checked for overrides."
+  }
 }
