@@ -1557,67 +1557,124 @@
       "id": "movement",
       "name": "Movement & interactions",
       "tag": "Shared rules",
-      "summary": "Quicker dodge resets and fewer unintended projectile interactions.",
+      "summary": "Compare acceleration, stopping and a 180° reversal across Stock, UT+, NCP, B19 and 10K.",
       "rows": [
         {
           "label": "Ground-dodge reset delay",
           "b19": "0.35 s",
           "elite": "0.01 s",
-          "note": ""
+          "note": "",
+          "stock": "0.35 s",
+          "utplus": "0.35 s",
+          "ncp": "0.35 s"
         },
         {
           "label": "Wall-dodge reset delay",
           "b19": "0.20 s",
           "elite": "0.01 s",
-          "note": ""
+          "note": "",
+          "stock": "0.20 s",
+          "utplus": "0.20 s",
+          "ncp": "0.20 s"
         },
         {
           "label": "Dodge-jump reset delay",
           "b19": "0.35 s",
           "elite": "0.01 s",
-          "note": "DodgeJumpResetInterval: stock/B19 0.35 game seconds, 10K 0.01. This cooldown does not itself enable dodge-jumping; movement-state restrictions, airtime and slide/landing behavior still apply."
+          "note": "DodgeJumpResetInterval: stock/B19 0.35 game seconds, 10K 0.01. This cooldown does not itself enable dodge-jumping; movement-state restrictions, airtime and slide/landing behavior still apply.",
+          "stock": "0.35 s",
+          "utplus": "0.35 s",
+          "ncp": "0.35 s"
         },
         {
           "label": "Ground acceleration",
           "b19": "3,200 UU/s²",
           "elite": "5,000 UU/s²",
-          "note": "MaxAcceleration: stock/B19 3,200; 10K 5,000 UU/s². Low-speed initial acceleration is a separate parameter."
+          "note": "MaxAcceleration: stock/B19 3,200; 10K 5,000 UU/s². Low-speed initial acceleration is a separate parameter.",
+          "stock": "3,200 UU/s²",
+          "utplus": "5,000 UU/s²",
+          "ncp": "3,200 UU/s²"
         },
         {
           "label": "Walking braking / deceleration",
           "b19": "520 UU/s²",
           "elite": "20,000 UU/s²",
-          "note": "Both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking: stock/B19 520; 10K 20,000 UU/s². Friction also contributes to slowing, so this is not a standalone stopping-distance result."
+          "note": "10K sets both walking braking and its persistent default to20,000. UT+ helper assigns2,000 only to the active walking field; native PerformMovement restores DefaultBrakingDecelerationWalking520 after movement. Settled stop simulation uses520 forUT+; its transient helper-application frame is excluded.",
+          "stock": "520 UU/s²",
+          "utplus": "520 persistent; helper assigns 2,000",
+          "ncp": "520 UU/s²"
         },
         {
           "label": "Ground friction",
           "b19": "10.5",
           "elite": "14",
-          "note": "GroundFriction: stock/B19 10.5; 10K 14. Affects steering and braking; this coefficient has no UU/s² unit."
+          "note": "Directional friction with movement input: stock/NCP/B19 10.5, UT+/10K14. On release, native UT substitutes BrakingFriction5 before applying its factor2; the calculator treats these cases separately.",
+          "stock": "10.5",
+          "utplus": "14",
+          "ncp": "10.5"
         },
         {
           "label": "Fast initial acceleration",
           "b19": "12,000 UU/s²",
           "elite": "100,000 UU/s²",
-          "note": "FastInitialAcceleration: stock/B19 12,000; 10K 100,000 UU/s². Low-speed boost blends toward regular ground acceleration as speed rises; it does not apply at full running speed."
+          "note": "FastInitialAcceleration: stock/B19 12,000; 10K 100,000 UU/s². Low-speed boost blends toward regular ground acceleration as speed rises; it does not apply at full running speed.",
+          "stock": "12,000 UU/s²",
+          "utplus": "12,000 UU/s²",
+          "ncp": "12,000 UU/s²"
         },
         {
           "label": "Air control / dodge-air control",
           "b19": "0.55 / 0.41",
           "elite": "0.7 / 0.7",
-          "note": "AirControl / DodgeAirControl: stock/B19 0.55 / 0.41; 10K 0.7 / 0.7. These are separate dimensionless control coefficients, not airspeed or percentage-speed caps."
+          "note": "AirControl / DodgeAirControl: stock/B19 0.55 / 0.41; 10K 0.7 / 0.7. These are separate dimensionless control coefficients, not airspeed or percentage-speed caps.",
+          "stock": "0.55 / 0.41",
+          "utplus": "0.7 / 0.7",
+          "ncp": "0.55 / 0.41"
         },
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
           "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
-          "note": "Contact predicates, component collision and damage response are separate gates."
+          "note": "Contact predicates, component collision and damage response are separate gates.",
+          "stock": "Native stock projectile rules",
+          "utplus": "UT+ profile rules; not part of this movement model",
+          "ncp": "Competitive NCP profile rules; not part of this movement model"
         },
         {
           "label": "Movement initialization",
           "b19": "Native behavior",
           "elite": "UTPlus-style owner inventory initialization",
-          "note": "Existing Elite movement values retained; old per-tick movement helper removed. UTPlus lifecycle retained with its sync-config override disabled."
+          "note": "Existing Elite movement values retained; old per-tick movement helper removed. UTPlus lifecycle retained with its sync-config override disabled.",
+          "stock": "Native character movement",
+          "utplus": "UT+MovementInventory applies settings to owner",
+          "ncp": "Native TeamArena movement subclass; core defaults inherited"
+        },
+        {
+          "label": "Normal running speed cap",
+          "stock": "940 UU/s",
+          "utplus": "940 UU/s",
+          "ncp": "940 UU/s",
+          "b19": "940 UU/s",
+          "elite": "940 UU/s",
+          "note": "The calculator excludes automatic forward sprint. These profiles differ in how quickly velocity changes, not their normal running-speed cap."
+        },
+        {
+          "label": "Low-speed boost transition",
+          "stock": "200 UU/s",
+          "utplus": "200 UU/s",
+          "ncp": "200 UU/s",
+          "b19": "200 UU/s",
+          "elite": "200 UU/s",
+          "note": "Below MaxFastAccelSpeed, acceleration blends from FastInitialAcceleration at rest to ordinary ground acceleration at200UU/s."
+        },
+        {
+          "label": "Release braking friction / factor",
+          "stock": "5 × 2",
+          "utplus": "5 × 2",
+          "ncp": "5 × 2",
+          "b19": "5 × 2",
+          "elite": "5 × 2",
+          "note": "Native UT movement substitutes BrakingFriction when input is released; the engine then multiplies by BrakingFrictionFactor. Reversal under opposite input uses ground friction instead."
         }
       ],
       "notes": [
@@ -1625,9 +1682,35 @@
         "Acceleration is strongest when starting from low speed, then blends toward normal running acceleration. Ground friction affects steering; braking slows you when you release movement input or exceed the speed limit.",
         "Projectile interactions are adjusted to reduce accidental interception between weapons. Server mutators and saved settings can change the defaults shown here.",
         "The B19 column now gives explicit inherited stock defaults. The authoritative original B19 package has no overrides for these six movement settings. Current stock editor and dedicated-server native constructors agree on the values shown.",
-        "Older public UT source uses 4,000 ground acceleration and 0.45 air control. Those older defaults differ from the installed stock build, whose verified values are 3,200 and 0.55. The table follows the installed build."
+        "Older public UT source uses 4,000 ground acceleration and 0.45 air control. Those older defaults differ from the installed stock build, whose verified values are 3,200 and 0.55. The table follows the installed build.",
+        "Use the interactive calculator above the table to compare starting, stopping and reversing. The scrubber shares one real-time clock across profiles and marks both reversal through zero and full speed in the opposite direction.",
+        "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings."
       ],
-      "lab": null
+      "lab": null,
+      "comparisonColumns": [
+        {
+          "key": "stock",
+          "label": "Stock UT"
+        },
+        {
+          "key": "utplus",
+          "label": "UT+"
+        },
+        {
+          "key": "ncp",
+          "label": "NCP"
+        },
+        {
+          "key": "b19",
+          "label": "Original B19"
+        },
+        {
+          "key": "elite",
+          "label": "Elite10K v2.0"
+        }
+      ],
+      "comparisonStyle": "movement",
+      "variantScope": "UT+ means the UTPlus mutator and its UT+MovementInventory. NCP means the competitive TeamArena pawn without an additional UT+ movement mutator. Stacked server mutators and optional profiles can differ. The calculator uses settled normal running, with sprint excluded."
     },
     {
       "id": "visuals",
@@ -1963,6 +2046,103 @@
       "initialSpeed": 3006.25,
       "maximumSpeed": 6364,
       "percentB19": 92.5
+    },
+    "groundMovement": {
+      "profiles": [
+        {
+          "id": "stock",
+          "name": "Stock UT",
+          "maxSpeed": 940,
+          "acceleration": 3200,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 10.5,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.55,
+          "dodgeAirControl": 0.41
+        },
+        {
+          "id": "utplus",
+          "name": "UT+",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7,
+          "assignedBraking": 2000
+        },
+        {
+          "id": "ncp",
+          "name": "NCP",
+          "maxSpeed": 940,
+          "acceleration": 3200,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 10.5,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.55,
+          "dodgeAirControl": 0.41
+        },
+        {
+          "id": "b19",
+          "name": "B19",
+          "maxSpeed": 940,
+          "acceleration": 3200,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 10.5,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.55,
+          "dodgeAirControl": 0.41
+        },
+        {
+          "id": "elite",
+          "name": "Elite10K",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 100000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 20000,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.01,
+          "wallReset": 0.01,
+          "dodgeJumpReset": 0.01,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7
+        }
+      ],
+      "dt": 0.001,
+      "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded."
     }
   },
   "releaseSource": {

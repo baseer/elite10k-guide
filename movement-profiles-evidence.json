@@ -1,0 +1,123 @@
+{
+  "verifiedDate": "2026-11-16",
+  "profiles": [
+    {
+      "id": "stock",
+      "name": "Stock UT",
+      "maxSpeed": 940,
+      "acceleration": 3200,
+      "fastAcceleration": 12000,
+      "fastThreshold": 200,
+      "friction": 10.5,
+      "braking": 520,
+      "brakeFriction": 5,
+      "brakeFactor": 2,
+      "stopThreshold": 10,
+      "groundReset": 0.35,
+      "wallReset": 0.2,
+      "dodgeJumpReset": 0.35,
+      "airControl": 0.55,
+      "dodgeAirControl": 0.41
+    },
+    {
+      "id": "utplus",
+      "name": "UT+",
+      "maxSpeed": 940,
+      "acceleration": 5000,
+      "fastAcceleration": 12000,
+      "fastThreshold": 200,
+      "friction": 14,
+      "braking": 520,
+      "brakeFriction": 5,
+      "brakeFactor": 2,
+      "stopThreshold": 10,
+      "groundReset": 0.35,
+      "wallReset": 0.2,
+      "dodgeJumpReset": 0.35,
+      "airControl": 0.7,
+      "dodgeAirControl": 0.7,
+      "assignedBraking": 2000
+    },
+    {
+      "id": "ncp",
+      "name": "NCP",
+      "maxSpeed": 940,
+      "acceleration": 3200,
+      "fastAcceleration": 12000,
+      "fastThreshold": 200,
+      "friction": 10.5,
+      "braking": 520,
+      "brakeFriction": 5,
+      "brakeFactor": 2,
+      "stopThreshold": 10,
+      "groundReset": 0.35,
+      "wallReset": 0.2,
+      "dodgeJumpReset": 0.35,
+      "airControl": 0.55,
+      "dodgeAirControl": 0.41
+    },
+    {
+      "id": "b19",
+      "name": "B19",
+      "maxSpeed": 940,
+      "acceleration": 3200,
+      "fastAcceleration": 12000,
+      "fastThreshold": 200,
+      "friction": 10.5,
+      "braking": 520,
+      "brakeFriction": 5,
+      "brakeFactor": 2,
+      "stopThreshold": 10,
+      "groundReset": 0.35,
+      "wallReset": 0.2,
+      "dodgeJumpReset": 0.35,
+      "airControl": 0.55,
+      "dodgeAirControl": 0.41
+    },
+    {
+      "id": "elite",
+      "name": "Elite10K",
+      "maxSpeed": 940,
+      "acceleration": 5000,
+      "fastAcceleration": 100000,
+      "fastThreshold": 200,
+      "friction": 14,
+      "braking": 20000,
+      "brakeFriction": 5,
+      "brakeFactor": 2,
+      "stopThreshold": 10,
+      "groundReset": 0.01,
+      "wallReset": 0.01,
+      "dodgeJumpReset": 0.01,
+      "airControl": 0.7,
+      "dodgeAirControl": 0.7
+    }
+  ],
+  "stockEvidence": "stock-movement-evidence.json",
+  "utplus": {
+    "pakSha256": "208D9D6EFA99D6EF92C7905A6BA2F2482391C909206CD1669494EA6EB500310E",
+    "asset": "Blueprints/UT+/UT+/UTPlusNew/ElimVersion/UT+MovementInventory",
+    "method": "Parsed cooked SetCharacterMovement assignments and helper lifecycle. Sets acceleration5000,friction14,air/dodge0.7,walking braking2000. Does not set persistent DefaultBrakingDecelerationWalking; native post-move reset restores520."
+  },
+  "ncp": {
+    "profile": "Competitive TeamArena pawn without optional UTPlus movement mutator",
+    "source": "NetcodePlus Source/Private/TeamArenaCharacter.cpp and TeamArenaCharacterMovement.cpp",
+    "characterSourceSha256": "925AEACD1462B106A5F5C9F2AE5D57B024432A9F408C2680331B163108A399D1",
+    "movementSourceSha256": "A11671EDDED87B0FDFCEB3C53AC6206CD4C80B51883E623412D61DC72110E41A",
+    "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
+  },
+  "elite": {
+    "pakSha256": "FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E",
+    "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
+    "source": "elite-v1.94/build.py settings, preserved byte-identically in current installed package"
+  },
+  "equations": {
+    "boost": "a(v)=fast*(1-clamp(abs(v)/200,0,1))+normal*clamp(abs(v)/200,0,1)",
+    "turn": "v <- v-(v-inputSign*abs(v))*min(dt*groundFriction,1); v <- clamp(v+inputSign*a(v_old)*dt,-940,940)",
+    "release": "v <- max(0,v-(5*2*v+persistentWalkingBraking)*dt); snap to0 at <=10UU/s",
+    "position": "Post-update v times game dt; numerical step1ms. Real seconds=game seconds/gameSpeed."
+  },
+  "sourceContext": "Native UUTCharacterMovement::GetMaxAcceleration, PerformMovement, CalcVelocity; UCharacterMovementComponent::CalcVelocity and ApplyVelocityBraking.",
+  "limits": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded.",
+  "nativeResetVerification": "Compiled stock editor code RVA1d544f reads DefaultBrakingDecelerationWalking at offset0x74c, then RVA1d545b stores it to active walking braking offset0x208, confirming the native post-movement reset in this build."
+}
