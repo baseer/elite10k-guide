@@ -1597,8 +1597,8 @@
         {
           "label": "Walking braking / deceleration",
           "b19": "520 UU/s²",
-          "elite": "520 UU/s²",
-          "note": "v2.01 sets both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking to 520 (final v2.0: 20,000). Settled release braking matches Stock and UT+. Opposite-direction input uses directional ground friction and acceleration, rather than this release-braking calculation.",
+          "elite": "1,040 UU/s²",
+          "note": "v2.01 sets both BrakingDecelerationWalking and DefaultBrakingDecelerationWalking to 1,040 (final v2.0: 20,000; Stock and settled UT+: 520). Release braking also acts during the calculator’s neutral input gap. Once opposite input begins, directional ground friction and acceleration handle reversal.",
           "stock": "520 UU/s²",
           "utplus": "520 persistent; helper assigns 2,000",
           "ncp": "520 UU/s²"
@@ -1668,7 +1668,7 @@
         "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings.",
         "Stock, NCP and B19 share every numeric movement setting shown, so they use one movement column and one calculator profile. Attack interactions remain separate below the movement table.",
         "Movement implementation: Stock/B19 use native character movement; NCP uses its TeamArena subclass with inherited core scalar defaults. UT+ and 10K use owner movement inventories; 10K retains its custom values and disables the UT+ sync-config override. Matching values do not mean these implementations are identical.",
-        "v2.01 versus final v2.0: fast initial acceleration changes from 100,000 to 96,000 UU/s²; walking braking and its persistent default change from 20,000 to 520 UU/s². Release stopping now matches Stock / NCP / B19 and settled UT+. Acceleration and reversal still use 10K’s higher low-speed acceleration."
+        "v2.01 versus final v2.0: fast initial acceleration changes from 100,000 to 96,000 UU/s²; walking braking and its persistent default change from 20,000 to 1,040 UU/s². The braking parameter is twice Stock / NCP / B19 and settled UT+, but stopping time is not halved because velocity-dependent braking friction also contributes. The neutral input gap uses each release’s own braking value before opposite acceleration begins."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -1871,7 +1871,7 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v2.01 · installed 96k / 520 revision",
+          "elite": "Elite10K v2.01 · installed 96k / 1,040 revision",
           "note": "Flak ball 93% of B19; Sniper scale 1.15; both rifle traces 7.5 UU; Lightning zero headshot scales."
         },
         {
@@ -1900,7 +1900,7 @@
         }
       ],
       "notes": [
-        "Installed weapons package SHA256: 696C34CF134F1C05D077D84CFC121FF692C032D207E7C8ED0FAFE568513F6032.",
+        "Installed weapons package SHA256: D8E909230E1586086C37E6F20D914BE7FA192BB43EA1E8EB5D058519AA3E0988.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
         "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
       ],
@@ -1908,13 +1908,13 @@
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "696C34CF134F1C05D077D84CFC121FF692C032D207E7C8ED0FAFE568513F6032",
+  "packageSha256": "D8E909230E1586086C37E6F20D914BE7FA192BB43EA1E8EB5D058519AA3E0988",
   "verifiedDate": "2026-11-16",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "v2.01: initial acceleration 96,000 UU/s²; walking braking 520 UU/s²; Flak ball 93% of B19",
+  "revision": "v2.01: initial acceleration 96,000 UU/s²; walking braking 1,040 UU/s²; Flak ball 93% of B19",
   "model": {
     "combo": {
       "max": 210,
@@ -2108,7 +2108,7 @@
           "fastAcceleration": 96000,
           "fastThreshold": 200,
           "friction": 14,
-          "braking": 520,
+          "braking": 1040,
           "brakeFriction": 5,
           "brakeFactor": 2,
           "stopThreshold": 10,
@@ -2124,9 +2124,9 @@
     }
   },
   "releaseSource": {
-    "receipt": "elite-v2.01/initial-accel96000/report.json",
-    "artifact": "elite-v2.01/initial-accel96000/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved artifact SHA256 verified; matching installed client/server, redirect download and launcher guard verified. Existing movement parameter changes only. Runtime movement feel awaits user acceptance. Earlier grenade recovery validation limitations remain unchanged."
+    "receipt": "elite-v2.01/braking1040/report.json",
+    "artifact": "elite-v2.01/braking1040/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved artifact SHA256 verified. Matching installed client/server, full redirect download, launcher guard and Pure startup verified. Only two existing walking braking float literals changed from 520 to 1,040; initial acceleration remains 96,000. Runtime movement feel awaits user acceptance. Earlier grenade recovery validation limitations remain unchanged."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2174,7 +2174,7 @@
     }
   ],
   "settingsMenu": true,
-  "releaseNotice": "Installed v2.01: initial acceleration 96,000 UU/s² and walking braking 520 UU/s². Final v2.0 remains selectable for comparison at 100,000 / 20,000. Both releases have Flak ball 93% of B19, rifle traces 7.5 UU, Sniper headshot scale 1.15 and Lightning headshots disabled.",
+  "releaseNotice": "Installed v2.01: initial acceleration 96,000 UU/s² and walking braking 1,040 UU/s². Final v2.0 remains selectable at 100,000 / 20,000. Both releases have Flak ball 93% of B19, rifle traces 7.5 UU, Sniper headshot scale 1.15 and Lightning headshots disabled.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",

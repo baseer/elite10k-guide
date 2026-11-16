@@ -16,5 +16,5 @@ console.log(JSON.stringify({passed:true,profileScenarios:cases,analyticAccelerat
 
 assert.deepEqual(M.compareTimes(200,100),{faster:100,lessTime:50});assert.deepEqual(M.compareTimes(100,100),{faster:0,lessTime:0});assert.equal(M.compareTimes(0,0),null);assert.equal(M.compareTimes(100,0),null);assert.deepEqual(M.compareTimes(100,200),{faster:-50,lessTime:-100});
 
-assert.equal(M.simulate(profiles[2],{mode:"stop",startPercent:100}).completed,stop.completed);
-for(const v of ["2.0","2.01"]){const d=require("./versions/"+v+"/comparison-data.json");const e=d.model.groundMovement.profiles[2];assert.equal(e.fastAcceleration,v==="2.0"?100000:96000);assert.equal(e.braking,v==="2.0"?20000:520);console.log(v,["accelerate","stop","reverse"].map(mode=>({mode,ms:M.simulate(e,{mode,startPercent:mode==="accelerate"?0:100}).completed*1000})));}
+assert(M.simulate(profiles[2],{mode:"stop",startPercent:100}).completed<stop.completed);
+for(const v of ["2.0","2.01"]){const d=require("./versions/"+v+"/comparison-data.json");const e=d.model.groundMovement.profiles[2];assert.equal(e.fastAcceleration,v==="2.0"?100000:96000);assert.equal(e.braking,v==="2.0"?20000:1040);console.log(v,["accelerate","stop","reverse"].map(mode=>({mode,ms:M.simulate(e,{mode,startPercent:mode==="accelerate"?0:100}).completed*1000})));}
