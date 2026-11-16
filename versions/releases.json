@@ -4353,12 +4353,12 @@
   },
   {
     "version": "2.01",
-    "sha256": "2093B99C51ADBD6A3CC25FA39DE145610459CABAE06A24553B5CD6719EB27D03",
-    "revision": "v2.01: initial acceleration 96,000; normal acceleration 5,000; transition 200 UU/s; walking braking 3,120",
+    "sha256": "4B62DAD3A135ACADDC50468AFC4AC4F6316536D0DAAEA6A15CEAA7C1731080A0",
+    "revision": "v2.01: Flak ball 94%, normal rockets 91% of B19; braking 2,080; initial 96,000; normal 5,000; transition 200 UU/s",
     "source": {
-      "receipt": "elite-v2.01/threshold200-braking3120/report.json",
-      "artifact": "elite-v2.01/threshold200-braking3120/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Verified installed client/server artifact, full redirect download, launcher guard, HUD preservation and Pure startup. Only existing MaxFastAccelSpeed float changed from 300 to 200; native blend logic and all other settings preserved. Runtime feel acceptance pending."
+      "receipt": "elite-v2.01/ball94-rocket91-braking2080/report.json",
+      "artifact": "elite-v2.01/ball94-rocket91-braking2080/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Verified preserved artifact hash, installed matching client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups. Existing projectile speed and braking parameters only; other settings preserved. Runtime feel acceptance pending."
     },
     "model": {
       "combo": {
@@ -4502,9 +4502,9 @@
       ],
       "lightningHeadshotsEnabled": false,
       "flakBall": {
-        "initialSpeed": 3022.5,
-        "maximumSpeed": 6398.4,
-        "percentB19": 93
+        "initialSpeed": 3055,
+        "maximumSpeed": 6467.2,
+        "percentB19": 94
       },
       "groundMovement": {
         "profiles": [
@@ -4553,7 +4553,7 @@
             "fastAcceleration": 96000,
             "fastThreshold": 200,
             "friction": 14,
-            "braking": 3120,
+            "braking": 2080,
             "brakeFriction": 5,
             "brakeFactor": 2,
             "stopThreshold": 10,
@@ -4566,6 +4566,12 @@
         ],
         "dt": 0.001,
         "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded."
+      },
+      "normalRocket": {
+        "initialSpeed": 2912,
+        "maximumSpeed": 4732,
+        "percentB19": 91,
+        "acceleration": 600
       }
     }
   }
