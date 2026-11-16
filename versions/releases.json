@@ -4353,12 +4353,12 @@
   },
   {
     "version": "2.01",
-    "sha256": "490C75582B73337C9D32EF1F13A6F12D1A26F634212DC94417624AED67E88CFA",
-    "revision": "v2.01: initial acceleration 96,000; normal acceleration 5,000; transition 400 UU/s; walking braking 4,160",
+    "sha256": "5A4A1BF5E83D0D3AA34759ABDC08A213F9AAE838A8CACCDC378799FB830E566F",
+    "revision": "v2.01: initial acceleration 96,000; normal acceleration 5,000; transition 400 UU/s; walking braking 3,120",
     "source": {
-      "receipt": "elite-v2.01/threshold400-braking4160/report.json",
-      "artifact": "elite-v2.01/threshold400-braking4160/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Verified installed client/server artifact and full redirect download, launcher guard, HUD preservation and Pure startup. Native MaxFastAccelSpeed assignment sets 400 UU/s in the existing movement setup; native blend logic is unchanged. Subsequent revision changes only active/persistent braking literals from 3,120 to 4,160. Runtime feel acceptance pending."
+      "receipt": "elite-v2.01/threshold400-braking3120/report.json",
+      "artifact": "elite-v2.01/fast-threshold400/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Restored preserved hash-verified native threshold400/braking3120 artifact. Matching installed client/server, full redirect download, launcher guard, HUD preservation and Pure startup verified. Native transition logic remains unchanged. Runtime feel acceptance pending."
     },
     "model": {
       "combo": {
@@ -4553,7 +4553,7 @@
             "fastAcceleration": 96000,
             "fastThreshold": 400,
             "friction": 14,
-            "braking": 4160,
+            "braking": 3120,
             "brakeFriction": 5,
             "brakeFactor": 2,
             "stopThreshold": 10,

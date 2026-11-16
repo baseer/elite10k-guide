@@ -82,7 +82,7 @@
       "fastAcceleration": 96000,
       "fastThreshold": 400,
       "friction": 14,
-      "braking": 4160,
+      "braking": 3120,
       "brakeFriction": 5,
       "brakeFactor": 2,
       "stopThreshold": 10,
@@ -107,9 +107,9 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "490C75582B73337C9D32EF1F13A6F12D1A26F634212DC94417624AED67E88CFA",
+    "pakSha256": "5A4A1BF5E83D0D3AA34759ABDC08A213F9AAE838A8CACCDC378799FB830E566F",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.01/threshold400-braking4160/report.json",
+    "source": "elite-v2.01/threshold400-braking3120/report.json",
     "selectedRelease": "2.01",
     "comparisonRelease": "2.0",
     "method": "Native MaxFastAccelSpeed override400 in existing movement setup; FastInitialAcceleration96000, MaxAcceleration5000 and active/persistent walking braking4160. Native class network checksum measured unchanged across threshold200->400 update (1374654379)."
@@ -193,7 +193,7 @@
       ]
     },
     "2.01": {
-      "pakSha256": "490C75582B73337C9D32EF1F13A6F12D1A26F634212DC94417624AED67E88CFA",
+      "pakSha256": "5A4A1BF5E83D0D3AA34759ABDC08A213F9AAE838A8CACCDC378799FB830E566F",
       "profiles": [
         {
           "id": "stock",
@@ -240,7 +240,7 @@
           "fastAcceleration": 96000,
           "fastThreshold": 400,
           "friction": 14,
-          "braking": 4160,
+          "braking": 3120,
           "brakeFriction": 5,
           "brakeFactor": 2,
           "stopThreshold": 10,
