@@ -1,5 +1,5 @@
 {
-  "version": "1.98",
+  "version": "2.0",
   "weapons": [
     {
       "id": "shock",
@@ -94,170 +94,241 @@
       "id": "flak",
       "name": "Flak Cannon",
       "tag": "Native time decay",
-      "summary": "Native time-decaying primary shards: 10.4/20.8 damage to 4/8, with decay over approximately 1.25–2.5 dodge distances.",
+      "summary": "Native time-decaying primary shards: 10.4/20.8 damage to 4/8, with decay over approximately 1–2 tuning dodge distances.",
       "rows": [
         {
           "label": "Primary firing interval",
           "b19": "0.80 s",
           "elite": "0.90 s",
-          "note": "Secondary remains 0.97 s."
+          "note": "Secondary remains 0.97 s.",
+          "stock": "0.80 s",
+          "utplus": "0.90 s"
         },
         {
           "label": "Primary shard speed",
           "b19": "≈18.67 dodge lengths/s (13,000 UU/s)",
           "elite": "≈18.67 dodge lengths/s (13,000 UU/s)",
-          "note": "Same projectile speed as B19."
+          "note": "Same projectile speed as B19.",
+          "stock": "Inherited native speed; no component override",
+          "utplus": "Central initial 7,000 UU/s; ordinary speed inherited"
         },
         {
           "label": "Primary projectile count",
           "b19": "8 ordinary + 1 central",
           "elite": "8 ordinary + 1 central",
-          "note": ""
+          "note": "",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Primary damage model",
           "b19": "Damage decreases with flight time; central-hit bonus",
           "elite": "Native flight-time decay",
-          "note": "No custom travelled-distance accumulator or impact damage rewrite."
+          "note": "No custom travelled-distance accumulator or impact damage rewrite.",
+          "stock": "Native flight-time decay and central-hit bonus",
+          "utplus": "Native flight-time decay and central-hit bonus"
         },
         {
           "label": "Bounce damage multiplier",
           "b19": "0.65×",
           "elite": "1×",
-          "note": "B19 uses 0.65× when the native gravity/bounce branch applies: 16×0.65 = 10.4 and 32×0.65 = 20.8 before per-hit truncation. B19 flight-time rules differ."
+          "note": "B19 uses 0.65× when the native gravity/bounce branch applies: 16×0.65 = 10.4 and 32×0.65 = 20.8 before per-hit truncation. B19 flight-time rules differ.",
+          "stock": "0.60×",
+          "utplus": "0.60×"
         },
         {
           "label": "Shard hit momentum",
           "b19": "Native momentum",
           "elite": "Native B19 momentum",
-          "note": "Custom zero-momentum hit handling removed."
+          "note": "Custom zero-momentum hit handling removed.",
+          "stock": "Ordinary 17,000; central inherited",
+          "utplus": "Ordinary 17,000 / central 29,000"
         },
         {
           "label": "Ball collision radius",
           "b19": "30 UU",
           "elite": "13 UU",
-          "note": "Physical collision, not splash radius."
+          "note": "Physical collision, not splash radius.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Ball initial speed",
           "b19": "≈4.67 dodge lengths/s (3,250 UU/s)",
           "elite": "3,006.25 UU/s (92.5% of B19)",
-          "note": "92.5% of the corresponding authoritative B19 projectile speed."
+          "note": "92.5% of the corresponding authoritative B19 projectile speed. 20.25% faster launch than Stock/UT+.",
+          "stock": "2,500 UU/s",
+          "utplus": "2,500 UU/s"
         },
         {
           "label": "Ball maximum speed",
           "b19": "≈9.88 dodge lengths/s (6,880 UU/s)",
           "elite": "6,364 UU/s (92.5% of B19)",
-          "note": "92.5% of the corresponding authoritative B19 projectile speed."
+          "note": "92.5% of the corresponding authoritative B19 projectile speed. 6.07% higher cap than Stock/UT+.",
+          "stock": "6,000 UU/s",
+          "utplus": "6,000 UU/s"
         },
         {
           "label": "Secondary firing interval",
           "b19": "0.97 s",
           "elite": "0.97 s",
-          "note": ""
+          "note": "",
+          "stock": "1.00 s",
+          "utplus": "1.00 s"
         },
         {
           "label": "Weapon raise time",
           "b19": "0.29 s",
           "elite": "0.41 s",
-          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch.",
+          "stock": "0.50 s",
+          "utplus": "0.30 s"
         },
         {
           "label": "Ball base splash damage",
           "b19": "95",
           "elite": "95",
-          "note": ""
+          "note": "",
+          "stock": "Inherited native maximum",
+          "utplus": "115"
         },
         {
           "label": "Ball splash damage / blast radii",
           "b19": "95 max / 20 min · 0–300 UU",
           "elite": "95 max / 35 min · 0–240 UU",
-          "note": "Native linear splash."
+          "note": "Native linear splash.",
+          "stock": "Inherited native damage; 40–330 UU",
+          "utplus": "115 max / 18 min; inner 20 UU; outer inherited"
         },
         {
           "label": "Primary range damage",
           "b19": "Native behavior",
           "elite": "10.4/20.8 → 4/8 by projectile age",
-          "note": "Decay starts near 0.067308 s and reaches the floor near 0.134615 s. At constant 13,000 UU/s this is 875–1,750 UU (about 1.25–2.5 dodge distances, using 700 UU for tuning). Actual impacts depend on age, not accumulated travel distance."
+          "note": "Decay starts near 0.053846 s and reaches the floor near 0.107692 s. At constant 13,000 UU/s this is 700–1,400 UU (1–2 tuning dodge distances of 700 UU). Actual impacts depend on age, not accumulated path distance.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Primary hit acceptance",
           "b19": "Native behavior",
           "elite": "Native projectile checks; extra geometric filter removed",
-          "note": ""
+          "note": "",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Explosion handling",
           "b19": "Native explosion",
           "elite": "Native explosion path",
-          "note": "Legacy projectile cutoff is disabled."
+          "note": "Legacy projectile cutoff is disabled.",
+          "stock": "Native explosion",
+          "utplus": "Native explosion"
         },
         {
           "label": "Flight smoke opacity",
           "b19": "Original effect",
           "elite": "0.2 · half of earlier opacity",
-          "note": "The visible M_Rocket_trail_01 layer; all emitters retained."
+          "note": "The visible M_Rocket_trail_01 layer; all emitters retained.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Explosion effect asset",
           "b19": "Original effect",
           "elite": "Restored explosion particle asset",
-          "note": "v1.58 restores the packaged effect; v1.62 temporarily uses an earlier build base."
+          "note": "v1.58 restores the packaged effect; v1.62 temporarily uses an earlier build base.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
           "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
-          "note": "Contact predicates, component collision and damage response are separate gates."
+          "note": "Contact predicates, component collision and damage response are separate gates.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Weapon icon defaults",
           "b19": "Original colors",
           "elite": "Explicit Elite10K colors restored",
-          "note": "Independent HUD palettes can override presentation."
+          "note": "Independent HUD palettes can override presentation.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Shredded award requirements",
           "b19": "Native Shredded qualification",
           "elite": "Native B19 qualification",
-          "note": "Custom central-plus-seven/all-nine tracker removed; native center MaxShreddedTime is 0.15 game seconds."
+          "note": "Custom central-plus-seven/all-nine tracker removed; native center MaxShreddedTime is 0.15 game seconds.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Shard visual sizing",
           "b19": "Original shard visuals",
           "elite": "Original shard visuals",
-          "note": "The dynamic sphere-matching experiment was reverted in final v1.82."
+          "note": "The dynamic sphere-matching experiment was reverted in final v1.82.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
-          "label": "Stored ordinary / central base damage",
+          "label": "Applied initial ordinary / central damage",
           "b19": "Native behavior",
           "elite": "10 / 20",
-          "note": "Enemy effective initial damage is 10 / 20 before armor."
+          "note": "Enemy effective initial damage is 10 / 20 before armor.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Primary self damage",
           "b19": "Native behavior",
           "elite": "Stored base 10.4/20.8; up to 100 before self attenuation",
-          "note": "Self damage uses a separate native branch, bypassing enemy multiplier/floors. Shipping minimum is one per shard; 25 damage/s attenuation starts after 0.11 s."
+          "note": "Self damage uses a separate native branch, bypassing enemy multiplier/floors. Shipping minimum is one per shard; 25 damage/s attenuation starts after 0.11 s.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Primary stored base / minimum",
           "b19": "Ordinary base 16 / minimum 8; central base 32 / minimum 5",
           "elite": "Ordinary 10.4 / 4; central 20.8 / 8",
-          "note": "Each hit is truncated separately when applied to a character. Eight full ordinary hits plus a full central hit produce 8×10 + 20 = 100 before armor or other modifiers."
+          "note": "Each hit is truncated separately when applied to a character. Eight full ordinary hits plus a full central hit produce 8×10 + 20 = 100 before armor or other modifiers.",
+          "stock": "Ordinary base 11; central base 12; minima inherited",
+          "utplus": "Ordinary base 11; central base 13 / minimum 6; ordinary minimum inherited"
         }
       ],
       "notes": [
         "Primary interval 0.90 s, secondary 0.97 s. Each shot contains eight ordinary shards and one central shard; the central shard deals double damage.",
         "Primary projectiles directly inherit native Flak shard classes. Custom distance, body-hit and Shredded tracker helpers are removed.",
-        "Enemy ordinary/central damage starts at 10.4/20.8 and decays with age to 4/8 between approximately 0.067308 and 0.134615 game seconds. Native hit position and other modifiers still apply.",
-        "875–1,750 UU is only the straight-flight equivalent at 13,000 UU/s, not an accumulated path-distance rule.",
+        "Enemy ordinary/central damage starts at 10.4/20.8 and decays with age to 4/8 between approximately 0.053846 and 0.107692 game seconds. Native hit position and other modifiers still apply.",
+        "700–1,400 UU is only the straight-flight equivalent at 13,000 UU/s, not an accumulated path-distance rule.",
         "Native Shredded qualification and native momentum are restored. Secondary ball geometry, damage and speed are unchanged.",
         "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,006.25/6,364 UU/s. Ball-spawned shards are separate from the primary model.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
-        "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v1.97 endpoint is approximately 2.5 dodge distances."
+        "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v2.0 endpoint is approximately 2 tuning dodge distances of 700 UU.",
+        "Compared with both Stock and UT+, the 10K ball launches 20.25% faster (3,006.25 vs 2,500 UU/s) and has a 6.07% higher cap (6,364 vs 6,000 UU/s)."
       ],
-      "lab": "flak"
+      "lab": "flak",
+      "comparisonColumns": [
+        {
+          "key": "stock",
+          "label": "Stock UT"
+        },
+        {
+          "key": "utplus",
+          "label": "UT+"
+        },
+        {
+          "key": "b19",
+          "label": "Original B19"
+        },
+        {
+          "key": "elite",
+          "label": "Elite10K v2.0"
+        }
+      ],
+      "comparisonStyle": "projectile",
+      "variantScope": "Stock values come from the base-game weapon/projectile assets. UT+ uses UT+FlakCannon and UTPlusRocketLauncher in UTPlus-WindowsNoEditor.pak (SHA256 208D9D6EFA99D6EF92C7905A6BA2F2482391C909206CD1669494EA6EB500310E). “Not separately verified” means no numerical comparison is claimed. Server replacements and NCP variants are separate."
     },
     {
       "id": "rocket",
@@ -269,121 +340,169 @@
           "label": "Primary interval",
           "b19": "1.05 s",
           "elite": "1.05 s",
-          "note": ""
+          "note": "",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Secondary refire / 1 rocket",
           "b19": "0.74 s",
           "elite": "1.05 s",
-          "note": "Default fire-rate multiplier; no additional delay for extra loaded rockets."
+          "note": "Default fire-rate multiplier; no additional delay for extra loaded rockets.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Secondary refire / 2 rockets",
           "b19": "0.74 s",
           "elite": "1.05 s",
-          "note": "Default fire-rate multiplier; no additional delay for extra loaded rockets."
+          "note": "Default fire-rate multiplier; no additional delay for extra loaded rockets.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Secondary refire / 3 rockets",
           "b19": "0.74 s",
           "elite": "1.05 s",
-          "note": "Default fire-rate multiplier; no additional delay for extra loaded rockets."
+          "note": "Default fire-rate multiplier; no additional delay for extra loaded rockets.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Delay between rockets in a volley",
           "b19": "0.015 s",
           "elite": "Native B19 volley scheduling",
-          "note": "Custom volley scheduling removed; native loading/firing retained."
+          "note": "Custom volley scheduling removed; native loading/firing retained.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Normal rocket initial / maximum speed",
           "b19": "3,200 / 5,200 UU/s",
           "elite": "2,880 / 4,680 UU/s · 90% of B19",
-          "note": "Acceleration 600 UU/s² retained. Earlier guide values described an inactive route."
+          "note": "Acceleration 600 UU/s² retained. Earlier guide values described an inactive route.",
+          "stock": "2,750 / 2,750 UU/s",
+          "utplus": "2,750 / 2,950 UU/s"
         },
         {
           "label": "Seeking initial / maximum speed",
           "b19": "2,000 / 2,400 UU/s",
           "elite": "1,800 / 2,160 UU/s · 90% of B19",
-          "note": "Both launch speed and maximum speed are 10% lower than B19."
+          "note": "Both launch speed and maximum speed are 10% lower than B19.",
+          "stock": "2,000 / 2,400 UU/s",
+          "utplus": "2,200 / 2,600 UU/s"
         },
         {
           "label": "Grenade initial / maximum speed",
           "b19": "1,900 / 3,000 UU/s",
           "elite": "1,900 / 3,000 UU/s · 100% of B19",
-          "note": "Launch speed and maximum speed are unchanged. These are Rocket Launcher grenades."
+          "note": "Launch speed and maximum speed are unchanged. These are Rocket Launcher grenades.",
+          "stock": "Not separately verified",
+          "utplus": "2,000 / 3,000 UU/s"
         },
         {
           "label": "Weapon raise / lower time",
           "b19": "0.47 / 0.08 s",
           "elite": "0.41 / 0.08 s",
-          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch. Loaded rocket/grenade volleys finish firing before a queued switch; switching back does not skip the remaining cooldown."
+          "note": "Raise time is the time to equip this weapon; lower time is the time to put it away. Firing cooldown can delay a switch. Loaded rocket/grenade volleys finish firing before a queued switch; switching back does not skip the remaining cooldown.",
+          "stock": "Inherited native times",
+          "utplus": "Raise 0.30 s; lower inherited"
         },
         {
           "label": "Splash damage / blast radii",
           "b19": "100 max / 20 min · 15–360 UU",
           "elite": "100 max / 35 min · 15–296.66666 UU",
-          "note": "Native linear splash."
+          "note": "Native linear splash.",
+          "stock": "Inherited native damage and radii",
+          "utplus": "Inherited native damage / inner radius; outer 345 UU"
         },
         {
           "label": "Cooldown bar",
           "b19": "B19 weapon HUD",
           "elite": "Red loading rings; native white dots hidden",
-          "note": "During release each spent ring clears from the actual remaining loaded count. Remaining rings continue the existing grace depletion."
+          "note": "During release each spent ring clears from the actual remaining loaded count. Remaining rings continue the existing grace depletion.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Explosion handling",
           "b19": "Native explosion",
           "elite": "Native explosion path",
-          "note": "Legacy projectile cutoff is disabled."
+          "note": "Legacy projectile cutoff is disabled.",
+          "stock": "Native explosion",
+          "utplus": "Native explosion"
         },
         {
           "label": "Loaded volley switching deadline",
           "b19": "Original firing state",
           "elite": "Native firing state plus pending-switch retry",
-          "note": "Retries an existing valid pending switch after the volley finishes. No custom firing deadline, refire calculation or EarliestFireTime write."
+          "note": "Retries an existing valid pending switch after the volley finishes. No custom firing deadline, refire calculation or EarliestFireTime write.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Projectile shell design",
           "b19": "Original projectile art",
           "elite": "Final merged shell and native rear blend",
-          "note": "Visual-only revisions."
+          "note": "Visual-only revisions.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Unused material cleanup",
           "b19": "Original package contents",
           "elite": "Obsolete runtime overrides removed; appearance preserved",
-          "note": "v1.69 removes unused material data without changing gameplay or the approved appearance."
+          "note": "v1.69 removes unused material data without changing gameplay or the approved appearance.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Attack interactions (v1.8 policy)",
           "b19": "Native behavior",
           "elite": "Native projectile predicates govern rocket, Flak and Bio contacts, with reciprocal native Shock-core handling. Default rocket/core and Flak/core pairs remain ignored. Rockets and rocket grenades ignore both Weapon and WeaponNoCharacter traces on main and assist colliders; landed goo uses native shootable collision and native damage response. Other Shock exclusions remain.",
-          "note": "Contact predicates, component collision and damage response are separate gates."
+          "note": "Contact predicates, component collision and damage response are separate gates.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Weapon icon defaults",
           "b19": "Original colors",
           "elite": "Explicit Elite10K colors restored",
-          "note": "Independent HUD palettes can override presentation."
+          "note": "Independent HUD palettes can override presentation.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Rocket grenade art",
           "b19": "Original grenade art",
           "elite": "Finished regular-rocket shell and coating",
-          "note": "Rocket grenades share the regular rocket mesh; size, collision and damage are unchanged."
+          "note": "Rocket grenades share the regular rocket mesh; size, collision and damage are unchanged.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Loading ring size",
           "b19": "Native behavior",
-          "elite": "67.5% of pre-v1.87 size",
-          "note": "Ring centers unchanged; v1.90 applies a further 10% reduction."
+          "elite": "95% of final v1.96 size at default radius scale",
+          "note": "Final v1.98 default size retained. Local radius scale 0–1.75 and opacity 0–1; either zero hides custom rings.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         },
         {
           "label": "Loaded inventory safety",
           "b19": "Native behavior",
           "elite": "Internal rocket helper weapons excluded",
-          "note": "The configured launcher remains available; final v1.87 fixes the Loaded-command helper grant."
+          "note": "The configured launcher remains available; final v1.87 fixes the Loaded-command helper grant.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
+        },
+        {
+          "label": "Early-selected grenade refire / 1, 2, 3 grenades",
+          "b19": "0.74 s secondary base interval",
+          "elite": "1.05 / 0.895 / 0.74 s",
+          "note": "Select grenade mode while native loading is preparing an attack, before the full load and first shot. Late or uncertain selection retains 1.05 s. Regular rocket volleys remain 1.05 s. Loading time is separate.",
+          "stock": "Not separately verified",
+          "utplus": "Not separately verified"
         }
       ],
       "notes": [
@@ -394,9 +513,31 @@
         "The rocket spins about its centered visual axis.",
         "Firing a single loaded rocket starts the HUD ring fade immediately, preventing a lingering red ring.",
         "Normal rockets use 2,880/4,680 UU/s initial/maximum speed, 90% of B19’s 3,200/5,200; acceleration is 600 UU/s².",
-        "The configured launcher uses native B19 loading and firing with 1.05-second secondary refire, 0.41-second equip time, and a pending-switch retry after a completed volley. No custom firing deadline is added."
+        "The configured launcher uses native B19 loading and firing with 1.05-second secondary refire, 0.41-second equip time, and a pending-switch retry after a completed volley. No custom firing deadline is added.",
+        "Early-selected grenade volleys use 1.05 / 0.895 / 0.74 s recovery for 1 / 2 / 3 grenades. Late or uncertain selection falls back to 1.05 s; switching back to regular rockets restores regular timing. Real client/server checks passed at measured 312/624 ms with fixed delay; loss/jitter, queued switches and changing fire-rate cases remain unverified.",
+        "Normal 10K rockets launch 4.73% faster than Stock and UT+ (2,880 vs 2,750 UU/s). Their cap is 58.64% higher than UT+ (4,680 vs 2,950) and 70.18% higher than Stock (4,680 vs 2,750). Caps are not constant flight speeds: 10K acceleration is 600 UU/s²; UT+ explicitly sets 50 UU/s²."
       ],
-      "lab": "rocket"
+      "lab": "rocket",
+      "comparisonColumns": [
+        {
+          "key": "stock",
+          "label": "Stock UT"
+        },
+        {
+          "key": "utplus",
+          "label": "UT+"
+        },
+        {
+          "key": "b19",
+          "label": "Original B19"
+        },
+        {
+          "key": "elite",
+          "label": "Elite10K v2.0"
+        }
+      ],
+      "comparisonStyle": "projectile",
+      "variantScope": "Stock values come from the base-game weapon/projectile assets. UT+ uses UT+FlakCannon and UTPlusRocketLauncher in UTPlus-WindowsNoEditor.pak (SHA256 208D9D6EFA99D6EF92C7905A6BA2F2482391C909206CD1669494EA6EB500310E). “Not separately verified” means no numerical comparison is claimed. Server replacements and NCP variants are separate."
     },
     {
       "id": "stinger",
@@ -1617,7 +1758,7 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v1.97",
+          "elite": "Elite10K v2.0",
           "note": "Final completed revision; intermediate tuning builds are excluded."
         },
         {
@@ -1646,7 +1787,7 @@
         }
       ],
       "notes": [
-        "Final weapons package SHA256: 6E8946E3D3E9D2E639997CBD4C1025F8D319F8DB11EA7640035C40A3401B9C0E.",
+        "Final weapons package SHA256: A5B4753E22AAD7B90C80937CCA15AB98BBC6E887BD714C40CC0ED47B3E90E2D2.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
         "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
       ],
@@ -1654,13 +1795,13 @@
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "6E8946E3D3E9D2E639997CBD4C1025F8D319F8DB11EA7640035C40A3401B9C0E",
-  "verifiedDate": "2026-11-14",
+  "packageSha256": "A5B4753E22AAD7B90C80937CCA15AB98BBC6E887BD714C40CC0ED47B3E90E2D2",
+  "verifiedDate": "2026-11-15",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "Final v1.98: Elite10K Settings, radius maximum 1.75, pulse white tint 13.5%",
+  "revision": "Final v2.0: Flak decay over 1–2 tuning dodges; early grenade recovery retained; Stock and UT+ comparisons",
   "model": {
     "combo": {
       "max": 210,
@@ -1698,12 +1839,12 @@
     },
     "flak": {
       "linear": true,
-      "start": 875,
-      "end": 1750,
+      "start": 700,
+      "end": 1400,
       "interval": 0.9,
       "nativeTime": true,
-      "delay": 0.06730769574642181,
-      "floorAge": 0.1346153846153846,
+      "delay": 0.05384615436196327,
+      "floorAge": 0.10769230993629929,
       "speed": 13000,
       "storedBase": [
         10.399999618530273,
@@ -1717,7 +1858,7 @@
       "base": 10.399999618530273,
       "minimum": 4,
       "centralBase": 20.799999237060547,
-      "attenuation": 95.08570861816406
+      "attenuation": 118.85713195800781
     },
     "splash": {
       "legacy": false,
@@ -1795,12 +1936,17 @@
       "max": 1,
       "default": 0.875
     },
-    "rocketRingPulseWhiteTint": 0.135
+    "rocketRingPulseWhiteTint": 0.135,
+    "earlyGrenadeRecovery": [
+      1.05,
+      0.895,
+      0.74
+    ]
   },
   "releaseSource": {
-    "receipt": "elite-v1.98/latest-release.json",
-    "artifact": "elite-v1.98/pulse-white135/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved final artifact hash verified independently of the installed client pak. Matching client/server, redirect checksums and native settings tests passed. Exact-zero drawing guards, slider/input/command limits, saved-value clamping, clean-open Apply, save failures and restart persistence verified. Material opacity rendering measured at 0%, 25% and 87.5%; final pulse tint constant compiled and package scope verified."
+    "receipt": "elite-v2.0/latest-release.json",
+    "artifact": "elite-v2.0/flak-decay1-2/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved final package hash verified. Matching client/server installation and redirect verified in release receipt. Flak decay is native age-based; in-game distance acceptance pending. Early grenade recovery passed fixed-delay client/server tests at measured 312/624 ms; loss/jitter, queued switches and changing fire-rate cases remain unverified."
   },
   "comboMovement": {
     "id": "combo-movement",
