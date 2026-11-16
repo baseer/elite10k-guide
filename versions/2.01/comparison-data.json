@@ -1588,8 +1588,8 @@
         {
           "label": "Ground acceleration",
           "b19": "3,200 UU/s²",
-          "elite": "5,000 UU/s²",
-          "note": "MaxAcceleration: stock/B19 3,200; 10K 5,000 UU/s². Low-speed initial acceleration is a separate parameter.",
+          "elite": "10,000 UU/s²",
+          "note": "MaxAcceleration: v2.01 10,000; final v2.0 and UT+ 5,000; Stock/B19 3,200 UU/s². Initial acceleration is a separate low-speed parameter.",
           "stock": "3,200 UU/s²",
           "utplus": "5,000 UU/s²",
           "ncp": "3,200 UU/s²"
@@ -1616,7 +1616,7 @@
           "label": "Fast initial acceleration",
           "b19": "12,000 UU/s²",
           "elite": "96,000 UU/s²",
-          "note": "v2.01 starts at 96,000 UU/s² and blends linearly toward normal 5,000 UU/s² by 200 UU/s. Final v2.0 starts at 100,000 and reaches 5,000 by 200 UU/s. Normal running cap remains 940 UU/s.",
+          "note": "v2.01 starts at 96,000 UU/s² and blends linearly toward normal 10,000 UU/s² by 200 UU/s. Final v2.0 starts at 100,000 and reaches 5,000 by 200 UU/s. Running cap remains 940 UU/s.",
           "stock": "12,000 UU/s²",
           "utplus": "12,000 UU/s²",
           "ncp": "12,000 UU/s²"
@@ -1646,7 +1646,7 @@
           "ncp": "200 UU/s",
           "b19": "200 UU/s",
           "elite": "200 UU/s",
-          "note": "MaxFastAccelSpeed: v2.01 blends from 96,000 UU/s² at rest to normal 5,000 UU/s² at 200 UU/s. Stock, UT+, NCP and final v2.0 transition at 200 UU/s. This is a speed range, not a fixed time delay."
+          "note": "MaxFastAccelSpeed: v2.01 blends from 96,000 UU/s² at rest to 10,000 UU/s² at 200 UU/s. The transition speed matches the other profiles; their acceleration values differ. This is a speed range, not a fixed time delay."
         },
         {
           "label": "Release braking friction / factor",
@@ -1668,8 +1668,8 @@
         "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings.",
         "Stock, NCP and B19 share every numeric movement setting shown, so they use one movement column and one calculator profile. Attack interactions remain separate below the movement table.",
         "Movement implementation: Stock/B19 use native character movement; NCP uses its TeamArena subclass with inherited core scalar defaults. UT+ and 10K use owner movement inventories; 10K retains its custom values and disables the UT+ sync-config override. Matching values do not mean these implementations are identical.",
-        "v2.01 versus final v2.0: initial acceleration 96,000 versus 100,000; walking braking 2,080 versus 20,000 UU/s². Normal acceleration 5,000 and transition speed 200 UU/s match. Braking is four times the Stock / NCP / B19 and settled UT+ parameter, but stopping time is not quartered because velocity-dependent friction also contributes.",
-        "The transition is back to 200 UU/s, matching final v2.0’s transition range and narrower than the previous 300 UU/s experiment. At 100 UU/s, v2.01 acceleration is 50,500 UU/s²; at 200 UU/s and above, it is 5,000 UU/s². The same speed-dependent blend applies while reversing."
+        "v2.01 versus final v2.0: normal acceleration 10,000 versus 5,000; initial acceleration 96,000 versus 100,000; walking braking 2,080 versus 20,000 UU/s². Transition speed 200 UU/s matches. Release braking and opposite-input acceleration are separate phases.",
+        "The 200 UU/s transition matches final v2.0’s range. At 100 UU/s, v2.01 acceleration is 53,000 UU/s²; at 200 UU/s and above, it is 10,000 UU/s². The same speed-dependent blend applies while reversing."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -1901,7 +1901,7 @@
         }
       ],
       "notes": [
-        "Installed weapons package SHA256: 4B62DAD3A135ACADDC50468AFC4AC4F6316536D0DAAEA6A15CEAA7C1731080A0.",
+        "Installed weapons package SHA256: C21457BF198B1F4AFFB2E85F4AE69C4412892A091CCB95814CD5FF1BF1E409C6.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
         "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
       ],
@@ -1909,13 +1909,13 @@
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "4B62DAD3A135ACADDC50468AFC4AC4F6316536D0DAAEA6A15CEAA7C1731080A0",
+  "packageSha256": "C21457BF198B1F4AFFB2E85F4AE69C4412892A091CCB95814CD5FF1BF1E409C6",
   "verifiedDate": "2026-11-16",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "v2.01: Flak ball 94%, normal rockets 91% of B19; braking 2,080; initial 96,000; normal 5,000; transition 200 UU/s",
+  "revision": "v2.01: normal acceleration 10,000; initial 96,000; transition 200 UU/s; braking 2,080; Flak ball 94% / normal rockets 91% of B19",
   "model": {
     "combo": {
       "max": 210,
@@ -2105,7 +2105,7 @@
           "id": "elite",
           "name": "Elite10K",
           "maxSpeed": 940,
-          "acceleration": 5000,
+          "acceleration": 10000,
           "fastAcceleration": 96000,
           "fastThreshold": 200,
           "friction": 14,
@@ -2131,9 +2131,9 @@
     }
   },
   "releaseSource": {
-    "receipt": "elite-v2.01/ball94-rocket91-braking2080/report.json",
-    "artifact": "elite-v2.01/ball94-rocket91-braking2080/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Verified preserved artifact hash, installed matching client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups. Existing projectile speed and braking parameters only; other settings preserved. Runtime feel acceptance pending."
+    "receipt": "elite-v2.01/normal-accel10000/report.json",
+    "artifact": "elite-v2.01/normal-accel10000/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Hash-verified installed client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups. Only existing MaxAcceleration float changed from 5,000 to 10,000 in this revision; all other payloads preserved. Runtime feel acceptance pending."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2181,7 +2181,7 @@
     }
   ],
   "settingsMenu": true,
-  "releaseNotice": "Installed v2.01: Flak ball 94% and normal rockets 91% of B19; walking braking 2,080 UU/s². Movement remains initial 96,000 / normal 5,000 UU/s² with a 200 UU/s transition. Seeking rockets and rocket grenades are unchanged. Final v2.0 remains separately selectable.",
+  "releaseNotice": "Installed v2.01: normal acceleration 10,000 UU/s², initial acceleration 96,000 UU/s², transition 200 UU/s and walking braking 2,080 UU/s². Flak ball 94% and normal rockets 91% of B19. Final v2.0 remains separately selectable with normal acceleration 5,000.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",

@@ -4353,12 +4353,12 @@
   },
   {
     "version": "2.01",
-    "sha256": "4B62DAD3A135ACADDC50468AFC4AC4F6316536D0DAAEA6A15CEAA7C1731080A0",
-    "revision": "v2.01: Flak ball 94%, normal rockets 91% of B19; braking 2,080; initial 96,000; normal 5,000; transition 200 UU/s",
+    "sha256": "C21457BF198B1F4AFFB2E85F4AE69C4412892A091CCB95814CD5FF1BF1E409C6",
+    "revision": "v2.01: normal acceleration 10,000; initial 96,000; transition 200 UU/s; braking 2,080; Flak ball 94% / normal rockets 91% of B19",
     "source": {
-      "receipt": "elite-v2.01/ball94-rocket91-braking2080/report.json",
-      "artifact": "elite-v2.01/ball94-rocket91-braking2080/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Verified preserved artifact hash, installed matching client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups. Existing projectile speed and braking parameters only; other settings preserved. Runtime feel acceptance pending."
+      "receipt": "elite-v2.01/normal-accel10000/report.json",
+      "artifact": "elite-v2.01/normal-accel10000/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Hash-verified installed client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups. Only existing MaxAcceleration float changed from 5,000 to 10,000 in this revision; all other payloads preserved. Runtime feel acceptance pending."
     },
     "model": {
       "combo": {
@@ -4549,7 +4549,7 @@
             "id": "elite",
             "name": "Elite10K",
             "maxSpeed": 940,
-            "acceleration": 5000,
+            "acceleration": 10000,
             "fastAcceleration": 96000,
             "fastThreshold": 200,
             "friction": 14,
