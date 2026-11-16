@@ -80,9 +80,9 @@
       "maxSpeed": 940,
       "acceleration": 5000,
       "fastAcceleration": 96000,
-      "fastThreshold": 200,
+      "fastThreshold": 400,
       "friction": 14,
-      "braking": 3120,
+      "braking": 4160,
       "brakeFriction": 5,
       "brakeFactor": 2,
       "stopThreshold": 10,
@@ -107,15 +107,15 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "880C77CEC9E37874893B162973E8F5449726ED98E528BA7019B9BEBFB4480993",
+    "pakSha256": "490C75582B73337C9D32EF1F13A6F12D1A26F634212DC94417624AED67E88CFA",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.01/braking3120/report.json",
+    "source": "elite-v2.01/threshold400-braking4160/report.json",
     "selectedRelease": "2.01",
     "comparisonRelease": "2.0",
-    "method": "FastInitialAcceleration remains 96,000; both active and persistent walking braking literals are 3,120. Release-specific profiles are preserved under releaseProfiles."
+    "method": "Native MaxFastAccelSpeed override400 in existing movement setup; FastInitialAcceleration96000, MaxAcceleration5000 and active/persistent walking braking4160. Native class network checksum measured unchanged across threshold200->400 update (1374654379)."
   },
   "equations": {
-    "boost": "a(v)=fast*(1-clamp(abs(v)/200,0,1))+normal*clamp(abs(v)/200,0,1)",
+    "boost": "a(v)=fast*(1-clamp(abs(v)/profile.fastThreshold,0,1))+normal*clamp(abs(v)/profile.fastThreshold,0,1)",
     "turn": "v <- v-(v-inputSign*abs(v))*min(dt*groundFriction,1); v <- clamp(v+inputSign*a(v_old)*dt,-940,940)",
     "release": "v <- max(0,v-(5*2*v+persistentWalkingBraking)*dt); snap to0 at <=10UU/s",
     "position": "Post-update v times game dt; numerical step1ms. Real seconds=game seconds/gameSpeed."
@@ -193,7 +193,7 @@
       ]
     },
     "2.01": {
-      "pakSha256": "880C77CEC9E37874893B162973E8F5449726ED98E528BA7019B9BEBFB4480993",
+      "pakSha256": "490C75582B73337C9D32EF1F13A6F12D1A26F634212DC94417624AED67E88CFA",
       "profiles": [
         {
           "id": "stock",
@@ -238,9 +238,9 @@
           "maxSpeed": 940,
           "acceleration": 5000,
           "fastAcceleration": 96000,
-          "fastThreshold": 200,
+          "fastThreshold": 400,
           "friction": 14,
-          "braking": 3120,
+          "braking": 4160,
           "brakeFriction": 5,
           "brakeFactor": 2,
           "stopThreshold": 10,
