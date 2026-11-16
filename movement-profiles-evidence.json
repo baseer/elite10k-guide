@@ -79,8 +79,8 @@
       "name": "Elite10K",
       "maxSpeed": 940,
       "acceleration": 5000,
-      "fastAcceleration": 48000,
-      "fastThreshold": 300,
+      "fastAcceleration": 96000,
+      "fastThreshold": 200,
       "friction": 14,
       "braking": 2080,
       "brakeFriction": 5,
@@ -107,12 +107,12 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "CBC4AD7398D9FFE25A34DFF32C6CE5AA0C9F1937EE214C4AAA77A31509C7DB52",
+    "pakSha256": "F2CC9C188610A47531B832808522707B40197003480F8659B4C30944B71407CD",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.02/initial48000-threshold300/report.json",
+    "source": "elite-v2.02/match-v201/report.json",
     "selectedRelease": "2.02",
     "comparisonRelease": "2.01",
-    "method": "Native initial48000 normal5000 transition300 active/persistent braking2080. Other release profiles independently preserved."
+    "method": "v2.02 gameplay exactly matches final v2.01: native initial96000 normal5000 transition200 braking2080."
   },
   "equations": {
     "boost": "a(v)=fast*(1-clamp(abs(v)/profile.fastThreshold,0,1))+normal*clamp(abs(v)/profile.fastThreshold,0,1)",
@@ -253,7 +253,7 @@
       ]
     },
     "2.02": {
-      "pakSha256": "CBC4AD7398D9FFE25A34DFF32C6CE5AA0C9F1937EE214C4AAA77A31509C7DB52",
+      "pakSha256": "F2CC9C188610A47531B832808522707B40197003480F8659B4C30944B71407CD",
       "profiles": [
         {
           "id": "stock",
@@ -297,8 +297,8 @@
           "name": "Elite10K",
           "maxSpeed": 940,
           "acceleration": 5000,
-          "fastAcceleration": 48000,
-          "fastThreshold": 300,
+          "fastAcceleration": 96000,
+          "fastThreshold": 200,
           "friction": 14,
           "braking": 2080,
           "brakeFriction": 5,

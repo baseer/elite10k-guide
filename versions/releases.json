@@ -4577,12 +4577,12 @@
   },
   {
     "version": "2.02",
-    "sha256": "CBC4AD7398D9FFE25A34DFF32C6CE5AA0C9F1937EE214C4AAA77A31509C7DB52",
-    "revision": "v2.02: initial acceleration 48,000; normal 5,000; transition 300 UU/s; braking 2,080; Flak ball 94% / normal rockets 91% of B19",
+    "sha256": "F2CC9C188610A47531B832808522707B40197003480F8659B4C30944B71407CD",
+    "revision": "v2.02: gameplay identical to final v2.01; initial96,000 normal5,000 transition200 braking2,080 Flak94% rocket91%",
     "source": {
-      "receipt": "elite-v2.02/initial48000-threshold300/report.json",
-      "artifact": "elite-v2.02/initial48000-threshold300/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Verified installed client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups. Only existing initial acceleration16200->48000 and transition400->300 float literals changed. Other payloads preserved; runtime feel acceptance pending."
+      "receipt": "elite-v2.02/match-v201/report.json",
+      "artifact": "elite-v2.02/match-v201/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "All1610function bytecodes and all non-branding payloads byte-identical to final v2.01 artifact4B62DAD3.... Only version label and registry label changed. Matching client/server, redirect full download, launcher guard, HUD preservation, Pure startup and comparison pickups verified."
     },
     "model": {
       "combo": {
@@ -4774,8 +4774,8 @@
             "name": "Elite10K",
             "maxSpeed": 940,
             "acceleration": 5000,
-            "fastAcceleration": 48000,
-            "fastThreshold": 300,
+            "fastAcceleration": 96000,
+            "fastThreshold": 200,
             "friction": 14,
             "braking": 2080,
             "brakeFriction": 5,
