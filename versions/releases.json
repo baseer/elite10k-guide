@@ -4135,12 +4135,12 @@
   },
   {
     "version": "2.0",
-    "sha256": "A5B4753E22AAD7B90C80937CCA15AB98BBC6E887BD714C40CC0ED47B3E90E2D2",
-    "revision": "Final v2.0: Flak decay over 1–2 tuning dodges; early grenade recovery retained; Stock and UT+ comparisons",
+    "sha256": "FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E",
+    "revision": "Installed v2.0: rifle traces 7.5 UU, Sniper headshot scales 1.15, Lightning headshots disabled, Flak ball 92.5% of B19",
     "source": {
-      "receipt": "elite-v2.0/latest-release.json",
-      "artifact": "elite-v2.0/flak-decay1-2/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Preserved final package hash verified. Matching client/server installation and redirect verified in release receipt. Flak decay is native age-based; in-game distance acceptance pending. Early grenade recovery passed fixed-delay client/server tests at measured 312/624 ms; loss/jitter, queued switches and changing fire-rate cases remain unverified."
+      "receipt": "elite-v2.0/ball925/report.json",
+      "artifact": "elite-v2.0/ball925/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved installed artifact SHA256 verified. Matching client/server, full HTTP redirect checksums and server startup verified. Only existing tuning parameters changed for these rifle and ball revisions; all 1,610 function bytecodes preserved. Combat acceptance remains pending. Earlier early-grenade recovery passed fixed-delay client/server tests at measured 312/624 ms; loss/jitter, queued switches and changing fire-rate cases remain unverified."
     },
     "model": {
       "combo": {
@@ -4151,7 +4151,7 @@
         "falloff": 1.5,
         "baseBoost": 0
       },
-      "trace": 10,
+      "trace": 7.5,
       "shockInterval": 0.49451,
       "shockSwitch": 0.15,
       "stinger": {
@@ -4226,16 +4226,16 @@
       "rocketDeadline": false,
       "headshots": {
         "sniper": [
-          1.2,
-          1.2,
-          1.2,
-          1.2
+          1.15,
+          1.15,
+          1.15,
+          1.15
         ],
         "lightning": [
-          1,
-          1,
-          1,
-          1
+          0,
+          0,
+          0,
+          0
         ]
       },
       "hammer": {
@@ -4281,7 +4281,13 @@
         1.05,
         0.895,
         0.74
-      ]
+      ],
+      "lightningHeadshotsEnabled": false,
+      "flakBall": {
+        "initialSpeed": 3006.25,
+        "maximumSpeed": 6364,
+        "percentB19": 92.5
+      }
     }
   }
 ]

@@ -306,7 +306,8 @@
         "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,006.25/6,364 UU/s. Ball-spawned shards are separate from the primary model.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
         "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v2.0 endpoint is approximately 2 tuning dodge distances of 700 UU.",
-        "Compared with both Stock and UT+, the 10K ball launches 20.25% faster (3,006.25 vs 2,500 UU/s) and has a 6.07% higher cap (6,364 vs 6,000 UU/s)."
+        "Compared with both Stock and UT+, the 10K ball launches 20.25% faster (3,006.25 vs 2,500 UU/s) and has a 6.07% higher cap (6,364 vs 6,000 UU/s).",
+        "A later 93% B19 ball-speed build (3,022.5 initial / 6,398.4 maximum UU/s) is staged only, not installed. The installed speeds above remain 3,006.25 / 6,364 UU/s (92.5%)."
       ],
       "lab": "flak",
       "comparisonColumns": [
@@ -849,8 +850,8 @@
     {
       "id": "sniper",
       "name": "Sniper Rifle",
-      "tag": "Less push",
-      "summary": "70 body / 140 headshot damage, 10-UU trace half-size and no shot momentum.",
+      "tag": "7.5-UU trace · 1.15× head",
+      "summary": "70 body / 140 headshot damage, 7.5-UU trace radius and 1.15× headshot radius in all four shooter states.",
       "rows": [
         {
           "label": "Normal fire model",
@@ -891,8 +892,8 @@
         {
           "label": "Trace half-size",
           "b19": "15 UU",
-          "elite": "10 UU",
-          "note": "Added allowance per side. Player capsule size remains separate.",
+          "elite": "7.5 UU",
+          "note": "Added body-hit allowance per side of the aim line. This is separate from the headshot sphere. Both packaged rifle defaults and their replicated trace-controller defaults are 7.5 UU.",
           "stock": "0 UU · line trace",
           "utplus": "0 UU · line trace",
           "ncp": "0 UU · line trace"
@@ -900,7 +901,7 @@
         {
           "label": "Full normal-shot thickness",
           "b19": "30 UU",
-          "elite": "20 UU added",
+          "elite": "15 UU added",
           "note": "",
           "stock": "0 UU added · line trace",
           "utplus": "0 UU added · line trace",
@@ -909,8 +910,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "110 UU · 137.5% of Stock",
-          "elite": "100 UU · 125% of line trace",
-          "note": "",
+          "elite": "95 UU · 118.75% of line trace",
+          "note": "80 + 2 × 7.5 = 95 UU. This is 86.36% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
           "stock": "80 UU · 100% of Stock",
           "utplus": "80 UU · 100% of Stock",
           "ncp": "80 UU · 100% of Stock"
@@ -975,8 +976,8 @@
           "stock": "1.4×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1.2×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "1.15×",
+          "note": "Selected by the shooter’s movement state, not the victim’s. All four 10K defaults now match B19 aimed/running (1.15×); B19 stopped/slow remain 1.65×."
         },
         {
           "label": "Headshot radius scale · shooter slow",
@@ -984,8 +985,8 @@
           "stock": "1.4×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1.2×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "1.15×",
+          "note": "Selected by the shooter’s movement state, not the victim’s. All four 10K defaults now match B19 aimed/running (1.15×); B19 stopped/slow remain 1.65×."
         },
         {
           "label": "Headshot radius scale · shooter aimed",
@@ -993,8 +994,8 @@
           "stock": "1×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1.2×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "1.15×",
+          "note": "Selected by the shooter’s movement state, not the victim’s. All four 10K defaults now match B19 aimed/running (1.15×); B19 stopped/slow remain 1.65×."
         },
         {
           "label": "Headshot radius scale · shooter running",
@@ -1002,8 +1003,8 @@
           "stock": "1×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1.2×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "1.15×",
+          "note": "Selected by the shooter’s movement state, not the victim’s. All four 10K defaults now match B19 aimed/running (1.15×); B19 stopped/slow remain 1.65×."
         },
         {
           "label": "Headshot geometry",
@@ -1020,7 +1021,7 @@
           "stock": "15,907 UU² · 100.0% of line-trace example",
           "utplus": "15,907 UU² · 100.0% of line-trace example",
           "ncp": "15,907 UU² · 100.0% of line-trace example",
-          "elite": "21,454 UU² · 134.9% of line-trace example",
+          "elite": "20,008 UU² · 125.8% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         },
         {
@@ -1029,17 +1030,18 @@
           "stock": "54,287 UU² · 100.0% of line-trace example",
           "utplus": "54,287 UU² · 100.0% of line-trace example",
           "ncp": "54,287 UU² · 100.0% of line-trace example",
-          "elite": "74,142 UU² · 136.6% of line-trace example",
+          "elite": "68,942 UU² · 127.0% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         }
       ],
       "notes": [
-        "Normal hitscan uses 10 UU of added allowance on each side of the aim line. Body/headshot damage is 70/140; firing interval is 1.36 s.",
-        "An example 80-UU target has 100 UU effective body-hit width: 80 + 2 × 10. This is 90.9090909090909% of B19 Sniper’s 110-UU example.",
-        "The 20-UU full shot thickness describes added allowance, not player size or hit probability. Headshot tests, obstruction and server settings remain separate.",
-        "B19 Sniper uses 15-UU trace half-size. Stock, UT+ and NCP Sniper use zero added thickness.",
-        "Headshot radius scales: 1.2 / 1.2 / 1.2 / 1.2 for stopped / slow / aimed / running SHOOTER states. They are independent of headshot damage and the body trace. Final v1.81 uses 1.15× throughout; final v1.82 uses 1.2× throughout.",
-        "The sniper tracer and lingering smoky streak match v1.82: original yellow effect, smoke length, lifetime, opacity and native fade."
+        "Normal hitscan has 7.5 UU of added allowance per side (15 UU full thickness). Body/headshot damage remains 70/140; firing interval remains 1.36 game seconds.",
+        "All four headshot radius scales are 1.15×: stopped, slow, aimed and running. These are the shooter’s states. Victim movement does not select the weapon multiplier.",
+        "B19 uses 1.65× for stopped/slow and 1.15× for aimed/running. Therefore 10K matches B19 aimed/running, while its stopped/slow head radius is about 30.3% smaller. B19’s extra stationary head allowance is not retained.",
+        "Compared with the previous 1.2× 10K setting, the configured head radius is 4.17% smaller. This does not reduce 140 headshot damage or change the body capsule.",
+        "For an illustrative 80-UU body capsule, the effective body-hit width is 95 UU: 80 + 2 × 7.5. B19 Sniper’s 15-UU trace gives 110 UU; 10K is 86.36% as wide in this example. These are body-hit allowances, not headshot area or hit probability.",
+        "Stock, UT+ and NCP Sniper use zero added trace thickness; a line trace still hits the full target capsule. Headshot eligibility, obstruction and server overrides remain separate.",
+        "The sniper tracer and lingering smoky streak are unchanged: original yellow effect, smoke length, lifetime, opacity and native fade."
       ],
       "lab": "sniper",
       "comparisonColumns": [
@@ -1061,7 +1063,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v1.83"
+          "label": "Elite10K v2.0"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1070,7 +1072,7 @@
       "id": "lightning",
       "name": "Lightning Rifle",
       "tag": "Hitscan replacement",
-      "summary": "70 normal body damage; charged headshots use 1× stopped and 1× running head-radius scales.",
+      "summary": "70 normal / 85 charged body damage, 7.5-UU hitscan trace; headshots disabled with zero headshot size parameters.",
       "rows": [
         {
           "label": "Map weapon replacement",
@@ -1111,8 +1113,8 @@
         {
           "label": "Normal shot trace half-size",
           "b19": "Projectile primary",
-          "elite": "10 UU · 66.7% of B19 Sniper",
-          "note": "Trace half-size is the added hit allowance on each side of the aim line, not the size of the player. Doubling it gives the full shot thickness: 15 UU becomes 30 UU across; 10 UU becomes 20 UU across. Elite10K’s 20-UU trace is 66.7% as wide as B19 Sniper’s 30-UU trace (33.3% narrower). B19 Lightning uses a projectile primary, so this percentage compares with B19 Sniper, not B19 Lightning.",
+          "elite": "7.5 UU · 50% of B19 Sniper",
+          "note": "7.5 UU added per side gives 15 UU full trace thickness, half of B19 Sniper’s 30 UU. B19 Lightning’s normal shot is a projectile, so this width comparison uses B19 Sniper.",
           "stock": "Projectile; not a hitscan trace",
           "utplus": "0 UU · line trace",
           "ncp": "0 UU · line trace"
@@ -1120,7 +1122,7 @@
         {
           "label": "Full normal-shot thickness",
           "b19": "Projectile primary; no hitscan width",
-          "elite": "20 UU added",
+          "elite": "15 UU added",
           "note": "",
           "stock": "Projectile; separate collision rules",
           "utplus": "0 UU added · line trace",
@@ -1129,8 +1131,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "Projectile; separate collision rules",
-          "elite": "100 UU · 125% of line trace",
-          "note": "",
+          "elite": "95 UU · 118.75% of line trace",
+          "note": "80 + 2 × 7.5 = 95 UU. This is 86.36% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
           "stock": "Projectile; separate collision rules",
           "utplus": "80 UU · 100% of line-trace example",
           "ncp": "80 UU · 100% of line-trace example"
@@ -1138,8 +1140,8 @@
         {
           "label": "Charged body / headshot",
           "b19": "Stock charged behavior",
-          "elite": "85 / 140",
-          "note": "",
+          "elite": "85 body / headshots disabled",
+          "note": "A shot through the head uses ordinary charged body damage; the dormant 140 headshot-damage value is not an active damage mode.",
           "stock": "85 / 125",
           "utplus": "No charged shot; zoom only",
           "ncp": "No charged shot; zoom only"
@@ -1168,8 +1170,8 @@
           "utplus": "No charged beam",
           "ncp": "No charged beam",
           "b19": "5 / 10 UU",
-          "elite": "10 / 20 UU",
-          "note": "Stock/B19 primary is a projectile, but its charged shot is hitscan. The 10K charged trace is 200% of Stock’s thickness; for an 80-UU target, effective widths are 100 versus 90 UU (111.1%)."
+          "elite": "7.5 / 15 UU",
+          "note": "The charged beam shares the same 7.5-UU trace allowance as normal 10K Lightning. Stock/B19 charged beam is 5/10 UU; the normal Stock/B19 shot is a projectile."
         },
         {
           "label": "Trace half-size",
@@ -1177,8 +1179,8 @@
           "stock": "Native behavior",
           "utplus": "Native behavior",
           "ncp": "Native behavior",
-          "elite": "10 UU",
-          "note": "Added allowance per side. Player capsule size remains separate."
+          "elite": "7.5 UU",
+          "note": "Added body-hit allowance per side of the aim line. This is separate from the headshot sphere. Both packaged rifle defaults and their replicated trace-controller defaults are 7.5 UU."
         },
         {
           "label": "Attack interactions (v1.8 policy)",
@@ -1204,8 +1206,8 @@
           "stock": "1.4×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "0× · disabled",
+          "note": "All four existing headshot size parameters are zero. The native head-sphere test cannot accept a zero-radius sphere; normal and charged body damage remain unchanged."
         },
         {
           "label": "Headshot radius scale · shooter slow",
@@ -1213,8 +1215,8 @@
           "stock": "1.4×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "0× · disabled",
+          "note": "All four existing headshot size parameters are zero. The native head-sphere test cannot accept a zero-radius sphere; normal and charged body damage remain unchanged."
         },
         {
           "label": "Headshot radius scale · shooter aimed",
@@ -1222,8 +1224,8 @@
           "stock": "1×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "0× · disabled",
+          "note": "All four existing headshot size parameters are zero. The native head-sphere test cannot accept a zero-radius sphere; normal and charged body damage remain unchanged."
         },
         {
           "label": "Headshot radius scale · shooter running",
@@ -1231,8 +1233,8 @@
           "stock": "1×",
           "utplus": "1.1×",
           "ncp": "0.95×",
-          "elite": "1×",
-          "note": "Native state selection uses shooter movement, not victim movement. Body trace allowance and damage are separate."
+          "elite": "0× · disabled",
+          "note": "All four existing headshot size parameters are zero. The native head-sphere test cannot accept a zero-radius sphere; normal and charged body damage remain unchanged."
         },
         {
           "label": "Headshot geometry",
@@ -1240,8 +1242,8 @@
           "stock": "Separate scaled head-sphere test",
           "utplus": "Separate scaled head-sphere test",
           "ncp": "Separate scaled head-sphere test",
-          "elite": "Separate scaled head-sphere test",
-          "note": "Weapon headshot scales do not change the body capsule or add trace thickness."
+          "elite": "Disabled · zero-radius head test",
+          "note": "Parameter-only change to Stopped/Slow/Aimed/RunningHeadshotScale. No firing code replacement; charge and native chain behavior are preserved."
         },
         {
           "label": "Effective front-on area · 80×216 UU example",
@@ -1249,7 +1251,7 @@
           "stock": "Charged beam only: 18,602 UU² · 116.9% of line-trace example",
           "utplus": "15,907 UU² · 100.0% of line-trace example",
           "ncp": "15,907 UU² · 100.0% of line-trace example",
-          "elite": "21,454 UU² · 134.9% of line-trace example",
+          "elite": "20,008 UU² · 125.8% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         },
         {
@@ -1258,7 +1260,7 @@
           "stock": "Charged beam only: 63,900 UU² · 117.7% of line-trace example",
           "utplus": "54,287 UU² · 100.0% of line-trace example",
           "ncp": "54,287 UU² · 100.0% of line-trace example",
-          "elite": "74,142 UU² · 136.6% of line-trace example",
+          "elite": "68,942 UU² · 127.0% of line-trace example",
           "note": "Illustrative expanded capsule using the same geometry as the body diagram; not headshot area or hit probability."
         },
         {
@@ -1267,8 +1269,8 @@
           "stock": "125",
           "utplus": "No charged shot",
           "ncp": "No charged shot",
-          "elite": "140",
-          "note": "Applies to an eligible fully powered headshot, not an uncharged normal hit."
+          "elite": "Disabled",
+          "note": "The stored 140 value remains dormant because every headshot radius scale is zero."
         },
         {
           "label": "Native headshot eligibility",
@@ -1276,15 +1278,25 @@
           "stock": "Fully powered charged shot",
           "utplus": "No charged shot; zoom only",
           "ncp": "No charged shot; zoom only",
-          "elite": "Fully powered (charged) firing state",
-          "note": "Native Lightning CanHeadShot reads the same powered-state flag used for FullPowerBonusDamage."
+          "elite": "No eligible headshot at zero scale",
+          "note": "Fully charging still gives the native charged body/chain behavior, but no headshot bonus or headshot classification."
+        },
+        {
+          "label": "Charged chain radius",
+          "stock": "800 UU · native chain",
+          "utplus": "No charged shot; zoom only",
+          "ncp": "No charged shot; zoom only",
+          "b19": "800 UU · native chain",
+          "elite": "800 UU from hit location",
+          "note": "Nearby eligible targets must pass the native visibility and target checks. This is charged chain damage, not a conventional explosive splash profile. The radius is unchanged by headshot removal."
         }
       ],
       "notes": [
-        "Normal uncharged fire deals 70 body damage. Headshots require the native fully powered firing state; the charged profile is 85 body / 140 headshot damage.",
-        "The headshot radius scales are 1 / 1 / 1 / 1 for stopped / slow / aimed / running SHOOTER states. Victim movement does not select these multipliers.",
-        "This head-sphere check is separate from the 10-UU body trace half-size and its body-hit allowance. It does not resize the player’s body capsule.",
-        "From v1.81, the stationary and slow multipliers match the existing moving values: Lightning is 1.0× in all four states. Stock/B19 normal Lightning is a projectile; their charged beam uses its own native headshot rules."
+        "Headshots are disabled. Normal and charged direct hits retain 70 and 85 body damage, including shots aimed at the head.",
+        "All four existing headshot radius multipliers are zero. This disables the separate native head-sphere acceptance test; it does not shrink the body capsule or the 7.5-UU shot trace.",
+        "Charge timing and native chain damage are preserved. Charged chaining searches up to 800 UU from the hit location (about 1.14 of the 700-UU tuning dodge distances); visibility and native eligibility still matter.",
+        "The area effect is charged chain damage to nearby targets, rather than ordinary explosive splash. Removing headshots does not remove charging or the charged body-damage bonus.",
+        "Earlier releases shown in the version selector can still have charged Lightning headshots. This installed v2.0 revision uses zero headshot scales."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -1306,7 +1318,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v1.83"
+          "label": "Elite10K v2.0"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1733,7 +1745,7 @@
           "label": "Elite10K Settings",
           "b19": "Not available in original B19",
           "elite": "Type 10kSettings (or 10ksettings)",
-          "note": "Sliders and decimal input boxes for radius and opacity, a switch-indicator toggle, per-row Default buttons, Apply, and Close. Defaults are clearly labeled."
+          "note": "Local visual preferences: no host or admin rights required. The command is provided by a current 10K weapon or the updated optional 10K HUD. Some early v1.98 revisions predate this menu."
         },
         {
           "label": "Apply and default behavior",
@@ -1745,7 +1757,8 @@
       "notes": [
         "Preferences affect only your view; weapon balance, firing timing and other players are unchanged.",
         "Native aiming and lock indicators remain visible when custom loading rings are hidden.",
-        "Joining an older server can replace the installed pak. That does not replace the preserved final development artifact or change which release this guide describes."
+        "Joining an older server can replace the installed pak. That does not replace the preserved final development artifact or change which release this guide describes.",
+        "If 10kSettings is unrecognized, equip a 10K weapon or use the updated 10K HUD. B19/stock weapons do not provide the 10K weapon command. The visible version number alone does not distinguish early and final v1.98 packages."
       ],
       "lab": null
     },
@@ -1758,8 +1771,8 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v2.0",
-          "note": "Final completed revision; intermediate tuning builds are excluded."
+          "elite": "Elite10K v2.0 · installed 92.5% ball revision",
+          "note": "Includes Sniper 1.15× scales, both rifle traces 7.5 UU and Lightning zero headshot scales. A prepared 93% ball build is explicitly staged only."
         },
         {
           "label": "Optional full-screen HUD",
@@ -1787,21 +1800,22 @@
         }
       ],
       "notes": [
-        "Final weapons package SHA256: A5B4753E22AAD7B90C80937CCA15AB98BBC6E887BD714C40CC0ED47B3E90E2D2.",
+        "Installed weapons package SHA256: FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
-        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
+        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here.",
+        "The public comparison describes the installed 92.5% Flak ball revision. The separately staged 93% build has not been deployed. Server speed is separately configured at 1.0; package timing values are game seconds."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "A5B4753E22AAD7B90C80937CCA15AB98BBC6E887BD714C40CC0ED47B3E90E2D2",
-  "verifiedDate": "2026-11-15",
+  "packageSha256": "FC0BD8EF10ED26B95F5F2BF70EA445DF08A6638F5249B9CD7D4E623AAF21E73E",
+  "verifiedDate": "2026-11-16",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "Final v2.0: Flak decay over 1–2 tuning dodges; early grenade recovery retained; Stock and UT+ comparisons",
+  "revision": "Installed v2.0: rifle traces 7.5 UU, Sniper headshot scales 1.15, Lightning headshots disabled, Flak ball 92.5% of B19",
   "model": {
     "combo": {
       "max": 210,
@@ -1811,7 +1825,7 @@
       "falloff": 1.5,
       "baseBoost": 0
     },
-    "trace": 10,
+    "trace": 7.5,
     "shockInterval": 0.49451,
     "shockSwitch": 0.15,
     "stinger": {
@@ -1886,16 +1900,16 @@
     "rocketDeadline": false,
     "headshots": {
       "sniper": [
-        1.2,
-        1.2,
-        1.2,
-        1.2
+        1.15,
+        1.15,
+        1.15,
+        1.15
       ],
       "lightning": [
-        1,
-        1,
-        1,
-        1
+        0,
+        0,
+        0,
+        0
       ]
     },
     "hammer": {
@@ -1941,12 +1955,18 @@
       1.05,
       0.895,
       0.74
-    ]
+    ],
+    "lightningHeadshotsEnabled": false,
+    "flakBall": {
+      "initialSpeed": 3006.25,
+      "maximumSpeed": 6364,
+      "percentB19": 92.5
+    }
   },
   "releaseSource": {
-    "receipt": "elite-v2.0/latest-release.json",
-    "artifact": "elite-v2.0/flak-decay1-2/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved final package hash verified. Matching client/server installation and redirect verified in release receipt. Flak decay is native age-based; in-game distance acceptance pending. Early grenade recovery passed fixed-delay client/server tests at measured 312/624 ms; loss/jitter, queued switches and changing fire-rate cases remain unverified."
+    "receipt": "elite-v2.0/ball925/report.json",
+    "artifact": "elite-v2.0/ball925/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved installed artifact SHA256 verified. Matching client/server, full HTTP redirect checksums and server startup verified. Only existing tuning parameters changed for these rifle and ball revisions; all 1,610 function bytecodes preserved. Combat acceptance remains pending. Earlier early-grenade recovery passed fixed-delay client/server tests at measured 312/624 ms; loss/jitter, queued switches and changing fire-rate cases remain unverified."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -1993,5 +2013,15 @@
       "note": "Controls your colored weapon-switch indicator; the menu uses a sliding toggle with an On/Off label."
     }
   ],
-  "settingsMenu": true
+  "settingsMenu": true,
+  "pendingRevision": {
+    "status": "Staged only — not installed",
+    "artifact": "elite-v2.0/ball930/Elite10K-WindowsNoEditor.pak.pending",
+    "sha256": "BDB5C2F31D8CA3A0AB238F511BFC0F935EC8F4F837E59C4A755BE6463900A7EF",
+    "flakBallPercentB19": 93,
+    "flakBallInitialSpeed": 3022.5,
+    "flakBallMaximumSpeed": 6398.4,
+    "note": "The requested 93% Flak ball build is prepared. Installation and server restart await explicit deployment approval. The installed comparison below remains 92.5%."
+  },
+  "releaseNotice": "Installed v2.0: Sniper and Lightning traces 7.5 UU; Sniper headshot scale 1.15 in every shooter state; Lightning headshots disabled. Flak ball is installed at 92.5% of B19. A separate 93% ball build is staged only."
 }
