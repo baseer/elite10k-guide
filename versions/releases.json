@@ -4353,12 +4353,12 @@
   },
   {
     "version": "2.01",
-    "sha256": "14909867692BD6DB081D8BF5A822CC267CB1770F65845FF0893C9AF8FD3EA345",
-    "revision": "v2.01: normal acceleration 5,000; initial 72,000; transition 200 UU/s; braking 2,080; Flak ball 94% / normal rockets 91% of B19",
+    "sha256": "4B62DAD3A135ACADDC50468AFC4AC4F6316536D0DAAEA6A15CEAA7C1731080A0",
+    "revision": "v2.01: initial acceleration 96,000; normal 5,000; transition 200 UU/s; braking 2,080; Flak ball 94% / normal rockets 91% of B19",
     "source": {
-      "receipt": "elite-v2.01/normal5000-initial72000/report.json",
-      "artifact": "elite-v2.01/normal5000-initial72000/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Verified artifact hash, matching installed client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups. Only existing MaxAcceleration float7500->5000 changed in this revision; initial72000 and all other settings preserved. Runtime feel acceptance pending."
+      "receipt": "elite-v2.01/initial96000-final/report.json",
+      "artifact": "elite-v2.01/ball94-rocket91-braking2080/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved artifact hash verified; matching client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups verified at installation. Runtime feel acceptance pending."
     },
     "model": {
       "combo": {
@@ -4550,8 +4550,232 @@
             "name": "Elite10K",
             "maxSpeed": 940,
             "acceleration": 5000,
-            "fastAcceleration": 72000,
+            "fastAcceleration": 96000,
             "fastThreshold": 200,
+            "friction": 14,
+            "braking": 2080,
+            "brakeFriction": 5,
+            "brakeFactor": 2,
+            "stopThreshold": 10,
+            "groundReset": 0.01,
+            "wallReset": 0.01,
+            "dodgeJumpReset": 0.01,
+            "airControl": 0.7,
+            "dodgeAirControl": 0.7
+          }
+        ],
+        "dt": 0.001,
+        "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded."
+      },
+      "normalRocket": {
+        "initialSpeed": 2912,
+        "maximumSpeed": 4732,
+        "percentB19": 91,
+        "acceleration": 600
+      }
+    }
+  },
+  {
+    "version": "2.02",
+    "sha256": "7646DF32F47EB242D771989BA2D4EDBEC1AEC691F17AA0A36B680B45260D86B0",
+    "revision": "v2.02: initial acceleration 16,200; normal 5,000; transition 400 UU/s; braking 2,080; Flak ball 94% / normal rockets 91% of B19",
+    "source": {
+      "receipt": "elite-v2.02/initial16200-threshold400/report.json",
+      "artifact": "elite-v2.02/initial16200-threshold400/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved artifact hash verified; matching client/server, full redirect download, launcher guard, HUD preservation, Pure startup and comparison pickups verified at installation. Runtime feel acceptance pending."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 7.5,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.475,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "regularInterval": 0.148,
+        "recoveryDuringFallback": false,
+        "primaryPausesRecovery": true,
+        "heldBurstPausesRecovery": true,
+        "shotBasedQuietConfirmation": true,
+        "fallbackAddsDebt": false,
+        "nativeScheduling": true,
+        "prefixCooldown": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 700,
+        "end": 1400,
+        "interval": 0.9,
+        "nativeTime": true,
+        "delay": 0.05384615436196327,
+        "floorAge": 0.10769230993629929,
+        "speed": 13000,
+        "storedBase": [
+          10.399999618530273,
+          20.799999237060547
+        ],
+        "storedMinimum": [
+          4,
+          8
+        ],
+        "multiplier": 1,
+        "base": 10.399999618530273,
+        "minimum": 4,
+        "centralBase": 20.799999237060547,
+        "attenuation": 118.85713195800781
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.15,
+          1.15,
+          1.15,
+          1.15
+        ],
+        "lightning": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "native": true,
+        "maxShreddedTime": 0.15
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41,
+      "linkAmmo": {
+        "maximum": 135,
+        "weaponPickup": 90,
+        "normalAmmoPickup": 45,
+        "primaryCost": 1,
+        "secondaryCost": 2,
+        "secondaryInterval": 0.23,
+        "successfulPullCost": 3
+      },
+      "linkCore": {
+        "whiteEndpoint": 0.6,
+        "opacity": 1,
+        "highlightExponent": 2
+      },
+      "rocketRingScaleFromV196": 0.95,
+      "localVisualSettings": true,
+      "rocketRingRadiusScale": {
+        "min": 0,
+        "max": 1.75,
+        "default": 1
+      },
+      "rocketRingOpacity": {
+        "min": 0,
+        "max": 1,
+        "default": 0.875
+      },
+      "rocketRingPulseWhiteTint": 0.135,
+      "earlyGrenadeRecovery": [
+        1.05,
+        0.895,
+        0.74
+      ],
+      "lightningHeadshotsEnabled": false,
+      "flakBall": {
+        "initialSpeed": 3055,
+        "maximumSpeed": 6467.2,
+        "percentB19": 94
+      },
+      "groundMovement": {
+        "profiles": [
+          {
+            "id": "stock",
+            "name": "Stock / NCP / B19",
+            "maxSpeed": 940,
+            "acceleration": 3200,
+            "fastAcceleration": 12000,
+            "fastThreshold": 200,
+            "friction": 10.5,
+            "braking": 520,
+            "brakeFriction": 5,
+            "brakeFactor": 2,
+            "stopThreshold": 10,
+            "groundReset": 0.35,
+            "wallReset": 0.2,
+            "dodgeJumpReset": 0.35,
+            "airControl": 0.55,
+            "dodgeAirControl": 0.41
+          },
+          {
+            "id": "utplus",
+            "name": "UT+",
+            "maxSpeed": 940,
+            "acceleration": 5000,
+            "fastAcceleration": 12000,
+            "fastThreshold": 200,
+            "friction": 14,
+            "braking": 520,
+            "brakeFriction": 5,
+            "brakeFactor": 2,
+            "stopThreshold": 10,
+            "groundReset": 0.35,
+            "wallReset": 0.2,
+            "dodgeJumpReset": 0.35,
+            "airControl": 0.7,
+            "dodgeAirControl": 0.7,
+            "assignedBraking": 2000
+          },
+          {
+            "id": "elite",
+            "name": "Elite10K",
+            "maxSpeed": 940,
+            "acceleration": 5000,
+            "fastAcceleration": 16200,
+            "fastThreshold": 400,
             "friction": 14,
             "braking": 2080,
             "brakeFriction": 5,
