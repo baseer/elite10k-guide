@@ -376,8 +376,8 @@
         {
           "label": "Loading ring size",
           "b19": "Native behavior",
-          "elite": "67.5% of pre-v1.87 size",
-          "note": "Ring centers unchanged; v1.90 applies a further 10% reduction."
+          "elite": "95% of final v1.96 size at default radius scale",
+          "note": "Final v1.98 loading-ring blueprint and material are byte-identical to final v2.01. Local radius scale 0–1.75 and opacity 0–1; either zero hides custom rings. The previous 67.5% entry was stale."
         },
         {
           "label": "Loaded inventory safety",

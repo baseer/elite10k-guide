@@ -1,0 +1,19 @@
+{
+  "verifiedDate": "2026-11-16",
+  "packages": [
+    {
+      "version": "1.98",
+      "sha256": "6E8946E3D3E9D2E639997CBD4C1025F8D319F8DB11EA7640035C40A3401B9C0E"
+    },
+    {
+      "version": "2.01",
+      "sha256": "4B62DAD3A135ACADDC50468AFC4AC4F6316536D0DAAEA6A15CEAA7C1731080A0"
+    }
+  ],
+  "ringBlueprint": "Elite10K/HUD105/BP_RocketHudRings",
+  "ringBlueprintByteIdentical": true,
+  "ringBlueprintSha256": "1B5270C45010BED3B45EBE7002CA7C64F5F2F1BD8CFA79807D1309E58D323CEC",
+  "material": "EliteRefined/Hud105Mat/M_RocketHudRing",
+  "ringMaterialByteIdentical": true,
+  "conclusion": "Same ring size at identical saved local radius scale. Both final releases use95% of finalv1.96 size at default scale1."
+}
