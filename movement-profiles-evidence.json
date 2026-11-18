@@ -46,7 +46,7 @@
       "fastAcceleration": 56000,
       "fastThreshold": 200,
       "friction": 14,
-      "braking": 520,
+      "braking": 2080,
       "brakeFriction": 5,
       "brakeFactor": 2,
       "stopThreshold": 10,
@@ -55,8 +55,8 @@
       "dodgeJumpReset": 0.01,
       "airControl": 0.7,
       "dodgeAirControl": 0.7,
-      "assignedBraking": 2000,
-      "persistentBrakingOverride": false,
+      "assignedBraking": 2080,
+      "persistentBrakingOverride": true,
       "brakingAssignmentScope": "existing 10K owner initialization"
     }
   ],
@@ -74,12 +74,12 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "4C8DBECD912F588AFA4C8987D8CCD3F579ABF23E99720BABDD5A860DD0449BE1",
+    "pakSha256": "2303138A1A4FC78B7D14C9C6E2A442224ADD07B05287D470E870A0E9510567B3",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.04/utplus-original-braking/report.json",
+    "source": "elite-v2.04/braking2080-restored/report.json",
     "selectedRelease": "2.04",
     "comparisonRelease": "2.03",
-    "method": "Original UT+ active2000 assignment, no custom persistent setter; native default520 verified on running server. Settled braking520 simulated, existing 10K initialization retained; UT+ periodic write cadence not added."
+    "method": "Currentv2.04 active/persistentbraking2080 restored. Initial56000 normal5000 transition200. Cumulative distance and velocity charts use identical simulation samples and shared timeline."
   },
   "equations": {
     "boost": "a(v)=fast*(1-clamp(abs(v)/profile.fastThreshold,0,1))+normal*clamp(abs(v)/profile.fastThreshold,0,1)",
@@ -340,7 +340,7 @@
       ]
     },
     "2.04": {
-      "pakSha256": "4C8DBECD912F588AFA4C8987D8CCD3F579ABF23E99720BABDD5A860DD0449BE1",
+      "pakSha256": "2303138A1A4FC78B7D14C9C6E2A442224ADD07B05287D470E870A0E9510567B3",
       "profiles": [
         {
           "id": "stock",
@@ -387,7 +387,7 @@
           "fastAcceleration": 56000,
           "fastThreshold": 200,
           "friction": 14,
-          "braking": 520,
+          "braking": 2080,
           "brakeFriction": 5,
           "brakeFactor": 2,
           "stopThreshold": 10,
@@ -396,8 +396,8 @@
           "dodgeJumpReset": 0.01,
           "airControl": 0.7,
           "dodgeAirControl": 0.7,
-          "assignedBraking": 2000,
-          "persistentBrakingOverride": false,
+          "assignedBraking": 2080,
+          "persistentBrakingOverride": true,
           "brakingAssignmentScope": "existing 10K owner initialization"
         }
       ]

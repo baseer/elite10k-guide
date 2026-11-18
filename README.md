@@ -48,3 +48,5 @@ Movement percentage cards: 10K versus Stock/NCP/B19 and UT+ for the selected mod
 Latest v2.03: initial56000, Flakball93%, normalrocket90%, rifle traces10UU; shared configurable pulse, fixed toggle and B19 ball smoke/refraction, front glow preserved. SHA256 FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568. Historical snapshots unchanged.
 
 Latest v2.04: original UT+ active braking2,000, native persistent520, custom setter removed; calculator settled520. Final v2.03 checkpoint corrected and archived prior public snapshot. Primary Flak exact v1.98, initial56k, ball93.5%, normalrocket91%, selected-color-only pulse. Package 4C8DBECD912F588AFA4C8987D8CCD3F579ABF23E99720BABDD5A860DD0449BE1.
+
+Movementlab now includes cumulative distance over time above velocity, synchronizedtimeline, exactperprofilefactors andphaseequations. Currentv2.04braking2080; earlierUT+revisionarchived. Latesthash 2303138A1A4FC78B7D14C9C6E2A442224ADD07B05287D470E870A0E9510567B3.

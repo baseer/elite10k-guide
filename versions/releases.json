@@ -5053,12 +5053,12 @@
   },
   {
     "version": "2.04",
-    "sha256": "4C8DBECD912F588AFA4C8987D8CCD3F579ABF23E99720BABDD5A860DD0449BE1",
-    "revision": "v2.04: original UT+ braking assignment2,000/native520; custom persistent setter removed; final v2.03 preserved",
+    "sha256": "2303138A1A4FC78B7D14C9C6E2A442224ADD07B05287D470E870A0E9510567B3",
+    "revision": "v2.04 braking2,080 restored; initial56,000 Flakball93.5 rocket91; current movement graphs",
     "source": {
-      "receipt": "elite-v2.04/utplus-original-braking/report.json",
-      "artifact": "elite-v2.04/utplus-original-braking/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Installed artifact SHA256 verified. Original UT+ package inspected: only active braking assignment2,000; no persistent setter. Native server CDO persistent520 confirmed. All other statements/functions/assets unchanged; no new helper/timer. Client/server hashes, Pure startup, pickups, launcher and full HTTP redirect verified. Existing 10K initialization cadence preserved."
+      "receipt": "elite-v2.04/braking2080-restored/report.json",
+      "artifact": "elite-v2.04/braking2080-restored/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Installed preserved artifact hash verified. Exact previous2080 movementasset restored; otherlatestassets unchanged. Matchingclient/server, Purestartup/pickups, launcherchecksums andHTTPredirect verified."
     },
     "model": {
       "combo": {
@@ -5253,7 +5253,7 @@
             "fastAcceleration": 56000,
             "fastThreshold": 200,
             "friction": 14,
-            "braking": 520,
+            "braking": 2080,
             "brakeFriction": 5,
             "brakeFactor": 2,
             "stopThreshold": 10,
@@ -5262,13 +5262,13 @@
             "dodgeJumpReset": 0.01,
             "airControl": 0.7,
             "dodgeAirControl": 0.7,
-            "assignedBraking": 2000,
-            "persistentBrakingOverride": false,
+            "assignedBraking": 2080,
+            "persistentBrakingOverride": true,
             "brakingAssignmentScope": "existing 10K owner initialization"
           }
         ],
         "dt": 0.001,
-        "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. v2.04 models settled native braking520; its owner initialization assigns active2000 and leaves the native persistent default untouched. UT+ periodic helper-write frames are excluded; no new periodic writer was added to 10K."
+        "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. Current v2.04 restores both active and persistent braking2,080; no periodic writer."
       },
       "normalRocket": {
         "initialSpeed": 2912,
@@ -5305,9 +5305,9 @@
       },
       "preferencesBackend": "Saved/Config/Mod.ini [Elite10K.Settings]",
       "brakingInitialization": {
-        "activeAssignment": 2000,
-        "nativePersistentDefault": 520,
-        "customPersistentSetter": false,
+        "activeAssignment": 2080,
+        "persistentValue": 2080,
+        "customPersistentSetter": true,
         "periodicHelperAdded": false
       }
     }
