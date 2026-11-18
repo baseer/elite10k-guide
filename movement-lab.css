@@ -331,3 +331,8 @@
 .ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline>label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .ml-sticky-controls.is-stuck .ml-shared-timeline #ml-time,.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-playback{grid-row:1}
 .ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-footer{grid-row:2;min-height:18px;line-height:18px}
+
+/* Keep the readout inside the transport row so it adds no bottom-only space. */
+.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-row{grid-template-rows:40px}
+.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-footer{grid-column:2;grid-row:1;align-self:end;height:14px;min-height:14px;line-height:14px;pointer-events:none}
+.ml-sticky-controls.is-stuck .ml-shared-timeline #ml-current-time{line-height:14px;font-size:10px}
