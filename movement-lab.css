@@ -300,3 +300,9 @@
 #ml-playback-rate{color-scheme:dark;color:var(--ink);background-color:var(--bg)}
 #ml-playback-rate option{background-color:#20202a;color:#f4f1fa}
 #ml-playback-rate option:checked{background-color:#342b50;color:#ffffff}
+
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:144px minmax(0,1fr)}
+.ml-sticky-controls .ml-playback .ml-playback-rate,.ml-sticky-controls.is-stuck .ml-playback .ml-playback-rate{width:102px}
+.ml-sticky-controls .ml-playback-rate select,.ml-sticky-controls.is-stuck .ml-playback-rate select{width:102px;min-width:102px;padding-right:20px}
+.ml-playback-rate .ml-rate-caret{right:6px}
+@media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:144px minmax(0,1fr)}}
