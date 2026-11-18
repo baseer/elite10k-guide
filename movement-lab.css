@@ -268,3 +268,24 @@
 .ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:150px minmax(0,1fr);align-items:center}
 .ml-sticky-controls .ml-playback,.ml-sticky-controls.is-stuck .ml-playback{grid-row:1/3}
 @media(max-width:700px){.ml-mode-tools{gap:8px}.ml-mode-tools #ml-advanced-toggle{padding:0 10px;font-size:11px;gap:6px}.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:150px minmax(0,1fr);gap:4px 12px}}
+
+/* One aligned transport row, with elapsed time tucked beneath the track. */
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:138px minmax(0,1fr);grid-template-rows:40px auto;align-items:center;gap:2px 18px;margin-top:8px}
+.ml-sticky-controls .ml-playback,.ml-sticky-controls.is-stuck .ml-playback{grid-row:1;display:flex;height:40px;gap:0;background:var(--bg);border:1px solid var(--line)}
+.ml-sticky-controls #ml-play,.ml-sticky-controls.is-stuck #ml-play{width:40px;height:38px;border:0;border-right:1px solid var(--line);background:transparent}
+.ml-sticky-controls #ml-play:hover{background:var(--accent-soft)}
+.ml-sticky-controls .ml-playback .ml-playback-rate,.ml-sticky-controls.is-stuck .ml-playback .ml-playback-rate{width:96px;height:38px}
+.ml-sticky-controls .ml-playback-rate select,.ml-sticky-controls.is-stuck .ml-playback-rate select{width:96px;min-width:96px;height:38px;border:0;background:transparent;padding-left:31px;padding-right:22px;font-size:11px}
+.ml-sticky-controls .ml-timeline-row .ml-timeline{grid-column:2;grid-row:1;align-self:center}
+.ml-sticky-controls #ml-time,.ml-sticky-controls.is-stuck #ml-time{height:40px}
+.ml-sticky-controls .ml-timeline-footer{grid-column:2;grid-row:2;min-height:18px;padding:0;align-self:start}
+.ml-sticky-controls #ml-current-time{font-size:10px;color:var(--muted);line-height:18px}
+.ml-shared-heading{font-size:11px;line-height:18px}
+@media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:138px minmax(0,1fr);gap:2px 12px}.ml-sticky-controls .ml-playback,.ml-sticky-controls.is-stuck .ml-playback{grid-row:1}}
+
+#movement-lab input[type=range]{appearance:none;-webkit-appearance:none;background:transparent;cursor:pointer;touch-action:pan-y;--fill:0%}
+#movement-lab input[type=range]::-webkit-slider-runnable-track{height:5px;border:0;border-radius:0;background:linear-gradient(to right,var(--accent) 0%,var(--accent) var(--fill),#3b3847 var(--fill),#3b3847 100%)}
+#movement-lab input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:17px;height:17px;border:3px solid var(--surface2);background:var(--ink);border-radius:50%;margin-top:-6px;box-shadow:0 0 0 1px #a58ee1}
+#movement-lab input[type=range]::-moz-range-track{height:5px;border:0;border-radius:0;background:#3b3847}
+#movement-lab input[type=range]::-moz-range-progress{height:5px;background:var(--accent)}
+#movement-lab input[type=range]::-moz-range-thumb{width:11px;height:11px;border:3px solid var(--surface2);background:var(--ink);border-radius:50%;box-shadow:0 0 0 1px #a58ee1}

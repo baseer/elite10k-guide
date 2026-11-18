@@ -109,6 +109,7 @@
    out+=`<line id="ml-velocity-cursor" x1="${x(elapsed)}" x2="${x(elapsed)}" y1="${top}" y2="${H-bottom}" class="ml-cursor"/><text x="${l}" y="12">UU/s · game velocity</text>`;q('#ml-chart').innerHTML=out;
   }
   function draw(){
+   for(const range of qa('input[type=range]'))range.style.setProperty('--fill',100*(+range.value-+range.min)/(+range.max-+range.min)+'%');
    const axis='right',opposite='left',input=mode==='stop'?'Released—no direction held':mode==='reverse'?(gap?`Release input for ${n(gap,0)} ms real, then hold ${opposite}`:`Hold ${opposite} from time zero`):`Hold ${axis} from time zero`;
    const neutral=mode==='reverse'&&elapsed<gap/1000;q('#ml-input').innerHTML=`<strong>Distance timeline</strong><span>${mode==='stop'||neutral?'No direction held · Braking':mode==='reverse'?'Holding left · Accelerating to reverse direction':'Holding right · Accelerating'}</span>`;q('#ml-current-time').textContent=speed===1?n(elapsed*1000,0)+' ms':n(elapsed*1000,0)+' ms real / '+n(elapsed*speed*1000,0)+' ms game';
    const current=runs.map(run=>({run,s:sampleAt(run,elapsed*speed)}));
