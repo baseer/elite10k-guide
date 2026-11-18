@@ -1,7 +1,7 @@
 const fs=require('fs'),p=require('path'),vm=require('vm'),assert=require('assert');
 const root=__dirname,box={window:{}};vm.runInNewContext(fs.readFileSync(p.join(root,'versions-data.js'),'utf8'),box);
 const versions=box.window.ELITE_VERSIONS,history=require('./release-history.js');let cases=0;
-assert.equal(Object.keys(versions).length,45);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'2.02');
+assert.equal(Object.keys(versions).length,46);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'2.03');
 for(const [v,d] of Object.entries(versions)){
  const m=d.model,c=m.combo;
  assert.equal(d.weapons.length,12);assert.equal(d.shared.length,3);assert(/^[A-F0-9]{64}$/.test(d.packageSha256));
@@ -43,7 +43,7 @@ for(const allowance of [0,5,7.5,10,15]){
 }
 assert.equal(Math.round(bodyGeometry(10).frontArea),21454);
 assert.equal(Math.round(bodyGeometry(10).surfaceArea),74142);
-console.log('PASS',cases,'release-model cases, 45 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
+console.log('PASS',cases,'release-model cases, 46 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
 fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:45,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
 
 assert.equal(versions['1.85'].model.hammer.shieldLifetime,.75);assert.equal(versions['1.84'].model.hammer.shieldLifetime,.5);assert.equal(versions['1.85'].packageSha256,'D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D');
@@ -70,3 +70,5 @@ assert.equal(versions['2.02'].packageSha256,'F2CC9C188610A47531B832808522707B401
 assert.deepEqual(versions['2.02'].model,versions['2.01'].model);
 
 assert.equal(versions['1.98'].weapons.find(w=>w.id==='rocket').rows.find(r=>r.label==='Loading ring size').elite,versions['2.01'].weapons.find(w=>w.id==='rocket').rows.find(r=>r.label==='Loading ring size').elite);
+
+assert.equal(versions['2.03'].packageSha256,'892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3');assert.equal(versions['2.03'].model.groundMovement.profiles[2].fastAcceleration,56000);assert.equal(versions['2.03'].model.flakBall.percentB19,93);assert.equal(versions['2.03'].model.normalRocket.percentB19,90);assert.equal(versions['2.03'].model.trace,10);

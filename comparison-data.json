@@ -1,5 +1,5 @@
 {
-  "version": "2.02",
+  "version": "2.03",
   "weapons": [
     {
       "id": "shock",
@@ -155,16 +155,16 @@
         {
           "label": "Ball initial speed",
           "b19": "≈4.67 dodge lengths/s (3,250 UU/s)",
-          "elite": "3,055 UU/s (94% of B19)",
-          "note": "94% of authoritative B19 launch speed; 22.2% faster than Stock/UT+.",
+          "elite": "3,022.5 UU/s (93% of B19)",
+          "note": "93% of authoritative B19 launch speed; 20.9% faster than Stock/UT+.",
           "stock": "2,500 UU/s",
           "utplus": "2,500 UU/s"
         },
         {
           "label": "Ball maximum speed",
           "b19": "≈9.88 dodge lengths/s (6,880 UU/s)",
-          "elite": "6,467.2 UU/s (94% of B19)",
-          "note": "94% of authoritative B19 maximum speed; 7.79% higher cap than Stock/UT+.",
+          "elite": "6,398.4 UU/s (93% of B19)",
+          "note": "93% of authoritative B19 maximum speed; 6.64% higher cap than Stock/UT+.",
           "stock": "6,000 UU/s",
           "utplus": "6,000 UU/s"
         },
@@ -227,8 +227,8 @@
         {
           "label": "Flight smoke opacity",
           "b19": "Original effect",
-          "elite": "0.2 · half of earlier opacity",
-          "note": "The visible M_Rocket_trail_01 layer; all emitters retained.",
+          "elite": "Original B19 ball trail",
+          "note": "B19 smoke colors/opacity and refraction restored. Front flare/core/sparks and modified glowing front face preserved; primary shard trails unchanged.",
           "stock": "Not separately verified",
           "utplus": "Not separately verified"
         },
@@ -303,10 +303,9 @@
         "Enemy ordinary/central damage starts at 10.4/20.8 and decays with age to 4/8 between approximately 0.053846 and 0.107692 game seconds. Native hit position and other modifiers still apply.",
         "700–1,400 UU is only the straight-flight equivalent at 13,000 UU/s, not an accumulated path-distance rule.",
         "Native Shredded qualification and native momentum are restored. Secondary ball geometry, damage and speed are unchanged.",
-        "Primary shard speed is 13,000 UU/s. The secondary ball collision radius is 13 UU; its initial/maximum speeds are 3,055/6,467.2 UU/s. Ball-spawned shards are separate from the primary model.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
         "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v2.0 endpoint is approximately 2 tuning dodge distances of 700 UU.",
-        "Compared with both Stock and UT+, the 10K ball launches 22.2% faster (3,055 vs 2,500 UU/s) and has a 7.79% higher cap (6,467.2 vs 6,000 UU/s)."
+        "Alternate-fire ball initial/maximum speed is 3,022.5/6,398.4 UU/s, 93% of B19. Only its trailing smoke/refraction was restored to B19; the modified glowing yellow front face is preserved."
       ],
       "lab": "flak",
       "comparisonColumns": [
@@ -324,7 +323,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.02"
+          "label": "Elite10K v2.03"
         }
       ],
       "comparisonStyle": "projectile",
@@ -379,8 +378,8 @@
         {
           "label": "Normal rocket initial / maximum speed",
           "b19": "3,200 / 5,200 UU/s",
-          "elite": "2,912 / 4,732 UU/s · 91% of B19",
-          "note": "Both normal rocket speeds are 91% of authoritative B19; acceleration remains 600 UU/s². Seeking rockets and rocket grenades retain their prior settings.",
+          "elite": "2,880 / 4,680 UU/s · 90% of B19",
+          "note": "90% of authoritative B19 launch speed and maximum speed. Acceleration remains 600 UU/s²; seeking rockets and rocket grenades unchanged.",
           "stock": "2,750 / 2,750 UU/s",
           "utplus": "2,750 / 2,950 UU/s"
         },
@@ -512,10 +511,9 @@
         "Rocket grenades use the same finished shell and red coating as regular rockets. This changes appearance only.",
         "The rocket spins about its centered visual axis.",
         "Firing a single loaded rocket starts the HUD ring fade immediately, preventing a lingering red ring.",
-        "Normal rockets use 2,912/4,732 UU/s initial/maximum speed, 91% of B19’s 3,200/5,200; acceleration is 600 UU/s².",
         "The configured launcher uses native B19 loading and firing with 1.05-second secondary refire, 0.41-second equip time, and a pending-switch retry after a completed volley. No custom firing deadline is added.",
         "Early-selected grenade volleys use 1.05 / 0.895 / 0.74 s recovery for 1 / 2 / 3 grenades. Late or uncertain selection falls back to 1.05 s; switching back to regular rockets restores regular timing. Real client/server checks passed at measured 312/624 ms with fixed delay; loss/jitter, queued switches and changing fire-rate cases remain unverified.",
-        "Normal 10K rockets launch 5.89% faster than Stock and UT+ (2,912 vs 2,750 UU/s). Their cap is 60.41% higher than UT+ (4,732 vs 2,950) and 72.07% higher than Stock (4,732 vs 2,750). Caps are not constant flight speeds: 10K acceleration is 600 UU/s²; UT+ explicitly sets 50 UU/s²."
+        "Normal rockets use 2,880/4,680 UU/s initial/maximum speed, 90% of B19, with 600 UU/s² acceleration. Launch speed is 4.73% above Stock/UT+; maximum speed is 70.18% above Stock and 58.64% above UT+."
       ],
       "lab": "rocket",
       "comparisonColumns": [
@@ -533,7 +531,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.02"
+          "label": "Elite10K v2.03"
         }
       ],
       "comparisonStyle": "projectile",
@@ -849,8 +847,8 @@
     {
       "id": "sniper",
       "name": "Sniper Rifle",
-      "tag": "7.5-UU trace · 1.15× head",
-      "summary": "70 body / 140 headshot damage, 7.5-UU trace radius and 1.15× headshot radius in all four shooter states.",
+      "tag": "10-UU trace · 1.15× head",
+      "summary": "70 body / 140 headshot damage, 10-UU trace radius and 1.15× headshot radius in all four shooter states.",
       "rows": [
         {
           "label": "Normal fire model",
@@ -891,8 +889,8 @@
         {
           "label": "Trace half-size",
           "b19": "15 UU",
-          "elite": "7.5 UU",
-          "note": "Added body-hit allowance per side of the aim line. This is separate from the headshot sphere. Both packaged rifle defaults and their replicated trace-controller defaults are 7.5 UU.",
+          "elite": "10 UU",
+          "note": "10 UU allowance per side of the aim line, 20 UU full thickness; packaged rifle and replicated controller defaults agree. Headshot sphere settings remain separate.",
           "stock": "0 UU · line trace",
           "utplus": "0 UU · line trace",
           "ncp": "0 UU · line trace"
@@ -909,8 +907,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "110 UU · 137.5% of Stock",
-          "elite": "95 UU · 118.75% of line trace",
-          "note": "80 + 2 × 7.5 = 95 UU. This is 86.36% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
+          "elite": "100 UU · 118.75% of line trace",
+          "note": "80 + 2 × 10 = 100 UU. This is 90.91% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
           "stock": "80 UU · 100% of Stock",
           "utplus": "80 UU · 100% of Stock",
           "ncp": "80 UU · 100% of Stock"
@@ -1034,11 +1032,11 @@
         }
       ],
       "notes": [
-        "Normal hitscan has 7.5 UU of added allowance per side (15 UU full thickness). Body/headshot damage remains 70/140; firing interval remains 1.36 game seconds.",
+        "Normal hitscan has 10 UU of added allowance per side (15 UU full thickness). Body/headshot damage remains 70/140; firing interval remains 1.36 game seconds.",
         "All four headshot radius scales are 1.15×: stopped, slow, aimed and running. These are the shooter’s states. Victim movement does not select the weapon multiplier.",
         "B19 uses 1.65× for stopped/slow and 1.15× for aimed/running. Therefore 10K matches B19 aimed/running, while its stopped/slow head radius is about 30.3% smaller. B19’s extra stationary head allowance is not retained.",
         "Compared with the previous 1.2× 10K setting, the configured head radius is 4.17% smaller. This does not reduce 140 headshot damage or change the body capsule.",
-        "For an illustrative 80-UU body capsule, the effective body-hit width is 95 UU: 80 + 2 × 7.5. B19 Sniper’s 15-UU trace gives 110 UU; 10K is 86.36% as wide in this example. These are body-hit allowances, not headshot area or hit probability.",
+        "For an illustrative 80-UU body capsule, the effective body-hit width is 100 UU: 80 + 2 × 10. B19 Sniper’s 15-UU trace gives 110 UU; 10K is 90.91% as wide in this example. These are body-hit allowances, not headshot area or hit probability.",
         "Stock, UT+ and NCP Sniper use zero added trace thickness; a line trace still hits the full target capsule. Headshot eligibility, obstruction and server overrides remain separate.",
         "The sniper tracer and lingering smoky streak are unchanged: original yellow effect, smoke length, lifetime, opacity and native fade."
       ],
@@ -1062,7 +1060,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.02"
+          "label": "Elite10K v2.03"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1071,7 +1069,7 @@
       "id": "lightning",
       "name": "Lightning Rifle",
       "tag": "Hitscan replacement",
-      "summary": "70 normal / 85 charged body damage, 7.5-UU hitscan trace; headshots disabled with zero headshot size parameters.",
+      "summary": "70 normal / 85 charged body damage, 10-UU hitscan trace; headshots disabled with zero headshot size parameters.",
       "rows": [
         {
           "label": "Map weapon replacement",
@@ -1112,8 +1110,8 @@
         {
           "label": "Normal shot trace half-size",
           "b19": "Projectile primary",
-          "elite": "7.5 UU · 50% of B19 Sniper",
-          "note": "7.5 UU added per side gives 15 UU full trace thickness, half of B19 Sniper’s 30 UU. B19 Lightning’s normal shot is a projectile, so this width comparison uses B19 Sniper.",
+          "elite": "10 UU",
+          "note": "10 UU allowance per side of the aim line, 20 UU full thickness; packaged rifle and replicated controller defaults agree. Headshot sphere settings remain separate.",
           "stock": "Projectile; not a hitscan trace",
           "utplus": "0 UU · line trace",
           "ncp": "0 UU · line trace"
@@ -1130,8 +1128,8 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "Projectile; separate collision rules",
-          "elite": "95 UU · 118.75% of line trace",
-          "note": "80 + 2 × 7.5 = 95 UU. This is 86.36% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
+          "elite": "100 UU · 118.75% of line trace",
+          "note": "80 + 2 × 10 = 100 UU. This is 90.91% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
           "stock": "Projectile; separate collision rules",
           "utplus": "80 UU · 100% of line-trace example",
           "ncp": "80 UU · 100% of line-trace example"
@@ -1169,8 +1167,8 @@
           "utplus": "No charged beam",
           "ncp": "No charged beam",
           "b19": "5 / 10 UU",
-          "elite": "7.5 / 15 UU",
-          "note": "The charged beam shares the same 7.5-UU trace allowance as normal 10K Lightning. Stock/B19 charged beam is 5/10 UU; the normal Stock/B19 shot is a projectile."
+          "elite": "10 / 20 UU",
+          "note": "10 UU allowance per side of the aim line, 20 UU full thickness; packaged rifle and replicated controller defaults agree. Headshot sphere settings remain separate."
         },
         {
           "label": "Trace half-size",
@@ -1178,8 +1176,8 @@
           "stock": "Native behavior",
           "utplus": "Native behavior",
           "ncp": "Native behavior",
-          "elite": "7.5 UU",
-          "note": "Added body-hit allowance per side of the aim line. This is separate from the headshot sphere. Both packaged rifle defaults and their replicated trace-controller defaults are 7.5 UU."
+          "elite": "10 UU",
+          "note": "10 UU allowance per side of the aim line, 20 UU full thickness; packaged rifle and replicated controller defaults agree. Headshot sphere settings remain separate."
         },
         {
           "label": "Attack interactions (v1.8 policy)",
@@ -1292,7 +1290,7 @@
       ],
       "notes": [
         "Headshots are disabled. Normal and charged direct hits retain 70 and 85 body damage, including shots aimed at the head.",
-        "All four existing headshot radius multipliers are zero. This disables the separate native head-sphere acceptance test; it does not shrink the body capsule or the 7.5-UU shot trace.",
+        "All four existing headshot radius multipliers are zero. This disables the separate native head-sphere acceptance test; it does not shrink the body capsule or the 10-UU shot trace.",
         "Charge timing and native chain damage are preserved. Charged chaining searches up to 800 UU from the hit location (about 1.14 of the 700-UU tuning dodge distances); visibility and native eligibility still matter.",
         "The area effect is charged chain damage to nearby targets, rather than ordinary explosive splash. Removing headshots does not remove charging or the charged body-damage bonus.",
         "Earlier releases shown in the version selector can still have charged Lightning headshots. This installed v2.0 revision uses zero headshot scales."
@@ -1317,7 +1315,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.02"
+          "label": "Elite10K v2.03"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1589,7 +1587,7 @@
           "label": "Ground acceleration",
           "b19": "3,200 UU/s²",
           "elite": "5,000 UU/s²",
-          "note": "MaxAcceleration: v2.02, final v2.0 and UT+ 5,000; Stock/B19 3,200 UU/s². Initial acceleration is a separate low-speed parameter.",
+          "note": "MaxAcceleration: v2.03, final v2.0 and UT+ 5,000; Stock/B19 3,200 UU/s². Initial acceleration is a separate low-speed parameter.",
           "stock": "3,200 UU/s²",
           "utplus": "5,000 UU/s²",
           "ncp": "3,200 UU/s²"
@@ -1598,7 +1596,7 @@
           "label": "Walking braking / deceleration",
           "b19": "520 UU/s²",
           "elite": "2,080 UU/s²",
-          "note": "v2.02 sets both active walking braking and its persistent default to 2,080 UU/s² (final v2.0: 20,000; Stock and settled UT+: 520). Braking also acts during the neutral input gap; opposite input uses directional friction and acceleration.",
+          "note": "v2.03 sets both active walking braking and its persistent default to 2,080 UU/s² (final v2.0: 20,000; Stock and settled UT+: 520). Braking also acts during the neutral input gap; opposite input uses directional friction and acceleration.",
           "stock": "520 UU/s²",
           "utplus": "520 persistent; helper assigns 2,000",
           "ncp": "520 UU/s²"
@@ -1615,8 +1613,8 @@
         {
           "label": "Fast initial acceleration",
           "b19": "12,000 UU/s²",
-          "elite": "96,000 UU/s²",
-          "note": "v2.02 blends from 96,000 UU/s² at rest to normal 5,000 UU/s² by 200 UU/s. Final v2.0 blends from 100,000 to 5,000 by 200 UU/s. Running cap remains 940 UU/s.",
+          "elite": "56,000 UU/s²",
+          "note": "Blends from 56,000 UU/s² at rest to normal 5,000 UU/s² by 200 UU/s. The threshold is a speed range, not a delay.",
           "stock": "12,000 UU/s²",
           "utplus": "12,000 UU/s²",
           "ncp": "12,000 UU/s²"
@@ -1668,7 +1666,7 @@
         "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings.",
         "Stock, NCP and B19 share every numeric movement setting shown, so they use one movement column and one calculator profile. Attack interactions remain separate below the movement table.",
         "Movement implementation: Stock/B19 use native character movement; NCP uses its TeamArena subclass with inherited core scalar defaults. UT+ and 10K use owner movement inventories; 10K retains its custom values and disables the UT+ sync-config override. Matching values do not mean these implementations are identical.",
-        "v2.02 uses initial acceleration 96,000, normal acceleration 5,000 and braking 2,080 UU/s², with transition speed 200 UU/s. At 100 UU/s the acceleration is 50,500 UU/s². The graph marks each profile’s low-speed blend only while directional input is active."
+        "v2.03 uses initial acceleration 56,000, normal 5,000 and braking 2,080 UU/s², with a 200-UU/s transition. At 100 UU/s the blended acceleration is 30,500 UU/s². Each graph highlights its own low-speed blend only during active directional input."
       ],
       "lab": null,
       "comparisonColumns": [
@@ -1682,7 +1680,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.02"
+          "label": "Elite10K v2.03"
         }
       ],
       "comparisonStyle": "movement",
@@ -1710,7 +1708,7 @@
           },
           {
             "key": "elite",
-            "label": "Elite10K v2.02"
+            "label": "Elite10K v2.03"
           }
         ],
         "rows": [
@@ -1802,8 +1800,8 @@
         {
           "label": "Flak visible smoke opacity",
           "b19": "Native behavior",
-          "elite": "0.2",
-          "note": ""
+          "elite": "B19 ball trail restored",
+          "note": "Original smoke/refraction; modified front glow preserved."
         },
         {
           "label": "Weapon icon defaults",
@@ -1820,8 +1818,8 @@
         {
           "label": "Own weapon switch glow",
           "b19": "Original visibility",
-          "elite": "Visible in behindview 1; hidden in first person",
-          "note": "Uses the existing switch effect and timing. Other clients can receive switch state later because of network delay."
+          "elite": "Configurable shared hue-stable pulse; own glow visible in behindview 1",
+          "note": "All seven weapon colors use the same tone-aware pulse design. Extreme emission budget and settled color are preserved; bloom and scene precision can cause residual hue drift. First-person own weapon glow remains hidden."
         },
         {
           "label": "Link primary core",
@@ -1852,13 +1850,33 @@
           "b19": "Not available in original B19",
           "elite": "Apply appears only for pending value changes",
           "note": "Opening the dialog is clean. Reverting edits hides Apply. Default buttons change pending values only. Apply saves and applies; Close/Escape discard unapplied changes. Save errors retain pending edits. Applying a default removes its saved override, including manually entered or slider-selected defaults."
+        },
+        {
+          "label": "Per-weapon switch colors",
+          "b19": "Not available",
+          "elite": "Hue 0–360°, saturation 0–100%, brightness 0–4×",
+          "note": "Select Flak, Link, Rocket, Stinger, Shock, Sniper or Lightning in 10kSettings. No automatic selection. Shock defaults to brightness 2×; others 1×. Hue, saturation and brightness have separate Default buttons; stars mark pending color changes."
+        },
+        {
+          "label": "Stinger burst indicator scale",
+          "b19": "Not available",
+          "elite": "0–2×, default 1×",
+          "note": "0 hides only the custom burst indicator. Scales around its fixed center; native crosshair and gameplay are preserved."
+        },
+        {
+          "label": "Switch toggle click target",
+          "b19": "Not available",
+          "elite": "Fixed: button aligned to visible 96×36 pill",
+          "note": "Toggle changes pending state; Apply saves and updates live helpers. Close/Escape discard unapplied edits."
         }
       ],
       "notes": [
         "Preferences affect only your view; weapon balance, firing timing and other players are unchanged.",
         "Native aiming and lock indicators remain visible when custom loading rings are hidden.",
         "Joining an older server can replace the installed pak. That does not replace the preserved final development artifact or change which release this guide describes.",
-        "If 10kSettings is unrecognized, equip a 10K weapon or use the updated 10K HUD. B19/stock weapons do not provide the 10K weapon command. The visible version number alone does not distinguish early and final v1.98 packages."
+        "If 10kSettings is unrecognized, equip a 10K weapon or use the updated 10K HUD. B19/stock weapons do not provide the 10K weapon command. The visible version number alone does not distinguish early and final v1.98 packages.",
+        "Preferences use Saved/Config/Mod.ini under [Elite10K.Settings]. Default-valued keys are removed individually so future defaults are followed; old .sav settings are ignored. Apply verifies saved values before changing live effects.",
+        "The switch pill and clickable button now share position (480,344) and size 96×36; this fixes the prior 260-unit hit-target offset."
       ],
       "lab": null
     },
@@ -1871,8 +1889,8 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v2.02 · initial 96,000 / transition 200",
-          "note": "Flak ball 94%, normal rockets 91% of B19; rifle settings unchanged."
+          "elite": "Elite10K v2.03 · initial 56,000 / transition 200",
+          "note": "Flak ball 93%, normal rockets 90% of B19; rifle trace half-size 10 UU."
         },
         {
           "label": "Optional full-screen HUD",
@@ -1895,26 +1913,27 @@
         {
           "label": "Local visual preferences",
           "b19": "Not available in original B19",
-          "elite": "Elite10K Settings or the three dotted console commands",
-          "note": "Saved on your computer in Saved/SaveGames, not Game.ini. Direct commands save/apply immediately. Preferences persist across UT restarts."
+          "elite": "10kSettings; persisted in Mod.ini",
+          "note": "Saved/Config/Mod.ini, section [Elite10K.Settings]. Default keys are omitted; custom values persist. Apply verifies save/reload; failed saves retain pending edits. Old .sav preferences are ignored."
         }
       ],
       "notes": [
-        "Installed weapons package SHA256: F2CC9C188610A47531B832808522707B40197003480F8659B4C30944B71407CD.",
+        "Installed weapons package SHA256: 892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
-        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here."
+        "Server weapon replacements are separate from package defaults and are not part of the release balance shown here.",
+        "Current Pure server pickup layout: UT+ Flak, 10K Rocket Launcher (replaces the former stock Flak slot), B19 Sniper, 10K Sniper, B19 Flak, 10K Flak and 10K Shock. Server replacements remain separate from package balance."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "F2CC9C188610A47531B832808522707B40197003480F8659B4C30944B71407CD",
-  "verifiedDate": "2026-11-16",
+  "packageSha256": "892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3",
+  "verifiedDate": "2026-11-17",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "v2.02: gameplay identical to final v2.01; initial96,000 normal5,000 transition200 braking2,080 Flak94% rocket91%",
+  "revision": "v2.03: initial56,000, Flak ball93%, normal rockets90%; shared configurable switch glow, working toggle and B19 ball trail",
   "model": {
     "combo": {
       "max": 210,
@@ -1924,7 +1943,7 @@
       "falloff": 1.5,
       "baseBoost": 0
     },
-    "trace": 7.5,
+    "trace": 10,
     "shockInterval": 0.49451,
     "shockSwitch": 0.15,
     "stinger": {
@@ -2057,9 +2076,9 @@
     ],
     "lightningHeadshotsEnabled": false,
     "flakBall": {
-      "initialSpeed": 3055,
-      "maximumSpeed": 6467.2,
-      "percentB19": 94
+      "initialSpeed": 3022.5,
+      "maximumSpeed": 6398.4,
+      "percentB19": 93
     },
     "groundMovement": {
       "profiles": [
@@ -2105,7 +2124,7 @@
           "name": "Elite10K",
           "maxSpeed": 940,
           "acceleration": 5000,
-          "fastAcceleration": 96000,
+          "fastAcceleration": 56000,
           "fastThreshold": 200,
           "friction": 14,
           "braking": 2080,
@@ -2123,16 +2142,41 @@
       "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded."
     },
     "normalRocket": {
-      "initialSpeed": 2912,
-      "maximumSpeed": 4732,
-      "percentB19": 91,
+      "initialSpeed": 2880,
+      "maximumSpeed": 4680,
+      "percentB19": 90,
       "acceleration": 600
-    }
+    },
+    "switchColorSettings": {
+      "hue": [
+        0,
+        360
+      ],
+      "saturation": [
+        0,
+        100
+      ],
+      "brightness": [
+        0,
+        4
+      ],
+      "shockDefaultBrightness": 2,
+      "otherDefaultBrightness": 1,
+      "sharedToneAwarePulse": true,
+      "pulseDuration": 0.32,
+      "settledColorPreserved": true
+    },
+    "stingerBurstIndicatorScale": {
+      "min": 0,
+      "max": 2,
+      "default": 1
+    },
+    "preferencesBackend": "Saved/Config/Mod.ini [Elite10K.Settings]"
   },
   "releaseSource": {
-    "receipt": "elite-v2.02/match-v201/report.json",
-    "artifact": "elite-v2.02/match-v201/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "All1610function bytecodes and all non-branding payloads byte-identical to final v2.01 artifact4B62DAD3.... Only version label and registry label changed. Matching client/server, redirect full download, launcher guard, HUD preservation, Pure startup and comparison pickups verified."
+    "receipt": "elite-v2.03/toggle-trail-fix/report.json",
+    "artifact": "elite-v2.03/toggle-trail-fix/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Preserved artifact SHA256 verified; matching client/server, redirect full download, launcher guards, Pure startup and native pickup checks passed. Native settings tests verify matching button/image bounds, toggle/save and live helper On/Off. B19 smoke/refraction exports restored; front core/flare/spark and front glow assets preserved. User visual acceptance pending."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2158,29 +2202,43 @@
   },
   "localOptions": [
     {
-      "command": "10k.rocketLoadHudRings.radiusScale",
+      "command": "10kSettings",
       "name": "Rocket Loading Rings on HUD - Radius Scale",
       "range": "0–1.75",
       "default": "1.0",
       "note": "0 hides the rocket loading rings. The default preserves the final v1.98 size, 5% smaller than the pre-reduction rings. Older saved values above 1.75 clamp when loaded."
     },
     {
-      "command": "10k.rocketLoadHudRings.opacity",
+      "command": "10kSettings",
       "name": "Rocket Loading Rings on HUD - Opacity",
       "range": "0–1",
       "default": "0.875 (87.5%)",
       "note": "0 hides the rocket loading rings. Changes the actual shared material opacity for all three rings."
     },
     {
-      "command": "10k.weaponSwitchIndicators.enabled",
+      "command": "10kSettings",
       "name": "Weapon switch indicators",
       "range": "0 (Off) or 1 (On)",
       "default": "1 (On)",
-      "note": "Controls your colored weapon-switch indicator; the menu uses a sliding toggle with an On/Off label."
+      "note": "Use the working On/Off pill, then Apply. Saved via Mod.ini; Close/Escape discard pending changes."
+    },
+    {
+      "command": "10kSettings",
+      "name": "Per-weapon switch color",
+      "range": "Hue 0–360°, saturation 0–100%, brightness 0–4×",
+      "default": "Shock 2× brightness; all other weapons 1×",
+      "note": "Choose a weapon to edit. Each component has its own Default; brightness 0 hides that weapon’s glow."
+    },
+    {
+      "command": "10kSettings",
+      "name": "Stinger burst indicator scale",
+      "range": "0–2×",
+      "default": "1×",
+      "note": "0 hides custom burst feedback without hiding the native crosshair. Fixed center preserved."
     }
   ],
   "settingsMenu": true,
-  "releaseNotice": "Installed v2.02 matches final v2.01 gameplay exactly. Only package version labeling differs: initial96,000 / normal5,000 UU/s², transition200 UU/s, braking2,080 UU/s², Flak ball94% and normal rockets91% of B19. v2.0 and v2.01 remain separately selectable.",
+  "releaseNotice": "Installed v2.03: initial acceleration 56,000, normal 5,000, transition 200 UU/s and braking 2,080 UU/s². Flak ball 93%, normal rockets 90% of B19. Configurable hue-stable switch glow is included; the settings toggle click target is fixed. Flak ball smoke/refraction trail matches B19; modified front glow is preserved. Older guide snapshots remain selectable.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",
