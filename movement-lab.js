@@ -55,7 +55,7 @@
   function distanceChart(){
    const W=Math.max(300,Math.min(800,host.clientWidth-32)),H=280,l=58,r=20,top=30,bottom=38,x=t=>l+t/duration*(W-l-r);
    const value=s=>mode==='reverse'?s.x:s.path;
-   const values=runs.flatMap(run=>run.samples.filter(s=>s.t<=duration*speed).map(value)),peak=Math.max(0,...values),low=Math.min(0,...values),tick=Math.pow(10,Math.floor(Math.log10(Math.max(1,peak-low)))),maximum=Math.max(10,Math.ceil(peak/tick)*tick),minimum=Math.min(0,Math.floor(low/tick)*tick),y=d=>H-bottom-(d-minimum)/(maximum-minimum)*(H-top-bottom);
+   const values=runs.flatMap(run=>run.samples.filter(s=>s.t<=duration*speed).map(value)),peak=Math.max(0,...values),low=Math.min(0,...values),span=Math.max(10,peak-low),padding=span*.05,rawTick=span/5,magnitude=Math.pow(10,Math.floor(Math.log10(rawTick))),tick=[1,2,2.5,5,10].find(v=>v*magnitude>=rawTick)*magnitude,maximum=mode==='reverse'?peak+padding:Math.max(10,Math.ceil(peak/tick)*tick),minimum=mode==='reverse'?low-padding:0,y=d=>H-bottom-(d-minimum)/(maximum-minimum)*(H-top-bottom),ticks=Array.from({length:Math.max(0,Math.floor(maximum/tick)-Math.ceil(minimum/tick)+1)},(_,i)=>(Math.ceil(minimum/tick)+i)*tick);
    q('#ml-distance-chart').setAttribute('viewBox',`0 0 ${W} ${H}`);
    q('#ml-distance-chart').setAttribute('aria-label',mode==='reverse'?'Signed position from the origin over elapsed real time':'Distance travelled over elapsed real time');
    q('#ml-panel-distance h3').textContent=mode==='reverse'?'Position over time':'Distance over time';
@@ -64,7 +64,7 @@
    let out='<title>Position / distance over time</title><desc>Shared origin and target for every profile. In reverse mode, negative position is behind the start; diamonds mark the turn.</desc>';
    if(mode==='reverse'&&gap){const end=x(gap/1000);out+=`<rect class="ml-distance-neutral" x="${l}" y="${top}" width="${Math.max(0,end-l)}" height="${H-top-bottom}" fill="#fff" opacity=".04"/><line x1="${end}" x2="${end}" y1="${top}" y2="${H-bottom}" class="ml-cursor"/>`;}
    if(distanceTarget!==0)out+=`<line class="ml-distance-goal" x1="${l}" x2="${W-r}" y1="${y(distanceTarget)}" y2="${y(distanceTarget)}" stroke="#ffffff70" stroke-dasharray="3 4"/><text x="${W-r}" y="${y(distanceTarget)-7}" text-anchor="end">Shared target · ${n(distanceTarget,1)} UU</text>`;
-   for(const d of[...new Set([minimum,0,maximum])])out+=`<line x1="${l}" x2="${W-r}" y1="${y(d)}" y2="${y(d)}" class="ml-grid"/><text x="${l-8}" y="${y(d)+4}" text-anchor="end">${n(d,1)}</text>`;
+   for(const d of ticks)out+=`<line x1="${l}" x2="${W-r}" y1="${y(d)}" y2="${y(d)}" class="ml-grid"/><text x="${l-8}" y="${y(d)+4}" text-anchor="end">${n(d,1)}</text>`;
    for(let i=0;i<=4;i++){const t=duration*i/4;out+=`<text x="${x(t)}" y="${H-14}" text-anchor="middle">${n(t*1000,0)} ms</text>`;}
    for(const run of runs){
     const col=colors[run.profile.id],samples=run.samples.filter((s,i)=>i%2===0&&s.t/speed<=duration);samples.push(sampleAt(run,duration*speed));
