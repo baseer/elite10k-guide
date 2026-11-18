@@ -325,3 +325,9 @@
 .ml-sticky-controls .ml-shared-timeline #ml-time{grid-column:2;grid-row:2;align-self:center}
 .ml-sticky-controls .ml-shared-timeline .ml-playback,.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-playback{grid-column:1;grid-row:2;align-self:center}
 .ml-sticky-controls .ml-shared-timeline .ml-timeline-footer,.ml-sticky-controls:not(.is-stuck) .ml-shared-timeline .ml-timeline-footer,.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-footer{grid-column:2;grid-row:3}
+
+.ml-sticky-controls.is-stuck .ml-shared-timeline{padding-top:10px;padding-bottom:10px}
+.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-row{grid-template-rows:40px auto;row-gap:0}
+.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline>label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.ml-sticky-controls.is-stuck .ml-shared-timeline #ml-time,.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-playback{grid-row:1}
+.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-footer{grid-row:2;min-height:18px;line-height:18px}
