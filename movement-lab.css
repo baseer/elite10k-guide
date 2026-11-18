@@ -13,6 +13,17 @@
 
 .ml-scenario-row{display:flex;align-items:center;justify-content:space-between;gap:18px 28px;flex-wrap:wrap;margin:24px 0}.ml-scenario-row .ml-modes{margin:0}.ml-scenario-row .ml-profiles{margin:0;padding:0}.ml-scenario-row .ml-profiles legend{margin-bottom:8px}
 
-.ml-timeline-row{display:grid;grid-template-columns:minmax(210px,280px) minmax(0,1fr);gap:28px;align-items:center;margin:24px 0}.ml-timeline-row .ml-timeline{margin:0}.ml-timeline-row .ml-playback{gap:10px}.ml-timeline-row .ml-playback strong{margin-left:0;width:100%}.ml-timeline-row .ml-playback label{width:100%}@media(max-width:700px){.ml-timeline-row{grid-template-columns:1fr;gap:18px}}
 
-.ml-playback #ml-play,.ml-playback #ml-reset{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0}.ml-playback button svg{display:block}
+.ml-timeline-row{display:grid;grid-template-columns:88px minmax(0,1fr);gap:8px 20px;align-items:end;margin:28px 0}
+.ml-timeline-row .ml-playback{gap:8px;flex-wrap:nowrap;align-items:center;height:36px}
+.ml-playback #ml-play,.ml-playback #ml-reset{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;padding:0;background:var(--surface2);border:1px solid var(--line);color:var(--ink)}
+.ml-playback button svg{display:block;width:18px;height:18px}
+.ml-playback button:hover{border-color:var(--accent);background:var(--accent-soft)}
+.ml-playback #ml-play{color:var(--accent)}
+.ml-timeline-row .ml-timeline{margin:0;min-width:0}
+.ml-timeline-row .ml-timeline label{align-items:baseline;gap:12px;margin:0 0 6px;font-size:12px;color:var(--muted)}
+.ml-timeline-row #ml-current-time{font:500 12px/1.5 var(--mono);font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+.ml-timeline-row #ml-time{height:36px;margin:0;display:block}
+.ml-slow-control{grid-column:2;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);cursor:pointer;line-height:20px}
+.ml-slow-control input{margin:0;width:13px;height:13px;accent-color:var(--accent)}
+@media(max-width:700px){.ml-timeline-row{grid-template-columns:80px minmax(0,1fr);gap:12px;margin:22px 0}.ml-timeline-row .ml-timeline{grid-column:1/-1;grid-row:1}.ml-timeline-row .ml-playback{grid-column:1;grid-row:2}.ml-slow-control{grid-row:2;align-self:center}.ml-timeline-row #ml-current-time{font-size:10px}.ml-timeline-row .ml-timeline label{font-size:11px;gap:8px}}
