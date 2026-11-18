@@ -204,3 +204,12 @@
 .ml-position-section .ml-origin{top:4px;height:24px}
 
 .ml-position-section .ml-lane-track:before{transform:translateY(-.5px)}
+
+.ml-shared-timeline{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.ml-shared-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:11px}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{margin-top:6px;padding-top:0;border-top:0}
+.ml-shared-timeline .ml-timeline>label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.ml-shared-timeline #ml-advanced-settings .ml-controls{margin-top:12px;padding-top:14px}
+.ml-sticky-controls.is-stuck .ml-shared-timeline{margin-top:10px;padding-top:8px}
+.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-row{margin-top:4px;padding-top:0}
+.ml-sticky-controls.is-stuck .ml-shared-timeline #ml-advanced-settings .ml-controls{margin-top:10px;padding-top:10px}
