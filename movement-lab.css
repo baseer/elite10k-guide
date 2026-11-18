@@ -224,3 +224,11 @@
 .ml-sticky-controls>#ml-advanced-settings .ml-controls{margin:12px 0 0;padding:14px 0 4px;border-bottom:0}
 .ml-shared-heading{min-height:18px}
 .ml-sticky-controls.is-stuck>#ml-advanced-settings .ml-controls{margin-top:10px;padding-top:10px}
+
+.ml-playback .ml-playback-rate{position:relative;display:inline-flex;align-items:center;gap:0;color:var(--muted);height:32px;flex-shrink:0}
+.ml-playback-rate select{appearance:none;-webkit-appearance:none;min-width:98px;width:98px;height:32px;padding:4px 24px 4px 30px;line-height:22px;font-size:11px}
+.ml-playback-rate .ml-rate-icon{position:absolute;left:8px;top:50%;transform:translateY(-50%);width:16px;height:16px;pointer-events:none}
+.ml-playback-rate .ml-rate-caret{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:14px;height:14px;pointer-events:none}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:180px minmax(0,1fr)}
+.ml-sticky-controls.is-stuck .ml-playback .ml-playback-rate{height:34px}
+@media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:180px minmax(0,1fr)}.ml-playback-rate select{min-width:98px}}
