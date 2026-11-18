@@ -111,3 +111,8 @@
 .ml-chart-tabs button:hover{color:var(--ink)}
 .ml-chart-tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:700px){.ml-chart-tabs{gap:22px;margin:22px 0 16px}.ml-chart-tabs button{font-size:12px;padding:9px 0 11px}}
+
+.ml-position-section{margin:26px 0 0;border:1px solid var(--line)}
+.movement-lab .ml-position-section #ml-input{margin:0;padding:12px 15px;border:0;border-bottom:1px solid var(--line);background:var(--surface2);color:var(--muted);font-size:12px;line-height:1.6}
+.ml-position-section .ml-track{margin:0;border:0}
+@media(max-width:700px){.ml-position-section{margin-top:22px}.movement-lab .ml-position-section #ml-input{font-size:11px;padding:10px 12px}}
