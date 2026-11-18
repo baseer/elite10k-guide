@@ -57,3 +57,27 @@
 
 .ml-sticky-controls.is-stuck{background:var(--surface2);margin-left:-26px;margin-right:-26px;padding-left:26px;padding-right:26px;border-bottom:1px solid var(--line)}
 @media(max-width:700px){.ml-sticky-controls.is-stuck{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}}
+
+.ml-timeline-footer{grid-column:2;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ml-timeline-footer .ml-slow-control{font-size:10px;white-space:nowrap}
+.ml-timeline-footer #ml-current-time{font-size:10px;font-weight:400;color:var(--muted)}
+.ml-sticky-controls.is-stuck{padding-top:6px;padding-bottom:8px}
+.ml-sticky-controls.is-stuck .ml-scenario-row{margin:0 0 6px;gap:8px 20px}
+.ml-sticky-controls.is-stuck .ml-profiles legend{display:none}
+.ml-sticky-controls.is-stuck .ml-modes{padding:2px}
+.ml-sticky-controls.is-stuck .ml-modes button{min-height:28px;padding:4px 12px;font-size:11px}
+.ml-sticky-controls.is-stuck .ml-profiles label{padding:2px 7px;font-size:10px}
+.ml-sticky-controls.is-stuck .ml-controls{padding:6px 0 2px;gap:24px;border-bottom:0}
+.ml-sticky-controls.is-stuck .ml-control-heading{min-height:18px;font-size:11px}
+.ml-sticky-controls.is-stuck .ml-controls output{font-size:10px}
+.ml-sticky-controls.is-stuck .ml-controls input[type=range]{height:20px;margin:0}
+.ml-sticky-controls.is-stuck .ml-timeline-row{grid-template-columns:72px minmax(0,1fr);gap:0 16px;margin:4px 0 0}
+.ml-sticky-controls.is-stuck .ml-timeline label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.ml-sticky-controls.is-stuck .ml-playback{height:28px;gap:6px}
+.ml-sticky-controls.is-stuck #ml-play,.ml-sticky-controls.is-stuck #ml-reset{width:28px;height:28px}
+.ml-sticky-controls.is-stuck .ml-playback svg{width:15px;height:15px}
+.ml-sticky-controls.is-stuck #ml-time{height:28px}
+@media(max-width:700px){.ml-timeline-footer{grid-column:1/-1;grid-row:3;flex-wrap:wrap}.ml-timeline-footer .ml-slow-control{font-size:10px}.ml-sticky-controls.is-stuck .ml-control-heading{display:block;min-height:36px;font-size:9px}.ml-sticky-controls.is-stuck .ml-controls output{font-size:9px}.ml-sticky-controls.is-stuck .ml-controls{gap:10px}.ml-sticky-controls.is-stuck .ml-timeline-row{grid-template-columns:64px minmax(0,1fr);gap:2px 10px}.ml-sticky-controls.is-stuck .ml-timeline{grid-column:2;grid-row:1}.ml-sticky-controls.is-stuck .ml-playback{grid-column:1;grid-row:1}.ml-sticky-controls.is-stuck .ml-timeline-footer{grid-column:1/-1;grid-row:2}}
+
+.ml-sticky-controls{background:var(--surface2);margin-left:-26px;margin-right:-26px;padding-left:26px;padding-right:26px;border-bottom-color:var(--line)}
+@media(max-width:700px){.ml-sticky-controls{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}.ml-sticky-controls.is-stuck .ml-control-heading{min-height:46px}}
