@@ -213,3 +213,10 @@
 .ml-sticky-controls.is-stuck .ml-shared-timeline{margin-top:10px;padding-top:8px}
 .ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-row{margin-top:4px;padding-top:0}
 .ml-sticky-controls.is-stuck .ml-shared-timeline #ml-advanced-settings .ml-controls{margin-top:10px;padding-top:10px}
+
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:158px minmax(0,1fr)}
+.ml-sticky-controls .ml-playback{flex-wrap:nowrap}
+.ml-playback-rate select{height:32px;min-width:68px;padding:4px 6px;background:var(--bg);border:1px solid var(--line);color:var(--ink);font:11px var(--mono);cursor:pointer}
+.ml-timeline-footer{justify-content:flex-end;min-height:20px}
+.ml-sticky-controls.is-stuck .ml-playback-rate select{height:34px}
+@media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:158px minmax(0,1fr)}.ml-sticky-controls:not(.is-stuck) .ml-timeline-footer{grid-column:2;grid-row:2;align-self:center}.ml-sticky-controls.is-stuck .ml-timeline-footer{grid-column:2;grid-row:2}.ml-playback-rate select{min-width:66px}}
