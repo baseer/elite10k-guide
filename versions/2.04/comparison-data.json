@@ -894,10 +894,10 @@
           "ncp": "0 UU · line trace"
         },
         {
-          "label": "Full normal-shot thickness",
+          "label": "Body-hit trace thickness",
           "b19": "30 UU",
-          "elite": "15 UU added",
-          "note": "",
+          "elite": "20 UU total · 10 UU per side",
+          "note": "Invisible hit-detection allowance around the aim line, not visible beam width. The trace extends 10 UU on each side, giving 20 UU total thickness. Headshot detection is separate.",
           "stock": "0 UU added · line trace",
           "utplus": "0 UU added · line trace",
           "ncp": "0 UU added · line trace"
@@ -905,7 +905,7 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "110 UU · 137.5% of Stock",
-          "elite": "100 UU · 118.75% of line trace",
+          "elite": "100 UU · 125% of line-trace example",
           "note": "80 + 2 × 10 = 100 UU. This is 90.91% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
           "stock": "80 UU · 100% of Stock",
           "utplus": "80 UU · 100% of Stock",
@@ -1115,10 +1115,10 @@
           "ncp": "0 UU · line trace"
         },
         {
-          "label": "Full normal-shot thickness",
+          "label": "Body-hit trace thickness",
           "b19": "Projectile primary; no hitscan width",
-          "elite": "15 UU added",
-          "note": "",
+          "elite": "20 UU total · 10 UU per side",
+          "note": "Invisible hit-detection allowance around the aim line, not visible beam width. The trace extends 10 UU on each side, giving 20 UU total thickness. Headshot detection is separate.",
           "stock": "Projectile; separate collision rules",
           "utplus": "0 UU added · line trace",
           "ncp": "0 UU added · line trace"
@@ -1126,7 +1126,7 @@
         {
           "label": "Effective body-hit width · 80-UU target example",
           "b19": "Projectile; separate collision rules",
-          "elite": "100 UU · 118.75% of line trace",
+          "elite": "100 UU · 125% of line-trace example",
           "note": "80 + 2 × 10 = 100 UU. This is 90.91% of B19 Sniper’s 110-UU effective width; it is an illustrative body capsule, not headshot area or hit probability.",
           "stock": "Projectile; separate collision rules",
           "utplus": "80 UU · 100% of line-trace example",
