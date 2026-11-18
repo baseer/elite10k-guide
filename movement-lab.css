@@ -81,3 +81,20 @@
 
 .ml-sticky-controls{background:var(--surface2);margin-left:-26px;margin-right:-26px;padding-left:26px;padding-right:26px;border-bottom-color:var(--line)}
 @media(max-width:700px){.ml-sticky-controls{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}.ml-sticky-controls.is-stuck .ml-control-heading{min-height:46px}}
+
+.ml-sticky-controls.is-stuck{padding-top:12px;padding-bottom:12px}
+.ml-sticky-controls.is-stuck .ml-scenario-row{margin-bottom:12px;gap:12px 24px}
+.ml-sticky-controls.is-stuck .ml-modes{padding:3px}
+.ml-sticky-controls.is-stuck .ml-modes button{min-height:34px;padding:6px 14px;font-size:12px}
+.ml-sticky-controls.is-stuck .ml-profiles label{padding:4px 8px;font-size:11px}
+.ml-sticky-controls.is-stuck .ml-controls{padding:10px 0 6px;gap:24px}
+.ml-sticky-controls.is-stuck .ml-control-heading{min-height:24px;font-size:12px}
+.ml-sticky-controls.is-stuck .ml-controls output{font-size:11px}
+.ml-sticky-controls.is-stuck .ml-controls input[type=range]{height:24px;margin:3px 0}
+.ml-sticky-controls.is-stuck .ml-timeline-row{margin-top:8px;gap:5px 20px;grid-template-columns:84px minmax(0,1fr)}
+.ml-sticky-controls.is-stuck .ml-playback{height:34px;gap:8px}
+.ml-sticky-controls.is-stuck #ml-play,.ml-sticky-controls.is-stuck #ml-reset{width:34px;height:34px}
+.ml-sticky-controls.is-stuck .ml-playback svg{width:17px;height:17px}
+.ml-sticky-controls.is-stuck #ml-time{height:34px}
+.ml-timeline-footer{min-height:22px}
+@media(max-width:700px){.ml-sticky-controls.is-stuck .ml-scenario-row{gap:10px;margin-bottom:10px}.ml-sticky-controls.is-stuck .ml-modes button{padding:6px 10px;font-size:11px}.ml-sticky-controls.is-stuck .ml-controls{gap:12px;padding:10px 0 6px}.ml-sticky-controls.is-stuck .ml-control-heading{min-height:46px;font-size:10px}.ml-sticky-controls.is-stuck .ml-controls output{font-size:9px}.ml-sticky-controls.is-stuck .ml-timeline-row{grid-template-columns:78px minmax(0,1fr);gap:6px 12px}}
