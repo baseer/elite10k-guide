@@ -306,3 +306,9 @@
 .ml-sticky-controls .ml-playback-rate select,.ml-sticky-controls.is-stuck .ml-playback-rate select{width:102px;min-width:102px;padding-right:20px}
 .ml-playback-rate .ml-rate-caret{right:6px}
 @media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:144px minmax(0,1fr)}}
+
+.ml-shared-timeline{padding-top:14px;padding-bottom:14px}
+.ml-sticky-controls{padding-bottom:0}
+.ml-sticky-controls.is-stuck{padding-bottom:0}
+.ml-sticky-controls.is-stuck .ml-shared-timeline{padding-top:12px;padding-bottom:12px}
+@media(max-width:700px){.ml-sticky-controls.is-stuck{padding-bottom:0}.ml-shared-timeline{padding-top:12px;padding-bottom:12px}}
