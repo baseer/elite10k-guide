@@ -12,3 +12,5 @@
 .ml-chart-tabs{display:flex;gap:8px;margin:24px 0 12px;flex-wrap:wrap}.ml-chart-tabs button{padding:10px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}.ml-chart-tabs button[aria-selected=true]{border-color:var(--accent);background:#7257a843}.ml-chart-tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.movement-lab [role=tabpanel][hidden]{display:none}
 
 .ml-scenario-row{display:flex;align-items:center;justify-content:space-between;gap:18px 28px;flex-wrap:wrap;margin:24px 0}.ml-scenario-row .ml-modes{margin:0}.ml-scenario-row .ml-profiles{margin:0;padding:0}.ml-scenario-row .ml-profiles legend{margin-bottom:8px}
+
+.ml-timeline-row{display:grid;grid-template-columns:minmax(210px,280px) minmax(0,1fr);gap:28px;align-items:center;margin:24px 0}.ml-timeline-row .ml-timeline{margin:0}.ml-timeline-row .ml-playback{gap:10px}.ml-timeline-row .ml-playback strong{margin-left:0;width:100%}.ml-timeline-row .ml-playback label{width:100%}@media(max-width:700px){.ml-timeline-row{grid-template-columns:1fr;gap:18px}}
