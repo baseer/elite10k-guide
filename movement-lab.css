@@ -312,3 +312,8 @@
 .ml-sticky-controls.is-stuck{padding-bottom:0}
 .ml-sticky-controls.is-stuck .ml-shared-timeline{padding-top:12px;padding-bottom:12px}
 @media(max-width:700px){.ml-sticky-controls.is-stuck{padding-bottom:0}.ml-shared-timeline{padding-top:12px;padding-bottom:12px}}
+
+.ml-sticky-controls .ml-shared-timeline .ml-timeline>label{position:static;width:auto;height:auto;overflow:visible;clip:auto;display:block;margin:0 0 2px;font-size:11px;line-height:18px;color:var(--muted)}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-rows:auto auto;margin-top:0}
+.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-row{margin-top:0}
+.ml-sticky-controls .ml-playback{align-self:center}
