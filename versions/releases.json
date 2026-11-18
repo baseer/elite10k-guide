@@ -5053,12 +5053,12 @@
   },
   {
     "version": "2.04",
-    "sha256": "2303138A1A4FC78B7D14C9C6E2A442224ADD07B05287D470E870A0E9510567B3",
-    "revision": "v2.04 braking2,080 restored; initial56,000 Flakball93.5 rocket91; current movement graphs",
+    "sha256": "1E8EC4641DF291C4A1925F251A27A2C72469C40ADC9AEB32841B41C90CD8546F",
+    "revision": "v2.04: Flak ball92.5% / normal rocket90% B19; initial56,000 normal5,000 braking2,080; final movement parameter tuning",
     "source": {
-      "receipt": "elite-v2.04/braking2080-restored/report.json",
-      "artifact": "elite-v2.04/braking2080-restored/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Installed preserved artifact hash verified. Exact previous2080 movementasset restored; otherlatestassets unchanged. Matchingclient/server, Purestartup/pickups, launcherchecksums andHTTPredirect verified."
+      "receipt": "elite-v2.04/ball925-rocket90/report.json",
+      "artifact": "elite-v2.04/ball925-rocket90/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved installed artifact SHA256 verified. Exactly four existing speed floats across two projectile assets changed; all function bytes and unrelated payloads identical. Matching client/server, Pure startup, comparison pickups and launcher/redirect configuration checksums verified. HTTP redirect download was unavailable and is not verified for this installation."
     },
     "model": {
       "combo": {
@@ -5202,9 +5202,9 @@
       ],
       "lightningHeadshotsEnabled": false,
       "flakBall": {
-        "initialSpeed": 3038.75,
-        "maximumSpeed": 6432.8,
-        "percentB19": 93.5
+        "initialSpeed": 3006.25,
+        "maximumSpeed": 6364,
+        "percentB19": 92.5
       },
       "groundMovement": {
         "profiles": [
@@ -5271,9 +5271,9 @@
         "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. Current v2.04 restores both active and persistent braking2,080; no periodic writer."
       },
       "normalRocket": {
-        "initialSpeed": 2912,
-        "maximumSpeed": 4732,
-        "percentB19": 91,
+        "initialSpeed": 2880,
+        "maximumSpeed": 4680,
+        "percentB19": 90,
         "acceleration": 600
       },
       "switchColorSettings": {
