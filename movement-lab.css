@@ -256,3 +256,15 @@
 .ml-playback-rate .ml-rate-icon{left:8px;width:17px;height:17px}
 .ml-playback-rate .ml-rate-caret{right:6px;width:14px;height:14px}
 @media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:104px minmax(0,1fr)}}
+
+.ml-mode-tools{gap:8px}
+.ml-mode-tools #ml-advanced-toggle{align-self:stretch;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:0;padding:0 14px;border:1px solid var(--line);background:var(--bg);color:var(--muted);font:12px var(--sans)}
+.ml-mode-tools #ml-advanced-toggle:hover{color:var(--ink);border-color:#b49aff66}
+.ml-mode-tools #ml-advanced-toggle[aria-expanded=true]{background:var(--accent-soft);border-color:#b49aff66;color:var(--ink)}
+.ml-mode-tools #ml-advanced-toggle svg{width:14px;height:14px;flex-shrink:0}
+.ml-sticky-controls .ml-playback,.ml-sticky-controls.is-stuck .ml-playback{display:flex;align-items:center;gap:8px;height:44px}
+.ml-sticky-controls .ml-playback .ml-playback-rate,.ml-sticky-controls.is-stuck .ml-playback .ml-playback-rate{width:98px;height:44px}
+.ml-sticky-controls .ml-playback-rate select,.ml-sticky-controls.is-stuck .ml-playback-rate select{width:98px;min-width:98px;height:44px}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:150px minmax(0,1fr);align-items:center}
+.ml-sticky-controls .ml-playback,.ml-sticky-controls.is-stuck .ml-playback{grid-row:1/3}
+@media(max-width:700px){.ml-mode-tools{gap:8px}.ml-mode-tools #ml-advanced-toggle{padding:0 10px;font-size:11px;gap:6px}.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:150px minmax(0,1fr);gap:4px 12px}}
