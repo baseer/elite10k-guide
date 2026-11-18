@@ -45,3 +45,12 @@
 .ml-controls input[type=range]{height:24px;margin:4px 0 8px}
 .ml-controls small{font-size:11px;line-height:1.6;color:var(--muted);max-width:38ch}
 @media(max-width:700px){.ml-scenario-row{gap:16px;align-items:flex-start}.ml-scenario-row .ml-modes{width:100%}.ml-modes button{flex:1;padding:8px 10px}.ml-controls{gap:20px;padding:18px 0}.ml-controls small{max-width:none}.ml-scenario-row .ml-profiles{gap:6px}.ml-profiles label{padding:4px 7px}}
+
+.ml-sticky-sentinel{height:1px;pointer-events:none}
+.ml-sticky-controls{position:sticky;top:0;z-index:20;background:var(--surface);padding:1px 0 12px;border-bottom:1px solid transparent}
+.ml-sticky-controls.is-stuck{border-bottom-color:var(--line)}
+.ml-sticky-controls.is-stuck .ml-scenario-row{margin:10px 0 12px}
+.ml-sticky-controls.is-stuck .ml-controls{padding:10px 0}
+.ml-sticky-controls.is-stuck .ml-controls small{display:none}
+.ml-sticky-controls.is-stuck .ml-timeline-row{margin:12px 0 0}
+@media(max-width:700px){.ml-sticky-controls.is-stuck{max-height:50vh;overflow-y:auto;padding-bottom:8px}.ml-sticky-controls.is-stuck .ml-scenario-row{gap:8px}.ml-sticky-controls.is-stuck .ml-profiles legend{display:none}.ml-sticky-controls.is-stuck .ml-controls{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:8px 0}.ml-sticky-controls.is-stuck .ml-control-heading{display:block;min-height:42px;font-size:10px}.ml-sticky-controls.is-stuck .ml-controls output{display:block;font-size:9px;white-space:normal}.ml-sticky-controls.is-stuck .ml-controls input[type=range]{margin:0}.ml-sticky-controls.is-stuck .ml-timeline-row{gap:4px 10px;margin-top:8px}}
