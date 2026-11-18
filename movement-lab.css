@@ -296,3 +296,7 @@
 .ml-playback-rate .ml-rate-icon{left:11px;width:16px;height:16px}
 .ml-playback-rate .ml-rate-caret{right:10px;width:14px;height:14px}
 @media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:156px minmax(0,1fr)}}
+
+#ml-playback-rate{color-scheme:dark;color:var(--ink);background-color:var(--bg)}
+#ml-playback-rate option{background-color:#20202a;color:#f4f1fa}
+#ml-playback-rate option:checked{background-color:#342b50;color:#ffffff}
