@@ -220,3 +220,7 @@
 .ml-timeline-footer{justify-content:flex-end;min-height:20px}
 .ml-sticky-controls.is-stuck .ml-playback-rate select{height:34px}
 @media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:158px minmax(0,1fr)}.ml-sticky-controls:not(.is-stuck) .ml-timeline-footer{grid-column:2;grid-row:2;align-self:center}.ml-sticky-controls.is-stuck .ml-timeline-footer{grid-column:2;grid-row:2}.ml-playback-rate select{min-width:66px}}
+
+.ml-sticky-controls>#ml-advanced-settings .ml-controls{margin:12px 0 0;padding:14px 0 4px;border-bottom:0}
+.ml-shared-heading{min-height:18px}
+.ml-sticky-controls.is-stuck>#ml-advanced-settings .ml-controls{margin-top:10px;padding-top:10px}
