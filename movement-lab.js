@@ -64,7 +64,7 @@
    let out='<title>Position / distance over time</title><desc>Shared origin and target for every profile. In reverse mode, negative position is behind the start; diamonds mark the turn.</desc>';
    if(mode==='reverse'&&gap){const end=x(gap/1000);out+=`<rect class="ml-distance-neutral" x="${l}" y="${top}" width="${Math.max(0,end-l)}" height="${H-top-bottom}" fill="#fff" opacity=".04"/><line x1="${end}" x2="${end}" y1="${top}" y2="${H-bottom}" class="ml-cursor"/>`;}
    if(distanceTarget!==0)out+=`<line class="ml-distance-goal" x1="${l}" x2="${W-r}" y1="${y(distanceTarget)}" y2="${y(distanceTarget)}" stroke="#ffffff70" stroke-dasharray="3 4"/><text x="${W-r}" y="${y(distanceTarget)-7}" text-anchor="end">Shared target · ${n(distanceTarget,1)} UU</text>`;
-   for(const d of ticks)out+=`<line x1="${l}" x2="${W-r}" y1="${y(d)}" y2="${y(d)}" class="ml-grid"/><text x="${l-8}" y="${y(d)+4}" text-anchor="end">${n(d,1)}</text>`;
+   for(const d of [...new Set([minimum,...ticks])].sort((a,b)=>a-b))out+=`<line x1="${l}" x2="${W-r}" y1="${y(d)}" y2="${y(d)}" class="ml-grid"/><text x="${l-8}" y="${y(d)+4}" text-anchor="end">${n(d,1)}</text>`;
    for(let i=0;i<=4;i++){const t=duration*i/4;out+=`<text x="${x(t)}" y="${H-14}" text-anchor="middle">${n(t*1000,0)} ms</text>`;}
    out+=`<defs><clipPath id="ml-position-clip"><rect x="${l}" y="${top}" width="${W-l-r}" height="${H-top-bottom}"/></clipPath></defs><g clip-path="url(#ml-position-clip)">`;
    for(const run of runs){
