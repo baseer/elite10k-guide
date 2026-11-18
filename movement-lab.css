@@ -179,3 +179,21 @@
 .ml-playback-rate input[type=range]{width:110px;min-width:50px;height:22px;margin:0;accent-color:var(--accent)}
 .ml-playback-rate output{font:10px var(--mono);min-width:4ch;color:var(--ink)}
 @media(max-width:700px){.ml-playback-rate{gap:6px}.ml-playback-rate input[type=range]{width:80px}.ml-timeline-footer{gap:6px 10px}}
+
+/* Match the settings grid to the controls currently available. */
+#ml-advanced-settings .ml-controls:has(#ml-gap-control[hidden]){grid-template-columns:repeat(2,minmax(0,1fr))}
+.ml-profile-tools{align-items:center;gap:18px}
+.ml-profile-tools #ml-advanced-toggle{min-height:34px}
+#ml-advanced-settings .ml-controls{padding:16px 0;border-bottom:0;gap:28px}
+#ml-advanced-settings .ml-controls small{max-width:none;font-size:10px;line-height:1.6}
+.ml-sticky-controls .ml-timeline-row{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);grid-template-columns:80px minmax(0,1fr);gap:4px 16px}
+.ml-sticky-controls .ml-timeline label{font-size:11px;line-height:18px;margin-bottom:2px}
+.ml-sticky-controls #ml-time{height:30px}
+.ml-sticky-controls .ml-playback{height:30px;gap:6px}
+.ml-sticky-controls #ml-play,.ml-sticky-controls #ml-reset{width:32px;height:32px}
+.ml-sticky-controls .ml-timeline-footer{padding-top:2px;min-height:26px}
+.ml-playback-rate{gap:10px}.ml-playback-rate input[type=range]{width:100px}
+.ml-sticky-controls.is-stuck .ml-timeline-row{padding-top:10px;margin-top:8px;gap:3px 16px}
+.ml-sticky-controls.is-stuck #ml-advanced-settings .ml-controls{padding:10px 0 4px}
+.ml-sticky-controls.is-stuck .ml-timeline-footer{min-height:24px}
+@media(max-width:700px){#ml-advanced-settings .ml-controls:has(#ml-gap-control[hidden]){grid-template-columns:1fr}#ml-advanced-settings .ml-controls{gap:18px}.ml-sticky-controls.is-stuck #ml-advanced-settings .ml-controls:has(#ml-gap-control[hidden]){grid-template-columns:repeat(2,minmax(0,1fr))}.ml-profile-tools{gap:10px}.ml-sticky-controls .ml-timeline-row{grid-template-columns:72px minmax(0,1fr);margin-top:14px;padding-top:12px;gap:6px 12px}.ml-playback-rate input[type=range]{width:80px}.ml-sticky-controls.is-stuck .ml-timeline-row{grid-template-columns:72px minmax(0,1fr)}}
