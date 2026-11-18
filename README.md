@@ -45,4 +45,4 @@ Movement layout refinement: combine identical Stock/NCP/B19 values into one move
 
 Movement percentage cards: 10K versus Stock/NCP/B19 and UT+ for the selected mode/start speed. Show completion-rate percentage and elapsed-time reduction separately, plus zero-crossing time reduction for reversal. Percentages independent of common game-speed scaling; zero-time targets show no percentage. Hidden profile lanes do not disable reference comparisons.
 
-Latest v2.03: initial56000, Flakball93%, normalrocket90%, rifle traces10UU; shared configurable pulse, fixed toggle and B19 ball smoke/refraction, front glow preserved. SHA256 892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3. Historical snapshots unchanged.
+Latest v2.03: initial56000, Flakball93%, normalrocket90%, rifle traces10UU; shared configurable pulse, fixed toggle and B19 ball smoke/refraction, front glow preserved. SHA256 FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568. Historical snapshots unchanged.

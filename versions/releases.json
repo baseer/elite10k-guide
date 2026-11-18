@@ -4801,12 +4801,12 @@
   },
   {
     "version": "2.03",
-    "sha256": "892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3",
+    "sha256": "FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568",
     "revision": "v2.03: initial56,000, Flak ball93%, normal rockets90%; shared configurable switch glow, working toggle and B19 ball trail",
     "source": {
-      "receipt": "elite-v2.03/toggle-trail-fix/report.json",
-      "artifact": "elite-v2.03/toggle-trail-fix/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Preserved artifact SHA256 verified; matching client/server, redirect full download, launcher guards, Pure startup and native pickup checks passed. Native settings tests verify matching button/image bounds, toggle/save and live helper On/Off. B19 smoke/refraction exports restored; front core/flare/spark and front glow assets preserved. User visual acceptance pending."
+      "receipt": "elite-v2.03/ball-trail-runtime-fix/report.json",
+      "artifact": "elite-v2.03/ball-trail-runtime-fix/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Previous particle-only restoration omitted the enlarged component transform. This revision restores the existing ParticleSystem1 scale to B19 (0.2,0.1,0.1), adds no logic, and preserves all other exports/functions/assets. Spawned native projectile verified immediately and after six ticks. Matching client/server, Pure startup, pickups, checksum guards and redirect full download verified."
     },
     "model": {
       "combo": {

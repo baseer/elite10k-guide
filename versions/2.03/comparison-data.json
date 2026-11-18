@@ -228,7 +228,7 @@
           "label": "Flight smoke opacity",
           "b19": "Original effect",
           "elite": "Original B19 ball trail",
-          "note": "B19 smoke colors/opacity and refraction restored. Front flare/core/sparks and modified glowing front face preserved; primary shard trails unchanged.",
+          "note": "B19 smoke/refraction exports plus native component scale (0.2,0.1,0.1) restored. Earlier particle-only restoration omitted the enlarged component. Modified front mesh and glow materials preserved.",
           "stock": "Not separately verified",
           "utplus": "Not separately verified"
         },
@@ -305,7 +305,8 @@
         "Native Shredded qualification and native momentum are restored. Secondary ball geometry, damage and speed are unchanged.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
         "The 10.4/20.8 bases provide fractional headroom before truncation; 100 is not guaranteed once decay starts or when some shards miss. The final v2.0 endpoint is approximately 2 tuning dodge distances of 700 UU.",
-        "Alternate-fire ball initial/maximum speed is 3,022.5/6,398.4 UU/s, 93% of B19. Only its trailing smoke/refraction was restored to B19; the modified glowing yellow front face is preserved."
+        "Alternate-fire ball initial/maximum speed is 3,022.5/6,398.4 UU/s, 93% of B19. Only its trailing smoke/refraction was restored to B19; the modified glowing yellow front face is preserved.",
+        "The complete ball trail restoration also restores the particle component from scale (0.4,0.175,0.175) to B19 (0.2,0.1,0.1). This is a direct existing-property correction with no extra logic. Native spawned-projectile scale verified through initialization and subsequent ticks."
       ],
       "lab": "flak",
       "comparisonColumns": [
@@ -1918,7 +1919,7 @@
         }
       ],
       "notes": [
-        "Installed weapons package SHA256: 892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3.",
+        "Installed weapons package SHA256: FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
         "Server weapon replacements are separate from package defaults and are not part of the release balance shown here.",
         "Current Pure server pickup layout: UT+ Flak, 10K Rocket Launcher (replaces the former stock Flak slot), B19 Sniper, 10K Sniper, B19 Flak, 10K Flak and 10K Shock. Server replacements remain separate from package balance."
@@ -1927,7 +1928,7 @@
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3",
+  "packageSha256": "FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568",
   "verifiedDate": "2026-11-17",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.18",
@@ -2174,9 +2175,9 @@
     "preferencesBackend": "Saved/Config/Mod.ini [Elite10K.Settings]"
   },
   "releaseSource": {
-    "receipt": "elite-v2.03/toggle-trail-fix/report.json",
-    "artifact": "elite-v2.03/toggle-trail-fix/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved artifact SHA256 verified; matching client/server, redirect full download, launcher guards, Pure startup and native pickup checks passed. Native settings tests verify matching button/image bounds, toggle/save and live helper On/Off. B19 smoke/refraction exports restored; front core/flare/spark and front glow assets preserved. User visual acceptance pending."
+    "receipt": "elite-v2.03/ball-trail-runtime-fix/report.json",
+    "artifact": "elite-v2.03/ball-trail-runtime-fix/Elite10K-WindowsNoEditor.pak.pending",
+    "verification": "Previous particle-only restoration omitted the enlarged component transform. This revision restores the existing ParticleSystem1 scale to B19 (0.2,0.1,0.1), adds no logic, and preserves all other exports/functions/assets. Spawned native projectile verified immediately and after six ticks. Matching client/server, Pure startup, pickups, checksum guards and redirect full download verified."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2238,7 +2239,7 @@
     }
   ],
   "settingsMenu": true,
-  "releaseNotice": "Installed v2.03: initial acceleration 56,000, normal 5,000, transition 200 UU/s and braking 2,080 UU/s². Flak ball 93%, normal rockets 90% of B19. Configurable hue-stable switch glow is included; the settings toggle click target is fixed. Flak ball smoke/refraction trail matches B19; modified front glow is preserved. Older guide snapshots remain selectable.",
+  "releaseNotice": "Installed v2.03: initial acceleration 56,000, normal 5,000, transition 200 UU/s and braking 2,080 UU/s². Flak ball 93%, normal rockets 90% of B19. Configurable hue-stable switch glow is included; the settings toggle click target is fixed. Flak ball smoke/refraction trail matches B19; modified front glow is preserved. Older guide snapshots remain selectable. Trail correction: its particle component also now uses B19 scale (0.2, 0.1, 0.1); the preceding particle-only restoration was incomplete.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",

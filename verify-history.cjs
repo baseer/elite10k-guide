@@ -71,5 +71,5 @@ assert.deepEqual(versions['2.02'].model,versions['2.01'].model);
 
 assert.equal(versions['1.98'].weapons.find(w=>w.id==='rocket').rows.find(r=>r.label==='Loading ring size').elite,versions['2.01'].weapons.find(w=>w.id==='rocket').rows.find(r=>r.label==='Loading ring size').elite);
 
-assert.equal(versions['2.03'].packageSha256,'892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3');assert.equal(versions['2.03'].model.groundMovement.profiles[2].fastAcceleration,56000);assert.equal(versions['2.03'].model.flakBall.percentB19,93);assert.equal(versions['2.03'].model.normalRocket.percentB19,90);assert.equal(versions['2.03'].model.trace,10);
+assert.equal(versions['2.03'].packageSha256,'FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568');assert.equal(versions['2.03'].model.groundMovement.profiles[2].fastAcceleration,56000);assert.equal(versions['2.03'].model.flakBall.percentB19,93);assert.equal(versions['2.03'].model.normalRocket.percentB19,90);assert.equal(versions['2.03'].model.trace,10);
 

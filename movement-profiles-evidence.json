@@ -71,9 +71,9 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3",
+    "pakSha256": "FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.03/toggle-trail-fix/report.json",
+    "source": "elite-v2.03/ball-trail-runtime-fix/report.json",
     "selectedRelease": "2.03",
     "comparisonRelease": "2.02",
     "method": "Native initial56000 normal5000 threshold200 braking2080; previous release snapshots unchanged."
@@ -277,7 +277,7 @@
       ]
     },
     "2.03": {
-      "pakSha256": "892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3",
+      "pakSha256": "FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568",
       "profiles": [
         {
           "id": "stock",
