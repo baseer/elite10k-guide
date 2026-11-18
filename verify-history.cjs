@@ -44,7 +44,7 @@ for(const allowance of [0,5,7.5,10,15]){
 assert.equal(Math.round(bodyGeometry(10).frontArea),21454);
 assert.equal(Math.round(bodyGeometry(10).surfaceArea),74142);
 console.log('PASS',cases,'release-model cases, 46 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
-fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:45,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
+fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:46,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
 
 assert.equal(versions['1.85'].model.hammer.shieldLifetime,.75);assert.equal(versions['1.84'].model.hammer.shieldLifetime,.5);assert.equal(versions['1.85'].packageSha256,'D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D');
 
@@ -72,3 +72,4 @@ assert.deepEqual(versions['2.02'].model,versions['2.01'].model);
 assert.equal(versions['1.98'].weapons.find(w=>w.id==='rocket').rows.find(r=>r.label==='Loading ring size').elite,versions['2.01'].weapons.find(w=>w.id==='rocket').rows.find(r=>r.label==='Loading ring size').elite);
 
 assert.equal(versions['2.03'].packageSha256,'892152BDB424471159B40FF488C51A9BECC5D05F18F454F77A3883342C4F08D3');assert.equal(versions['2.03'].model.groundMovement.profiles[2].fastAcceleration,56000);assert.equal(versions['2.03'].model.flakBall.percentB19,93);assert.equal(versions['2.03'].model.normalRocket.percentB19,90);assert.equal(versions['2.03'].model.trace,10);
+
