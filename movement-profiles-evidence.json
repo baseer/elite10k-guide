@@ -46,7 +46,7 @@
       "fastAcceleration": 56000,
       "fastThreshold": 200,
       "friction": 14,
-      "braking": 2080,
+      "braking": 520,
       "brakeFriction": 5,
       "brakeFactor": 2,
       "stopThreshold": 10,
@@ -54,7 +54,10 @@
       "wallReset": 0.01,
       "dodgeJumpReset": 0.01,
       "airControl": 0.7,
-      "dodgeAirControl": 0.7
+      "dodgeAirControl": 0.7,
+      "assignedBraking": 2000,
+      "persistentBrakingOverride": false,
+      "brakingAssignmentScope": "existing 10K owner initialization"
     }
   ],
   "stockEvidence": "stock-movement-evidence.json",
@@ -71,12 +74,12 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568",
+    "pakSha256": "4C8DBECD912F588AFA4C8987D8CCD3F579ABF23E99720BABDD5A860DD0449BE1",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.03/ball-trail-runtime-fix/report.json",
-    "selectedRelease": "2.03",
-    "comparisonRelease": "2.02",
-    "method": "Native initial56000 normal5000 threshold200 braking2080; previous release snapshots unchanged."
+    "source": "elite-v2.04/utplus-original-braking/report.json",
+    "selectedRelease": "2.04",
+    "comparisonRelease": "2.03",
+    "method": "Original UT+ active2000 assignment, no custom persistent setter; native default520 verified on running server. Settled braking520 simulated, existing 10K initialization retained; UT+ periodic write cadence not added."
   },
   "equations": {
     "boost": "a(v)=fast*(1-clamp(abs(v)/profile.fastThreshold,0,1))+normal*clamp(abs(v)/profile.fastThreshold,0,1)",
@@ -277,7 +280,7 @@
       ]
     },
     "2.03": {
-      "pakSha256": "FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568",
+      "pakSha256": "C22268CFACD6AFF6238D93A4B59A541BFEE53C69B48DF1E69B5EDC70C6A628F7",
       "profiles": [
         {
           "id": "stock",
@@ -333,6 +336,69 @@
           "dodgeJumpReset": 0.01,
           "airControl": 0.7,
           "dodgeAirControl": 0.7
+        }
+      ]
+    },
+    "2.04": {
+      "pakSha256": "4C8DBECD912F588AFA4C8987D8CCD3F579ABF23E99720BABDD5A860DD0449BE1",
+      "profiles": [
+        {
+          "id": "stock",
+          "name": "Stock / NCP / B19",
+          "maxSpeed": 940,
+          "acceleration": 3200,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 10.5,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.55,
+          "dodgeAirControl": 0.41
+        },
+        {
+          "id": "utplus",
+          "name": "UT+",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 12000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.35,
+          "wallReset": 0.2,
+          "dodgeJumpReset": 0.35,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7,
+          "assignedBraking": 2000
+        },
+        {
+          "id": "elite",
+          "name": "Elite10K",
+          "maxSpeed": 940,
+          "acceleration": 5000,
+          "fastAcceleration": 56000,
+          "fastThreshold": 200,
+          "friction": 14,
+          "braking": 520,
+          "brakeFriction": 5,
+          "brakeFactor": 2,
+          "stopThreshold": 10,
+          "groundReset": 0.01,
+          "wallReset": 0.01,
+          "dodgeJumpReset": 0.01,
+          "airControl": 0.7,
+          "dodgeAirControl": 0.7,
+          "assignedBraking": 2000,
+          "persistentBrakingOverride": false,
+          "brakingAssignmentScope": "existing 10K owner initialization"
         }
       ]
     }

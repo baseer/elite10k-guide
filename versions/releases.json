@@ -4801,12 +4801,12 @@
   },
   {
     "version": "2.03",
-    "sha256": "FD5A16B7FF1DB747EEC4B91D861BCFA43C7D4B9F646BB67E2F81ABFD01C81568",
-    "revision": "v2.03: initial56,000, Flak ball93%, normal rockets90%; shared configurable switch glow, working toggle and B19 ball trail",
+    "sha256": "C22268CFACD6AFF6238D93A4B59A541BFEE53C69B48DF1E69B5EDC70C6A628F7",
+    "revision": "Final v2.03: initial56,000 braking2,080; Flakball93.5 rocket91; primaryFlak1.98 and selected-color pulse fixes",
     "source": {
-      "receipt": "elite-v2.03/ball-trail-runtime-fix/report.json",
-      "artifact": "elite-v2.03/ball-trail-runtime-fix/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Previous particle-only restoration omitted the enlarged component transform. This revision restores the existing ParticleSystem1 scale to B19 (0.2,0.1,0.1), adds no logic, and preserves all other exports/functions/assets. Spawned native projectile verified immediately and after six ticks. Matching client/server, Pure startup, pickups, checksum guards and redirect full download verified."
+      "receipt": "elite-v2.03/selected-color-pulse/report.json",
+      "artifact": "elite-v2.03/selected-color-pulse/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Final completed v2.03 artifact hash verified. Exact v1.98 primary shard assets, all seven unchanged settled body materials, 168 pulse GPU captures and six native switches verified. Matching client/server, startup, pickups and redirect verified at installation. Prior published v2.03 snapshot archived."
     },
     "model": {
       "combo": {
@@ -4845,12 +4845,12 @@
       },
       "flak": {
         "linear": true,
-        "start": 700,
-        "end": 1400,
+        "start": 875,
+        "end": 1750,
         "interval": 0.9,
         "nativeTime": true,
-        "delay": 0.05384615436196327,
-        "floorAge": 0.10769230993629929,
+        "delay": 0.06730769574642181,
+        "floorAge": 0.1346153846153846,
         "speed": 13000,
         "storedBase": [
           10.399999618530273,
@@ -4864,7 +4864,7 @@
         "base": 10.399999618530273,
         "minimum": 4,
         "centralBase": 20.799999237060547,
-        "attenuation": 118.85713195800781
+        "attenuation": 95.08570861816406
       },
       "splash": {
         "legacy": false,
@@ -4950,9 +4950,9 @@
       ],
       "lightningHeadshotsEnabled": false,
       "flakBall": {
-        "initialSpeed": 3022.5,
-        "maximumSpeed": 6398.4,
-        "percentB19": 93
+        "initialSpeed": 3038.75,
+        "maximumSpeed": 6432.8,
+        "percentB19": 93.5
       },
       "groundMovement": {
         "profiles": [
@@ -5016,9 +5016,9 @@
         "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded."
       },
       "normalRocket": {
-        "initialSpeed": 2880,
-        "maximumSpeed": 4680,
-        "percentB19": 90,
+        "initialSpeed": 2912,
+        "maximumSpeed": 4732,
+        "percentB19": 91,
         "acceleration": 600
       },
       "switchColorSettings": {
@@ -5038,7 +5038,10 @@
         "otherDefaultBrightness": 1,
         "sharedToneAwarePulse": true,
         "pulseDuration": 0.32,
-        "settledColorPreserved": true
+        "settledColorPreserved": true,
+        "pulseReference": "selected color only",
+        "sceneColorSampling": false,
+        "settledBodyMaterialsIdentical": true
       },
       "stingerBurstIndicatorScale": {
         "min": 0,
@@ -5046,6 +5049,267 @@
         "default": 1
       },
       "preferencesBackend": "Saved/Config/Mod.ini [Elite10K.Settings]"
+    }
+  },
+  {
+    "version": "2.04",
+    "sha256": "4C8DBECD912F588AFA4C8987D8CCD3F579ABF23E99720BABDD5A860DD0449BE1",
+    "revision": "v2.04: original UT+ braking assignment2,000/native520; custom persistent setter removed; final v2.03 preserved",
+    "source": {
+      "receipt": "elite-v2.04/utplus-original-braking/report.json",
+      "artifact": "elite-v2.04/utplus-original-braking/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Installed artifact SHA256 verified. Original UT+ package inspected: only active braking assignment2,000; no persistent setter. Native server CDO persistent520 confirmed. All other statements/functions/assets unchanged; no new helper/timer. Client/server hashes, Pure startup, pickups, launcher and full HTTP redirect verified. Existing 10K initialization cadence preserved."
+    },
+    "model": {
+      "combo": {
+        "max": 210,
+        "min": 50,
+        "inner": 77,
+        "outer": 390,
+        "falloff": 1.5,
+        "baseBoost": 0
+      },
+      "trace": 10,
+      "shockInterval": 0.49451,
+      "shockSwitch": 0.15,
+      "stinger": {
+        "shots": 10,
+        "recovery": 0.475,
+        "gaps": [
+          0.2,
+          0.07,
+          0.05,
+          0.03,
+          0.014,
+          0.008,
+          0.004,
+          0.002,
+          0.001
+        ],
+        "regularInterval": 0.148,
+        "recoveryDuringFallback": false,
+        "primaryPausesRecovery": true,
+        "heldBurstPausesRecovery": true,
+        "shotBasedQuietConfirmation": true,
+        "fallbackAddsDebt": false,
+        "nativeScheduling": true,
+        "prefixCooldown": true
+      },
+      "flak": {
+        "linear": true,
+        "start": 875,
+        "end": 1750,
+        "interval": 0.9,
+        "nativeTime": true,
+        "delay": 0.06730769574642181,
+        "floorAge": 0.1346153846153846,
+        "speed": 13000,
+        "storedBase": [
+          10.399999618530273,
+          20.799999237060547
+        ],
+        "storedMinimum": [
+          4,
+          8
+        ],
+        "multiplier": 1,
+        "base": 10.399999618530273,
+        "minimum": 4,
+        "centralBase": 20.799999237060547,
+        "attenuation": 95.08570861816406
+      },
+      "splash": {
+        "legacy": false,
+        "rocket": [
+          100,
+          35,
+          15,
+          296.66666
+        ],
+        "flak": [
+          95,
+          35,
+          0,
+          240
+        ],
+        "grenade": [
+          90,
+          35,
+          50,
+          248
+        ]
+      },
+      "foreignLabel": "Anticombo!",
+      "confirmedNotices": true,
+      "rocketDeadline": false,
+      "headshots": {
+        "sniper": [
+          1.15,
+          1.15,
+          1.15,
+          1.15
+        ],
+        "lightning": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "hammer": {
+        "full": 1.8,
+        "impactFraction": 0.2777777777777778,
+        "shieldLifetime": 0.75
+      },
+      "shreddedAllNine": false,
+      "shredded": {
+        "native": true,
+        "maxShreddedTime": 0.15
+      },
+      "rocketNativeSwitch": true,
+      "rocketEquip": 0.41,
+      "linkAmmo": {
+        "maximum": 135,
+        "weaponPickup": 90,
+        "normalAmmoPickup": 45,
+        "primaryCost": 1,
+        "secondaryCost": 2,
+        "secondaryInterval": 0.23,
+        "successfulPullCost": 3
+      },
+      "linkCore": {
+        "whiteEndpoint": 0.6,
+        "opacity": 1,
+        "highlightExponent": 2
+      },
+      "rocketRingScaleFromV196": 0.95,
+      "localVisualSettings": true,
+      "rocketRingRadiusScale": {
+        "min": 0,
+        "max": 1.75,
+        "default": 1
+      },
+      "rocketRingOpacity": {
+        "min": 0,
+        "max": 1,
+        "default": 0.875
+      },
+      "rocketRingPulseWhiteTint": 0.135,
+      "earlyGrenadeRecovery": [
+        1.05,
+        0.895,
+        0.74
+      ],
+      "lightningHeadshotsEnabled": false,
+      "flakBall": {
+        "initialSpeed": 3038.75,
+        "maximumSpeed": 6432.8,
+        "percentB19": 93.5
+      },
+      "groundMovement": {
+        "profiles": [
+          {
+            "id": "stock",
+            "name": "Stock / NCP / B19",
+            "maxSpeed": 940,
+            "acceleration": 3200,
+            "fastAcceleration": 12000,
+            "fastThreshold": 200,
+            "friction": 10.5,
+            "braking": 520,
+            "brakeFriction": 5,
+            "brakeFactor": 2,
+            "stopThreshold": 10,
+            "groundReset": 0.35,
+            "wallReset": 0.2,
+            "dodgeJumpReset": 0.35,
+            "airControl": 0.55,
+            "dodgeAirControl": 0.41
+          },
+          {
+            "id": "utplus",
+            "name": "UT+",
+            "maxSpeed": 940,
+            "acceleration": 5000,
+            "fastAcceleration": 12000,
+            "fastThreshold": 200,
+            "friction": 14,
+            "braking": 520,
+            "brakeFriction": 5,
+            "brakeFactor": 2,
+            "stopThreshold": 10,
+            "groundReset": 0.35,
+            "wallReset": 0.2,
+            "dodgeJumpReset": 0.35,
+            "airControl": 0.7,
+            "dodgeAirControl": 0.7,
+            "assignedBraking": 2000
+          },
+          {
+            "id": "elite",
+            "name": "Elite10K",
+            "maxSpeed": 940,
+            "acceleration": 5000,
+            "fastAcceleration": 56000,
+            "fastThreshold": 200,
+            "friction": 14,
+            "braking": 520,
+            "brakeFriction": 5,
+            "brakeFactor": 2,
+            "stopThreshold": 10,
+            "groundReset": 0.01,
+            "wallReset": 0.01,
+            "dodgeJumpReset": 0.01,
+            "airControl": 0.7,
+            "dodgeAirControl": 0.7,
+            "assignedBraking": 2000,
+            "persistentBrakingOverride": false,
+            "brakingAssignmentScope": "existing 10K owner initialization"
+          }
+        ],
+        "dt": 0.001,
+        "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. v2.04 models settled native braking520; its owner initialization assigns active2000 and leaves the native persistent default untouched. UT+ periodic helper-write frames are excluded; no new periodic writer was added to 10K."
+      },
+      "normalRocket": {
+        "initialSpeed": 2912,
+        "maximumSpeed": 4732,
+        "percentB19": 91,
+        "acceleration": 600
+      },
+      "switchColorSettings": {
+        "hue": [
+          0,
+          360
+        ],
+        "saturation": [
+          0,
+          100
+        ],
+        "brightness": [
+          0,
+          4
+        ],
+        "shockDefaultBrightness": 2,
+        "otherDefaultBrightness": 1,
+        "sharedToneAwarePulse": true,
+        "pulseDuration": 0.32,
+        "settledColorPreserved": true,
+        "pulseReference": "selected color only",
+        "sceneColorSampling": false,
+        "settledBodyMaterialsIdentical": true
+      },
+      "stingerBurstIndicatorScale": {
+        "min": 0,
+        "max": 2,
+        "default": 1
+      },
+      "preferencesBackend": "Saved/Config/Mod.ini [Elite10K.Settings]",
+      "brakingInitialization": {
+        "activeAssignment": 2000,
+        "nativePersistentDefault": 520,
+        "customPersistentSetter": false,
+        "periodicHelperAdded": false
+      }
     }
   }
 ]
