@@ -1,6 +1,21 @@
 'use strict';
 (()=>{
  const versions=window.ELITE_VERSIONS,keys=Object.keys(versions),params=new URLSearchParams(location.search);
+ // Split presentation without rewriting archived release snapshots.
+ for(const d of Object.values(versions)){
+  const movement=d.shared.find(w=>w.id==='movement');if(!movement)continue;
+  movement.name='Movement';
+  const rows=movement.rows.filter(r=>/interaction|projectile contact|shot trace/i.test(r.label));
+  movement.rows=movement.rows.filter(r=>!rows.includes(r));
+  const notes=movement.notes.filter(n=>/projectile interactions|interception between weapons/i.test(n));
+  movement.notes=movement.notes.filter(n=>!notes.includes(n));
+  const attack=movement.attackComparison;delete movement.attackComparison;
+  if(!attack&&!rows.length)continue;
+  const page={...(attack||{}),id:'weapon-interactions',name:'Weapon interactions',tag:'Shared rules',summary:'Compare projectile contacts, interception, shot traces and landed Bio goo rules.',rows:attack?attack.rows:rows,notes:notes.length?notes:['Projectile interaction defaults for this release. Server mutators and saved settings can change these rules.'],lab:null};
+  if(attack)page.attackComparison=attack;
+  page.variantScope='Projectile contact checks, collider settings and damage response are separate gates.';
+  d.shared.splice(d.shared.indexOf(movement)+1,0,page);
+ }
  const requested=params.get('version'),version=keys.includes(requested)?requested:keys.at(-1);
  const compare=keys.includes(params.get('compare'))&&params.get('compare')!==version?params.get('compare'):null;
  window.ELITE_GUIDE=versions[version];window.ELITE_VERSION=version;window.ReleaseHistory.activate(window.ELITE_GUIDE);const originalComboRender=window.EliteCombo.render;window.EliteCombo.render=()=>window.ReleaseHistory.comboCopy(originalComboRender());
