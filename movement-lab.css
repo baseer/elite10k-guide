@@ -232,3 +232,17 @@
 .ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:180px minmax(0,1fr)}
 .ml-sticky-controls.is-stuck .ml-playback .ml-playback-rate{height:34px}
 @media(max-width:700px){.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:180px minmax(0,1fr)}.ml-playback-rate select{min-width:98px}}
+
+.ml-mode-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ml-mode-tools #ml-advanced-toggle{margin:0;min-height:34px}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:76px minmax(0,1fr);align-items:center;gap:4px 20px}
+.ml-sticky-controls .ml-playback{display:grid;grid-template-columns:repeat(2,32px);grid-template-rows:32px 32px;gap:6px;align-content:center;height:auto;grid-column:1;grid-row:1/3}
+.ml-sticky-controls .ml-playback .ml-playback-rate{grid-column:1/-1;width:100%;height:32px}
+.ml-sticky-controls .ml-playback-rate select{width:100%;min-width:0;height:32px;padding-left:26px;padding-right:18px;font-size:10px}
+.ml-playback-rate .ml-rate-icon{left:6px;width:14px;height:14px}
+.ml-playback-rate .ml-rate-caret{right:3px;width:12px;height:12px}
+.ml-sticky-controls .ml-timeline-row .ml-timeline{grid-column:2;grid-row:1;align-self:end}
+.ml-sticky-controls .ml-timeline-footer{grid-column:2;grid-row:2;align-self:start}
+.ml-sticky-controls.is-stuck .ml-playback{grid-template-columns:repeat(2,34px);grid-template-rows:34px 32px;gap:6px;height:auto}
+.ml-sticky-controls.is-stuck .ml-playback .ml-playback-rate,.ml-sticky-controls.is-stuck .ml-playback-rate select{height:32px}
+@media(max-width:700px){.ml-mode-tools{width:100%;gap:10px}.ml-mode-tools .ml-modes{width:auto;flex:1}.ml-mode-tools #ml-advanced-toggle{margin-left:auto;padding:6px 7px;font-size:10px}.ml-mode-tools .ml-modes button{font-size:10px;padding:6px 8px}.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-columns:76px minmax(0,1fr);gap:4px 12px}.ml-sticky-controls:not(.is-stuck) .ml-timeline-footer,.ml-sticky-controls.is-stuck .ml-timeline-footer{grid-column:2;grid-row:2}.ml-sticky-controls.is-stuck .ml-playback{grid-row:1/3}}
