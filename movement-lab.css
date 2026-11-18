@@ -317,3 +317,11 @@
 .ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-rows:auto auto;margin-top:0}
 .ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-row{margin-top:0}
 .ml-sticky-controls .ml-playback{align-self:center}
+
+/* Align the transport center with the track, excluding its label. */
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-row{grid-template-rows:auto 40px auto;row-gap:2px}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline{display:contents}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline>label{grid-column:2;grid-row:1;margin:0;line-height:18px}
+.ml-sticky-controls .ml-shared-timeline #ml-time{grid-column:2;grid-row:2;align-self:center}
+.ml-sticky-controls .ml-shared-timeline .ml-playback,.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-playback{grid-column:1;grid-row:2;align-self:center}
+.ml-sticky-controls .ml-shared-timeline .ml-timeline-footer,.ml-sticky-controls:not(.is-stuck) .ml-shared-timeline .ml-timeline-footer,.ml-sticky-controls.is-stuck .ml-shared-timeline .ml-timeline-footer{grid-column:2;grid-row:3}
