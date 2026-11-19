@@ -177,7 +177,8 @@
    if([...q('#ml-playback-rate').options].some(o=>o.value===saved.rate))q('#ml-playback-rate').value=saved.rate;
    if(typeof saved.elapsed==='number'&&Number.isFinite(saved.elapsed)){elapsed=Math.max(0,Math.min(duration,saved.elapsed));q('#ml-time').value=Math.round(elapsed*1000);draw();}
   }
-  const saveURL=()=>root.GuideURL?.write({movement:JSON.stringify({mode,start,speed,gap,elapsed,profiles:selected().map(p=>p.id),custom:Object.fromEntries(customFields.map(([key])=>[key,custom[key]])),customExpanded,source:q('#ml-custom-source').value,advanced:!q('#ml-advanced-settings').hidden,chart:q('[data-chart][aria-selected=true]').dataset.chart,rate:q('#ml-playback-rate').value})});
+  const saveURL=()=>root.GuideURL?.writeMovement({mode,start,speed,gap,elapsed,profiles:selected().map(p=>p.id),custom:Object.fromEntries(customFields.map(([key])=>[key,custom[key]])),customExpanded,source:q('#ml-custom-source').value,advanced:!q('#ml-advanced-settings').hidden,chart:q('[data-chart][aria-selected=true]').dataset.chart,rate:q('#ml-playback-rate').value},{custom:presets.find(p=>p.id==='elite'),profiles:presets.map(p=>p.id)});
+  if(new URLSearchParams(location.search).has('movement'))saveURL();
   for(const event of ['input','change','click','keydown'])host.addEventListener(event,saveURL);
   return ()=>{for(const event of ['input','change','click','keydown'])host.removeEventListener(event,saveURL);stop();if(resize)resize.disconnect();if(stickyObserver)stickyObserver.disconnect();};
  }
