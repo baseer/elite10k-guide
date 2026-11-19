@@ -160,9 +160,9 @@
 .ml-custom-choice #ml-custom-toggle[hidden]{display:none}
 .ml-custom-choice #ml-custom-toggle[aria-expanded=true] svg{transform:rotate(180deg)}
 .ml-custom-choice #ml-custom-toggle:hover{background:var(--accent-soft)}
-.ml-sticky-controls .ml-custom-editor{margin:14px 0 0;padding:12px 0 2px;border:0;border-top:1px solid var(--line);background:transparent;max-height:42vh;overflow-y:auto;scrollbar-width:thin}
-.ml-custom-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.ml-custom-heading strong{color:#f1c56b;font-size:12px;font-weight:500}
-#ml-custom-close{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:20px;cursor:pointer}
+.ml-sticky-controls .ml-custom-editor{margin:12px 0 0;padding:8px 0 2px;border:0;border-top:1px solid var(--line);background:transparent;max-height:42vh;overflow-y:auto;scrollbar-width:thin}
+.ml-custom-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:24px}.ml-custom-heading strong{color:#f1c56b;font-size:12px;font-weight:500}
+#ml-custom-close{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;flex:0 0 24px;padding:0;border:0;border-radius:4px;background:transparent;color:var(--muted);cursor:pointer}
 .ml-sticky-controls .ml-custom-actions{margin:8px 0 14px}.ml-sticky-controls .ml-custom-fields{gap:12px 20px}.ml-sticky-controls .ml-custom-note{margin-top:12px}
 @media(max-width:700px){.ml-sticky-controls.is-stuck.has-custom-editor{max-height:75vh}.ml-sticky-controls .ml-custom-editor{max-height:40vh}.ml-sticky-controls .ml-custom-fields{gap:12px}.ml-custom-choice #ml-custom-toggle{width:24px}}
 
@@ -358,3 +358,7 @@
 @media(max-width:600px){.ml-custom-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ml-custom-actions label{grid-column:1/-1;min-width:0}.ml-custom-actions select{width:132px}.ml-custom-actions button{width:100%;min-width:0;padding:0 10px}}
 .ml-custom-actions select option{background-color:#20202a;color:#f4f1fa}
 .ml-custom-actions select option:checked{background-color:#342b50;color:#ffffff}
+
+#ml-custom-close svg{display:block;flex:none}
+#ml-custom-close:hover{background:#ffffff0a;color:var(--ink)}
+#ml-custom-close:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
