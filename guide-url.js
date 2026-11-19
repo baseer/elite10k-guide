@@ -61,8 +61,12 @@ window.GuideURL=(()=>{
   for(let parent=target.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;
   if(target.tagName==='DETAILS')target.open=true;
   const panel=target.closest('[role=tabpanel][hidden]');if(panel){const tab=[...document.querySelectorAll('[aria-controls]')].find(t=>t.getAttribute('aria-controls')===panel.id);tab?.click();}
-  requestAnimationFrame(()=>{const sticky=document.querySelector('.ml-sticky-controls');const covered=sticky&&!sticky.contains(target)&&!(target.compareDocumentPosition(sticky)&Node.DOCUMENT_POSITION_FOLLOWING);target.style.scrollMarginTop=(covered?sticky.getBoundingClientRect().height+24:24)+'px';target.scrollIntoView({block:'start',behavior:'instant'});});
+  const align=()=>{if(!target.isConnected)return;const sticky=document.querySelector('.ml-sticky-controls');const covered=sticky&&!sticky.contains(target)&&!(target.compareDocumentPosition(sticky)&Node.DOCUMENT_POSITION_FOLLOWING);target.style.scrollMarginTop=(covered?sticky.getBoundingClientRect().height+24:24)+'px';target.scrollIntoView({block:'start',behavior:'auto'});};
+  requestAnimationFrame(()=>{align();requestAnimationFrame(()=>requestAnimationFrame(align));});
  }
+ // A browser may restore its own scroll after the initial dynamic render.
+ window.addEventListener('load',()=>scrollToHeading(),{once:true});
+ window.addEventListener('pageshow',()=>scrollToHeading());
  let headingObserver;
  function headings(){headingLinks();if(!headingObserver){headingObserver=new MutationObserver(()=>headingLinks());headingObserver.observe(document.getElementById('main'),{childList:true,subtree:true});}scrollToHeading();}
  return {section,links,go,write,combo,readMovement,writeMovement,comboScoring,headings};

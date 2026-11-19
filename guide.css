@@ -58,3 +58,5 @@ input[type=range]::-webkit-slider-thumb{border-radius:50%}input[type=range]::-mo
 :is(h2,h3,h4):hover>.heading-permalink,.heading-permalink:hover,.heading-permalink:focus-visible{opacity:1;color:var(--accent)}
 :is(h2,h3,h4)[id]{scroll-margin-top:24px}
 @media(hover:none){.heading-permalink{opacity:.7}}
+
+.section-anchor-alias{display:block;height:0;scroll-margin-top:24px;pointer-events:none}
