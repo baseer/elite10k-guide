@@ -88,7 +88,7 @@
   }
 
   function pathChart(){
-   const W=Math.max(300,Math.min(800,host.clientWidth-32)),H=320,pad=42,visible=runs.flatMap(run=>run.samples.filter((s,i)=>i%2===0&&s.t<=duration*speed)),forwardMax=Math.max(30,...visible.map(s=>s.x)),rightMax=Math.max(30,...visible.map(s=>s.y)),scale=Math.min((W-2*pad)/rightMax,(H-2*pad)/forwardMax),originX=(W-rightMax*scale)/2,sx=y=>originX+y*scale,sy=x=>H-pad-x*scale,input=turnInput(mode),ray=Math.min(forwardMax,rightMax)*.7;
+   const W=Math.max(300,Math.min(800,host.clientWidth-32)),H=320,pad=42,visible=runs.flatMap(run=>run.samples.filter((s,i)=>i%2===0&&s.t<=duration*speed)),forwardMax=Math.max(30,...visible.map(s=>s.x)),rightMax=Math.max(30,...visible.map(s=>s.y)),scale=Math.min((W-2*pad)*.5/rightMax,(H-2*pad)/forwardMax),originX=(W-rightMax*scale)/2,sx=y=>originX+y*scale,sy=x=>H-pad-x*scale,input=turnInput(mode),ray=Math.min(forwardMax,rightMax)*.7;
    let svg='<title>Top-down turning paths</title><desc>Forward is up and right is right. Equal world-unit scale on both axes. The dashed arrow shows requested input, not velocity.</desc>';
    svg+='<path d="M'+sx(0)+','+sy(forwardMax)+'V'+(H-pad)+'H'+sx(rightMax)+'" fill="none" stroke="var(--line)"/><text x="'+sx(0)+'" y="16">Forward · '+n(forwardMax,0)+' UU</text><text x="'+sx(rightMax)+'" y="'+(H-14)+'" text-anchor="end">Right · '+n(rightMax,0)+' UU</text><text x="'+(sx(0)-8)+'" y="'+(H-pad+16)+'">0</text>';
    svg+='<path d="M'+sx(0)+','+sy(0)+'L'+sx(input.y*ray)+','+sy(input.x*ray)+'" fill="none" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="'+(sx(input.y*ray)+8)+'" y="'+(sy(input.x*ray)-6)+'">Input '+(mode==='turn90'?'right':'forward + right')+'</text>';
