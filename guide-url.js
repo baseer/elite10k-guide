@@ -52,11 +52,18 @@ window.GuideURL=(()=>{
    a.textContent='✓';a.setAttribute('aria-label','Section link copied');status.textContent='Section link copied';clearTimeout(a.copyTimer);a.copyTimer=setTimeout(()=>{a.textContent='#';a.setAttribute('aria-label',a.dataset.label);},1600);
   }catch{status.textContent='Right-click the section link to copy its address';}
  }
+ const chartHashes=new Set(['section-speed-over-time','section-velocity-over-time','section-position-over-time','section-distance-over-time']);
+ function syncChartHash(name){if(section()!=='movement'||!chartHashes.has(location.hash.slice(1)))return;const u=new URL(location.href);u.hash='section-'+(name==='velocity'?'velocity':'distance')+'-over-time';if(u.href!==location.href){history.replaceState(null,'',u);links();}}
  function scrollToHeading(){
   if(!location.hash)return;
   let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}
   // The chart title changes between speed and signed velocity; its anchor does not.
-  if(id==='section-speed-over-time'&&section()==='movement')id='section-velocity-over-time';
+  if(section()==='movement'&&chartHashes.has(id)){
+   const chart=new URLSearchParams(location.search).get('chart');
+   if(chart==='velocity'||chart==='distance'){syncChartHash(chart);id=location.hash.slice(1);}
+   else if(id==='section-speed-over-time')id='section-velocity-over-time';
+   else if(id==='section-position-over-time')id='section-distance-over-time';
+  }
   const target=document.getElementById(id);if(!target)return;
   for(let parent=target.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;
   if(target.tagName==='DETAILS')target.open=true;
@@ -69,5 +76,5 @@ window.GuideURL=(()=>{
  window.addEventListener('pageshow',()=>scrollToHeading());
  let headingObserver;
  function headings(){headingLinks();if(!headingObserver){headingObserver=new MutationObserver(()=>headingLinks());headingObserver.observe(document.getElementById('main'),{childList:true,subtree:true});}scrollToHeading();}
- return {section,links,go,write,combo,readMovement,writeMovement,comboScoring,headings};
+ return {section,links,go,write,combo,readMovement,writeMovement,comboScoring,headings,syncChartHash};
 })();
