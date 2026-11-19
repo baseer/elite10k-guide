@@ -55,6 +55,8 @@ window.GuideURL=(()=>{
  function scrollToHeading(){
   if(!location.hash)return;
   let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}
+  // The chart title changes between speed and signed velocity; its anchor does not.
+  if(id==='section-speed-over-time'&&section()==='movement')id='section-velocity-over-time';
   const target=document.getElementById(id);if(!target)return;
   for(let parent=target.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;
   if(target.tagName==='DETAILS')target.open=true;
