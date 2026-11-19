@@ -5,7 +5,7 @@ window.GuideURL=(()=>{
  for(const d of Object.values(window.ELITE_VERSIONS||{}))for(const w of [...d.weapons,...d.shared])ids.add(w.id);
  ids.add('weapon-interactions');
  const section=()=>{const part=location.pathname.slice(base.pathname.length).replace(/^\/|\/$/g,'');return ids.has(part)?part:'overview';};
- function write(values){const u=new URL(location.href);for(const [k,v]of Object.entries(values))u.searchParams.set(k,String(v));if(u.href!==location.href){history.replaceState(null,'',u);links();window.dispatchEvent(new Event('guide:settings'));}}
+ function write(values){const u=new URL(location.href);if(window.ELITE_VERSION)u.searchParams.set('version',window.ELITE_VERSION);for(const [k,v]of Object.entries(values))u.searchParams.set(k,String(v));if(u.href!==location.href){history.replaceState(null,'',u);links();window.dispatchEvent(new Event('guide:settings'));}}
  function url(id,search=location.search){const u=new URL(id==='overview'?'./':id+'/',base);u.search=search;return u;}
  function links(){for(const a of document.querySelectorAll('a[href]')){const u=new URL(a.getAttribute('href'),document.baseURI),id=a.dataset.guideSection||u.hash.slice(1);if(u.origin===location.origin&&ids.has(id)){a.dataset.guideSection=id;a.href=url(id,location.search);}else if(u.hash&&a.getAttribute('href').startsWith('#')){const local=new URL(location.href);local.hash=u.hash;a.href=local;}}}
  function go(id,replace=false,search=location.search){if(!ids.has(id))return;const u=url(id,search);if(id!==section())for(const k of ['distance','score','health','movement','angle','side-speed','separation'])u.searchParams.delete(k);history[replace?'replaceState':'pushState'](null,'',u);window.dispatchEvent(new Event('guide:navigate'));links();}
@@ -20,3 +20,4 @@ window.GuideURL=(()=>{
  function comboScoring(){if(section()!=='combo')return;const params=new URLSearchParams(location.search);if(['angle','side-speed','separation'].some(k=>params.has(k)))document.getElementById('movement-info').open=true;for(const key of ['angle','side-speed','separation']){const n=document.getElementById(key+'-number'),s=document.getElementById(key+'-slider');if(!n||!s)continue;const v=number(key,+s.min,+s.max,+s.value);s.value=v;s.dispatchEvent(new Event('input'));for(const input of [n,s])input.addEventListener('input',()=>write({[key]:s.value}));}}
  return {section,links,go,write,combo,readMovement,comboScoring};
 })();
+
