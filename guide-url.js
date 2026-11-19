@@ -60,7 +60,7 @@ window.GuideURL=(()=>{
   const target=document.getElementById(id);if(!target)return;
   for(let parent=target.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;
   if(target.tagName==='DETAILS')target.open=true;
-  const panel=target.closest('[role=tabpanel][hidden]');if(panel){const tab=[...document.querySelectorAll('[aria-controls]')].find(t=>t.getAttribute('aria-controls')===panel.id);tab?.click();}
+  const panel=target.closest('[role=tabpanel][hidden]');if(panel){const tab=[...document.querySelectorAll('[aria-controls]')].find(t=>t.getAttribute('aria-controls')===panel.id);if(panel.closest('.movement-lab'))panel.dispatchEvent(new CustomEvent('guide:reveal-tab',{detail:panel.id,bubbles:true}));else tab?.click();}
   const align=()=>{if(!target.isConnected)return;const sticky=document.querySelector('.ml-sticky-controls');const covered=sticky&&!sticky.contains(target)&&!(target.compareDocumentPosition(sticky)&Node.DOCUMENT_POSITION_FOLLOWING);target.style.scrollMarginTop=(covered?sticky.getBoundingClientRect().height+24:24)+'px';target.scrollIntoView({block:'start',behavior:'auto'});};
   requestAnimationFrame(()=>{align();requestAnimationFrame(()=>requestAnimationFrame(align));});
  }
