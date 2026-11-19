@@ -159,10 +159,27 @@
   q('#ml-start').addEventListener('input',e=>{start=+e.target.value;recompute();});q('#ml-speed').addEventListener('input',e=>{speed=+e.target.value;recompute();});q('#ml-gap').addEventListener('input',e=>{gap=+e.target.value;recompute(true);});
   for(const c of qa('[data-profile]'))c.addEventListener('change',()=>{if(!selected().length)c.checked=true;if(c.dataset.profile==='custom')customExpanded=c.checked;recompute();});
   q('#ml-time').addEventListener('input',e=>{stop();elapsed=+e.target.value/1000;draw();});
-  function frame(now){if(!playing)return;if(last){elapsed=Math.min(duration,elapsed+(now-last)/1000*(+q('#ml-playback-rate').value));q('#ml-time').value=Math.round(elapsed*1000);draw();}last=now;if(elapsed>=duration){stop();return;}raf=requestAnimationFrame(frame);}
+  function frame(now){if(!playing)return;if(last){elapsed=Math.min(duration,elapsed+(now-last)/1000*(+q('#ml-playback-rate').value));q('#ml-time').value=Math.round(elapsed*1000);draw();}last=now;if(elapsed>=duration){stop();saveURL();return;}raf=requestAnimationFrame(frame);}
   q('#ml-play').addEventListener('click',()=>{if(playing){stop();return;}if(elapsed>=duration)elapsed=0;playing=true;last=0;setPlayButton(true);raf=requestAnimationFrame(frame);});
   const stickyObserver=root.IntersectionObserver?new root.IntersectionObserver(entries=>{const entry=entries[0];q('.ml-sticky-controls').classList.toggle('is-stuck',!entry.isIntersecting&&entry.boundingClientRect.top<0);},{threshold:0}):null;if(stickyObserver)stickyObserver.observe(q('.ml-sticky-sentinel'));
-  let lastWidth=host.clientWidth;const resize=root.ResizeObserver?new root.ResizeObserver(()=>{if(host.clientWidth!==lastWidth){lastWidth=host.clientWidth;draw();}}):null;if(resize)resize.observe(host);recompute();return ()=>{stop();if(resize)resize.disconnect();if(stickyObserver)stickyObserver.disconnect();};
+  let lastWidth=host.clientWidth;const resize=root.ResizeObserver?new root.ResizeObserver(()=>{if(host.clientWidth!==lastWidth){lastWidth=host.clientWidth;draw();}}):null;if(resize)resize.observe(host);recompute();
+  const saved=root.GuideURL?.readMovement();
+  if(saved){
+   if(['accelerate','stop','reverse','turn90','turn45'].includes(saved.mode)){mode=saved.mode;for(const b of qa('[data-mode]'))b.setAttribute('aria-pressed',String(b.dataset.mode===mode));}
+   const restoreNumber=(id,value)=>{const input=q('#'+id);if(typeof value!=='number'||!Number.isFinite(value))return null;const v=Math.max(+input.min,Math.min(+input.max,value));input.value=v;return +input.value;};
+   start=restoreNumber('ml-start',saved.start)??start;speed=restoreNumber('ml-speed',saved.speed)??speed;gap=restoreNumber('ml-gap',saved.gap)??gap;
+   for(const [key]of customFields){const v=restoreNumber('ml-custom-'+key,saved.custom?.[key]);if(v!==null)custom[key]=v;}
+   if(Array.isArray(saved.profiles)&&saved.profiles.some(id=>profiles.some(p=>p.id===id)))for(const c of qa('[data-profile]'))c.checked=saved.profiles.includes(c.dataset.profile);
+   if(presets.some(p=>p.id===saved.source))q('#ml-custom-source').value=saved.source;
+   customExpanded=saved.customExpanded===true;recompute();
+   if(['distance','velocity'].includes(saved.chart))selectChart(saved.chart);
+   if(saved.advanced===true)q('#ml-advanced-toggle').click();
+   if([...q('#ml-playback-rate').options].some(o=>o.value===saved.rate))q('#ml-playback-rate').value=saved.rate;
+   if(typeof saved.elapsed==='number'&&Number.isFinite(saved.elapsed)){elapsed=Math.max(0,Math.min(duration,saved.elapsed));q('#ml-time').value=Math.round(elapsed*1000);draw();}
+  }
+  const saveURL=()=>root.GuideURL?.write({movement:JSON.stringify({mode,start,speed,gap,elapsed,profiles:selected().map(p=>p.id),custom:Object.fromEntries(customFields.map(([key])=>[key,custom[key]])),customExpanded,source:q('#ml-custom-source').value,advanced:!q('#ml-advanced-settings').hidden,chart:q('[data-chart][aria-selected=true]').dataset.chart,rate:q('#ml-playback-rate').value})});
+  for(const event of ['input','change','click','keydown'])host.addEventListener(event,saveURL);
+  return ()=>{for(const event of ['input','change','click','keydown'])host.removeEventListener(event,saveURL);stop();if(resize)resize.disconnect();if(stickyObserver)stickyObserver.disconnect();};
  }
  const api={acceleration,step,step2D,simulateTurn,simulate,sampleAt,timeAtDistance,compareTimes,render,mount};root.MovementLab=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

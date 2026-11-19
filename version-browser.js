@@ -29,8 +29,8 @@
  group.append(controls);
  const quick=document.createElement('button');quick.type='button';quick.className='navbar-quick-summary';header.append(quick);
  quick.addEventListener('click',()=>{const panel=document.querySelector('.version-changes');if(panel){panel.open=!panel.open;quick.setAttribute('aria-expanded',String(panel.open));}});
- function updateLinks(){for(const a of controls.querySelectorAll('a')){const q=new URLSearchParams(location.search);q.set('version',a.dataset.readVersion||version);if(a.hasAttribute('data-stop-comparing')||(a.dataset.readVersion&&a.dataset.readVersion===compare))q.delete('compare');else if(a.dataset.compareVersion)q.set('compare',a.dataset.compareVersion);else if(compare)q.set('compare',compare);else q.delete('compare');a.href=location.pathname+'?'+q+(location.hash||'#overview');}}
- updateLinks();window.addEventListener('hashchange',updateLinks);
+ function updateLinks(){for(const a of controls.querySelectorAll('a')){const q=new URLSearchParams(location.search);q.set('version',a.dataset.readVersion||version);if(a.hasAttribute('data-stop-comparing')||(a.dataset.readVersion&&a.dataset.readVersion===compare))q.delete('compare');else if(a.dataset.compareVersion)q.set('compare',a.dataset.compareVersion);else if(compare)q.set('compare',compare);else q.delete('compare');a.href=location.pathname+'?'+q;}}
+ updateLinks();window.addEventListener('guide:navigate',updateLinks);window.addEventListener('guide:settings',updateLinks);
  let keyboardNavigation=false;
  document.addEventListener('keydown',e=>{if(e.key==='Tab')keyboardNavigation=true;});
  document.addEventListener('pointerdown',()=>{keyboardNavigation=false;});

@@ -347,3 +347,13 @@
 @media(max-width:700px){.ml-mode-tools{flex-wrap:wrap}.ml-mode-tools .ml-modes{width:100%;flex-basis:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.ml-mode-tools .ml-modes button{padding:7px 5px;gap:4px;min-height:34px;font-size:10px}.ml-mode-icon{width:14px;height:14px}.ml-mode-tools #ml-advanced-toggle{min-height:30px;margin-left:0}#ml-path-chart{min-height:180px}#ml-path-readouts{grid-template-columns:1fr;padding:12px 14px;gap:10px}.ml-path-note{padding:0 14px 12px}}
 
 @media(min-width:701px){.ml-mode-tools .ml-modes button{font-size:11px;padding:7px 9px}.ml-mode-icon{width:14px;height:14px}.ml-scenario-row{gap:14px}}
+/* Custom profile actions: one control rhythm, with room for the select caret. */
+.ml-custom-actions{gap:10px 12px;align-items:flex-end}
+.ml-custom-actions label{flex:0 1 190px;min-width:160px;line-height:1.5}
+.ml-custom-actions select,.ml-custom-actions button{box-sizing:border-box;height:40px;min-height:40px;font:inherit;font-size:12px;line-height:1.2;border-radius:4px;transition:border-color .15s,background-color .15s}
+.ml-custom-actions select{appearance:none;-webkit-appearance:none;width:100%;margin-top:6px;padding:0 42px 0 13px;cursor:pointer;background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23d6d4de' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.ml-custom-actions button{padding:0 16px;cursor:pointer;white-space:nowrap}
+.ml-custom-actions button:hover,.ml-custom-actions select:hover{border-color:var(--accent);background-color:#ffffff06}
+.ml-custom-actions select:focus-visible,.ml-custom-actions button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:600px){.ml-custom-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ml-custom-actions label{grid-column:1/-1;min-width:0}.ml-custom-actions select{width:100%}.ml-custom-actions button{width:100%;min-width:0;padding:0 10px}}
+@media(max-width:600px){.ml-custom-actions label,.ml-custom-actions select{width:100%;max-width:none}}
