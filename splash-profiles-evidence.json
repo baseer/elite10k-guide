@@ -1,0 +1,108 @@
+{
+  "method": "Read-only projectile asset defaults merged with verified native class constructor defaults. UT+ standard projectile parents rechecked against its SHA256-verified pak. Stock assets use native defaults for unoverridden fields.",
+  "parameterOrder": [
+    "maximum",
+    "minimum",
+    "innerRadiusUU",
+    "outerRadiusUU"
+  ],
+  "profiles": {
+    "stock": {
+      "rocket": [
+        100,
+        20,
+        15,
+        360
+      ],
+      "flak": [
+        90,
+        20,
+        40,
+        330
+      ]
+    },
+    "utplus": {
+      "rocket": [
+        100,
+        20,
+        15,
+        345
+      ],
+      "flak": [
+        115,
+        18,
+        20,
+        300
+      ]
+    },
+    "b19": {
+      "rocket": [
+        100,
+        20,
+        15,
+        360
+      ],
+      "flak": [
+        95,
+        20,
+        0,
+        300
+      ]
+    }
+  },
+  "utplusSha256": "208D9D6EFA99D6EF92C7905A6BA2F2482391C909206CD1669494EA6EB500310E",
+  "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
+  "nativeSources": [
+    {
+      "path": "G:\\UT4Build\\JimmieKJ\\UnrealTournament\\Source\\UnrealTournament\\Private\\UTProj_Rocket.cpp",
+      "sha256": "B6B9699AC967AE854188B126673ABA0CED6C436A36FB5C78F9A3C789B9F29239",
+      "damage_parameter_lines": [
+        "DamageParams.BaseDamage = 100;",
+        "DamageParams.OuterRadius = 360.f;",
+        "DamageParams.InnerRadius = 15.f;",
+        "DamageParams.MinimumDamage = 20.f;"
+      ]
+    },
+    {
+      "path": "G:\\UT4Build\\JimmieKJ\\UnrealTournament\\Source\\UnrealTournament\\Private\\UTProj_FlakShell.cpp",
+      "sha256": "57750ACFDBFD78C75F41880CEFF87EBEEC76C1D7CE83A3970ABD33C1EE677425",
+      "damage_parameter_lines": [
+        "DamageParams.BaseDamage = 90.0f;",
+        "DamageParams.OuterRadius = 300.0f;",
+        "DamageParams.MinimumDamage = 20.f;",
+        "Event.Damage = DefaultShard->DamageParams.BaseDamage;"
+      ]
+    },
+    {
+      "path": "G:\\UT4Build\\JimmieKJ\\UnrealTournament\\Source\\UnrealTournament\\Private\\UTProjectile.cpp",
+      "sha256": "8D83FB18754295FBA3ECC741D0BCBF47AD62AA7DD024159D087BE9B746B097A7",
+      "damage_parameter_lines": [
+        "DamageParams.BaseDamage = 20;",
+        "DamageParams.DamageFalloff = 1.0;",
+        "if (NetDriver != NULL && NetDriver->IsServer() && !IsPendingKillPending() && (ProjectileMovement->Velocity.Size() >= 7500.0f || DamageParams.OuterRadius > 0.0f))"
+      ]
+    }
+  ],
+  "utplusParents": {
+    "rocket": "/Script/UnrealTournament.UTProj_Rocket",
+    "flak": "/Script/UnrealTournament.UTProj_FlakShell"
+  },
+  "stockOverrides": {
+    "rocket": {},
+    "flak": {
+      "InnerRadius": 40,
+      "OuterRadius": 330
+    }
+  },
+  "utplusOverrides": {
+    "rocket": {
+      "OuterRadius": 345
+    },
+    "flak": {
+      "BaseDamage": 115,
+      "MinimumDamage": 18,
+      "InnerRadius": 20
+    }
+  },
+  "note": "UT+ Flak inherits outer300 from its native parent, rather than outer330 from the separate stock Blueprint. All profiles use linear raw radial falloff; historical below40 rejection applies only to Elite10K when indicated by its release model."
+}
