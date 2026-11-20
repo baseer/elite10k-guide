@@ -17,7 +17,7 @@ window.SplashLab=(()=>{
    $('#sl-legend').innerHTML=names.map((name,i)=>`<span><svg viewBox="0 0 38 12" aria-hidden="true"><line x1="0" y1="6" x2="38" y2="6" stroke="${colors[i]}" stroke-width="3" stroke-dasharray="${dashes[i]}"/></svg>${name}</span>`).join('');
    $('#sl-projectile').value=kind;$('#sl-distance').value=String(distance);$('#sl-range').value=distance;$('#sl-health').value=health;$('#sl-health-range').value=health;$('#sl-health-range').style.setProperty('--fill',100*(health-1)/199+'%');
    $('#sl-range').style.setProperty('--fill',100*distance/limit+'%');
-   const x=d=>48+d/limit*450,y=d=>252-d/125*218;
+   const x=d=>498-d/limit*450,y=d=>252-d/125*218;
    let graph='';
    for(const n of [0,25,50,75,100,125])graph+=line(48,y(n),498,y(n),'class="sl-grid"')+text(38,y(n)+4,n,'text-anchor="end"');
    for(const n of [0,100,200,300,400,450])graph+=text(x(n),274,n,'text-anchor="middle"');
@@ -30,10 +30,10 @@ window.SplashLab=(()=>{
     graph+=`<circle cx="${x(distance)}" cy="${y(damage(distance,a,i===3&&legacy))}" r="5" fill="${colors[i]}"/>`;
    });
    graph+=line(x(distance),30,x(distance),252,'stroke="#f1d28b" stroke-dasharray="3 4"');$('#sl-chart').innerHTML=graph;
-   const scale=.29,cx=150,cy=146;
+   const scale=.29,cx=270,cy=146;
    let blast='';
    profiles.forEach((a,i)=>{blast+=`<circle cx="${cx}" cy="${cy}" r="${a[3]*scale}" fill="${colors[i]}" fill-opacity=".055" stroke="${colors[i]}" stroke-width="2" stroke-dasharray="${dashes[i]}"/>`;if(a[2])blast+=`<circle cx="${cx}" cy="${cy}" r="${a[2]*scale}" fill="${colors[i]}" fill-opacity=".25"/>`;});
-   blast+=line(cx,cy,cx+distance*scale,cy,'stroke="#f1d28b" stroke-width="2"')+`<circle cx="${cx}" cy="${cy}" r="4" fill="white"/><circle cx="${cx+distance*scale}" cy="${cy}" r="7" fill="#f1d28b" stroke="#111116" stroke-width="2"/>`+text(cx,cy-15,'Impact','text-anchor="middle"')+text(cx+distance*scale,cy+25,fmt(distance)+' UU','text-anchor="middle"');
+   blast+=line(cx,cy,cx-distance*scale,cy,'stroke="#f1d28b" stroke-width="2"')+`<circle cx="${cx}" cy="${cy}" r="4" fill="white"/><circle cx="${cx-distance*scale}" cy="${cy}" r="7" fill="#f1d28b" stroke="#111116" stroke-width="2"/>`+text(cx,cy-15,'Impact','text-anchor="middle"')+text(cx-distance*scale,cy+25,fmt(distance)+' UU','text-anchor="middle"');
    blast+=text(12,284,'Outer rings = configured blast radii');$('#sl-blast').innerHTML=blast;
    const values=profiles.map((a,i)=>{const raw=damage(distance,a,i===3&&legacy);return {raw,whole:Math.trunc(raw),hp:Math.max(0,health-Math.trunc(raw))};}),elite=values[3];
    $('#sl-results').innerHTML=`<div class="sl-result-title"><h2>Elite10K v${data.version}</h2><span>ONE EXPLOSION</span></div><p class="sl-damage-display"><output>${elite.whole}</output><span>FINAL DAMAGE</span></p><p class="sl-gain">${elite.whole-values[2].whole>=0?'+':''}${elite.whole-values[2].whole} damage versus original B19</p><div class="sl-result-bars">${[3,2,1,0].map(i=>`<div class="sl-bar-row" data-profile="${['stock','utplus','b19','elite'][i]}" style="--sl-color:${colors[i]}"><div class="sl-bar-header"><span>${names[i]}</span><strong>${values[i].whole}</strong></div><div class="sl-track"><div class="sl-fill" style="width:${values[i].whole/125*100}%"></div></div><div class="sl-bar-detail"><span>${fmt(values[i].raw)} raw</span><span>${values[i].raw===0?'No damage · ':values[i].hp===0?'Lethal · ':''}${values[i].hp} HP remaining</span></div></div>`).join('')}</div><p class="sl-health-status">${elite.raw===0?'Target is outside the Elite10K damage range.':elite.hp===0?'Elite10K reaches the selected '+health+' HP.':'Target survives Elite10K with '+elite.hp+' HP remaining.'}</p><p class="small-note">Whole-number damage, before armor. Each profile uses its own radial falloff; bars share a 125-damage scale.</p>`;
@@ -51,7 +51,7 @@ window.SplashLab=(()=>{
   $('#sl-health').addEventListener('input',e=>{if(e.target.value!==''&&e.target.validity.valid){health=Number(e.target.value);update();}});$('#sl-health').addEventListener('change',()=>update());
   host.querySelectorAll('[data-place]').forEach(b=>b.addEventListener('click',()=>{const a=data.model.splash[kind];distance=({center:0,inner:a[2],edge:a[3],outside:Math.max(a[3],old[kind][3],stock[kind][3],utplus[kind][3])+10})[b.dataset.place];update();}));
   $('#sl-reset').addEventListener('click',()=>{kind='rocket';distance=150;health=100;update();});
-  const chart=$('#sl-chart'),move=e=>{const pt=chart.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const local=pt.matrixTransform(chart.getScreenCTM().inverse());setDistance((local.x-48)/450*limit);};
+  const chart=$('#sl-chart'),move=e=>{const pt=chart.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const local=pt.matrixTransform(chart.getScreenCTM().inverse());setDistance((498-local.x)/450*limit);};
   chart.addEventListener('pointerdown',e=>{chart.setPointerCapture(e.pointerId);move(e);});chart.addEventListener('pointermove',e=>{if(chart.hasPointerCapture(e.pointerId))move(e);});chart.addEventListener('pointerup',e=>{if(chart.hasPointerCapture(e.pointerId))chart.releasePointerCapture(e.pointerId);});
   update(false);return ()=>{};
  }
