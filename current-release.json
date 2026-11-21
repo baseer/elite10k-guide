@@ -1,14 +1,14 @@
 {
-  "verifiedDate": "2026-11-20",
+  "verifiedDate": "2026-11-21",
   "components": {
     "weapons": {
-      "version": "2.04",
-      "sha256": "31C8D6DE82A973A6D95926548458916F14A5A71F301C09DB3721831AFBE174EB",
-      "revision": "Flakball95% and normal Rocket92.5% of authoritative B19; all latest v2.04 changes preserved",
-      "source": "elite-v2.04/latest-release.json",
+      "version": "2.05",
+      "sha256": "E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93",
+      "revision": "v2.05: Flak ball 93.5% / normal rocket 91% of B19; rocket-ring opacity 92.5%",
+      "source": "elite-v2.05/rocket-ring-opacity925/report.json",
       "filename": "Elite10K-WindowsNoEditor.pak",
       "recordedRuntimeVerified": true,
-      "recordedRedirectDownloadVerified": false
+      "recordedRedirectDownloadVerified": true
     },
     "hud": {
       "version": "1.19",

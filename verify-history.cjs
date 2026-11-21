@@ -1,7 +1,7 @@
 const fs=require('fs'),p=require('path'),vm=require('vm'),assert=require('assert');
 const root=__dirname,box={window:{}};vm.runInNewContext(fs.readFileSync(p.join(root,'versions-data.js'),'utf8'),box);
 const versions=box.window.ELITE_VERSIONS,history=require('./release-history.js');let cases=0;
-assert.equal(Object.keys(versions).length,47);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'2.04');
+assert.equal(Object.keys(versions).length,48);assert.equal(Object.keys(versions)[0],'1.57');assert.equal(Object.keys(versions).at(-1),'2.05');
 for(const [v,d] of Object.entries(versions)){
  const m=d.model,c=m.combo;
  assert.equal(d.weapons.length,12);assert.equal(d.shared.length,3);assert(/^[A-F0-9]{64}$/.test(d.packageSha256));
@@ -43,8 +43,8 @@ for(const allowance of [0,5,7.5,10,15]){
 }
 assert.equal(Math.round(bodyGeometry(10).frontArea),21454);
 assert.equal(Math.round(bodyGeometry(10).surfaceArea),74142);
-console.log('PASS',cases,'release-model cases, 47 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
-fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:47,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
+console.log('PASS',cases,'release-model cases, 48 snapshots, body area geometry, rifle-column completeness, historical revisions and boundaries.');
+fs.writeFileSync(p.join(root,'versions/verification.json'),JSON.stringify({passed:true,cases,versions:Object.keys(versions).length,releaseHashesVerified:true,normalV160RevisionVerified:true,diagnosticLightningV176Excluded:true,headshotScalesVerified:true,latestV182RevisionVerified:true,latestV183RevisionVerified:true},null,2)+'\n');
 
 assert.equal(versions['1.85'].model.hammer.shieldLifetime,.75);assert.equal(versions['1.84'].model.hammer.shieldLifetime,.5);assert.equal(versions['1.85'].packageSha256,'D4B1B5F6F89B53304631E1BCE47B6FF9E5003D2D175F86126FBC353245F0BF0D');
 
@@ -79,3 +79,5 @@ assert.equal(versions['2.04'].packageSha256,'31C8D6DE82A973A6D95926548458916F14A
 assert.equal(versions['2.04'].model.flakBall.percentB19,95);assert.equal(versions['2.04'].model.flakBall.initialSpeed,3087.5);assert.equal(versions['2.04'].model.flakBall.maximumSpeed,6536);assert.equal(versions['2.04'].model.normalRocket.percentB19,92.5);assert.equal(versions['2.04'].model.normalRocket.initialSpeed,2960);assert.equal(versions['2.04'].model.normalRocket.maximumSpeed,4810);
 
 for(const v of ['2.03','2.04'])for(const id of ['sniper','lightning']){const w=versions[v].weapons.find(w=>w.id===id);assert.equal(w.rows.find(r=>r.label==='Body-hit trace thickness').elite,'20 UU total · 10 UU per side');assert.equal(w.rows.find(r=>r.label.startsWith('Effective body-hit width')).elite,'100 UU · 125% of line-trace example');}
+
+assert.equal(versions['2.05'].packageSha256,'E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93');assert.equal(versions['2.05'].model.flakBall.percentB19,93.5);assert.equal(versions['2.05'].model.normalRocket.percentB19,91);assert.equal(versions['2.05'].model.rocketRingOpacity.default,.925);assert.deepEqual(versions['2.05'].model.groundMovement.profiles,versions['2.04'].model.groundMovement.profiles);

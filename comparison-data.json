@@ -1,5 +1,5 @@
 {
-  "version": "2.04",
+  "version": "2.05",
   "weapons": [
     {
       "id": "shock",
@@ -155,16 +155,16 @@
         {
           "label": "Ball initial speed",
           "b19": "≈4.67 dodge lengths/s (3,250 UU/s)",
-          "elite": "3,087.5 UU/s (95% of B19)",
-          "note": "95% of B19 launch speed; 23.5% faster than Stock/UT+.",
+          "elite": "3,038.75 UU/s (93.5% of B19)",
+          "note": "93.5% of B19 launch speed; 21.55% faster than Stock/UT+.",
           "stock": "2,500 UU/s",
           "utplus": "2,500 UU/s"
         },
         {
           "label": "Ball maximum speed",
           "b19": "≈9.88 dodge lengths/s (6,880 UU/s)",
-          "elite": "6,536 UU/s (95% of B19)",
-          "note": "95% of B19 maximum speed; 8.93% above Stock/UT+.",
+          "elite": "6,432.8 UU/s (93.5% of B19)",
+          "note": "93.5% of B19 maximum speed; 7.21% above Stock/UT+.",
           "stock": "6,000 UU/s",
           "utplus": "6,000 UU/s"
         },
@@ -298,12 +298,12 @@
         }
       ],
       "notes": [
-        "Native Shredded qualification and native momentum are restored. Secondary ball uses native splash; its current speeds are 95% of B19.",
+        "Native Shredded qualification and native momentum are restored. Secondary ball uses native splash; its current speeds are 93.5% of B19.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
         "The complete ball trail restoration also restores the particle component from scale (0.4,0.175,0.175) to B19 (0.2,0.1,0.1). This is a direct existing-property correction with no extra logic. Native spawned-projectile scale verified through initialization and subsequent ticks.",
         "Ordinary and central primary projectile assets are byte-for-byte identical to final v1.98. Stored damage is 10.4/20.8 (normally 10/20 applied before armor at full damage); the earlier 1–2-dodge decay revision is removed.",
         "Native flight-time decay starts at 0.0673077 s and reaches 4/8 floors near 0.1346154 s. At constant 13,000 UU/s this corresponds to 875–1,750 UU (1.25–2.5 tuning dodges of 700 UU); this is not accumulated path distance.",
-        "Flak ball speed is 3,087.5/6,536 UU/s (95% of B19). The B19 trailing particle and component scale restoration remain, with the modified front glow preserved."
+        "Flak ball speed is 3,038.75/6,432.8 UU/s (93.5% of B19). The B19 trailing particle and component scale restoration remain, with the modified front glow preserved."
       ],
       "lab": "flak",
       "comparisonColumns": [
@@ -321,7 +321,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.04"
+          "label": "Elite10K v2.05"
         }
       ],
       "comparisonStyle": "projectile",
@@ -376,8 +376,8 @@
         {
           "label": "Normal rocket initial / maximum speed",
           "b19": "3,200 / 5,200 UU/s",
-          "elite": "2,960 / 4,810 UU/s · 92.5% of B19",
-          "note": "92.5% of B19 launch/maximum speed. Acceleration remains 600 UU/s²; seeking rockets and rocket grenades unchanged.",
+          "elite": "2,912 / 4,732 UU/s · 91% of B19",
+          "note": "91% of B19 launch/maximum speed. Acceleration remains 600 UU/s²; seeking rockets and rocket grenades unchanged.",
           "stock": "2,750 / 2,750 UU/s",
           "utplus": "2,750 / 2,950 UU/s"
         },
@@ -511,7 +511,7 @@
         "Firing a single loaded rocket starts the HUD ring fade immediately, preventing a lingering red ring.",
         "The configured launcher uses native B19 loading and firing with 1.05-second secondary refire, 0.41-second equip time, and a pending-switch retry after a completed volley. No custom firing deadline is added.",
         "Early-selected grenade volleys use 1.05 / 0.895 / 0.74 s recovery for 1 / 2 / 3 grenades. Late or uncertain selection falls back to 1.05 s; switching back to regular rockets restores regular timing. Real client/server checks passed at measured 312/624 ms with fixed delay; loss/jitter, queued switches and changing fire-rate cases remain unverified.",
-        "Normal rockets use 2,960/4,810 UU/s, 92.5% of B19, with 600 UU/s² acceleration. Launch speed is 7.64% above Stock/UT+; the cap is 74.91% above Stock and 63.05% above UT+."
+        "Normal rockets use 2,912/4,732 UU/s, 91% of B19, with 600 UU/s² acceleration. Seeking rockets and rocket grenades are unchanged."
       ],
       "lab": "rocket",
       "comparisonColumns": [
@@ -529,7 +529,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.04"
+          "label": "Elite10K v2.05"
         }
       ],
       "comparisonStyle": "projectile",
@@ -1058,7 +1058,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.04"
+          "label": "Elite10K v2.05"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1313,7 +1313,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.04"
+          "label": "Elite10K v2.05"
         }
       ],
       "variantScope": "Profiles: Stock BP_Sniper / BP_LightningRifle; standard UT+Sniper25 / UT+LightningGun; competitive NCP UTNPSniper / UTNPLightningGun. NCP means the competitive replacement profile, not NCStockWeapons’ stock-mode option. Server overrides and alternate UT+ presets can differ."
@@ -1585,7 +1585,7 @@
           "label": "Ground acceleration",
           "b19": "3,200 UU/s²",
           "elite": "5,000 UU/s²",
-          "note": "MaxAcceleration: v2.04, final v2.0 and UT+ 5,000; Stock/B19 3,200 UU/s². Initial acceleration is a separate low-speed parameter.",
+          "note": "MaxAcceleration: v2.05, final v2.0 and UT+ 5,000; Stock/B19 3,200 UU/s². Initial acceleration is a separate low-speed parameter.",
           "stock": "3,200 UU/s²",
           "utplus": "5,000 UU/s²",
           "ncp": "3,200 UU/s²"
@@ -1594,7 +1594,7 @@
           "label": "Walking braking / deceleration",
           "b19": "520 UU/s²",
           "elite": "2,080 UU/s²",
-          "note": "Current v2.04 restores active and persistent walking braking to2,080 UU/s². The earlier UT+ assignment/native520 experiment is archived. This affects release braking and the neutral reversal gap; opposite-input acceleration uses separate ground friction.",
+          "note": "Current v2.05 restores active and persistent walking braking to2,080 UU/s². The earlier UT+ assignment/native520 experiment is archived. This affects release braking and the neutral reversal gap; opposite-input acceleration uses separate ground friction.",
           "stock": "520 UU/s²",
           "utplus": "520 persistent; helper assigns 2,000",
           "ncp": "520 UU/s²"
@@ -1664,8 +1664,8 @@
         "UT+ applies its movement helper periodically. Its assigned2,000 braking value is transient because native movement restores the persistent520 default. Results model settled movement rather than the exceptional helper-application frame. NCP without an optional UT+ movement mutator retains stock core ground settings.",
         "Stock, NCP and B19 share every numeric movement setting shown, so they use one movement column and one calculator profile. Attack interactions remain separate below the movement table.",
         "Movement implementation: Stock/B19 use native character movement; NCP uses its TeamArena subclass with inherited core scalar defaults. UT+ and 10K use owner movement inventories; 10K retains its custom values and disables the UT+ sync-config override. Matching values do not mean these implementations are identical.",
-        "Current v2.04 uses2,080 UU/s² for both active and persistent walking braking. Initial56,000, normal5,000, transition200, releasefriction5 and factor2 are unchanged. The distance graph integrates absolute velocity, while position lanes retain signed displacement.",
-        "Since final v1.98, the final movement changes are tuning of existing parameters: fast initial acceleration 100,000 → 56,000 UU/s² and active/persistent walking braking 20,000 → 2,080 UU/s². Normal acceleration 5,000, transition speed 200, ground friction 14, air/dodge-air control 0.7/0.7 and dodge cooldowns are unchanged. The existing owner initialization is retained; no new movement timer, periodic writer, branch or custom physics was added. An intermediate v2.04 test removed the persistent braking assignment; the final release restores it.",
+        "Current v2.05 uses2,080 UU/s² for both active and persistent walking braking. Initial56,000, normal5,000, transition200, releasefriction5 and factor2 are unchanged. The distance graph integrates absolute velocity, while position lanes retain signed displacement.",
+        "Since final v1.98, the final movement changes are tuning of existing parameters: fast initial acceleration 100,000 → 56,000 UU/s² and active/persistent walking braking 20,000 → 2,080 UU/s². Normal acceleration 5,000, transition speed 200, ground friction 14, air/dodge-air control 0.7/0.7 and dodge cooldowns are unchanged. The existing owner initialization is retained; no new movement timer, periodic writer, branch or custom physics was added. An intermediate v2.05 test removed the persistent braking assignment; the final release restores it.",
         "The separate 10K Movement v0.1 mutator exposes server-authoritative shared settings via 10kMovementSettings (fallback: mutate 10kMovementSettings). Anyone can Apply under its current policy. Default restores the actual loaded profile, which can differ from Elite10K defaults. Paused/offline Apply and remote client/server Apply were tested; this guide models the selected package defaults or your custom inputs, not live server overrides."
       ],
       "lab": null,
@@ -1680,7 +1680,7 @@
         },
         {
           "key": "elite",
-          "label": "Elite10K v2.04"
+          "label": "Elite10K v2.05"
         }
       ],
       "comparisonStyle": "movement",
@@ -1708,7 +1708,7 @@
           },
           {
             "key": "elite",
-            "label": "Elite10K v2.04"
+            "label": "Elite10K v2.05"
           }
         ],
         "rows": [
@@ -1735,7 +1735,7 @@
           "label": "Rocket loading feedback",
           "b19": "B19 crosshair feedback",
           "elite": "5% smaller red rings; adjustable radius and opacity",
-          "note": "Default radius scale 1.0; maximum 1.75. Default opacity 87.5%. Either value set to exactly 0 skips custom-ring drawing while preserving native aiming and lock indicators."
+          "note": "Default radius scale 1.0; maximum 1.75. Default opacity 92.5%. Either value set to exactly 0 skips custom-ring drawing while preserving native aiming and lock indicators."
         },
         {
           "label": "Hammer feedback",
@@ -1890,8 +1890,8 @@
         {
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
-          "elite": "Elite10K v2.04 · initial 56,000 / transition 200",
-          "note": "Current v2.04: initial 56,000, normal 5,000, braking 2,080; Flak ball 95%, normal rockets 92.5% of B19. Weapons, optional HUD v1.19 and movement settings v0.1 are separately versioned."
+          "elite": "Elite10K v2.05 · initial 56,000 / transition 200",
+          "note": "Current v2.05: initial 56,000, normal 5,000, braking 2,080; Flak ball 93.5%, normal rockets 91% of B19. Weapons, optional HUD v1.19 and movement settings v0.1 are separately versioned."
         },
         {
           "label": "Optional full-screen HUD",
@@ -1919,7 +1919,7 @@
         }
       ],
       "notes": [
-        "Installed weapons package SHA256: 2303138A1A4FC78B7D14C9C6E2A442224ADD07B05287D470E870A0E9510567B3.",
+        "Preserved weapons package SHA256: E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
         "Server weapon replacements are separate from package defaults and are not part of the release balance shown here.",
         "Current Pure server pickup layout: UT+ Flak, 10K Rocket Launcher (replaces the former stock Flak slot), B19 Sniper, 10K Sniper, B19 Flak, 10K Flak and 10K Shock. Server replacements remain separate from package balance.",
@@ -1929,13 +1929,13 @@
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "31C8D6DE82A973A6D95926548458916F14A5A71F301C09DB3721831AFBE174EB",
-  "verifiedDate": "2026-11-20",
+  "packageSha256": "E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93",
+  "verifiedDate": "2026-11-21",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.19",
   "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
   "shockVariantData": "shock-variants.js",
-  "revision": "v2.04: Flak ball95% / normal rocket92.5% B19; latest settings and visuals preserved",
+  "revision": "v2.05: Flak ball 93.5% / normal rocket 91% of B19; rocket-ring opacity 92.5%",
   "model": {
     "combo": {
       "max": 210,
@@ -2068,7 +2068,7 @@
     "rocketRingOpacity": {
       "min": 0,
       "max": 1,
-      "default": 0.875
+      "default": 0.925
     },
     "rocketRingPulseWhiteTint": 0.135,
     "earlyGrenadeRecovery": [
@@ -2078,9 +2078,9 @@
     ],
     "lightningHeadshotsEnabled": false,
     "flakBall": {
-      "initialSpeed": 3087.5,
-      "maximumSpeed": 6536,
-      "percentB19": 95
+      "initialSpeed": 3038.75,
+      "maximumSpeed": 6432.8,
+      "percentB19": 93.5
     },
     "groundMovement": {
       "profiles": [
@@ -2144,12 +2144,12 @@
         }
       ],
       "dt": 0.001,
-      "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. Current v2.04 restores both active and persistent braking2,080; no periodic writer."
+      "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. Current v2.05 restores both active and persistent braking2,080; no periodic writer."
     },
     "normalRocket": {
-      "initialSpeed": 2960,
-      "maximumSpeed": 4810,
-      "percentB19": 92.5,
+      "initialSpeed": 2912,
+      "maximumSpeed": 4732,
+      "percentB19": 91,
       "acceleration": 600
     },
     "switchColorSettings": {
@@ -2188,9 +2188,10 @@
     }
   },
   "releaseSource": {
-    "receipt": "elite-v2.04/ball95-rocket925/latest-release.json",
-    "artifact": "elite-v2.04/ball95-rocket925/Elite10K-WindowsNoEditor.pak.pending",
-    "verification": "Preserved final artifact SHA256 verified. Four speed floats in two projectile assets changed from the preceding revision; all functions and unrelated assets preserved. Earlier installation receipt records matching client/server and startup; its HTTP redirect download was not verified. Repository refresh does not repeat runtime tests."
+    "receipt": "elite-v2.05/rocket-ring-opacity925/report.json",
+    "artifact": "elite-v2.05/rocket-ring-opacity925/Elite10K-WindowsNoEditor.pak.pending",
+    "baseReceipt": "elite-v2.05/latest-release.json",
+    "verification": "Both preserved v2.05 artifacts and hash chain verified. Final revision changes only rocket-ring default opacity and settings defaults/help, preserving projectile speeds and unrelated payloads. Recorded receipts confirm matching client/server, startup and redirect checks. No new gameplay runtime tests in this guide update."
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2226,7 +2227,7 @@
       "command": "10kSettings",
       "name": "Rocket Loading Rings on HUD - Opacity",
       "range": "0–1",
-      "default": "0.875 (87.5%)",
+      "default": "0.925 (92.5%)",
       "note": "0 hides the rocket loading rings. Changes the actual shared material opacity for all three rings."
     },
     {
@@ -2266,7 +2267,7 @@
     }
   ],
   "settingsMenu": true,
-  "releaseNotice": "Latest v2.04: Flak ball 95% and normal rockets 92.5% of B19. Default movement remains initial acceleration 56,000, normal 5,000, transition 200 UU/s and active/persistent braking 2,080 UU/s². Optional HUD v1.19 and movement settings v0.1 are separate packages; server movement overrides can change actual behavior.",
+  "releaseNotice": "Latest v2.05: Flak ball 93.5% and normal rockets 91% of B19; rocket-ring default opacity 92.5%. Movement remains initial acceleration 56,000, normal 5,000, transition 200 UU/s and active/persistent braking 2,080 UU/s². Optional HUD v1.19 and movement settings v0.1 are separate packages; server overrides can change actual behavior.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",

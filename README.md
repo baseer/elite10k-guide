@@ -3,11 +3,11 @@
 Authoritative public site: https://baseer.github.io/elite10k-guide/.
 Development repository: https://github.com/baseer/Elite10K (private).
 
-Current data tracks **weapons v2.04**, **optional HUD v1.19**, and separate
+Current data tracks **weapons v2.05**, **optional HUD v1.19**, and separate
 **movement settings v0.1**. Weapons SHA256:
-`31C8D6DE82A973A6D95926548458916F14A5A71F301C09DB3721831AFBE174EB`.
-Flak ball speeds are 3,087.5 / 6,536 UU/s (95% B19); normal rocket speeds are
-2,960 / 4,810 UU/s (92.5% B19). Movement package defaults remain initial
+`E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93`.
+Flak ball speeds are 3,038.75 / 6,432.8 UU/s (93.5% B19); normal rocket speeds are
+2,912 / 4,732 UU/s (91% B19). Movement package defaults remain initial
 56,000 / normal 5,000 / transition 200 / braking 2,080; server overrides vary.
 See current-release.json for separate component identities and verification scope.
 
@@ -27,10 +27,10 @@ Visit http://localhost:8000/. No frontend build or npm installation is required
 for these numerical checks. Browser checks use separately installed Playwright:
 `node verify-current-browser.cjs http://localhost:8000/`.
 
-The archive covers 47 weapons releases from v1.57 through v2.04. Version labels
+The archive covers 48 weapons releases from v1.57 through v2.05. Version labels
 retain game spelling (v1.6, v1.7, v1.8 and v2.0). Historical same-version
 revisions are preserved under versions/VERSION/revisions. This update preserves
-all 46 earlier release snapshots and archives the previous v2.04 speed revision.
+all 47 earlier release snapshots and archives the initial v2.05 ring-opacity revision.
 
 comparison-data.json and its JS wrapper contain current defaults; versions-data.js
 supplies selected models; versions/releases.json indexes provenance and parameters.
@@ -48,3 +48,5 @@ and live content after an authorized push.
 
 Earlier detailed update notes are preserved in docs/HISTORICAL_NOTES.md. The old
 chatgpt.site deployment and old test counts there are historical provenance.
+
+Final v2.05 rocket-ring default opacity is 0.925 (92.5%); existing saved custom opacity values remain local preferences.

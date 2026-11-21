@@ -1,0 +1,21 @@
+{
+  "verifiedDate": "2026-11-21",
+  "artifacts": [
+    {
+      "artifact": "elite-v2.05/Elite10K-WindowsNoEditor.pak.pending",
+      "sha256": "05D1A68902CF46FACC9CFE28AF200E2CFAB32DE5D2BD679556FE17341FB56319",
+      "hashVerified": true,
+      "recordedRuntimeVerified": true,
+      "recordedRedirectDownloadVerified": true
+    },
+    {
+      "artifact": "elite-v2.05/rocket-ring-opacity925/Elite10K-WindowsNoEditor.pak.pending",
+      "sha256": "E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93",
+      "hashVerified": true,
+      "recordedRuntimeVerified": true,
+      "recordedRedirectDownloadVerified": true
+    }
+  ],
+  "historicalSnapshotsPreserved": 47,
+  "scope": "Artifact hashes and release reports verified. No recook or fresh gameplay test. Optional HUD and movement package identities unchanged."
+}
