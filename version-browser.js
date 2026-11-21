@@ -19,7 +19,7 @@
  const requested=params.get('version'),version=keys.includes(requested)?requested:keys.at(-1);
  const compare=keys.includes(params.get('compare'))&&params.get('compare')!==version?params.get('compare'):null;
  window.ELITE_GUIDE=versions[version];window.ELITE_VERSION=version;window.ReleaseHistory.activate(window.ELITE_GUIDE);const originalComboRender=window.EliteCombo.render;window.EliteCombo.render=()=>window.ReleaseHistory.comboCopy(originalComboRender());
- for(const a of document.querySelectorAll('a[href="./"]'))a.href='?version='+version+(compare?'&compare='+compare:'')+'#overview';
+ for(const a of document.querySelectorAll('a[href="./"]'))a.href=(params.has('version')?'?version='+encodeURIComponent(requested)+(compare?'&compare='+compare:''):(compare?'?compare='+compare:''))+'#overview';
  const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const header=document.querySelector('.site-header'),brand=header.querySelector('.brand');
  brand.querySelector('.version')?.remove();
