@@ -5053,12 +5053,12 @@
   },
   {
     "version": "2.04",
-    "sha256": "1E8EC4641DF291C4A1925F251A27A2C72469C40ADC9AEB32841B41C90CD8546F",
-    "revision": "v2.04: Flak ball92.5% / normal rocket90% B19; initial56,000 normal5,000 braking2,080; final movement parameter tuning",
+    "sha256": "31C8D6DE82A973A6D95926548458916F14A5A71F301C09DB3721831AFBE174EB",
+    "revision": "v2.04: Flak ball95% / normal rocket92.5% B19; latest settings and visuals preserved",
     "source": {
-      "receipt": "elite-v2.04/ball925-rocket90/report.json",
-      "artifact": "elite-v2.04/ball925-rocket90/Elite10K-WindowsNoEditor.pak.pending",
-      "verification": "Preserved installed artifact SHA256 verified. Exactly four existing speed floats across two projectile assets changed; all function bytes and unrelated payloads identical. Matching client/server, Pure startup, comparison pickups and launcher/redirect configuration checksums verified. HTTP redirect download was unavailable and is not verified for this installation."
+      "receipt": "elite-v2.04/ball95-rocket925/latest-release.json",
+      "artifact": "elite-v2.04/ball95-rocket925/Elite10K-WindowsNoEditor.pak.pending",
+      "verification": "Preserved final artifact SHA256 verified. Four speed floats in two projectile assets changed from the preceding revision; all functions and unrelated assets preserved. Earlier installation receipt records matching client/server and startup; its HTTP redirect download was not verified. Repository refresh does not repeat runtime tests."
     },
     "model": {
       "combo": {
@@ -5202,9 +5202,9 @@
       ],
       "lightningHeadshotsEnabled": false,
       "flakBall": {
-        "initialSpeed": 3006.25,
-        "maximumSpeed": 6364,
-        "percentB19": 92.5
+        "initialSpeed": 3087.5,
+        "maximumSpeed": 6536,
+        "percentB19": 95
       },
       "groundMovement": {
         "profiles": [
@@ -5271,9 +5271,9 @@
         "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. Current v2.04 restores both active and persistent braking2,080; no periodic writer."
       },
       "normalRocket": {
-        "initialSpeed": 2880,
-        "maximumSpeed": 4680,
-        "percentB19": 90,
+        "initialSpeed": 2960,
+        "maximumSpeed": 4810,
+        "percentB19": 92.5,
         "acceleration": 600
       },
       "switchColorSettings": {

@@ -1,5 +1,5 @@
 {
-  "verifiedDate": "2026-11-18",
+  "verifiedDate": "2026-11-20",
   "profiles": [
     {
       "id": "stock",
@@ -74,9 +74,9 @@
     "method": "Native subclass constructor and velocity methods inspected; no scalar ground acceleration/friction/braking/speed overrides. Packed TeamArena pawn has no corresponding ground scalar overrides. If UTPlus mutator is stacked, its movement helper can change these values."
   },
   "elite": {
-    "pakSha256": "1E8EC4641DF291C4A1925F251A27A2C72469C40ADC9AEB32841B41C90CD8546F",
+    "pakSha256": "31C8D6DE82A973A6D95926548458916F14A5A71F301C09DB3721831AFBE174EB",
     "movementAsset": "Elite10K/Movement194/OwnerInitialization/UT+MovementInventory",
-    "source": "elite-v2.04/ball925-rocket90/report.json",
+    "source": "elite-v2.04/ball95-rocket925/latest-release.json",
     "selectedRelease": "2.04",
     "comparisonRelease": "2.03",
     "method": "Currentv2.04 active/persistentbraking2080 restored. Initial56000 normal5000 transition200. Cumulative distance and velocity charts use identical simulation samples and shared timeline.",
@@ -359,7 +359,7 @@
       ]
     },
     "2.04": {
-      "pakSha256": "1E8EC4641DF291C4A1925F251A27A2C72469C40ADC9AEB32841B41C90CD8546F",
+      "pakSha256": "31C8D6DE82A973A6D95926548458916F14A5A71F301C09DB3721831AFBE174EB",
       "profiles": [
         {
           "id": "stock",

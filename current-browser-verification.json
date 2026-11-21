@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:65070/",
+  "checks": [
+    {
+      "width": 1440,
+      "section": "overview"
+    },
+    {
+      "width": 1440,
+      "section": "flak"
+    },
+    {
+      "width": 1440,
+      "section": "rocket"
+    },
+    {
+      "width": 1440,
+      "section": "movement"
+    },
+    {
+      "width": 1440,
+      "section": "splash"
+    },
+    {
+      "width": 390,
+      "section": "overview"
+    },
+    {
+      "width": 390,
+      "section": "flak"
+    },
+    {
+      "width": 390,
+      "section": "rocket"
+    },
+    {
+      "width": 390,
+      "section": "movement"
+    },
+    {
+      "width": 390,
+      "section": "splash"
+    }
+  ],
+  "olderVersionVerified": "2.03",
+  "pageErrors": []
+}

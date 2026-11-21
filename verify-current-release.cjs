@@ -1,0 +1,17 @@
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const load=p=>JSON.parse(fs.readFileSync(path.join(__dirname,p),'utf8'));
+const current=load('current-release.json'),d=load('comparison-data.json'),box={window:{}};
+for(const name of ['comparison-data.js','versions-data.js'])vm.runInNewContext(fs.readFileSync(path.join(__dirname,name),'utf8'),box);
+assert.equal(d.packageSha256,current.components.weapons.sha256);
+assert.deepStrictEqual(JSON.parse(JSON.stringify(box.window.ELITE_GUIDE)),d);
+assert.deepStrictEqual(JSON.parse(JSON.stringify(box.window.ELITE_VERSIONS[d.version])),d);
+assert.deepStrictEqual(load(`versions/${d.version}/comparison-data.json`),d);
+assert.equal(load('versions/releases.json').find(r=>r.version===d.version).sha256,d.packageSha256);
+assert.equal(d.hudVersion,current.components.hud.version);
+for(const k of ['hud','movement'])assert.deepStrictEqual(d.companionComponents[k],current.components[k]);
+assert.equal(d.model.flakBall.initialSpeed,3250*d.model.flakBall.percentB19/100);
+assert.equal(d.model.flakBall.maximumSpeed,6880*d.model.flakBall.percentB19/100);
+assert.equal(d.model.normalRocket.initialSpeed,3200*d.model.normalRocket.percentB19/100);
+assert.equal(d.model.normalRocket.maximumSpeed,5200*d.model.normalRocket.percentB19/100);
+assert.equal(load('movement-profiles-evidence.json').elite.pakSha256,d.packageSha256);
+console.log(JSON.stringify({passed:true,version:d.version,sha256:d.packageSha256,componentIdentities:3,synchronizedRepresentations:5}));

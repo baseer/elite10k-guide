@@ -1,0 +1,35 @@
+{
+  "verifiedDate": "2026-11-20",
+  "components": {
+    "weapons": {
+      "version": "2.04",
+      "sha256": "31C8D6DE82A973A6D95926548458916F14A5A71F301C09DB3721831AFBE174EB",
+      "revision": "Flakball95% and normal Rocket92.5% of authoritative B19; all latest v2.04 changes preserved",
+      "source": "elite-v2.04/latest-release.json",
+      "filename": "Elite10K-WindowsNoEditor.pak",
+      "recordedRuntimeVerified": true,
+      "recordedRedirectDownloadVerified": false
+    },
+    "hud": {
+      "version": "1.19",
+      "sha256": "56DCFE0E4203608A55BC5CFC8F83169F5E5D763C0D8AE42371F34C4F5BF50700",
+      "revision": "Replace existing speed dialog on click; dark pressed tint without content shift",
+      "source": "elite10k-hud-v0.1/latest-release.json",
+      "filename": "Elite10K-HUD-WindowsNoEditor.pak",
+      "recordedRuntimeVerified": true,
+      "recordedRedirectDownloadVerified": true
+    },
+    "movement": {
+      "version": "0.1",
+      "sha256": "CBDBA52DCA01D94C1F410C019BD9003B08601E7ED88334B4089166F56B740547",
+      "revision": "Direct authoritative offline Apply and pause-independent acknowledgement/status updates",
+      "source": "movement-settings-v0.1/latest-release.json",
+      "filename": "10K-Movement-WindowsNoEditor.pak",
+      "recordedRuntimeVerified": true,
+      "recordedRedirectDownloadVerified": true
+    }
+  },
+  "originalB19Sha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
+  "developmentRepository": "https://github.com/baseer/Elite10K",
+  "scope": "Preserved package hashes verified; runtime and deployment fields describe existing component receipts. No fresh editor recook or new runtime tests."
+}
