@@ -1,48 +1,9 @@
 {
+  "verifiedDate": "2026-11-21",
+  "version": "2.08",
   "passed": true,
-  "url": "http://127.0.0.1:65070/",
-  "checks": [
-    {
-      "width": 1440,
-      "section": "overview"
-    },
-    {
-      "width": 1440,
-      "section": "flak"
-    },
-    {
-      "width": 1440,
-      "section": "rocket"
-    },
-    {
-      "width": 1440,
-      "section": "movement"
-    },
-    {
-      "width": 1440,
-      "section": "splash"
-    },
-    {
-      "width": 390,
-      "section": "overview"
-    },
-    {
-      "width": 390,
-      "section": "flak"
-    },
-    {
-      "width": 390,
-      "section": "rocket"
-    },
-    {
-      "width": 390,
-      "section": "movement"
-    },
-    {
-      "width": 390,
-      "section": "splash"
-    }
-  ],
-  "olderVersionVerified": "2.03",
-  "pageErrors": []
+  "scope": "Local headless Edge over HTTP, 1440 and 390px widths; overview/flak/rocket/sniper/visuals/foundation/movement/splash; no horizontal overflow or page errors. Sniper headshot calculator125 in2.08 and140 in2.07. Older2.03/2.04 selection, ring opacity and implicit latest combo URL checked. Screenshots inspected; no new game tests.",
+  "scenarios": 16,
+  "priorSnapshotsUnchanged": 47,
+  "previousV205Archived": true
 }

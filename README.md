@@ -3,11 +3,11 @@
 Authoritative public site: https://baseer.github.io/elite10k-guide/.
 Development repository: https://github.com/baseer/Elite10K (private).
 
-Current data tracks **weapons v2.05**, **optional HUD v1.19**, and separate
+Current data tracks **weapons v2.08**, **optional HUD v1.19**, and separate
 **movement settings v0.1**. Weapons SHA256:
-`E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93`.
-Flak ball speeds are 3,038.75 / 6,432.8 UU/s (93.5% B19); normal rocket speeds are
-2,912 / 4,732 UU/s (91% B19). Movement package defaults remain initial
+`E7D8F395D220786A34E43691B28556B56B45FCF65A29397FEE0507850EA1886D`.
+Flak ball speeds are 3,055 / 6,467.2 UU/s (94% B19); normal rocket speeds are
+2,928 / 4,758 UU/s (91.5% B19). Movement package defaults remain initial
 56,000 / normal 5,000 / transition 200 / braking 2,080; server overrides vary.
 See current-release.json for separate component identities and verification scope.
 
@@ -27,10 +27,10 @@ Visit http://localhost:8000/. No frontend build or npm installation is required
 for these numerical checks. Browser checks use separately installed Playwright:
 `node verify-current-browser.cjs http://localhost:8000/`.
 
-The archive covers 48 weapons releases from v1.57 through v2.05. Version labels
+The archive covers 51 weapons releases from v1.57 through v2.08. Version labels
 retain game spelling (v1.6, v1.7, v1.8 and v2.0). Historical same-version
 revisions are preserved under versions/VERSION/revisions. This update preserves
-all 47 earlier release snapshots and archives the initial v2.05 ring-opacity revision.
+all 47 pre-v2.05 snapshots unchanged and archives the previous v2.05 speed revision.
 
 comparison-data.json and its JS wrapper contain current defaults; versions-data.js
 supplies selected models; versions/releases.json indexes provenance and parameters.
@@ -50,3 +50,5 @@ Earlier detailed update notes are preserved in docs/HISTORICAL_NOTES.md. The old
 chatgpt.site deployment and old test counts there are historical provenance.
 
 Final v2.05 rocket-ring default opacity is 0.925 (92.5%); existing saved custom opacity values remain local preferences.
+
+v2.08 reduces Sniper headshots to 125 while retaining 70 body damage. v2.07 inherits the native 200 UU/s threshold; v2.06 sets Stinger hue237.5 and Shock hue190/brightness1×. Current HUD v1.19 includes the polished Elite10K settings shortcut and warm-up/ready-screen scoreboard panels. See release-v208-evidence.json for verification limits.

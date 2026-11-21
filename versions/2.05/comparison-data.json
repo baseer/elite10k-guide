@@ -155,16 +155,16 @@
         {
           "label": "Ball initial speed",
           "b19": "≈4.67 dodge lengths/s (3,250 UU/s)",
-          "elite": "3,038.75 UU/s (93.5% of B19)",
-          "note": "93.5% of B19 launch speed; 21.55% faster than Stock/UT+.",
+          "elite": "3,055 UU/s (94% of B19)",
+          "note": "94% of B19 launch speed; 22.2% faster than Stock/UT+.",
           "stock": "2,500 UU/s",
           "utplus": "2,500 UU/s"
         },
         {
           "label": "Ball maximum speed",
           "b19": "≈9.88 dodge lengths/s (6,880 UU/s)",
-          "elite": "6,432.8 UU/s (93.5% of B19)",
-          "note": "93.5% of B19 maximum speed; 7.21% above Stock/UT+.",
+          "elite": "6,467.2 UU/s (94% of B19)",
+          "note": "94% of B19 maximum speed; 7.79% above Stock/UT+.",
           "stock": "6,000 UU/s",
           "utplus": "6,000 UU/s"
         },
@@ -298,12 +298,12 @@
         }
       ],
       "notes": [
-        "Native Shredded qualification and native momentum are restored. Secondary ball uses native splash; its current speeds are 93.5% of B19.",
+        "Native Shredded qualification and native momentum are restored. Secondary ball uses native splash; its current speeds are 94% of B19.",
         "Native splash: 95 max, 35 minimum, 0/240 UU inner/outer radii. Values are before armor and other modifiers.",
         "The complete ball trail restoration also restores the particle component from scale (0.4,0.175,0.175) to B19 (0.2,0.1,0.1). This is a direct existing-property correction with no extra logic. Native spawned-projectile scale verified through initialization and subsequent ticks.",
         "Ordinary and central primary projectile assets are byte-for-byte identical to final v1.98. Stored damage is 10.4/20.8 (normally 10/20 applied before armor at full damage); the earlier 1–2-dodge decay revision is removed.",
         "Native flight-time decay starts at 0.0673077 s and reaches 4/8 floors near 0.1346154 s. At constant 13,000 UU/s this corresponds to 875–1,750 UU (1.25–2.5 tuning dodges of 700 UU); this is not accumulated path distance.",
-        "Flak ball speed is 3,038.75/6,432.8 UU/s (93.5% of B19). The B19 trailing particle and component scale restoration remain, with the modified front glow preserved."
+        "Flak ball speed is 3,055/6,467.2 UU/s (94% of B19). The B19 trailing particle and component scale restoration remain, with the modified front glow preserved."
       ],
       "lab": "flak",
       "comparisonColumns": [
@@ -376,8 +376,8 @@
         {
           "label": "Normal rocket initial / maximum speed",
           "b19": "3,200 / 5,200 UU/s",
-          "elite": "2,912 / 4,732 UU/s · 91% of B19",
-          "note": "91% of B19 launch/maximum speed. Acceleration remains 600 UU/s²; seeking rockets and rocket grenades unchanged.",
+          "elite": "2,928 / 4,758 UU/s · 91.5% of B19",
+          "note": "91.5% of B19 launch/maximum speed. Acceleration remains 600 UU/s²; seeking rockets and rocket grenades unchanged.",
           "stock": "2,750 / 2,750 UU/s",
           "utplus": "2,750 / 2,950 UU/s"
         },
@@ -511,7 +511,7 @@
         "Firing a single loaded rocket starts the HUD ring fade immediately, preventing a lingering red ring.",
         "The configured launcher uses native B19 loading and firing with 1.05-second secondary refire, 0.41-second equip time, and a pending-switch retry after a completed volley. No custom firing deadline is added.",
         "Early-selected grenade volleys use 1.05 / 0.895 / 0.74 s recovery for 1 / 2 / 3 grenades. Late or uncertain selection falls back to 1.05 s; switching back to regular rockets restores regular timing. Real client/server checks passed at measured 312/624 ms with fixed delay; loss/jitter, queued switches and changing fire-rate cases remain unverified.",
-        "Normal rockets use 2,912/4,732 UU/s, 91% of B19, with 600 UU/s² acceleration. Seeking rockets and rocket grenades are unchanged."
+        "Normal rockets use 2,928/4,758 UU/s, 91.5% of B19, with 600 UU/s² acceleration. Seeking rockets and rocket grenades are unchanged."
       ],
       "lab": "rocket",
       "comparisonColumns": [
@@ -1830,7 +1830,7 @@
         {
           "label": "Initial console notices",
           "b19": "Not available in original B19",
-          "elite": "Elite10K Settings: type 10kSettings to open settings.",
+          "elite": "Elite10K settings: type 10kSettings to open settings.",
           "note": "Printed on HUD initialization. The old 10kRocketLoadRings and 10kWeaponSwitchFlash commands are removed. The redundant ring-enabled boolean is removed; old Off preferences migrate to radius 0 when no newer radius preference exists."
         },
         {
@@ -1840,7 +1840,7 @@
           "note": "White mixing in the filled disk during the pulse. This is separate from overall opacity and does not change the other pulse brightness, glow or timing settings."
         },
         {
-          "label": "Elite10K Settings",
+          "label": "Elite10K settings",
           "b19": "Not available in original B19",
           "elite": "Type 10kSettings (or 10ksettings)",
           "note": "Local visual preferences: no host or admin rights required. The command is provided by a current 10K weapon or the updated optional 10K HUD. Some early v1.98 revisions predate this menu."
@@ -1855,7 +1855,7 @@
           "label": "Per-weapon switch colors",
           "b19": "Not available",
           "elite": "Hue 0–360°, saturation 0–100%, brightness 0–4×",
-          "note": "Select Flak, Link, Rocket, Stinger, Shock, Sniper or Lightning in 10kSettings. No automatic selection. Shock defaults to brightness 2×; others 1×. Hue, saturation and brightness have separate Default buttons; stars mark pending color changes."
+          "note": "Select a weapon in Elite10K settings. Defaults: Flak hue 60°, Link 105°, Stinger 180°, Shock 237.5°; Shock brightness 4×, Stinger 0.5×, others 1×. Hue, saturation and brightness have separate Default buttons; saved custom values remain local preferences."
         },
         {
           "label": "Stinger burst indicator scale",
@@ -1891,13 +1891,13 @@
           "label": "Weapons compared",
           "b19": "Original Elite Weapons B19",
           "elite": "Elite10K v2.05 · initial 56,000 / transition 200",
-          "note": "Current v2.05: initial 56,000, normal 5,000, braking 2,080; Flak ball 93.5%, normal rockets 91% of B19. Weapons, optional HUD v1.19 and movement settings v0.1 are separately versioned."
+          "note": "Current v2.05: initial 56,000, normal 5,000, braking 2,080; Flak ball 94%, normal rockets 91.5% of B19. Weapons, optional HUD v1.19 and movement settings v0.1 are separately versioned."
         },
         {
           "label": "Optional full-screen HUD",
           "b19": "B19 / stock HUD",
-          "elite": "Elite10K HUD v1.19, updated settings revision",
-          "note": "Independent HUD version preserved; supplies settings access and the Elite10K Settings console notice across five HUD modes."
+          "elite": "Elite10K HUD v1.19 · settings and timing panels",
+          "note": "Independent optional package. Elite10K settings shortcut works without the optional dynamic game-speed mutator."
         },
         {
           "label": "Damage examples",
@@ -1919,23 +1919,24 @@
         }
       ],
       "notes": [
-        "Preserved weapons package SHA256: E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93.",
+        "Preserved weapons package SHA256: 136EA6054615AB626896BCC3450031D976908223EDBFD0B5DF5BFD853B61441F.",
         "Original Elite B19 remains the authoritative comparison reference. Optional HUD and native client DLL are separate releases.",
         "Server weapon replacements are separate from package defaults and are not part of the release balance shown here.",
         "Current Pure server pickup layout: UT+ Flak, 10K Rocket Launcher (replaces the former stock Flak slot), B19 Sniper, 10K Sniper, B19 Flak, 10K Flak and 10K Shock. Server replacements remain separate from package balance.",
-        "Optional HUD v1.19 adds the speed indicator and scoreboard refinements. When the dynamic game-speed mutator is active, its speed heading opens the provider settings through mutate gamespeed. Repeated clicks replace prior dialogs; the heading has a darker stationary pressed state. The dynamic provider is a separate dependency."
+        "Optional HUD v1.19 shows Elite10K settings and game-speed panels while the scoreboard is open during warm-up, the pre-match Start Match screen, normal play and overtime. Intro, countdown, loading, intermission and post-match screens remain hidden; hidden click targets collapse immediately.",
+        "Elite10K settings uses the cyan sliders icon, sharp native weapon-name font rendering and equal 32-unit panel gaps. Both shortcuts have a brighter cyan pressed state without content movement. The speed heading requires the separate dynamic game-speed mutator and replaces its previous dialog with one fresh dialog."
       ],
       "lab": null
     }
   ],
   "baselineSha256": "A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF",
-  "packageSha256": "E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93",
+  "packageSha256": "136EA6054615AB626896BCC3450031D976908223EDBFD0B5DF5BFD853B61441F",
   "verifiedDate": "2026-11-21",
   "assumptions": "Default settings; times are game seconds. Damage examples exclude armor and amplification. Stock UT means the base Unreal Tournament behavior used by B19 for that setting. Actual hits also depend on collision and line of sight.",
   "hudVersion": "1.19",
-  "hudPackageSha256": "CEEBEE9F5C2D982D492567DB2D8B2FAD90E38822BF50945CC8526D1432298A35",
+  "hudPackageSha256": "B9B68FCE5844F0006867DA2AF56D94BA0A057D5875C10A466E6519A9AA5C9990",
   "shockVariantData": "shock-variants.js",
-  "revision": "v2.05: Flak ball 93.5% / normal rocket 91% of B19; rocket-ring opacity 92.5%",
+  "revision": "Flak ball 94% / normal rockets 91.5% of B19; Elite10K settings shortcut",
   "model": {
     "combo": {
       "max": 210,
@@ -2078,9 +2079,9 @@
     ],
     "lightningHeadshotsEnabled": false,
     "flakBall": {
-      "initialSpeed": 3038.75,
-      "maximumSpeed": 6432.8,
-      "percentB19": 93.5
+      "initialSpeed": 3055,
+      "maximumSpeed": 6467.2,
+      "percentB19": 94
     },
     "groundMovement": {
       "profiles": [
@@ -2147,9 +2148,9 @@
       "scope": "Full keyboard input, flat dry ground, normal 940UU/s running, no sprint/dodge/crouch/slopes/collision/latency. NCP competitive TeamArena pawn without optional UT+ movement mutator. UT+ settled movement uses persistent520 braking after the native post-move reset; periodic helper application frames excluded. Current v2.05 restores both active and persistent braking2,080; no periodic writer."
     },
     "normalRocket": {
-      "initialSpeed": 2912,
-      "maximumSpeed": 4732,
-      "percentB19": 91,
+      "initialSpeed": 2928,
+      "maximumSpeed": 4758,
+      "percentB19": 91.5,
       "acceleration": 600
     },
     "switchColorSettings": {
@@ -2165,14 +2166,21 @@
         0,
         4
       ],
-      "shockDefaultBrightness": 2,
+      "shockDefaultBrightness": 4,
       "otherDefaultBrightness": 1,
       "sharedToneAwarePulse": true,
       "pulseDuration": 0.32,
       "settledColorPreserved": true,
       "pulseReference": "selected color only",
       "sceneColorSampling": false,
-      "settledBodyMaterialsIdentical": true
+      "settledBodyMaterialsIdentical": true,
+      "stingerDefaultBrightness": 0.5,
+      "defaultHues": {
+        "flak": 60,
+        "link": 105,
+        "stinger": 180,
+        "shock": 237.5
+      }
     },
     "stingerBurstIndicatorScale": {
       "min": 0,
@@ -2188,10 +2196,12 @@
     }
   },
   "releaseSource": {
-    "receipt": "elite-v2.05/rocket-ring-opacity925/report.json",
-    "artifact": "elite-v2.05/rocket-ring-opacity925/Elite10K-WindowsNoEditor.pak.pending",
-    "baseReceipt": "elite-v2.05/latest-release.json",
-    "verification": "Both preserved v2.05 artifacts and hash chain verified. Final revision changes only rocket-ring default opacity and settings defaults/help, preserving projectile speeds and unrelated payloads. Recorded receipts confirm matching client/server, startup and redirect checks. No new gameplay runtime tests in this guide update."
+    "receipt": "elite-v2.05/ball94-rocket915/report.json",
+    "artifact": "elite-v2.05/ball94-rocket915/Elite10K-WindowsNoEditor.pak.pending",
+    "baseSha256": "D288F9EA58DDEDEFA05C35FA86A6D8A1FA7293CAC7A798282595943C71F6809F",
+    "verification": "Preserved artifact SHA256 verified against completed installed release report. Deployment receipts record matching client/server, startup, pickup and exact HTTP redirect checks. No new game runtime tests or editor recook performed for this guide update.",
+    "recordedRuntimeVerified": false,
+    "recordedRedirectDownloadVerified": true
   },
   "comboMovement": {
     "id": "combo-movement",
@@ -2241,7 +2251,7 @@
       "command": "10kSettings",
       "name": "Per-weapon switch color",
       "range": "Hue 0–360°, saturation 0–100%, brightness 0–4×",
-      "default": "Flak hue 60°, Link 105°, Shock 237.5°; Shock 4× brightness, Stinger 0.5×, others 1×",
+      "default": "Flak hue 60°, Link 105°, Stinger 180°, Shock 237.5°; Shock 4× brightness, Stinger 0.5×, others 1×",
       "note": "Choose a weapon to edit. Each component has its own Default; brightness 0 hides that weapon’s glow."
     },
     {
@@ -2267,7 +2277,7 @@
     }
   ],
   "settingsMenu": true,
-  "releaseNotice": "Latest v2.05: Flak ball 93.5% and normal rockets 91% of B19; rocket-ring default opacity 92.5%. Movement remains initial acceleration 56,000, normal 5,000, transition 200 UU/s and active/persistent braking 2,080 UU/s². Optional HUD v1.19 and movement settings v0.1 are separate packages; server overrides can change actual behavior.",
+  "releaseNotice": "v2.05: Flak ball 94% and normal rockets 91.5% of B19. Initial acceleration 56,000, normal 5,000 and active/persistent braking 2,080 remain. Optional HUD v1.19 and movement settings v0.1 are separate packages; server overrides and saved settings can differ.",
   "stockMovementReference": {
     "verifiedDate": "2026-11-16",
     "evidence": "stock-movement-evidence.json",
@@ -2276,9 +2286,9 @@
   "companionComponents": {
     "hud": {
       "version": "1.19",
-      "sha256": "56DCFE0E4203608A55BC5CFC8F83169F5E5D763C0D8AE42371F34C4F5BF50700",
-      "revision": "Replace existing speed dialog on click; dark pressed tint without content shift",
-      "source": "elite10k-hud-v0.1/latest-release.json",
+      "sha256": "B9B68FCE5844F0006867DA2AF56D94BA0A057D5875C10A466E6519A9AA5C9990",
+      "revision": "Show settings and game-speed panels during warm-up and ready screen; hide intro/countdown",
+      "source": "elite10k-hud-v0.1/settings-warmup/report.json",
       "filename": "Elite10K-HUD-WindowsNoEditor.pak",
       "recordedRuntimeVerified": true,
       "recordedRedirectDownloadVerified": true
@@ -2287,7 +2297,7 @@
       "version": "0.1",
       "sha256": "CBDBA52DCA01D94C1F410C019BD9003B08601E7ED88334B4089166F56B740547",
       "revision": "Direct authoritative offline Apply and pause-independent acknowledgement/status updates",
-      "source": "movement-settings-v0.1/latest-release.json",
+      "source": "movement-settings-v0.1/server-global-offline-apply/report.json",
       "filename": "10K-Movement-WindowsNoEditor.pak",
       "recordedRuntimeVerified": true,
       "recordedRedirectDownloadVerified": true

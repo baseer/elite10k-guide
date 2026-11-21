@@ -60,3 +60,6 @@ input[type=range]::-webkit-slider-thumb{border-radius:50%}input[type=range]::-mo
 @media(hover:none){.heading-permalink{opacity:.7}}
 
 .section-anchor-alias{display:block;height:0;scroll-margin-top:24px;pointer-events:none}
+
+/* Keep release hashes inside narrow setup notes. */
+.scope,.note{overflow-wrap:anywhere}

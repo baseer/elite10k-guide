@@ -1,0 +1,57 @@
+{
+  "verifiedDate": "2026-11-21",
+  "artifacts": [
+    {
+      "artifact": "elite-v2.05/ball94-rocket915/Elite10K-WindowsNoEditor.pak.pending",
+      "sha256": "136EA6054615AB626896BCC3450031D976908223EDBFD0B5DF5BFD853B61441F",
+      "hashVerified": true,
+      "version": "2.05",
+      "recordedRuntimeVerified": false,
+      "recordedRedirectDownloadVerified": true
+    },
+    {
+      "artifact": "elite-v2.06/local-switch-defaults/Elite10K-WindowsNoEditor.pak.pending",
+      "sha256": "3AF274C6014F89118C5977176FA520B596E172C8EC6BA0CDBB38CF5F1290A0F6",
+      "hashVerified": true,
+      "version": "2.06",
+      "recordedRuntimeVerified": false,
+      "recordedRedirectDownloadVerified": true
+    },
+    {
+      "artifact": "elite-v2.07/utplus-threshold/Elite10K-WindowsNoEditor.pak.pending",
+      "sha256": "C343D1C8C0E183AA6740BD29841547597D1077CDA522B7D7898F4A742FFF75A2",
+      "hashVerified": true,
+      "version": "2.07",
+      "recordedRuntimeVerified": false,
+      "recordedRedirectDownloadVerified": true
+    },
+    {
+      "artifact": "elite-v2.08/sniper-headshot125/Elite10K-WindowsNoEditor.pak.pending",
+      "sha256": "E7D8F395D220786A34E43691B28556B56B45FCF65A29397FEE0507850EA1886D",
+      "hashVerified": true,
+      "version": "2.08",
+      "recordedRuntimeVerified": false,
+      "recordedRedirectDownloadVerified": true
+    },
+    {
+      "artifact": "elite10k-hud-v0.1/settings-warmup/Elite10K-HUD-WindowsNoEditor.pak.pending",
+      "sha256": "B9B68FCE5844F0006867DA2AF56D94BA0A057D5875C10A466E6519A9AA5C9990",
+      "hashVerified": true,
+      "version": "1.19",
+      "recordedRuntimeVerified": true,
+      "recordedRedirectDownloadVerified": true
+    },
+    {
+      "artifact": "movement-settings-v0.1/server-global-offline-apply/10K-Movement-WindowsNoEditor.pak.pending",
+      "sha256": "CBDBA52DCA01D94C1F410C019BD9003B08601E7ED88334B4089166F56B740547",
+      "hashVerified": true,
+      "version": "0.1",
+      "recordedRuntimeVerified": true,
+      "recordedRedirectDownloadVerified": true
+    }
+  ],
+  "earlierSnapshotsUnchanged": 47,
+  "previousV205SnapshotArchived": "versions/2.05/revisions/speeds935-91-ring925.json",
+  "scope": "Package hashes and completed reports verified. No fresh recook or gameplay test. v2.08 configured sniper damage125 is not a newly measured runtime hit. Latest HUD receipt separately records 66 runtime visibility cases. v2.06 report notes unchanged branding; version identity follows its user-authorized release record.",
+  "switchDefaultsCorrection": "v2.05 actual defaults Stinger180, Shock237.5/4x; older guide text/model had incorrectly carried Shock2x. v2.06 updates Stinger237.5, Shock190/1x. Prior snapshot preserved verbatim."
+}

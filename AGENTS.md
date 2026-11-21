@@ -8,7 +8,7 @@ build recipes belong there. The older chatgpt.site guide is historical.
 Only verified preserved release artifacts establish current game behavior.
 Installed client packages may have been overwritten by older server downloads.
 Keep weapons, optional HUD and movement settings versions/hashes separate.
-Current weapons v2.05, HUD v1.19 and movement v0.1 are recorded in current-release.json.
+Current weapons v2.08, HUD v1.19 and movement v0.1 are recorded in current-release.json.
 Original Elite means B19 SHA256 A17869BA76025E0F4FC3B9D52F37A271AF363E4760561AAB094DB82D4DD861CF.
 
 Update comparison-data.json, its JS wrapper, versions-data.js, the selected

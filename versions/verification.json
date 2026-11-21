@@ -1,7 +1,7 @@
 {
   "passed": true,
-  "cases": 528384,
-  "versions": 48,
+  "cases": 561408,
+  "versions": 51,
   "releaseHashesVerified": true,
   "normalV160RevisionVerified": true,
   "diagnosticLightningV176Excluded": true,

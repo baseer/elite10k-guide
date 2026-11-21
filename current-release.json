@@ -2,19 +2,19 @@
   "verifiedDate": "2026-11-21",
   "components": {
     "weapons": {
-      "version": "2.05",
-      "sha256": "E1DFC6723B5EB260F298AA37A3952B7C46937DB6F546D338B792D8E5B02C3F93",
-      "revision": "v2.05: Flak ball 93.5% / normal rocket 91% of B19; rocket-ring opacity 92.5%",
-      "source": "elite-v2.05/rocket-ring-opacity925/report.json",
+      "version": "2.08",
+      "sha256": "E7D8F395D220786A34E43691B28556B56B45FCF65A29397FEE0507850EA1886D",
+      "revision": "Sniper headshot damage 125 (was 140); all other v2.07 changes preserved",
+      "source": "elite-v2.08/sniper-headshot125/report.json",
       "filename": "Elite10K-WindowsNoEditor.pak",
-      "recordedRuntimeVerified": true,
+      "recordedRuntimeVerified": false,
       "recordedRedirectDownloadVerified": true
     },
     "hud": {
       "version": "1.19",
-      "sha256": "56DCFE0E4203608A55BC5CFC8F83169F5E5D763C0D8AE42371F34C4F5BF50700",
-      "revision": "Replace existing speed dialog on click; dark pressed tint without content shift",
-      "source": "elite10k-hud-v0.1/latest-release.json",
+      "sha256": "B9B68FCE5844F0006867DA2AF56D94BA0A057D5875C10A466E6519A9AA5C9990",
+      "revision": "Show settings and game-speed panels during warm-up and ready screen; hide intro/countdown",
+      "source": "elite10k-hud-v0.1/settings-warmup/report.json",
       "filename": "Elite10K-HUD-WindowsNoEditor.pak",
       "recordedRuntimeVerified": true,
       "recordedRedirectDownloadVerified": true
@@ -23,7 +23,7 @@
       "version": "0.1",
       "sha256": "CBDBA52DCA01D94C1F410C019BD9003B08601E7ED88334B4089166F56B740547",
       "revision": "Direct authoritative offline Apply and pause-independent acknowledgement/status updates",
-      "source": "movement-settings-v0.1/latest-release.json",
+      "source": "movement-settings-v0.1/server-global-offline-apply/report.json",
       "filename": "10K-Movement-WindowsNoEditor.pak",
       "recordedRuntimeVerified": true,
       "recordedRedirectDownloadVerified": true
