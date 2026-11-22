@@ -32,9 +32,8 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
    assert.equal(await page.locator('#new-result').innerText(),score>=32?'Spectacular':score>=20?'Amazing':score>=8?'Nice':'No tier');
    assert((await page.locator('#cm-angle-desc').textContent()).includes(`${angle} degree`));
    assert.equal(await page.locator('#cm-speed-vector').evaluate(e=>Number(getComputedStyle(e).opacity)),speed?1:0);
-   assert.equal(await page.locator('#cm-speed-vector').getAttribute('d'),`M230 177V${177-47*speed/1500}`,'scored example moves vertically across the horizontal core path');
-   assert.equal(await page.locator('#cm-speed-along').getAttribute('d'),'M128 82H250','zero-point example moves horizontally along the core path');
-   assert((await page.locator('#cm-speed-example-points').textContent()).includes(String(Number((3*speed/1000).toFixed(2)))));
+   assert.equal(await page.locator('#cm-speed-vector').getAttribute('d'),`M${140-104*speed/1500} 150H${140+104*speed/1500}`,'player moves left/right across the vertical core path');
+   assert.equal(await page.locator('#cm-speed-core-path').getAttribute('d'),'M140 133V22','core travels straight from bottom to top');
    const share=page.url();await page.reload();assert.equal(await page.locator('#angle-number').inputValue(),String(angle));assert.equal(await page.locator('#old-result').innerText(),Number(score.toFixed(2)).toLocaleString('en-US'));
   }
   await page.locator('[data-speed="940"]').click();assert.equal(await page.locator('#side-speed-number').inputValue(),'940');assert.equal(await page.locator('[data-speed="940"]').getAttribute('aria-pressed'),'true');
