@@ -30,14 +30,13 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
    const score=(100*(1-Math.cos(angle*Math.PI/180))+3*speed/1000)*Math.max(1,Math.min(2,separation));
    assert.equal(await page.locator('#old-result').innerText(),Number(score.toFixed(2)).toLocaleString('en-US'));
    assert.equal(await page.locator('#new-result').innerText(),score>=32?'Spectacular':score>=20?'Amazing':score>=8?'Nice':'No tier');
-   assert((await page.locator('#cm-angle-desc').textContent()).includes(`${angle} degree`));
-   assert.equal(await page.locator('#cm-angle-core-path').getAttribute('d'),'M100 174V20','angle diagram core flies bottom to top');
-   assert.equal(await page.locator('#cm-distance-core').getAttribute('transform'),`translate(140 ${165-45*separation})`,'distance core stays above the player');
-   const graphicBounds=await page.locator('.cm-card svg').evaluateAll(svgs=>svgs.every(svg=>{const outer=svg.getBoundingClientRect();return [...svg.querySelectorAll('text')].every(t=>{const r=t.getBoundingClientRect();return r.left>=outer.left-1&&r.right<=outer.right+1&&r.top>=outer.top-1&&r.bottom<=outer.bottom+1;});}));
-   assert(graphicBounds,'rotated labels remain inside each diagram at input extremes');
-   assert.equal(await page.locator('#cm-speed-vector').evaluate(e=>Number(getComputedStyle(e).opacity)),speed?1:0);
-   assert.equal(await page.locator('#cm-speed-vector').getAttribute('d'),`M${140-104*speed/1500} 150H${140+104*speed/1500}`,'player moves left/right across the vertical core path');
-   assert.equal(await page.locator('#cm-speed-core-path').getAttribute('d'),'M140 133V22','core travels straight from bottom to top');
+   const geometry=JSON.parse(await page.locator('#cm-scene-canvas').getAttribute('data-geometry'));
+   assert.deepEqual(geometry.flight,[0,0,-1]);assert.deepEqual(geometry.sideways,[1,0,0]);
+   const delta=geometry.core.map((v,i)=>v-geometry.player[i]),length=Math.hypot(...delta);
+   assert(Math.abs(length-separation)<1e-9,'3D player-to-core separation matches dodge length input');
+   assert(Math.abs(Math.acos(Math.max(-1,Math.min(1,-delta[2]/length)))*180/Math.PI-angle)<1e-6,'3D firing angle matches control');
+   assert.equal(geometry.speed,speed);assert.equal(await page.locator('#cm-scene-angle').innerText(),angle+'°');
+   assert(geometry.landmarks.every(([x,y])=>x>0&&x<1&&y>0&&y<1),'player, rifle and core are framed at input extremes');
    const share=page.url();await page.reload();assert.equal(await page.locator('#angle-number').inputValue(),String(angle));assert.equal(await page.locator('#old-result').innerText(),Number(score.toFixed(2)).toLocaleString('en-US'));
   }
   await page.locator('[data-speed="940"]').click();assert.equal(await page.locator('#side-speed-number').inputValue(),'940');assert.equal(await page.locator('[data-speed="940"]').getAttribute('aria-pressed'),'true');
@@ -47,6 +46,11 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
   await page.reload();assert(Math.abs(Number(await page.locator('#score-number').inputValue())-score)<.051,'applied score survives reload');
   await page.goto(new URL('combo/?version=1.57&angle=30&separation=1.5&side-speed=1000',base).href);assert.equal(await page.locator('#old-result').innerText(),'24.6');assert.equal(await page.locator('#new-result').innerText(),'Amazing');
   await page.goto(new URL('combo/',base).href);await page.locator('#movement-info>summary').click();assert.equal(await page.locator('.cm-card').count(),3);
+  const scene=page.locator('#cm-scene-canvas');await scene.focus();await scene.press('ArrowRight');assert(JSON.parse(await scene.getAttribute('data-geometry')).view.yaw>0);
+  await page.locator('.cm-reset-view').click();assert.equal(JSON.parse(await scene.getAttribute('data-geometry')).view.yaw,0);
+  const bounds=await scene.boundingBox();await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2);await page.mouse.down();await page.mouse.move(bounds.x+bounds.width/2+45,bounds.y+bounds.height/2+10);await page.mouse.up();assert(JSON.parse(await scene.getAttribute('data-geometry')).view.yaw>0);await page.locator('.cm-reset-view').click();
+  if(screens){await page.setViewportSize({width:1440,height:1100});await page.locator('.cm-scene').screenshot({path:path.join(screens,'combo-scene-3d-desktop.png')});}
+  await page.evaluate(()=>GuideURL.go('shock'));await page.evaluate(()=>GuideURL.go('combo'));await page.locator('#movement-info>summary').click();await scene.waitFor();assert.equal(await scene.count(),1,'scene reinitializes after navigation');
   assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,layouts:checks,inputScenarios:5,shareReload:true,keyboard:true,presets:true,applyScore:true,historicalVersion:true,pageErrors:errors},null,2));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

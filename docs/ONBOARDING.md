@@ -28,6 +28,7 @@ relative bases and generated route entry points preserve that prefix.
 - guide.js / guide.css / index.html: sections, presentation and root shell.
 - guide-url.js / version-browser.js: canonical paths, query state and release switching.
 - combo.js / shock-variants.js / shock-comparison.js: combo model and diagrams.
+- combo-movement.js / combo-scene.js: movement-score controls and shared interactive 3D player/core scene. Native canvas renderer, no external library. Geometry is in reference dodge lengths; player/rifle meshes are enlarged for readability. Drag or arrow keys orbit, Reset view restores forward-up orientation.
 - movement-lab.js / movement-lab.css: movement simulation and custom scenarios.
 - splash-lab.js / splash-lab.css: shared splash calculator.
 - rifle-comparison.js / rocket-demo.js: weapon comparison widgets.
