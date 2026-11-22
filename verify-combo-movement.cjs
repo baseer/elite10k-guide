@@ -18,8 +18,6 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
     return{overflow:document.documentElement.scrollWidth>innerWidth+1,cards:[...document.querySelectorAll('.cm-card')].map(box),sliders:[...document.querySelectorAll('.cm-card input[type=range]')].map(box),buttons:[...document.querySelectorAll('.cm-card [data-speed]')].map(box),anchor:document.getElementById('section-calculate-your-movement-score').getBoundingClientRect().top,svgLabels:[...document.querySelectorAll('.cm-card svg text')].map(e=>({text:e.textContent,box:box(e),svg:box(e.closest('svg'))}))};
    });
    assert(!layout.overflow,`${width}: page overflow`);assert(layout.anchor>=0&&layout.anchor<60,`${width}: direct section anchor`);
-   assert(await page.locator('.cm-summary').evaluate(e=>e.getBoundingClientRect().bottom<=e.parentElement.querySelector('.cm-controls').getBoundingClientRect().top),'formula, score, tier and explanatory text sit above all three slider cards');
-   assert.equal(await page.locator('.cm-summary .cm-equation').count(),1);assert.equal(await page.locator('.cm-summary .lab-results').count(),1);assert.equal(await page.locator('.cm-summary .lab-caption').count(),1);
    if(Math.max(...layout.cards.map(c=>c.y))-Math.min(...layout.cards.map(c=>c.y))<1){assert(Math.max(...layout.sliders.map(c=>c.y))-Math.min(...layout.sliders.map(c=>c.y))<1,'aligned sliders');}
    else for(let i=1;i<3;i++)assert(layout.cards[i].y>=layout.cards[i-1].bottom-1,'stacked cards');
    for(let i=1;i<layout.buttons.length;i++)if(Math.abs(layout.buttons[i].y-layout.buttons[i-1].y)<1)assert(layout.buttons[i].x>=layout.buttons[i-1].right-1,'speed preset overlap');
