@@ -14,3 +14,78 @@
 #combo-calc .combo-scoring-tools{padding:0 2px 24px}#combo-calc .scoring-intro{max-width:72ch;color:var(--muted);font-size:13px}#combo-calc .combo-scoring-tools .lab{margin:18px 0 24px}#combo-calc #movement-applied{font-size:12px;color:var(--green)}#combo-calc #movement-info{scroll-margin-top:120px}
 
 #combo-calc .speed-references{position:relative;height:34px;margin:0 0 8px}#combo-calc .speed-references button{position:absolute;top:0;padding:8px 0 3px;border:0;background:none;color:var(--muted);font:11px var(--mono);white-space:nowrap;text-decoration:underline;text-underline-offset:3px}#combo-calc .speed-references button:before{content:"";position:absolute;top:0;height:5px;border-left:1px solid var(--muted);left:50%}#combo-calc .speed-zero{left:0}#combo-calc .speed-run{left:62.6667%;transform:translateX(-50%)}#combo-calc .speed-dodge{right:0}#combo-calc .speed-zero:before{left:0!important}#combo-calc .speed-dodge:before{left:auto!important;right:0}#combo-calc .speed-reference-note{font-size:11px;color:var(--muted);line-height:1.6;margin:0}#combo-calc .speed-reference-note a{color:inherit}
+
+/* Movement-score controls: equal card rows, with a live diagram per input. */
+#combo-calc .cm-lab{padding:24px;background:var(--panel)}
+#combo-calc .cm-lab .lab-title{align-items:center;gap:12px;margin:0}
+#combo-calc .cm-lab .lab-title h2{font-size:20px;line-height:1.35}
+#combo-calc .cm-lab>.lab-title+p{font-size:16px;line-height:1.65;margin:10px 0 24px}
+#combo-calc .cm-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#combo-calc .cm-card{min-width:0;display:grid;grid-template-rows:subgrid;grid-row:span 7;gap:0;padding:18px 14px 0;border:1px solid var(--line);background:#11111666;--cm-color:var(--purple)}
+#combo-calc .cm-speed{--cm-color:#9fe2b6}#combo-calc .cm-distance{--cm-color:#83cde8}
+#combo-calc .cm-card h3{font-size:16px;line-height:1.45;margin:0;color:var(--ink)}
+#combo-calc .cm-card figure{margin:14px -4px 8px;align-self:center}
+#combo-calc .cm-card svg{display:block;width:100%;height:auto;overflow:visible}
+#combo-calc .cm-card svg text{font:14px var(--sans);fill:var(--muted)}
+#combo-calc .cm-card svg .cm-value{font:600 16px var(--mono);fill:var(--cm-color)}
+#combo-calc .cm-muted-line{fill:none;stroke:#716b80;stroke-width:1.5}
+#combo-calc .cm-dashed{stroke-dasharray:4 5}
+#combo-calc .cm-angle-line,#combo-calc .cm-speed-line,#combo-calc .cm-distance-line{fill:none;stroke:var(--cm-color);stroke-width:2.5;stroke-linecap:round}
+#combo-calc .cm-player circle{fill:#252130;stroke:#eee5ff;stroke-width:1.5}#combo-calc .cm-player path{fill:none;stroke:#eee5ff;stroke-width:1.5;stroke-linejoin:round}
+#combo-calc .cm-core circle:first-child{fill:#b49aff12;stroke:#b49aff70;stroke-width:1.5}#combo-calc .cm-core circle:last-child{fill:var(--purple)}
+#combo-calc .cm-card svg .cm-speed-text,#combo-calc .cm-card svg .cm-distance-text{fill:var(--cm-color)}
+#combo-calc .cm-help{font-size:14px;line-height:1.65;color:var(--muted);margin:0 0 20px}
+#combo-calc .cm-card .control{display:grid;grid-template-rows:subgrid;grid-row:span 3;gap:0;margin:0}
+#combo-calc .cm-card .control-head{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin:0 0 12px}
+#combo-calc .cm-card .control-head label{font-size:14px;color:var(--muted);font-weight:400}
+#combo-calc .cm-card .input-wrap{display:flex;justify-content:flex-start;gap:8px;font:14px var(--mono);min-height:38px}
+#combo-calc .cm-card input[type=number]{width:90px;max-width:100%;font-size:16px;min-height:38px}
+#combo-calc .cm-card .input-wrap span{font:13px var(--sans);white-space:nowrap}
+#combo-calc .cm-card .endpoints{font:12px var(--mono);min-height:44px;align-items:center;gap:10px}
+#combo-calc .cm-card .endpoints span{font:12px var(--mono)}
+#combo-calc .cm-card .speed-references{position:static;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 6px;height:auto;min-height:44px;margin:0}
+#combo-calc .cm-card .speed-references button{position:static;transform:none;padding:9px 0;font:12px var(--sans);min-height:44px;white-space:nowrap}
+#combo-calc .cm-card .speed-references button:before{display:none}
+#combo-calc .cm-card .speed-references button:hover,#combo-calc .cm-card .speed-references button[aria-pressed=true]{color:var(--green)}
+#combo-calc .cm-contribution{font:13px/1.6 var(--mono);color:var(--cm-color);border-top:1px solid var(--line);padding:12px 0;margin:0;align-self:end}
+#combo-calc .cm-lab>.cm-geometry-note{font-size:14px;line-height:1.7;margin:18px 0 0;color:var(--muted)}
+#combo-calc .cm-speed-note{margin:8px 0 22px;color:var(--muted)}
+#combo-calc .cm-speed-note>summary{padding:6px 0;font-size:14px;justify-content:flex-start;gap:8px;color:var(--muted)}
+#combo-calc .cm-speed-note p{font-size:14px;line-height:1.7;margin:8px 0 0}
+#combo-calc .cm-equation{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:10px 14px;padding:16px 12px;border-block:1px solid var(--line);font-size:14px;color:var(--muted)}
+#combo-calc .cm-equation b{font:600 18px var(--mono);color:var(--ink)}
+#combo-calc .cm-equation>span{white-space:nowrap}
+#combo-calc .cm-lab .lab-results{gap:14px;margin-top:18px}
+#combo-calc .cm-lab .lab-result{padding:18px;min-width:0}
+#combo-calc .cm-lab .lab-result>span{font-size:14px}
+#combo-calc .cm-lab .lab-result strong{font-size:clamp(24px,4cqi,36px);line-height:1.3;overflow-wrap:anywhere}
+#combo-calc .cm-lab .lab-result small{font-size:13px;line-height:1.6;margin-top:8px}
+#combo-calc .cm-lab .lab-caption{font:14px/1.75 var(--sans);margin-top:14px}
+#combo-calc .cm-lab .inline-actions{align-items:center;gap:12px;margin:20px 0 0}
+#combo-calc .cm-lab .inline-actions .button{font-size:14px;min-height:44px;padding:10px 16px;background:var(--purple);color:#1a112c;border-color:var(--purple)}
+#combo-calc .cm-lab .inline-actions .button:hover{background:#c7b2ff}
+@container(max-width:740px){
+ #combo-calc .cm-controls{grid-template-columns:1fr;gap:16px}
+ #combo-calc .cm-card{grid-template-rows:auto;grid-row:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 22px;padding:18px}
+ #combo-calc .cm-card h3{grid-column:1/-1}
+ #combo-calc .cm-card figure{grid-column:1;grid-row:2/5;align-self:center;margin:12px 0 0}
+ #combo-calc .cm-help{grid-column:2;margin:14px 0}
+ #combo-calc .cm-card .control{grid-column:2;grid-row:auto;display:block}
+ #combo-calc .cm-contribution{grid-column:2;margin-top:8px;padding-bottom:0}
+}
+@container(max-width:600px){
+ #combo-calc .cm-lab{padding:16px}
+ #combo-calc .cm-lab .lab-title>span{display:none}
+ #combo-calc .cm-card{display:flex;flex-direction:column;padding:16px}
+ #combo-calc .cm-card figure{width:100%;max-width:300px;align-self:center;margin:12px 0 8px}
+ #combo-calc .cm-help{margin:0 0 18px}
+ #combo-calc .cm-card .control-head{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+ #combo-calc .cm-card .input-wrap{gap:6px}
+ #combo-calc .cm-card input[type=number]{width:76px}
+ #combo-calc .cm-card .input-wrap span{font-size:12px}
+ #combo-calc .cm-card .speed-references{column-gap:10px}
+ #combo-calc .cm-contribution{align-self:stretch}
+ #combo-calc .cm-lab .lab-results{grid-template-columns:1fr}
+ #combo-calc .cm-lab .inline-actions .button{width:100%}
+ #combo-calc .cm-equation{justify-content:flex-start;gap:8px 10px}
+}
