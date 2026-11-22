@@ -32,10 +32,9 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
    assert.equal(await page.locator('#new-result').innerText(),score>=32?'Spectacular':score>=20?'Amazing':score>=8?'Nice':'No tier');
    assert((await page.locator('#cm-angle-desc').textContent()).includes(`${angle} degree`));
    assert.equal(await page.locator('#cm-speed-vector').evaluate(e=>Number(getComputedStyle(e).opacity)),speed?1:0);
-   const componentEnd=40+116*speed/1500;
-   assert.equal(await page.locator('#cm-speed-vector').getAttribute('d'),`M40 144H${componentEnd}`,'counted component is horizontal, perpendicular to vertical core flight');
-   assert.equal(await page.locator('#cm-speed-motion').getAttribute('d'),`M40 144L${componentEnd} 68`,'actual movement is diagonal whenever across speed is positive');
-   assert.equal(await page.locator('#cm-speed-along').getAttribute('d'),`M${componentEnd} 144V68`,'unscored component is parallel to core flight');
+   assert.equal(await page.locator('#cm-speed-vector').getAttribute('d'),`M230 177V${177-47*speed/1500}`,'scored example moves vertically across the horizontal core path');
+   assert.equal(await page.locator('#cm-speed-along').getAttribute('d'),'M128 82H250','zero-point example moves horizontally along the core path');
+   assert((await page.locator('#cm-speed-example-points').textContent()).includes(String(Number((3*speed/1000).toFixed(2)))));
    const share=page.url();await page.reload();assert.equal(await page.locator('#angle-number').inputValue(),String(angle));assert.equal(await page.locator('#old-result').innerText(),Number(score.toFixed(2)).toLocaleString('en-US'));
   }
   await page.locator('[data-speed="940"]').click();assert.equal(await page.locator('#side-speed-number').inputValue(),'940');assert.equal(await page.locator('[data-speed="940"]').getAttribute('aria-pressed'),'true');
