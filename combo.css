@@ -58,6 +58,16 @@
 #combo-calc .cm-speed-note p{font-size:14px;line-height:1.7;margin:8px 0 0}
 #combo-calc .cm-equation{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:10px 14px;padding:16px 12px;border-block:1px solid var(--line);font-size:14px;color:var(--muted)}
 #combo-calc .cm-equation b{font:600 18px var(--mono);color:var(--ink)}
+#combo-calc .cm-workbench{padding:18px;border:1px solid #51425f;background:#11111640}
+#combo-calc .cm-workbench .cm-card{border-top:2px solid var(--cm-color)}
+#combo-calc .cm-result-block{margin-top:20px;padding-top:20px;border-top:1px solid #51425f}
+#combo-calc .cm-lab .cm-result-block>.lab-results{margin-top:0}
+#combo-calc .cm-workbench .cm-card input[type=range]::-webkit-slider-runnable-track{background:linear-gradient(to right,var(--cm-color) 0%,var(--cm-color) var(--fill),#3b3847 var(--fill),#3b3847 100%)}
+#combo-calc .cm-workbench .cm-card input[type=range]::-moz-range-progress{background:var(--cm-color)}
+#combo-calc .cm-result-block>.cm-equation{margin-top:18px}
+#combo-calc .cm-result-block #cm-angle-points{color:var(--purple)}
+#combo-calc .cm-result-block #cm-speed-points{color:var(--green)}
+#combo-calc .cm-result-block #cm-factor{color:#83cde8}
 #combo-calc .cm-equation>span{white-space:nowrap}
 #combo-calc .cm-lab .lab-results{gap:14px;margin-top:18px}
 #combo-calc .cm-lab .lab-result{padding:18px;min-width:0}
@@ -78,6 +88,7 @@
  #combo-calc .cm-contribution{grid-column:2;margin-top:8px;padding-bottom:0}
 }
 @container(max-width:600px){
+ #combo-calc .cm-workbench{padding:12px}
  #combo-calc .cm-lab{padding:16px}
  #combo-calc .cm-lab .lab-title>span{display:none}
  #combo-calc .cm-card{display:flex;flex-direction:column;padding:16px}
