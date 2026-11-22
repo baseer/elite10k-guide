@@ -31,6 +31,10 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
    assert.equal(await page.locator('#old-result').innerText(),Number(score.toFixed(2)).toLocaleString('en-US'));
    assert.equal(await page.locator('#new-result').innerText(),score>=32?'Spectacular':score>=20?'Amazing':score>=8?'Nice':'No tier');
    assert((await page.locator('#cm-angle-desc').textContent()).includes(`${angle} degree`));
+   assert.equal(await page.locator('#cm-angle-core-path').getAttribute('d'),'M100 174V20','angle diagram core flies bottom to top');
+   assert.equal(await page.locator('#cm-distance-core').getAttribute('transform'),`translate(140 ${165-45*separation})`,'distance core stays above the player');
+   const graphicBounds=await page.locator('.cm-card svg').evaluateAll(svgs=>svgs.every(svg=>{const outer=svg.getBoundingClientRect();return [...svg.querySelectorAll('text')].every(t=>{const r=t.getBoundingClientRect();return r.left>=outer.left-1&&r.right<=outer.right+1&&r.top>=outer.top-1&&r.bottom<=outer.bottom+1;});}));
+   assert(graphicBounds,'rotated labels remain inside each diagram at input extremes');
    assert.equal(await page.locator('#cm-speed-vector').evaluate(e=>Number(getComputedStyle(e).opacity)),speed?1:0);
    assert.equal(await page.locator('#cm-speed-vector').getAttribute('d'),`M${140-104*speed/1500} 150H${140+104*speed/1500}`,'player moves left/right across the vertical core path');
    assert.equal(await page.locator('#cm-speed-core-path').getAttribute('d'),'M140 133V22','core travels straight from bottom to top');
