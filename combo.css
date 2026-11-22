@@ -25,6 +25,7 @@
 #combo-calc .cm-lab .lab-title h2{font-size:20px;line-height:1.35}
 #combo-calc .cm-lab>.lab-title+p{font-size:16px;line-height:1.65;margin:10px 0 24px}
 #combo-calc .cm-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#combo-calc .cm-summary{margin:0 0 24px}
 #combo-calc .cm-card{min-width:0;display:grid;grid-template-rows:subgrid;grid-row:span 7;gap:0;padding:18px 14px 0;border:1px solid var(--line);background:#11111666;--cm-color:var(--purple)}
 #combo-calc .cm-speed{--cm-color:#9fe2b6}#combo-calc .cm-distance{--cm-color:#83cde8}
 #combo-calc .cm-card h3{font-size:16px;line-height:1.45;margin:0;color:var(--ink)}
