@@ -49,7 +49,17 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
   assert(Math.abs(Number(await page.locator('#score-number').inputValue())-score)<.051,'apply score to combo');assert.equal(await page.locator('#score-number').evaluate(e=>document.activeElement===e),true);
   await page.reload();assert(Math.abs(Number(await page.locator('#score-number').inputValue())-score)<.051,'applied score survives reload');
   await page.goto(new URL('combo/?version=1.57&angle=30&separation=1.5&side-speed=1000',base).href);assert.equal(await page.locator('#old-result').innerText(),'24.6');assert.equal(await page.locator('#new-result').innerText(),'Amazing');
-  await page.goto(new URL('combo/',base).href);await page.locator('#movement-info>summary').click();assert.equal(await page.locator('.cm-card').count(),3);
+  for(const width of [1440,390]){
+   await page.setViewportSize({width,height:1100});await page.goto(new URL('combo/',base).href);
+   const entry=page.getByRole('link',{name:'Calculate your movement score',exact:true});assert.equal(await entry.count(),1);assert((await entry.boundingBox()).height>=44);
+   if(screens)await page.locator('.workbench>.controls').screenshot({path:path.join(screens,`movement-calculator-entry-${width}.png`)});
+   await entry.click();assert(await page.locator('#movement-info').evaluate(e=>e.open));
+   assert.equal(new URL(page.url()).hash,'#section-calculate-your-movement-score');
+   assert(await page.locator('#section-calculate-your-movement-score').evaluate(e=>document.activeElement===e));
+   const top=await page.locator('#section-calculate-your-movement-score').evaluate(e=>e.getBoundingClientRect().top);assert(top>=0&&top<60);
+   await page.locator('#apply-movement-score').click();assert.equal(await page.locator('#score-number').evaluate(e=>document.activeElement===e),true);
+  }
+  assert.equal(await page.locator('.cm-card').count(),3);
   assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,layouts:checks,inputScenarios:5,shareReload:true,keyboard:true,presets:true,applyScore:true,historicalVersion:true,pageErrors:errors},null,2));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

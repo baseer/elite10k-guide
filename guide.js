@@ -83,6 +83,7 @@ if(w.id==='sniper'){
 }
 function comboSection(){
  let content=window.EliteCombo.render();
+ content=content.replace(' <a href="#movement-info" id="movement-link">Explore movement scoring ↗</a>','').replace(/(<p class="hint" id="score-hint">[\s\S]*?<\/p>)/,'$1<div class="score-calculator-entry"><a href="#section-calculate-your-movement-score" id="movement-link">Calculate your movement score</a><p>Use angle, sideways speed and separation to find your score, then apply it here.</p></div>');
  const scoring='<div class="combo-scoring-tools"><p class="scoring-intro">Explore how your movement earns a score, then use it in the damage calculator above. This is the shooter’s movement relative to the core; the victim’s distance from the blast is separate.</p><div id="lab-host"></div><h3>Scoring defaults by version</h3>'+comparisonTable(data.comboMovement)+'</div>';
  content=content.replace('How movement score works','Movement score — explore &amp; understand').replace(/(<details[^>]+id="movement-info"[^>]*><summary>[\s\S]*?<\/summary>)/,'$1'+scoring);
  content=content.replace(/<table class="rules">[\s\S]*?<\/table>/,'');
