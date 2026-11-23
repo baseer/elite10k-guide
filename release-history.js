@@ -10,8 +10,7 @@
    for(const el of box.querySelectorAll('p,li,.formula,.source')){
     if(el.children.length&&el.matches('p,li')&&el.querySelector('ul,section'))continue;
     const t=el.textContent;
-    if(el.id==='distance-hint')el.textContent=`All profiles use the same radial-hit distance. Elite10K v${d.version} ends at ${m.outer} UU; B19 at 390 UU. The slider extends to 550 UU to show all blast edges.`;
-    else if(el.matches('.formula')&&t.includes('t = clamp'))el.textContent=formula;
+    if(el.matches('.formula')&&t.includes('t = clamp'))el.textContent=formula;
     else if(el.matches('.formula')&&t.includes('base = raw'))el.textContent=(m.baseBoost?'Base = raw + 10 × clamp((210 − raw) / 170, 0, 1).':'Base = raw; no separate boost.')+' Own-core movement: Nice +10, Amazing +15, Spectacular +20. Final = min(210, trunc(base + movement + 0.0001)).';
     else if(t.includes('For Elite10K and B19, raw damage'))el.textContent=formula+' B19 retains 40–210, 77/390 UU and falloff 1.5.';
     else if(t.includes('Elite10K’s combo damage falls'))el.textContent=`Elite10K v${d.version} raw damage falls from ${m.max} to ${m.min} with exponent ${m.falloff}. `+(m.baseBoost?'A tapered boost adds up to 10 before movement.':'There is no separate base boost.')+' Movement bonuses are fixed at +10/+15/+20, with a 210 cap.';
