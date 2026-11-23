@@ -12,6 +12,7 @@ const base=process.argv[2]||'http://127.0.0.1:8781/',screens=process.env.SCREENS
    assert.equal(await page.locator('#side-speed-number').inputValue(),'1066');
    assert.equal(await page.locator('#separation-number').inputValue(),'3');
    assert.equal(await page.locator('.chart-panel').evaluate(e=>e.nextElementSibling.id),'movement-info','entire movement score section immediately follows See the difference');
+   assert.equal(await page.locator('.table-panel').count(),0,'redundant Every movement tier table removed');
    assert.equal(await page.locator('#old-result').innerText(),Number(((100*(1-Math.cos(29*Math.PI/180))+3*1066/1000)*2).toFixed(2)).toLocaleString('en-US'));
    assert.equal(await page.locator('#cm-distance-detail').innerText(),'2× multiplier · ≈ 2,089.14 UU');
    const layout=await page.evaluate(()=>{
