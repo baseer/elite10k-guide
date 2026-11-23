@@ -105,7 +105,3 @@
  #combo-calc .cm-lab .inline-actions .button{width:100%}
  #combo-calc .cm-equation{justify-content:flex-start;gap:8px 10px}
 }
-
-/* Keep the comparison graph directly below the damage result. */
-#combo-calc .result > .chart-panel{margin-top:20px;padding:20px 0 0;border:0;border-top:1px solid var(--line);background:transparent}
-#combo-calc .workbench{align-items:start}
