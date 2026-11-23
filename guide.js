@@ -88,6 +88,7 @@ function comboSection(){
  const scoring='<div class="combo-scoring-tools"><p class="scoring-intro">Explore how your movement earns a score, then use it in the damage calculator above. This is the shooter’s movement relative to the core; the victim’s distance from the blast is separate.</p><div id="lab-host"></div><h3>Scoring defaults by version</h3>'+comparisonTable(data.comboMovement)+'</div>';
  content=content.replace('How movement score works','Movement score — explore &amp; understand').replace(/(<details[^>]+id="movement-info"[^>]*><summary>[\s\S]*?<\/summary>)/,'$1'+scoring);
  content=content.replace(/<table class="rules">[\s\S]*?<\/table>/,'');
+ const comboLayout=document.createElement('template');comboLayout.innerHTML=content;comboLayout.content.querySelector('.chart-panel').after(comboLayout.content.querySelector('#movement-info'));content=comboLayout.innerHTML;
  return '<p class="eyebrow">Field guide / Interactive tool</p><h1>Combo calculator</h1><p class="lede">Compare combo damage at the same blast distance. Choose a movement tier, or explore how your movement earns one below.</p>'+content;
 }
 
