@@ -52,3 +52,5 @@
 .sl-damage-overview #sl-blast text{fill:#bcb7c8;font:12px system-ui,sans-serif}
 .sl-damage-overview .sl-damage-display{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:0}
 .sl-damage-overview .sl-gain{margin:14px 0 0;line-height:1.6}
+
+#sl-area-chart{touch-action:pan-y;cursor:crosshair}#sl-area-chart:focus-visible{outline:2px solid var(--sl-purple);outline-offset:3px}
