@@ -38,3 +38,14 @@
 .splash-lab .sl-legend{border:0;border-top:1px solid var(--sl-border);padding:14px 0 18px;min-width:0;margin:18px 0 0}.sl-legend legend{font:10px var(--mono);letter-spacing:.06em;color:var(--sl-muted);padding:0 10px 0 0}.sl-legend label{display:flex;align-items:center;gap:8px;cursor:pointer;min-height:32px;padding:4px 8px;border:1px solid #45404f;color:var(--sl-color);background:#ffffff03}.sl-legend label:has(input:not(:checked)){opacity:.55}.sl-legend input[type=checkbox]{width:14px;height:14px;margin:0;accent-color:var(--sl-color);cursor:pointer}.sl-legend label span{font-size:11px;color:inherit}.sl-elite-summary[hidden],.sl-gain[hidden],.sl-health-status[hidden]{display:none}
 
 .splash-lab .controls-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)}.sl-result-bars{gap:26px}.sl-gain{margin-bottom:34px}@media(max-width:1000px){.splash-lab .controls-grid>.control:first-child{grid-column:auto}}@media(max-width:700px){.splash-lab .controls-grid{grid-template-columns:1fr}}
+
+/* Give the area comparison its own row across both workbench columns. */
+.splash-lab .sl-area-section{margin-top:20px;padding:20px;border:1px solid var(--sl-border);background:#15151d;gap:0}
+.splash-lab .sl-area-section svg{max-height:400px}
+@media(max-width:700px){.splash-lab .sl-area-section{margin-top:18px;padding:14px}}
+
+/* Pair the two line charts beneath the blast illustration and damage summary. */
+.splash-lab .sl-area-section{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.splash-lab .sl-area-section>div+div{border-top:0;padding-top:0}
+.sl-workbench .sl-results>.small-note{margin-top:18px}
+@media(max-width:700px){.splash-lab .sl-area-section{grid-template-columns:1fr;gap:22px}.splash-lab .sl-area-section>div+div{border-top:1px solid var(--sl-border);padding-top:20px}}
