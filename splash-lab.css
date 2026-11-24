@@ -39,13 +39,9 @@
 
 .splash-lab .controls-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)}.sl-result-bars{gap:26px}.sl-gain{margin-bottom:34px}@media(max-width:1000px){.splash-lab .controls-grid>.control:first-child{grid-column:auto}}@media(max-width:700px){.splash-lab .controls-grid{grid-template-columns:1fr}}
 
-/* Give the area comparison its own row across both workbench columns. */
-.splash-lab .sl-area-section{margin-top:20px;padding:20px;border:1px solid var(--sl-border);background:#15151d;gap:0}
-.splash-lab .sl-area-section svg{max-height:400px}
-@media(max-width:700px){.splash-lab .sl-area-section{margin-top:18px;padding:14px}}
-
-/* Pair the two line charts beneath the blast illustration and damage summary. */
-.splash-lab .sl-area-section{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.splash-lab .sl-area-section>div+div{border-top:0;padding-top:0}
-.sl-workbench .sl-results>.small-note{margin-top:18px}
-@media(max-width:700px){.splash-lab .sl-area-section{grid-template-columns:1fr;gap:22px}.splash-lab .sl-area-section>div+div{border-top:1px solid var(--sl-border);padding-top:20px}}
+/* Keep the live blast illustration with its damage summary in the right column. */
+.sl-workbench .sl-summary{display:flex;flex-direction:column;padding:0;overflow:hidden}
+.sl-blast-panel{padding:20px;border-bottom:1px solid var(--sl-border)}
+.sl-summary .sl-results{flex:1}
+.sl-summary .sl-results>.small-note{margin-top:18px}
+@media(max-width:700px){.sl-blast-panel{padding:16px}}
